@@ -113,9 +113,16 @@
 				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
 				- no HasTypeDefinition available if there was no SystemUnitClass (see "BPR_005E_ExternalDataReference_Examples_Jul2016.aml")
 				- use correct HasTypeDefinition
-				- are spaces allowed in NodeId string as part if the ID?
-				- are '{GUID}' and 'GUID' equal?
-				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
+				- are spaces allowed in NodeId string as part if the ID? 
+				    - to be clarified with AML if spaces are allowed (Part 1) -> Miriam
+					- Example in AR APC all Classes AutomationProjectConfigurationRoleClassLib/DeviceItem Attributes
+					- necessary for nodeID (BrowseName keeps space), thus deleted
+				- are '{GUID}' and 'GUID' equal? -> will be handled as equivalent
+				- InterfaceClasses have no specific UA "base structure", but are also of type ObjectType -> how to distinguish between SUC and IC
+				- AdditionalInformation is handled as blackbox (no ID)
+				- AdditionalInformation AutomationMLVersion
+				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
+				- XSL + script for generation of MD5 hash				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
 			</xsl:comment>
 			<xsl:copy-of select="$NamespaceUris"/>
 			<Models>
@@ -156,7 +163,8 @@
 			CAEXFile
 			===============
 			TODOs:
-				- is this the correct translation?
+				- is this the correct translation (AMLFile = Object)? -> currently yes
+				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements?
 				- How to model ExternalReferences?
 			</xsl:comment>
 
