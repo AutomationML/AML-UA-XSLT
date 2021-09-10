@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="ExternalDataReference_BPR-Beispiele_20160523_v02.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AdditionalInformation>
+		<WriterHeader>
+			<WriterName>AutomationML Editor</WriterName>
+			<WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+			<WriterVendor>AutomationML e.V.</WriterVendor>
+			<WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+			<WriterVersion>4.1.6</WriterVersion>
+			<WriterRelease>4.1.6.0</WriterRelease>
+			<LastWritingDateTime>2016-05-23T10:12:12.9172274+02:00</LastWritingDateTime>
+			<WriterProjectTitle>unspecified</WriterProjectTitle>
+			<WriterProjectID>unspecified</WriterProjectID>
+		</WriterHeader>
+	</AdditionalInformation>
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<InstanceHierarchy Name="DocumentationExample">
+		<Version>1.0.0</Version>
+		<InternalElement Name="Enterprise" ID="545ac16b-a3aa-4981-8337-f94ade016fc5">
+			<InternalElement Name="Site" ID="1bb990c6-9cf5-4c03-abb0-c01474e56ad0">
+				<InternalElement Name="ProductionArea_1" ID="3acb2c07-8368-48f0-b344-138a6c645fae">
+					<InternalElement Name="ProductionLine_15" ID="786cec15-924f-49db-a3e6-7da24836a814">
+						<InternalElement Name="WorkCell_156" ID="c00c2f19-872a-4c8b-a321-da9d7f5abc5b">
+							<InternalElement Name="Tool_Example_1" ID="be3646cf-2f2a-43d3-a1fc-3012c6828ab5">
+								<InternalElement Name="Tool-Documentation_A_Bedienungsanleitung" ID="554baab0-30ba-4e53-8932-14ec25cce921">
+									<Attribute Name="aml-DocLang" AttributeDataType="xs:string">
+										<Value>de-DE</Value>
+									</Attribute>
+									<ExternalInterface Name="DocumentLink" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="0a5ec13b-949e-4ac1-894b-0875d96fa204">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/pdf</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./Tool-User-Manual_1234.pdf</Value>
+										</Attribute>
+									</ExternalInterface>
+									<RoleRequirements RefBaseRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/UserManual" />
+								</InternalElement>
+								<InternalElement Name="Tool-Documentation_B_Stueckliste" ID="3ccc2762-d560-4c35-8f89-ff2316516a6f">
+									<Attribute Name="aml-DocLang" AttributeDataType="xs:string">
+										<Value>de-DE</Value>
+									</Attribute>
+									<ExternalInterface Name="Link" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="d7941629-03ac-4b95-8c24-e0f76853aa0a">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/pdf</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./BoM_german_771-5.pdf</Value>
+										</Attribute>
+									</ExternalInterface>
+									<RoleRequirements RefBaseRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/BillOfMaterial" />
+								</InternalElement>
+								<InternalElement Name="Tool-Documentation_C_BillOfMaterial" ID="ff682cfc-93a5-4145-9f7c-595d24d05088">
+									<Attribute Name="aml-DocLang" AttributeDataType="xs:string">
+										<Value>en-US</Value>
+									</Attribute>
+									<ExternalInterface Name="Document" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="9ccffc16-9ef7-4a4b-b518-0933997e3efa">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/msword</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./BoM_EN_781.doc</Value>
+										</Attribute>
+									</ExternalInterface>
+									<RoleRequirements RefBaseRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/BillOfMaterial" />
+								</InternalElement>
+								<RoleRequirements RefBaseRoleClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+							</InternalElement>
+							<InternalElement Name="Tool_Example_2" ID="15248e57-3220-4a2b-9865-f20467c5b4da">
+								<InternalElement Name="Tool-Docu_D_Bedienungsanleitung" ID="628b1ce7-15b9-4210-ba73-eb53146f046b">
+									<Attribute Name="aml-DocLang" AttributeDataType="xs:string">
+										<Value>de-DE</Value>
+									</Attribute>
+									<ExternalInterface Name="DocumentLink" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="bdb1ffd5-7149-4f68-91d8-69419bcbf4f7">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/pdf</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./Tool-Manual_456.pdf</Value>
+										</Attribute>
+									</ExternalInterface>
+									<ExternalInterface Name="Document" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="a8053735-9d89-447d-b9a3-8f70aabebd79">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/msword</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./Tool-Manual_568.doc</Value>
+										</Attribute>
+									</ExternalInterface>
+									<RoleRequirements RefBaseRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/UserManual" />
+								</InternalElement>
+								<RoleRequirements RefBaseRoleClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+							</InternalElement>
+							<InternalElement Name="Tool_Example_3" ID="827cbadb-cbc0-4796-93d3-ea43a6f843d6">
+								<InternalElement Name="Lang-mixed_Tool-Docu_E_Manual" ID="a7c2ae0e-93a1-4bf0-bf10-16c06e2eb179">
+									<Attribute Name="aml-DocLang" AttributeDataType="xs:string">
+										<RefSemantic CorrespondingAttributePath="ListType" />
+										<Attribute Name="item1" AttributeDataType="xs:string">
+											<Value>en-US</Value>
+										</Attribute>
+										<Attribute Name="item2" AttributeDataType="xs:string">
+											<Value>de-DE</Value>
+										</Attribute>
+									</Attribute>
+									<ExternalInterface Name="Document" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="bc30b4a2-32c9-434b-9ffa-52b18068824f">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/pdf</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./Manual_AB3882.pdf</Value>
+										</Attribute>
+									</ExternalInterface>
+									<RoleRequirements RefBaseRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/UserManual" />
+								</InternalElement>
+								<RoleRequirements RefBaseRoleClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+							</InternalElement>
+							<InternalElement Name="Tool_Example_4" ID="44f7fcf7-bbdb-4158-a50d-53ef6ef6f2e6">
+								<InternalElement Name="mixed_Documentation_F" ID="4dd5f1f7-fc7f-4658-a853-df2d0e2186cd">
+									<Attribute Name="aml-DocLang" AttributeDataType="xs:string">
+										<Value>en-US</Value>
+									</Attribute>
+									<ExternalInterface Name="Document" RefBaseClassPath="AutomationMLBPRInterfaceClassLib/ExternalDataReference" ID="82c199be-76a6-49a1-a5d5-d8246518d67b">
+										<Attribute Name="MIMEType" AttributeDataType="xs:string">
+											<Value>application/msword</Value>
+										</Attribute>
+										<Attribute Name="refURI" AttributeDataType="xs:anyURI">
+											<Value>./BoM_Manual_english.doc</Value>
+										</Attribute>
+									</ExternalInterface>
+									<SupportedRoleClass RefRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/UserManual" />
+									<RoleRequirements RefBaseRoleClassPath="AutomationMLBPRRoleClassLib/ExternalData/BillOfMaterial" />
+								</InternalElement>
+								<RoleRequirements RefBaseRoleClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+							</InternalElement>
+							<RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/WorkCell" />
+						</InternalElement>
+						<RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/ProductionLine" />
+					</InternalElement>
+					<RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/Area" />
+				</InternalElement>
+				<RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/Site" />
+			</InternalElement>
+			<RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/Enterprise" />
+		</InternalElement>
+	</InstanceHierarchy>
+	<InterfaceClassLib Name="AutomationMLInterfaceClassLib">
+		<Description>Standard Automation Markup Language Interface Class Library</Description>
+		<Version>2.2.0</Version>
+		<InterfaceClass Name="AutomationMLBaseInterface">
+			<InterfaceClass Name="Order" RefBaseClassPath="AutomationMLBaseInterface">
+				<Attribute Name="Direction" AttributeDataType="xs:string" />
+			</InterfaceClass>
+			<InterfaceClass Name="PortConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+			<InterfaceClass Name="InterlockingConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+			<InterfaceClass Name="PPRConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+			<InterfaceClass Name="ExternalDataConnector" RefBaseClassPath="AutomationMLBaseInterface">
+				<Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+				<InterfaceClass Name="COLLADAInterface" RefBaseClassPath="ExternalDataConnector" />
+				<InterfaceClass Name="PLCopenXMLInterface" RefBaseClassPath="ExternalDataConnector" />
+			</InterfaceClass>
+			<InterfaceClass Name="Communication" RefBaseClassPath="AutomationMLBaseInterface">
+				<InterfaceClass Name="SignalInterface" RefBaseClassPath="Communication" />
+			</InterfaceClass>
+		</InterfaceClass>
+	</InterfaceClassLib>
+	<InterfaceClassLib Name="AutomationMLBPRInterfaceClassLib">
+		<Version>0.0.1</Version>
+		<InterfaceClass Name="ExternalDataReference" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector" ID="{320f7f3a-6df8-4ccd-af35-a4367b37eb7a}">
+			<Attribute Name="MIMEType" AttributeDataType="xs:string" />
+		</InterfaceClass>
+	</InterfaceClassLib>
+	<RoleClassLib Name="AutomationMLBaseRoleClassLib">
+		<Description>Automation Markup Language base role class library</Description>
+		<Version>2.2.0</Version>
+		<RoleClass Name="AutomationMLBaseRole">
+			<RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRole">
+				<Attribute Name="AssociatedFacet" AttributeDataType="xs:string" />
+			</RoleClass>
+			<RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Port" RefBaseClassPath="AutomationMLBaseRole">
+				<Attribute Name="Direction" AttributeDataType="xs:string" />
+				<Attribute Name="Cardinality">
+					<Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
+					<Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+				</Attribute>
+				<Attribute Name="Category" AttributeDataType="xs:string" />
+				<ExternalInterface Name="ConnectionPoint" ID="9942bd9c-c19d-44e4-a197-11b9edf264e7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+			</RoleClass>
+			<RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Product" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Process" RefBaseClassPath="AutomationMLBaseRole" />
+			<RoleClass Name="Structure" RefBaseClassPath="AutomationMLBaseRole">
+				<RoleClass Name="ProductStructure" RefBaseClassPath="Structure" />
+				<RoleClass Name="ProcessStructure" RefBaseClassPath="Structure" />
+				<RoleClass Name="ResourceStructure" RefBaseClassPath="Structure" />
+			</RoleClass>
+			<RoleClass Name="PropertySet" RefBaseClassPath="AutomationMLBaseRole" />
+		</RoleClass>
+	</RoleClassLib>
+	<RoleClassLib Name="AutomationMLCSRoleClassLib">
+		<Description>Automation Markup Language Control Industry Role Class Library</Description>
+		<Version>2.3.0</Version>
+		<RoleClass Name="ControlEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">
+			<RoleClass Name="Communication" RefBaseClassPath="ControlEquipment" />
+			<RoleClass Name="ControlHardware" RefBaseClassPath="ControlEquipment">
+				<RoleClass Name="PC" RefBaseClassPath="ControlHardware" />
+				<RoleClass Name="IPC" RefBaseClassPath="ControlHardware" />
+				<RoleClass Name="EmbeddedDevice" RefBaseClassPath="ControlHardware" />
+				<RoleClass Name="Handheld" RefBaseClassPath="ControlHardware" />
+			</RoleClass>
+			<RoleClass Name="Sensor" RefBaseClassPath="ControlEquipment" />
+			<RoleClass Name="Actuator" RefBaseClassPath="ControlEquipment" />
+			<RoleClass Name="Controller" RefBaseClassPath="ControlEquipment">
+				<RoleClass Name="PLC" RefBaseClassPath="Controller" />
+				<RoleClass Name="NC" RefBaseClassPath="Controller" />
+				<RoleClass Name="RC" RefBaseClassPath="Controller" />
+				<RoleClass Name="PAC" RefBaseClassPath="Controller" />
+			</RoleClass>
+		</RoleClass>
+	</RoleClassLib>
+	<RoleClassLib Name="AutomationMLDMIRoleClassLib">
+		<Description>Automation Markup Language  Discrete Manufacturing Industry Role Class Library</Description>
+		<Version>2.4.0</Version>
+		<RoleClass Name="DiscManufacturingEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">
+			<RoleClass Name="Transport" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Storage" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Fixture" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Gate" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Robot" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Tool" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Carrier" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="Machine" RefBaseClassPath="DiscManufacturingEquipment" />
+			<RoleClass Name="StaticObject" RefBaseClassPath="DiscManufacturingEquipment" />
+		</RoleClass>
+	</RoleClassLib>
+	<RoleClassLib Name="AutomationMLBMIRoleClassLib">
+		<Description>Automation Markup Language Batch Manufacturing Industry Role Class Library</Description>
+		<Version>1.1.0</Version>
+		<RoleClass Name="BatchManufacturingEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+	</RoleClassLib>
+	<RoleClassLib Name="AutomationMLCMIRoleClassLib">
+		<Description>Automation Markup Language Continuous Manufacturing Industry Role Class Library</Description>
+		<Version>1.1.0</Version>
+		<RoleClass Name="ContManufacturingEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+	</RoleClassLib>
+	<RoleClassLib Name="AutomationMLExtendedRoleClassLib">
+		<Version>2.7.0</Version>
+		<RoleClass Name="PLCFacet" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+		<RoleClass Name="HMIFacet" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+		<RoleClass Name="Enterprise" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="Site" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="Area" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="ProductionLine" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="WorkCell" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="ProcessCell" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="Unit" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="ProductionUnit" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="StorageZone" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="StorageUnit" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+		<RoleClass Name="Turntable" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="Conveyor" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport">
+			<RoleClass Name="BeltConveyor" RefBaseClassPath="Conveyor" />
+			<RoleClass Name="RollConveyor" RefBaseClassPath="Conveyor" />
+			<RoleClass Name="ChainConveyor" RefBaseClassPath="Conveyor" />
+			<RoleClass Name="PalletConveyor" RefBaseClassPath="Conveyor" />
+			<RoleClass Name="OverheadConveyor" RefBaseClassPath="Conveyor" />
+		</RoleClass>
+		<RoleClass Name="LiftingTable" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="AGV" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="Transposer" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="CarrierHandlingSystem" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="BodyStore" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Storage" />
+		<RoleClass Name="Lift" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="Rollerbed" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+		<RoleClass Name="StationaryTool" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+		<RoleClass Name="MovableTool" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+		<RoleClass Name="ControlCabinet" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment" />
+		<RoleClass Name="IODevice" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment" />
+		<RoleClass Name="HMI" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment">
+			<RoleClass Name="WarningEquipment" RefBaseClassPath="AutomationMLExtendedRoleClassLib/HMI" />
+		</RoleClass>
+		<RoleClass Name="ActuatingDrive" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment/Actuator" />
+		<RoleClass Name="MotionController" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment" />
+		<RoleClass Name="Panel" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment/ControlHardware" />
+		<RoleClass Name="MeasuringEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+		<RoleClass Name="Clamp" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Fixture" />
+		<RoleClass Name="ProcessController" RefBaseClassPath="AutomationMLCSRoleClassLib/ControlEquipment/Controller" />
+		<RoleClass Name="Loader" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Storage" />
+		<RoleClass Name="Unloader" RefBaseClassPath="AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Storage" />
+	</RoleClassLib>
+	<RoleClassLib Name="AutomationMLBPRRoleClassLib">
+		<Version>0.0.1</Version>
+		<RoleClass Name="ExternalData" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+			<RoleClass Name="UserManual" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData" />
+			<RoleClass Name="BillOfMaterial" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData" />
+			<RoleClass Name="Construction" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData"></RoleClass>
+			<RoleClass Name="ProductDocumentation" RefBaseClassPath="AutomationMLBPRRoleClassLib/ExternalData" />
+		</RoleClass>
+	</RoleClassLib>
+</CAEXFile>
