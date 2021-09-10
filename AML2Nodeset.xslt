@@ -103,7 +103,11 @@
 			UANodeSet
 			=============
 			TODOs:
-				- Do we need aliases??
+				- avoid duplicate AdditionalInformation
+				- Do we need aliases?? 
+					- to be clarified with UA -> Miriam
+				    - only used ones or standard template set of aliases
+					- purpose? drawback				
 				- InternalLinks are not translated, yet.
 				- Missing translation for UtcTime/DateTime
 				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
@@ -111,6 +115,7 @@
 				- use correct HasTypeDefinition
 				- are spaces allowed in NodeId string as part if the ID?
 				- are '{GUID}' and 'GUID' equal?
+				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
 			</xsl:comment>
 			<xsl:copy-of select="$NamespaceUris"/>
 			<Models>
@@ -186,11 +191,12 @@
 					</xsl:if>
 					<xsl:for-each select="AdditionalInformation">
 						<xsl:variable name="AttributeName">
-							<xsl:choose>
+							<!--xsl:choose>
 								<xsl:when test="name(*[1])!=''"><xsl:value-of select="name(*[1])"/></xsl:when>
 								<xsl:when test="name(@*[1])!=''"><xsl:value-of select="name(@*[1])"/></xsl:when>
 								<xsl:otherwise>AdditionalInformation</xsl:otherwise>
-							</xsl:choose>
+							</xsl:choose-->
+							<xsl:value-of select="concat('AdditionalInformation_', position())"/>
 						</xsl:variable>	
 						<xsl:comment><xsl:value-of select="concat('AdditionalInformation: ', $AttributeName)"/></xsl:comment>
 						<Reference ReferenceType="HasProperty"><xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/></Reference>
@@ -210,7 +216,7 @@
  				- How to handle multiple AdditionalInformation
 					    use first ElementName (or AttributeName) as BrowseName/ID/DisplayName
 						define specific SystemUnitClass or RoleClass						
-				- do we need an extra UAObjectType for additional information?
+				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which versione (1. or 2.) is the correct translation of an AdditionalInformation?
 			</xsl:comment>
 			<xsl:apply-templates select="node()[local-name()='AdditionalInformation']"/>
@@ -469,13 +475,13 @@
 			<xsl:with-param name="ParentId" select="../@ID"/>
 			<xsl:with-param name="ParentIdType" select="'g'"/>
 			<xsl:with-param name="Namespace" select="'ns=2'"/>
-			<xsl:with-param name="AttributeName" select="'AdditionalInformation'"/>
+			<xsl:with-param name="AttributeName" select="concat('AdditionalInformation_', position())"/>
 			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 		</xsl:call-template>	
 	</xsl:template>
 
 	<xsl:template match="CAEXFile/AdditionalInformation">
-		<xsl:comment>Version 1:</xsl:comment>
+		<!--xsl:comment>Version 1:</xsl:comment-->
 		<xsl:variable name="AttributeName">
 			<xsl:choose>
 				<xsl:when test="name(*[1])!=''"><xsl:value-of select="name(*[1])"/></xsl:when>
@@ -488,13 +494,13 @@
 		<!-- Create property -->
 		<xsl:comment><xsl:text>Attribute: </xsl:text>CAEXFile.<xsl:value-of select="$AttributeName"/></xsl:comment>
 		<UAVariable>
-			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/></xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=2;s=CAEXFile_AdditionalInformation_', position())"/></xsl:attribute>
 			<xsl:attribute name="BrowseName"><xsl:value-of select="$AttributeName"/></xsl:attribute>
 			<xsl:attribute name="ParentNodeId">ns=2;s=CAEXFile</xsl:attribute>
 			<xsl:attribute name="DataType">String</xsl:attribute>
 			<DisplayName><xsl:value-of select="$AttributeName"/></DisplayName>
 			<References>
-				<Reference ReferenceType="HasTypeDefinition">ns=1;s=AdditionalInformation</Reference>
+				<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
 			</References>
 			<Value>
 				<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
@@ -503,7 +509,7 @@
 			</Value>
 		</UAVariable>
 
-		<xsl:comment>Version 2:</xsl:comment>
+		<!--xsl:comment>Version 2:</xsl:comment>
 		<xsl:call-template name="StringAttributeVariable">
 			<xsl:with-param name="ObjectName">CAEXFile</xsl:with-param>
 			<xsl:with-param name="ParentId">CAEXFile</xsl:with-param>
@@ -511,7 +517,7 @@
 			<xsl:with-param name="Namespace">ns=2</xsl:with-param>
 			<xsl:with-param name="AttributeName">AdditionalInformation</xsl:with-param>
 			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
-		</xsl:call-template>	
+		</xsl:call-template-->	
 	</xsl:template>
 
 	<!-- .........................................................................
@@ -601,9 +607,11 @@
 			</xsl:choose>			
 		</xsl:variable>
 		
-		<!-- Reference to AML-ID property -->
-		<xsl:comment>AML-ID</xsl:comment>
-		<Reference ReferenceType="HasProperty"><xsl:value-of select="concat($CompleteObjectId, 'ID')"/></Reference>
+		<xsl:if test="@ID">
+			<!-- Reference to AML-ID property -->
+			<xsl:comment>AML-ID</xsl:comment>
+			<Reference ReferenceType="HasProperty"><xsl:value-of select="concat($CompleteObjectId, 'ID')"/></Reference>
+		</xsl:if>
 		<!-- Reference to Version property -->
 		<xsl:if test="Version">
 			<xsl:comment>Version</xsl:comment>
@@ -635,9 +643,14 @@
 				<xsl:text>SupportedRoleClass: </xsl:text>
 				<xsl:value-of select="@RefRoleClassPath"/>
 			</xsl:comment>
+			<xsl:variable name="LibNsId">
+				<xsl:call-template name="GetNamespaceIdByName">
+					<xsl:with-param name="Namespace" select="$RCName"/>
+				</xsl:call-template>
+			</xsl:variable>
 			
 			<Reference ReferenceType="HasAMLRoleReference">
-				<xsl:value-of select="concat('ns=', $RCName, ';s=', exslt:node-set($RCContent)/RoleClass/@Name)"/>				
+				<xsl:value-of select="concat('ns=', $LibNsId, ';s=', exslt:node-set($RCContent)/RoleClass/@Name)"/>				
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to ExternalInterface objects -->
