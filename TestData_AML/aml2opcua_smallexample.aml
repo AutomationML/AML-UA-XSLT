@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="aml2opcua_smallexample.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<AdditionalInformation AutomationMLVersion="2.0" />
+	<AdditionalInformation>
+		<WriterHeader>
+			<WriterName>FraunhoferIOSB_Handmade</WriterName>
+			<WriterID>AMLIOSB20130131</WriterID>
+			<WriterVendor>FraunhoferIOSB</WriterVendor>
+			<WriterVendorURL>www.iosb.fraunhofer.de</WriterVendorURL>
+			<WriterVersion>1.0</WriterVersion>
+			<WriterRelease>1.0</WriterRelease>
+			<LastWritingDateTime>2013-06-18T10:03:52.4400425+02:00</LastWritingDateTime>
+			<WriterProjectTitle>OPCUA-MappingTest</WriterProjectTitle>
+			<WriterProjectID>
+			</WriterProjectID>
+		</WriterHeader>
+	</AdditionalInformation>
+	<InstanceHierarchy Name="TestProject">
+		<Version>0.34</Version>
+		<InternalElement Name="MainLine" ID="{a6b8b735-3932-4be2-8289-4415c2c30781}" RefBaseSystemUnitPath="ABCSystemUnitClassLib/ABCLine">
+			<InternalElement Name="RobotI" ID="{6e968f6a-d47d-4a96-8fdf-352aedc987b7}" RefBaseSystemUnitPath="ABCSystemUnitClassLib/ABCRobot">
+				<Attribute Name="axes" />
+				<ExternalInterface Name="CommunicationInterface" ID="{63dcb6cb-6a29-48fb-bc8e-fba7b3d3036a}" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication">
+					<Attribute Name="speed" />
+				</ExternalInterface>
+				<SupportedRoleClass RefRoleClassPath="TestRoleLib/Robot" />
+				<RoleRequirements RefBaseRoleClassPath="TestRoleLib/Robot" />
+			</InternalElement>
+			<InternalElement Name="RobotII" ID="{1298fd6d-8dd9-4651-be3c-e20881f85bb6}">
+				<Attribute Name="axes" />
+				<ExternalInterface Name="CommunicationInterface" ID="{c780ead4-25bc-4ab6-87b3-d54d976d1455}" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication">
+					<Attribute Name="speed" />
+				</ExternalInterface>
+				<RoleRequirements RefBaseRoleClassPath="TestRoleLib/SpecialRobot" />
+			</InternalElement>
+			<RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+		</InternalElement>
+	</InstanceHierarchy>
+	<InterfaceClassLib Name="AutomationMLInterfaceClassLib">
+		<Description>Standard AutomationML Interface Class Library</Description>
+		<Version>0.33</Version>
+		<InterfaceClass Name="AutomationMLBaseInterface">
+			<InterfaceClass Name="Communication" RefBaseClassPath="AutomationMLBaseInterface">
+				<Attribute Name="speed" />
+			</InterfaceClass>
+		</InterfaceClass>
+	</InterfaceClassLib>
+	<RoleClassLib Name="AutomationMLBaseRoleClassLib">
+		<Description>AutomationML base role library</Description>
+		<Version>0.33</Version>
+		<RoleClass Name="AutomationMLBaseRole">
+			<RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRole" />
+		</RoleClass>
+	</RoleClassLib>
+	<RoleClassLib Name="TestRoleLib">
+		<Version>0.33</Version>
+		<RoleClass Name="Robot" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">
+			<Attribute Name="axes" />
+			<ExternalInterface Name="CommunicationInterface" ID="{67b96e05-952c-4a83-8d79-d773169b4008}" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication">
+				<Attribute Name="speed" />
+			</ExternalInterface>
+		</RoleClass>
+		<RoleClass Name="SpecialRobot" RefBaseClassPath="TestRoleLib/Robot" />
+	</RoleClassLib>
+	<SystemUnitClassLib Name="ABCSystemUnitClassLib">
+		<Version>0.33</Version>
+		<SystemUnitClass Name="ABCRobot">
+			<Attribute Name="axes" />
+			<ExternalInterface Name="CommunicationInterface" ID="{1e6c1305-fff3-41ae-97ab-c1fd05b50b90}" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication">
+				<Attribute Name="speed" />
+			</ExternalInterface>
+			<SupportedRoleClass RefRoleClassPath="TestRoleLib/Robot" />
+		</SystemUnitClass>
+		<SystemUnitClass Name="ABCLine">
+			<SupportedRoleClass RefRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+		</SystemUnitClass>
+	</SystemUnitClassLib>
+</CAEXFile>
