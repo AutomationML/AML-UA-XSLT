@@ -5,20 +5,29 @@
 		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" 
-		exclude-result-prefixes="#default xsi xsl exslt"
+		exclude-result-prefixes="#default xsi xsl exslt fn"
 		xmlns:exslt="http://exslt.org/common">
+
 		
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 	
 	<xsl:template name="ClassReferences">
-		<!--xsl:variable name="LibName" select="@Name"/>
-		<xsl:variable name="ObjectNodeId" select="@Name"/-->
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
+	
 		<References>
 			<!-- Class hierarchy -->
 			<Reference ReferenceType="HasSubType" IsForward="False">
 				<xsl:choose>
 					<xsl:when test="ancestor::InterfaceClass[1]">
-						<xsl:text>ns=</xsl:text><xsl:value-of select="@Name"/><xsl:text>;s=</xsl:text><xsl:value-of select="ancestor::InterfaceClass[1]/@Name"/>
+						<xsl:value-of select="concat('ns=', $Namespace, ';s=', ancestor::InterfaceClass[1]/@Name)"/>
+					</xsl:when>
+					<xsl:when test="ancestor::RoleClass[1]">
+						<xsl:value-of select="concat('ns=', $Namespace, ';s=', ancestor::RoleClass[1]/@Name)"/>
+					</xsl:when>
+					<xsl:when test="ancestor::SystemUnitClass[1]">
+						<xsl:value-of select="concat('ns=', $Namespace, ';s=', ancestor::SystemUnitClass[1]/@Name)"/>
 					</xsl:when>
 					<xsl:when test="@RefBaseClassPath">
 						<xsl:variable name="BaseClass">
@@ -26,34 +35,54 @@
 								<xsl:with-param name="path" select="@RefBaseClassPath"/>
 							</xsl:call-template>	
 						</xsl:variable>
-						<xsl:text>ns=</xsl:text><xsl:value-of select="substring-before(@RefBaseClassPath,'/')"/><xsl:text>;s=</xsl:text><xsl:value-of select="exslt:node-set($BaseClass)/*/@Name"/>
+						<xsl:value-of select="concat('ns=', substring-before(@RefBaseClassPath,'/'), ';s=', exslt:node-set($BaseClass)/*/@Name)"/>
 					</xsl:when>
 					<xsl:otherwise><xsl:text>TODO</xsl:text></xsl:otherwise>
 				</xsl:choose>
-				<xsl:call-template name="References">
-					<xsl:with-param name="ObjectName" select="@Name"/>
-					<xsl:with-param name="ObjectId" select="@ID"/>
-				</xsl:call-template>
-			</Reference>
-			<!-- References for all Attribute properties -->
-			<xsl:for-each select="Attribute">
-				<xsl:comment>
-					<xsl:text>Attribute: </xsl:text><xsl:value-of select="@Name"/>
-				</xsl:comment>
-				<Reference ReferenceType="HasProperty">ns=<xsl:value-of select="../@Name"/>;s=<xsl:value-of select="../ancestor::InterfaceClass[1]/@Name"/>_<xsl:value-of select="@Name"/></Reference>
-			</xsl:for-each>
+			</Reference>	
+			<xsl:call-template name="References">
+				<xsl:with-param name="ObjectName" select="@Name"/>
+				<xsl:with-param name="ObjectId">
+					<xsl:choose>
+						<xsl:when test="@ID!=''">
+							<xsl:value-of select="@ID"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="@Name"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:with-param>
+				<xsl:with-param name="ObjectIdType">
+					<xsl:choose>
+						<xsl:when test="@ID!=''">
+							<xsl:value-of select="'g'"/>
+						</xsl:when>
+						<xsl:otherwise>
+							<xsl:value-of select="'s'"/>
+						</xsl:otherwise>
+					</xsl:choose>
+				</xsl:with-param>
+				<xsl:with-param name="Namespace" select="$Namespace"/>
+			</xsl:call-template>
 		</References>	
 	</xsl:template>
 	<xsl:template name="Library">
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
 		<UAObject>
-			<xsl:attribute name="NodeId">ns=<xsl:value-of select="@Name"/>;s=Library</xsl:attribute>
+			<xsl:attribute name="NodeId">
+				<xsl:value-of select="concat('ns=', $Namespace, ';s=Library')"/>
+			</xsl:attribute>
 			<xsl:attribute name="Name"><xsl:value-of select="@Name"/></xsl:attribute>
 			<xsl:if test="Description!=''">
 				<Description><xsl:value-of select="Description"/></Description>
 			</xsl:if>
 			<References>
 				<xsl:if test="Version">
-					<Reference ReferenceType="HasProperty">ns=<xsl:value-of select="@Name"/>;s=Library_Version</Reference>
+					<Reference ReferenceType="HasProperty">
+						<xsl:value-of select="concat('ns=', $Namespace, ';s=Library_Version')"/>
+					</Reference>
 				</xsl:if>
 				<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 				<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
@@ -65,7 +94,9 @@
 		InterfaceClassLib: Create UAObjectTypes
 	.........................................................................-->
 	<xsl:template match="InterfaceClassLib">
-		<!--xsl:variable name="LibName" select="@Name"/-->
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
 		<xsl:comment>
 			InterfaceClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -79,7 +110,7 @@
 					&lt;Reference ReferenceType="HasComponent" IsForward="false"&gt;ns=2;i=345&lt;/Reference&gt; 
 		</xsl:comment>
 		<UAObject>
-			<xsl:attribute name="NodeId">ns=<xsl:value-of select="@Name"/>;s=Library</xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=Library')"/></xsl:attribute>
 			<xsl:attribute name="Name"><xsl:value-of select="@Name"/></xsl:attribute>
 			<xsl:if test="Description!=''">
 				<Description><xsl:value-of select="Description"/></Description>
@@ -93,7 +124,7 @@
 				<!-- Reference to CopyRight property -->
 				<xsl:if test="Copyright">
 					<xsl:comment>Copyright</xsl:comment>
-					<Reference ReferenceType="HasProperty">ns=2;s=Library_Copyright</Reference>
+					<Reference ReferenceType="HasProperty"><xsl:value-of select="concat('ns=', @Name, ';s=Library_Copyright')"/></Reference>
 				</xsl:if>
 				<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 				<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
@@ -102,8 +133,12 @@
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>	
 	<xsl:template match="//InterfaceClass">
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
+
 		<UAObjectType>
-			<xsl:attribute name="NodeId">ns=<xsl:value-of select="ancestor::InterfaceClassLib[1]/@Name"/>;s=<xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
 			<xsl:attribute name="BrowserName"><xsl:value-of select="@Name"/></xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
@@ -134,10 +169,12 @@
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
 	<xsl:template match="//RoleClass">
-		<!--xsl:variable name="LibName" select="ancestor::RoleClassLib[1]/@Name"/-->
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
 
 		<UAObjectType>
-			<xsl:attribute name="NodeId">ns=<xsl:value-of select="ancestor::RoleClassLib[1]/@Name"/>;s=<xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
 			<xsl:attribute name="BrowserName"><xsl:value-of select="@Name"/></xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
@@ -170,9 +207,11 @@
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
 	<xsl:template match="//SystemUnitClass">
-		<!--xsl:variable name="LibName" select="ancestor::RoleClassLib[1]/@Name"/-->
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
 		<UAObjectType>
-			<xsl:attribute name="NodeId">ns=<xsl:value-of select="ancestor::RoleClassLib[1]/@Name"/>;s=<xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
 			<xsl:attribute name="BrowserName"><xsl:value-of select="@Name"/></xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="2.0" 
+		xmlns:fn="http://www.w3.org/2005/xpath-functions"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
 		xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" 
-		exclude-result-prefixes="#default xsi xsl exslt"
+		exclude-result-prefixes="#default xsi xsl exslt fn"
 		xmlns:exslt="http://exslt.org/common">
+
 
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 		
@@ -116,6 +118,38 @@
 				<xsl:copy-of select="exslt:node-set($currentClass)/*[1]"/>
 			</xsl:otherwise>
 		</xsl:choose>
+	</xsl:template>
+	<!-- ________________________________________________________________________________________________ -->
+
+	<xsl:template name="GetNamespace">
+		<xsl:variable name="Namespace">
+			<xsl:choose>
+				<xsl:when test="local-name(.)='InterfaceClassLib' or local-name(.)='RoleClassLib' or local-name(.)='SystemUnitClassLib'">
+					<xsl:value-of select="@Name"/>
+				</xsl:when>
+
+				<xsl:when test="ancestor::InterfaceClassLib[1]">
+					<xsl:value-of select="ancestor::InterfaceClassLib[1]/@Name"/>
+				</xsl:when>
+				<xsl:when test="ancestor::RoleClassLib[1]">
+					<xsl:value-of select="ancestor::RoleClassLib[1]/@Name"/>
+				</xsl:when>
+				<xsl:when test="ancestor::SystemUnitClassLib[1]">
+					<xsl:value-of select="ancestor::SystemUnitClassLib[1]/@Name"/>
+				</xsl:when>
+
+				<xsl:otherwise>
+					<xsl:value-of select="'MyInstances'"/>
+				</xsl:otherwise>
+			</xsl:choose>
+		</xsl:variable>
+		<xsl:for-each select="exslt:node-set($NamespaceUris)//*[local-name()='Uri']">
+		
+			<xsl:if test="$Namespace = substring(text(), string-length(text()) - string-length($Namespace) + 1)">
+			<!--xsl:if test="exslt:ends-with(text(), exslt:node-set($Namespace))"-->
+				<xsl:value-of select="position()"/>
+			</xsl:if>
+		</xsl:for-each>
 	</xsl:template>
 	<!-- ________________________________________________________________________________________________ -->
 
