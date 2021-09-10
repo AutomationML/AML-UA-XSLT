@@ -1,0 +1,22 @@
+﻿<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="AutomationMLDMIRoleClassLib.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="IEC SC65E WG 9" OriginID="IEC SC65E WG 9" OriginVersion="1.0" LastWritingDateTime="2013-03-01T00:00:00+01:00" OriginVendor="IEC" OriginVendorURL="www.iec.ch" OriginRelease="1.0.0" OriginProjectTitle="Automation Markup Language Standard Libraries" OriginProjectID="Automation Markup Language Standard Libraries" />
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="5.2.8.0" LastWritingDateTime="2020-01-20T22:41:18.994478+01:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.2.8.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <ExternalReference Path="AutomationMLBaseRoleClassLib.aml" Alias="AutomationMLBaseRoleClassLib" />
+  <RoleClassLib Name="AutomationMLDMIRoleClassLib">
+    <Description>Automation Markup Language  Discrete Manufacturing Industry Role Class Library</Description>
+    <Version>2.4.0</Version>
+    <RoleClass Name="DiscManufacturingEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">
+      <RoleClass Name="Transport" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Storage" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Fixture" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Gate" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Robot" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Tool" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Carrier" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="Machine" RefBaseClassPath="DiscManufacturingEquipment" />
+      <RoleClass Name="StaticObject" RefBaseClassPath="DiscManufacturingEquipment" />
+    </RoleClass>
+  </RoleClassLib>
+</CAEXFile>

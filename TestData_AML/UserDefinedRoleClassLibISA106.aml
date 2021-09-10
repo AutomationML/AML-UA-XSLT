@@ -1,0 +1,16 @@
+﻿<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="UserDefinedRoleClassLibISA106.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="5.2.4.0" LastWritingDateTime="2020-01-20T22:50:28.7115909+01:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="5.2.4.0" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
+  <ExternalReference Path="AutomationMLExtendedRoleClassLib.aml" Alias="AutomationMLExtendedRoleClassLib" />
+  <RoleClassLib Name="UserDefinedRoleClassLibISA106">
+    <Version>2.0.1</Version>
+    <RoleClass Name="Enterprise" />
+    <RoleClass Name="Site" />
+    <RoleClass Name="Plant" />
+    <RoleClass Name="PlantArea" />
+    <RoleClass Name="Unit" />
+    <RoleClass Name="Equipment" />
+    <RoleClass Name="Device" />
+  </RoleClassLib>
+</CAEXFile>

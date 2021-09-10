@@ -1,0 +1,294 @@
+﻿<CAEXFile FileName="2021-06-15 AR APC AllClassLibs V_1_2_1.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <AdditionalInformation DocumentVersions="Recommendations">
+    <Document DocumentIdentifier="AR APC" Version="1.2.1" />
+  </AdditionalInformation>
+  <AdditionalInformation>
+    <WriterHeader>
+      <WriterName>AutomationML Editor</WriterName>
+      <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+      <WriterVendor>AutomationML e.V.</WriterVendor>
+      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+      <WriterVersion>5.5.4.0</WriterVersion>
+      <WriterRelease>5.5.4.0</WriterRelease>
+      <LastWritingDateTime>2021-08-02T09:42:15.8483579</LastWritingDateTime>
+      <WriterProjectTitle>unspecified</WriterProjectTitle>
+      <WriterProjectID>unspecified</WriterProjectID>
+    </WriterHeader>
+  </AdditionalInformation>
+  <InterfaceClassLib Name="AutomationMLInterfaceClassLib">
+    <Description>Standard Automation Markup Language Interface Class Library - Part 1 Content extended with Part 3 and Part 4 Content</Description>
+    <Version>2.2.2</Version>
+    <InterfaceClass Name="AutomationMLBaseInterface">
+      <InterfaceClass Name="Order" RefBaseClassPath="AutomationMLBaseInterface">
+        <Attribute Name="Direction" AttributeDataType="xs:string" />
+      </InterfaceClass>
+      <InterfaceClass Name="PortConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+      <InterfaceClass Name="InterlockingConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+      <InterfaceClass Name="PPRConnector" RefBaseClassPath="AutomationMLBaseInterface" />
+      <InterfaceClass Name="ExternalDataConnector" RefBaseClassPath="AutomationMLBaseInterface">
+        <Attribute Name="refURI" AttributeDataType="xs:anyURI" />
+        <InterfaceClass Name="COLLADAInterface" RefBaseClassPath="ExternalDataConnector">
+          <Attribute Name="refType" AttributeDataType="xs:string" />
+          <Attribute Name="target" AttributeDataType="xs:token" />
+        </InterfaceClass>
+        <InterfaceClass Name="PLCopenXMLInterface" RefBaseClassPath="ExternalDataConnector">
+          <InterfaceClass Name="LogicInterface" RefBaseClassPath="PLCopenXMLInterface">
+            <InterfaceClass Name="SequencingLogicInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/LogicInterface" />
+            <InterfaceClass Name="BehaviourLogicInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/LogicInterface" />
+            <InterfaceClass Name="SequencingBehaviourLogicInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/LogicInterface" />
+            <InterfaceClass Name="InterlockingLogicInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/LogicInterface" />
+          </InterfaceClass>
+          <InterfaceClass Name="LogicElementInterface" RefBaseClassPath="PLCopenXMLInterface" />
+          <InterfaceClass Name="VariableInterface" RefBaseClassPath="PLCopenXMLInterface">
+            <InterfaceClass Name="InterlockingVariableInterface" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/VariableInterface">
+              <Attribute Name="SafeConditionEquals" AttributeDataType="xs:boolean">
+                <DefaultValue>true</DefaultValue>
+              </Attribute>
+            </InterfaceClass>
+          </InterfaceClass>
+        </InterfaceClass>
+      </InterfaceClass>
+      <InterfaceClass Name="Communication" RefBaseClassPath="AutomationMLBaseInterface">
+        <InterfaceClass Name="SignalInterface" RefBaseClassPath="Communication" />
+      </InterfaceClass>
+      <InterfaceClass Name="AttachmentInterface" RefBaseClassPath="AutomationMLBaseInterface" />
+    </InterfaceClass>
+  </InterfaceClassLib>
+  <InterfaceClassLib Name="CommunicationInterfaceClassLib">
+    <Description>AutomationML Communication Interface Class Library</Description>
+    <Version>1.0.0</Version>
+    <InterfaceClass Name="PhysicalEndPoint" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+    <InterfaceClass Name="LogicalEndPoint" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+    <InterfaceClass Name="DatagrammObject" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+  </InterfaceClassLib>
+  <InterfaceClassLib Name="AutomationProjectConfigurationInterfaceClassLib">
+    <Description>Automation Markup Language Automation Project Configuration InterfaceClass Library</Description>
+    <Version>1.2.1</Version>
+    <InterfaceClass Name="Tag" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/ExternalDataConnector/PLCopenXMLInterface/VariableInterface">
+      <Attribute Name="DataType" AttributeDataType="xs:string">
+        <Attribute Name="Customized" AttributeDataType="xs:boolean">
+          <DefaultValue>false</DefaultValue>
+        </Attribute>
+      </Attribute>
+      <Attribute Name="IoType" AttributeDataType="xs:string"></Attribute>
+      <Attribute Name="LogicalAddress" AttributeDataType="xs:string" />
+      <Attribute Name="Comment" AttributeDataType="xs:string" />
+    </InterfaceClass>
+    <InterfaceClass Name="CommunicationPortInterface" RefBaseClassPath="CommunicationInterfaceClassLib/PhysicalEndPoint" />
+    <InterfaceClass Name="PowerPortInterface" RefBaseClassPath="CommunicationInterfaceClassLib/PhysicalEndPoint" />
+    <InterfaceClass Name="SensorPortInterface" RefBaseClassPath="CommunicationInterfaceClassLib/PhysicalEndPoint" />
+    <InterfaceClass Name="Channel" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication/SignalInterface">
+      <Attribute Name="Type" AttributeDataType="xs:string" />
+      <Attribute Name="IoType" AttributeDataType="xs:string" />
+      <Attribute Name="Number" AttributeDataType="xs:int" />
+      <Attribute Name="Length" AttributeDataType="xs:int" />
+      <Attribute Name="CustomAttributes">
+        <RefSemantic CorrespondingAttributePath="ListType" />
+        <Attribute Name="AttributeName1" AttributeDataType="xs:string"></Attribute>
+        <Attribute Name="AttributeName2" AttributeDataType="xs:string"></Attribute>
+      </Attribute>
+    </InterfaceClass>
+    <InterfaceClass Name="ModuleAssignment" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" />
+  </InterfaceClassLib>
+  <RoleClassLib Name="AutomationMLBaseRoleClassLib">
+    <Description>Automation Markup Language Base Role Class Library - Part 1 Content extended with Part 3 and Part 4 Content</Description>
+    <Version>2.2.2</Version>
+    <RoleClass Name="AutomationMLBaseRole">
+      <RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRole">
+        <Attribute Name="AssociatedFacet" AttributeDataType="xs:string" />
+        <RoleClass Name="InterlockingSourceGroup" RefBaseClassPath="Group" />
+        <RoleClass Name="InterlockingTargetGroup" RefBaseClassPath="Group" />
+      </RoleClass>
+      <RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRole" />
+      <RoleClass Name="Port" RefBaseClassPath="AutomationMLBaseRole">
+        <Attribute Name="Direction" AttributeDataType="xs:string" />
+        <Attribute Name="Cardinality">
+          <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" />
+          <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" />
+        </Attribute>
+        <Attribute Name="Category" AttributeDataType="xs:string" />
+        <ExternalInterface Name="ConnectionPoint" ID="9942bd9c-c19d-44e4-a197-11b9edf264e7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
+      </RoleClass>
+      <RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRole" />
+      <RoleClass Name="Product" RefBaseClassPath="AutomationMLBaseRole" />
+      <RoleClass Name="Process" RefBaseClassPath="AutomationMLBaseRole" />
+      <RoleClass Name="Structure" RefBaseClassPath="AutomationMLBaseRole">
+        <RoleClass Name="ProductStructure" RefBaseClassPath="Structure" />
+        <RoleClass Name="ProcessStructure" RefBaseClassPath="Structure" />
+        <RoleClass Name="ResourceStructure" RefBaseClassPath="Structure" />
+      </RoleClass>
+      <RoleClass Name="PropertySet" RefBaseClassPath="AutomationMLBaseRole" />
+      <RoleClass Name="Frame" RefBaseClassPath="AutomationMLBaseRole" />
+      <RoleClass Name="LogicObject" RefBaseClassPath="AutomationMLBaseRole" />
+    </RoleClass>
+  </RoleClassLib>
+  <RoleClassLib Name="CommunicationRoleClassLib">
+    <Description>AutomationML Communication Role Class Library</Description>
+    <Version>1.0.1</Version>
+    <RoleClass Name="PhysicalDevice" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+      <RoleClass Name="PhysicalEndpointlist" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      <RoleClass Name="VariableList" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    </RoleClass>
+    <RoleClass Name="PhysicalConnection" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="PhysicalNetwork" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="LogicalDevice" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+      <RoleClass Name="LogicalEndpointlist" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    </RoleClass>
+    <RoleClass Name="LogicalConnection" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="LogicalNetwork" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="CommunicationPackage" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+  </RoleClassLib>
+  <RoleClassLib Name="AutomationProjectConfigurationRoleClassLib">
+    <Description>Automation Markup Language Automation Project Configuration Data Class Library</Description>
+    <Version>1.2.1</Version>
+    <RoleClass Name="AutomationProject" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure">
+      <Attribute Name="ProjectManufacturer" AttributeDataType="xs:string"></Attribute>
+      <Attribute Name="ProjectSign" AttributeDataType="xs:string"></Attribute>
+      <Attribute Name="ProjectRevision" AttributeDataType="xs:string"></Attribute>
+      <Attribute Name="ProjectInformation" AttributeDataType="xs:string"></Attribute>
+    </RoleClass>
+    <RoleClass Name="DeviceUserFolder" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure" />
+    <RoleClass Name="Subnet" RefBaseClassPath="CommunicationRoleClassLib/LogicalNetwork">
+      <Attribute Name="Type" AttributeDataType="xs:string"></Attribute>
+      <ExternalInterface Name="LogicalEndPoint" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" ID="3e661cba-acfc-43b8-a02b-14ad7061f137" />
+    </RoleClass>
+    <RoleClass Name="Device" RefBaseClassPath="CommunicationRoleClassLib/PhysicalDevice">
+      <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+        <Attribute Name="TemplateIdentifier" AttributeDataType="xs:string" />
+      </Attribute>
+      <Attribute Name="Comment" AttributeDataType="xs:string" />
+      <Attribute Name="Manufacturer" AttributeDataType="xs:string" />
+    </RoleClass>
+    <RoleClass Name="DeviceItem" RefBaseClassPath="CommunicationRoleClassLib/PhysicalDevice">
+      <Attribute Name="TypeName" AttributeDataType="xs:string"></Attribute>
+      <Attribute Name="DeviceItemType" AttributeDataType="xs:string">
+        <Attribute Name="Customized" AttributeDataType="xs:boolean">
+          <DefaultValue>false</DefaultValue>
+        </Attribute>
+      </Attribute>
+      <Attribute Name="PositionNumber" AttributeDataType="xs:int"></Attribute>
+      <Attribute Name="BuiltIn" AttributeDataType="xs:boolean">
+        <DefaultValue>false</DefaultValue>
+      </Attribute>
+      <Attribute Name="TypeIdentifier" AttributeDataType="xs:string">
+        <Attribute Name="TemplateIdentifier" AttributeDataType="xs:string" />
+      </Attribute>
+      <Attribute Name="Manufacturer" AttributeDataType="xs:string" />
+      <Attribute Name="CustomAttributes">
+        <RefSemantic CorrespondingAttributePath="ListType" />
+        <Attribute Name="AttributeName1" AttributeDataType="xs:string"></Attribute>
+        <Attribute Name="AttributeName2" AttributeDataType="xs:string"></Attribute>
+      </Attribute>
+      <Attribute Name="FirmwareVersion" AttributeDataType="xs:string" />
+      <Attribute Name="PlantDesignation IEC" AttributeDataType="xs:string">
+        <Description>Function oriented reference designation following IEC 81346</Description>
+        <RefSemantic CorrespondingAttributePath="IEC 81346-1:2009-07#5.3 - Function-oriented structure" />
+      </Attribute>
+      <Attribute Name="LocationIdentifier IEC" AttributeDataType="xs:string">
+        <Description>Location oriented reference designation following IEC 81346</Description>
+        <RefSemantic CorrespondingAttributePath="IEC 81346-1:2009-07#5.5 - Location-oriented structure" />
+      </Attribute>
+      <Attribute Name="ProductDesignation IEC" AttributeDataType="xs:string">
+        <Description>Product oriented reference designation following IEC 81346</Description>
+        <RefSemantic CorrespondingAttributePath="IEC 81346-1:2009-07#5.4 - Product-oriented structure" />
+      </Attribute>
+      <Attribute Name="InstallationDate" AttributeDataType="xs:dateTime" />
+      <Attribute Name="Comment" AttributeDataType="xs:string" />
+      <Attribute Name="Address">
+        <RefSemantic CorrespondingAttributePath="OrderedListType" />
+        <Attribute Name="1">
+          <Attribute Name="StartAddress" AttributeDataType="xs:int" />
+          <Attribute Name="Length" AttributeDataType="xs:int" />
+          <Attribute Name="IoType" AttributeDataType="xs:string" />
+          <Attribute Name="BitOffset" AttributeDataType="xs:int" />
+        </Attribute>
+        <Attribute Name="2">
+          <Attribute Name="StartAddress" AttributeDataType="xs:int" />
+          <Attribute Name="Length" AttributeDataType="xs:int" />
+          <Attribute Name="IoType" AttributeDataType="xs:string" />
+          <Attribute Name="BitOffset" AttributeDataType="xs:int" />
+        </Attribute>
+        <Attribute Name="3">
+          <Attribute Name="StartAddress" AttributeDataType="xs:int" />
+          <Attribute Name="Length" AttributeDataType="xs:int" />
+          <Attribute Name="IoType" AttributeDataType="xs:string" />
+          <Attribute Name="BitOffset" AttributeDataType="xs:int" />
+        </Attribute>
+      </Attribute>
+      <ExternalInterface Name="ModuleAssignment" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/ModuleAssignment" ID="110c6f0b-75b7-4c3c-9d05-1b28eeeec5df" />
+    </RoleClass>
+    <RoleClass Name="TagTable" RefBaseClassPath="CommunicationRoleClassLib/PhysicalDevice/VariableList">
+      <Attribute Name="AssignToDefault" AttributeDataType="xs:boolean" />
+    </RoleClass>
+    <RoleClass Name="TagUserFolder" RefBaseClassPath="CommunicationRoleClassLib/PhysicalDevice/VariableList" />
+    <RoleClass Name="Node" RefBaseClassPath="CommunicationRoleClassLib/LogicalDevice">
+      <Attribute Name="Type" AttributeDataType="xs:string" />
+      <Attribute Name="NetworkAddress" AttributeDataType="xs:string" />
+      <ExternalInterface Name="LogicalEndPoint" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" ID="9562e3ae-8c2b-4055-a327-3ab66f949d5e" />
+    </RoleClass>
+    <RoleClass Name="CommunicationInterface" RefBaseClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem">
+      <Attribute Name="Label" AttributeDataType="xs:string" />
+      <Attribute Name="Type" AttributeDataType="xs:string" />
+      <ExternalInterface Name="LogicalEndPoint" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" ID="dedad3eb-1a51-4d7e-accb-fdc8213c6c23" />
+    </RoleClass>
+    <RoleClass Name="IoSystem" RefBaseClassPath="CommunicationRoleClassLib/LogicalDevice">
+      <Attribute Name="Number" AttributeDataType="xs:int" />
+      <ExternalInterface Name="LogicalEndPoint" RefBaseClassPath="CommunicationInterfaceClassLib/LogicalEndPoint" ID="003f6b58-c95a-4346-8a0c-aaad895a6492" />
+    </RoleClass>
+    <RoleClass Name="CommunicationPort" RefBaseClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItem">
+      <Attribute Name="Label" AttributeDataType="xs:string" />
+      <ExternalInterface Name="CommunicationPortInterface" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/CommunicationPortInterface" ID="b0f1bb7c-1df9-494e-8352-0cae067e357d"></ExternalInterface>
+    </RoleClass>
+    <RoleClass Name="PowerPort" RefBaseClassPath="CommunicationRoleClassLib/PhysicalDevice">
+      <Attribute Name="Label" AttributeDataType="xs:string" />
+      <ExternalInterface Name="PowerPortInterface" ID="6c3e2230-64d8-42e6-9ddd-3dbdf3310064" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/PowerPortInterface" />
+    </RoleClass>
+    <RoleClass Name="SensorPort" RefBaseClassPath="CommunicationRoleClassLib/PhysicalDevice">
+      <Attribute Name="Label" AttributeDataType="xs:string" />
+      <ExternalInterface Name="SensorPortInterface" ID="32d38c98-80cb-4850-b3a2-ad789e4ab96a" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/SensorPortInterface" />
+    </RoleClass>
+    <RoleClass Name="DeviceItemBusExtension" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="NodeBusExtension" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="CommunicationInterfaceBusExtension" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+  </RoleClassLib>
+  <RoleClassLib Name="AutomationProjectConfigurationProfiSafeRoleClassLib">
+    <Description>Automation Markup Language Automation Project Configuration Data Class Library Profibus</Description>
+    <Version>1.2.0</Version>
+    <RoleClass Name="DeviceItemProfiSafe" RefBaseClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItemBusExtension">
+      <Attribute Name="Failsafe_LowerBoundForFDestinationAddresses" AttributeDataType="xs:string" />
+      <Attribute Name="Failsafe_UpperBoundForFDestinationAddresses" AttributeDataType="xs:string" />
+      <Attribute Name="Failsafe_FSourceAddress" AttributeDataType="xs:string" />
+      <Attribute Name="Failsafe_FDestinationAddress" AttributeDataType="xs:string" />
+    </RoleClass>
+  </RoleClassLib>
+  <RoleClassLib Name="AutomationProjectConfigurationEthernetRoleClassLib">
+    <Description>Automation Markup Language Automation Project Configuration Data Class Library Ethernet</Description>
+    <Version>1.2.1</Version>
+    <RoleClass Name="NodeEthernet" RefBaseClassPath="AutomationProjectConfigurationRoleClassLib/NodeBusExtension">
+      <Attribute Name="SubnetMask" AttributeDataType="xs:string" />
+      <Attribute Name="RouterAddress" AttributeDataType="xs:string" />
+      <Attribute Name="DhcpClientId" AttributeDataType="xs:string" />
+      <Attribute Name="IpProtocolSelection" AttributeDataType="xs:string" />
+      <Attribute Name="ProfinetDeviceName" AttributeDataType="xs:string" />
+    </RoleClass>
+  </RoleClassLib>
+  <RoleClassLib Name="AutomationProjectConfigurationIOLinkRoleClassLib">
+    <Version>1.2.1</Version>
+    <RoleClass Name="DeviceItemIOLinkMaster" RefBaseClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItemBusExtension" />
+    <RoleClass Name="DeviceItemIOLinkDevice" RefBaseClassPath="AutomationProjectConfigurationRoleClassLib/DeviceItemBusExtension" />
+    <RoleClass Name="CommunicationPortIOLink" RefBaseClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+      <Attribute Name="PortMode" AttributeDataType="xs:string" />
+      <Attribute Name="ConfigurationWithPDCT" AttributeDataType="xs:boolean" />
+      <Attribute Name="ValidationAndBackup" AttributeDataType="xs:int" />
+      <Attribute Name="PortCycleTime" AttributeDataType="xs:int" />
+      <Attribute Name="VendorID" AttributeDataType="xs:int" />
+      <Attribute Name="DeviceID" AttributeDataType="xs:int" />
+      <Attribute Name="PDInLength" AttributeDataType="xs:int" />
+      <Attribute Name="PDOutLength" AttributeDataType="xs:int" />
+      <Attribute Name="PDInAddress" AttributeDataType="xs:int" />
+      <Attribute Name="PDOutAddress" AttributeDataType="xs:int" />
+      <Attribute Name="DeviceAlias" AttributeDataType="xs:string" />
+    </RoleClass>
+  </RoleClassLib>
+</CAEXFile>

@@ -1,0 +1,54 @@
+﻿<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="AutomationMLExtendedRoleClassLib.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="IEC SC65E WG 9" OriginID="IEC SC65E WG 9" OriginVersion="1.0" LastWritingDateTime="2013-03-01T00:00:00+01:00" OriginVendor="IEC" OriginVendorURL="www.iec.ch" OriginRelease="1.0.0" OriginProjectTitle="Automation Markup Language Standard Libraries" OriginProjectID="Automation Markup Language Standard Libraries" />
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="5.2.8.0" LastWritingDateTime="2020-01-20T22:42:19.7033202+01:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.2.8.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <ExternalReference Path="AutomationMLBaseRoleClassLib.aml" Alias="AutomationMLBaseRoleClassLib" />
+  <ExternalReference Path="AutomationMLDMIRoleClassLib.aml" Alias="AutomationMLDMIRoleClassLib" />
+  <ExternalReference Path="AutomationMLCSRoleClassLib.aml" Alias="AutomationMLCSRoleClassLib" />
+  <RoleClassLib Name="AutomationMLExtendedRoleClassLib">
+    <Version>2.7.0</Version>
+    <RoleClass Name="PLCFacet" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+    <RoleClass Name="HMIFacet" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+    <RoleClass Name="Enterprise" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="Site" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="Area" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="ProductionLine" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="WorkCell" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="ProcessCell" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="Unit" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="ProductionUnit" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="StorageZone" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="StorageUnit" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure" />
+    <RoleClass Name="Turntable" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="Conveyor" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport">
+      <RoleClass Name="BeltConveyor" RefBaseClassPath="Conveyor" />
+      <RoleClass Name="RollConveyor" RefBaseClassPath="Conveyor" />
+      <RoleClass Name="ChainConveyor" RefBaseClassPath="Conveyor" />
+      <RoleClass Name="PalletConveyor" RefBaseClassPath="Conveyor" />
+      <RoleClass Name="OverheadConveyor" RefBaseClassPath="Conveyor" />
+    </RoleClass>
+    <RoleClass Name="LiftingTable" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="AGV" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="Transposer" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="CarrierHandlingSystem" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="BodyStore" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Storage" />
+    <RoleClass Name="Lift" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="Rollerbed" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Transport" />
+    <RoleClass Name="StationaryTool" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+    <RoleClass Name="MovableTool" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Tool" />
+    <RoleClass Name="ControlCabinet" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment" />
+    <RoleClass Name="IODevice" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment" />
+    <RoleClass Name="HMI" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment">
+      <RoleClass Name="WarningEquipment" RefBaseClassPath="AutomationMLExtendedRoleClassLib/HMI" />
+    </RoleClass>
+    <RoleClass Name="ActuatingDrive" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment/Actuator" />
+    <RoleClass Name="MotionController" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment" />
+    <RoleClass Name="Panel" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment/ControlHardware" />
+    <RoleClass Name="MeasuringEquipment" RefBaseClassPath="AutomationMLBaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    <RoleClass Name="Clamp" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Fixture" />
+    <RoleClass Name="ProcessController" RefBaseClassPath="AutomationMLCSRoleClassLib@AutomationMLCSRoleClassLib/ControlEquipment/Controller" />
+    <RoleClass Name="Loader" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Storage" />
+    <RoleClass Name="Unloader" RefBaseClassPath="AutomationMLDMIRoleClassLib@AutomationMLDMIRoleClassLib/DiscManufacturingEquipment/Storage" />
+  </RoleClassLib>
+</CAEXFile>

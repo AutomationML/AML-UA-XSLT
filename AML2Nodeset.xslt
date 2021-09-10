@@ -1,6 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" exclude-result-prefixes="xsi">
+
+<xsl:stylesheet version="2.0" 
+		xmlns:fn="http://www.w3.org/2005/xpath-functions"
+		xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" 
+		exclude-result-prefixes="#default xsi xsl exslt fn"
+		xmlns:exslt="http://exslt.org/common">
+		
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+		
+	<xsl:function name="exslt:node-set">
+		<xsl:param name="rtf"/>
+		<xsl:sequence select="$rtf"/>
+	</xsl:function>
+	
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
 	<xsl:include href="DatatypeTranslation.xslt"/>
@@ -138,30 +153,30 @@
 	<xsl:template match="@ID">
 		<!-- Create AML-ID property -->
 		<xsl:call-template name="StringAttributeVariable">
-			<xsl:with-param name="ObjectName"><xsl:value-of select="../@Name"/></xsl:with-param>
-			<xsl:with-param name="ParentId">g={<xsl:value-of select="../@ID"/>}</xsl:with-param>
-			<xsl:with-param name="Namespace">ns=2</xsl:with-param>
-			<xsl:with-param name="AttributeName">ID</xsl:with-param>
-			<xsl:with-param name="AttributeValue">{<xsl:value-of select="../@ID"/>}</xsl:with-param>
+			<xsl:with-param name="ObjectName" select="../@Name"/>
+			<xsl:with-param name="ParentId" select="concat('g={', ../@ID, '}')"/>
+			<xsl:with-param name="Namespace" select="'ns=2'"/>
+			<xsl:with-param name="AttributeName" select="'ID'"/>
+			<xsl:with-param name="AttributeValue" select="concat('{', ../@ID, '}')"/>
 		</xsl:call-template>
 	</xsl:template>
 	<xsl:template match="Version">
 		<xsl:choose>
 			<xsl:when test="local-name(..)='InterfaceClassLib' or local-name(..)='RoleClassLib' or local-name(..)='SystemUnitClassLib'">
 				<xsl:call-template name="StringAttributeVariable">
-					<xsl:with-param name="ObjectName"><xsl:value-of select="../@Name"/></xsl:with-param>
-					<xsl:with-param name="ParentId">s=Library</xsl:with-param>
-					<xsl:with-param name="Namespace">ns=<xsl:value-of select="../@Name"/></xsl:with-param>
-					<xsl:with-param name="AttributeName">Version</xsl:with-param>
+					<xsl:with-param name="ObjectName" select="../@Name"/>
+					<xsl:with-param name="ParentId" select="'s=Library'"/>
+					<xsl:with-param name="Namespace" select="concat('ns=', ../@Name)"/>
+					<xsl:with-param name="AttributeName" select="'Version'"/>
 					<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:call-template name="StringAttributeVariable">
-					<xsl:with-param name="ObjectName"><xsl:value-of select="../@Name"/></xsl:with-param>
-					<xsl:with-param name="ParentId">g={<xsl:value-of select="../@ID"/>}</xsl:with-param>
-					<xsl:with-param name="Namespace">ns=2</xsl:with-param>
-					<xsl:with-param name="AttributeName">Version</xsl:with-param>
+					<xsl:with-param name="ObjectName" select="../@Name"/>
+					<xsl:with-param name="ParentId" select="concat('g={', ../@ID, '}')"/>
+					<xsl:with-param name="Namespace" select="'ns=2'"/>
+					<xsl:with-param name="AttributeName" select="'Version'"/>
 					<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 				</xsl:call-template>
 			</xsl:otherwise>
@@ -170,30 +185,32 @@
 	<!--xsl:template match="Revision"></xsl:template-->
 	<xsl:template match="Copyright">
 		<xsl:call-template name="StringAttributeVariable">
-			<xsl:with-param name="ObjectName"><xsl:value-of select="../@Name"/></xsl:with-param>
-			<xsl:with-param name="ParentId">g={<xsl:value-of select="../@ID"/>}</xsl:with-param>
-			<xsl:with-param name="Namespace">ns=2</xsl:with-param>
-			<xsl:with-param name="AttributeName">Copyright</xsl:with-param>
+			<xsl:with-param name="ObjectName" select="../@Name"/>
+			<xsl:with-param name="ParentId" select="concat('g={', ../@ID, '}')"/>
+			<xsl:with-param name="Namespace" select="'ns=2'"/>
+			<xsl:with-param name="AttributeName" select="'Copyright'"/>
 			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
 	<xsl:template match="*[name()!='CAEXFile']/AdditionalInformation">
 		<xsl:call-template name="StringAttributeVariable">
-			<xsl:with-param name="ObjectName"><xsl:value-of select="../@Name"/></xsl:with-param>
-			<xsl:with-param name="ParentId">g={<xsl:value-of select="../@ID"/>}</xsl:with-param>
-			<xsl:with-param name="Namespace">ns=2</xsl:with-param>
-			<xsl:with-param name="AttributeName">AdditionalInformation</xsl:with-param>
+			<xsl:with-param name="ObjectName" select="../@Name"/>
+			<xsl:with-param name="ParentId" select="concat('g={', ../@ID, '}')"/>
+			<xsl:with-param name="Namespace" select="'ns=2'"/>
+			<xsl:with-param name="AttributeName" select="'AdditionalInformation'"/>
 			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 		</xsl:call-template>	
 	</xsl:template>
 	<xsl:template match="CAEXFile/AdditionalInformation">
 		<xsl:comment>Version 1:</xsl:comment>
 		<xsl:variable name="AttributeName">
+			<_attrName>
 			<xsl:choose>
 				<xsl:when test="name(*[1])!=''"><xsl:value-of select="name(*[1])"/></xsl:when>
 				<xsl:when test="name(@*[1])!=''"><xsl:value-of select="name(@*[1])"/></xsl:when>
 				<xsl:otherwise>AdditionalInformation</xsl:otherwise>
 			</xsl:choose>
+			</_attrName>
 		</xsl:variable>	
 
 
@@ -251,7 +268,6 @@
 	.........................................................................-->
 	<xsl:template match="Attribute">
 		<!-- Get object variables -->
-		<xsl:variable name="ObjectName"><xsl:value-of select="../@Name"/></xsl:variable>
 		<xsl:variable name="ObjectId">
 			<xsl:choose>
 				<xsl:when test="../@ID!=''">{<xsl:value-of select="../@ID"/>}</xsl:when>
@@ -267,7 +283,7 @@
 		<xsl:variable name="AttributeDataType"><xsl:value-of select="@AttributeDataType"/></xsl:variable>
 		<xsl:comment>
 			<xsl:text>Attribute: </xsl:text>
-			<xsl:value-of select="$ObjectName"/>.<xsl:value-of select="@Name"/>
+			<xsl:value-of select="../@Name"/>.<xsl:value-of select="@Name"/>
 		</xsl:comment>
 		<UAVariable>
 			<xsl:attribute name="NodeId">ns=2;s=<xsl:value-of select="$ObjectId"/>_<xsl:value-of select="@Name"/></xsl:attribute>
@@ -275,8 +291,8 @@
 			<xsl:attribute name="ParentNodeId">ns=2;<xsl:value-of select="$ObjectNodeId"/></xsl:attribute>
 			<xsl:attribute name="DataType">
 				<xsl:choose>
-					<xsl:when test="$DataTypes/*[@AML=$AttributeDataType]/@OPC!=''">
-						<xsl:value-of select="$DataTypes/*[@AML=$AttributeDataType]/@OPC"/>
+					<xsl:when test="exslt:node-set($DataTypes)/*[@AML=$AttributeDataType]/@OPC!=''">
+						<xsl:value-of select="exslt:node-set($DataTypes)/*[@AML=$AttributeDataType]/@OPC"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="substring-after($AttributeDataType, ':')"/>
@@ -321,27 +337,23 @@
 		<!-- Reference to SupportedRoleClass -->
 		<xsl:for-each select="SupportedRoleClass">
 			<!-- Parse SupportedRoleClass -->
-			<xsl:variable name="RCName">
-				<xsl:value-of select="substring-before(@RefRoleClassPath,'/')"/>
-			</xsl:variable>
+			<xsl:variable name="RCName" select="substring-before(@RefRoleClassPath,'/')"/>
 			<xsl:variable name="RCContent">
 				<xsl:if test="$RCName!= '' and $RCName!= 'AutomationMLBaseRoleClassLib/AutomationMLBaseRole'">
 					<xsl:call-template name="GetClass">
-						<xsl:with-param name="path">
-							<xsl:value-of select="@RefRoleClassPath"/>
-						</xsl:with-param>
+						<xsl:with-param name="path" select="@RefRoleClassPath"/>
 					</xsl:call-template>
 				</xsl:if>
 			</xsl:variable>
-			<xsl:variable name="LibName">
-				<xsl:value-of select="ancestor::RoleClassLib[1]/@Name"/>
-			</xsl:variable>
+			<xsl:variable name="LibName" select="ancestor::RoleClassLib[1]/@Name"/>
 			<!-- Create HasAMLRoleReference -->
 			<xsl:comment>
 				<xsl:text>SupportedRoleClass: </xsl:text>
 				<xsl:value-of select="@RefRoleClassPath"/>
 			</xsl:comment>
-			<Reference ReferenceType="HasAMLRoleReference">ns=<xsl:value-of select="$RCName"/>;s=<xsl:value-of select="$RCContent//@Name"/>
+			
+			<Reference ReferenceType="HasAMLRoleReference">
+				<xsl:value-of select="concat('ns=', $RCName, ';s=', exslt:node-set($RCContent)/RoleClass/@Name)"/>				
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to ExternalInterface objects -->
@@ -374,9 +386,7 @@
 	.........................................................................-->
 	<xsl:template match="ExternalInterface">
 		<!-- Get object variables -->
-		<xsl:variable name="ObjectName">
-			<xsl:value-of select="../@Name"/>
-		</xsl:variable>
+		<xsl:variable name="ObjectName" select="../@Name"/>
 		<xsl:variable name="ObjectId">
 			<xsl:choose>
 				<xsl:when test="../@ID!=''">{<xsl:value-of select="../@ID"/>}</xsl:when>
@@ -413,31 +423,19 @@
 	.........................................................................-->
 	<xsl:template match="InternalElement">
 		<!-- Parse SystemUnitClass -->
-		<xsl:variable name="UCName">
-			<xsl:value-of select="substring-before(@RefBaseSystemUnitPath,'/')"/>
-		</xsl:variable>
+		<xsl:variable name="UCName" select="substring-before(@RefBaseSystemUnitPath,'/')"/>
 		<xsl:variable name="UCContent">
 			<xsl:if test="$UCName!= '' and $UCName!= 'AutomationMLBaseRoleClassLib/AutomationMLBaseRole'">
 				<xsl:call-template name="GetClass">
-					<xsl:with-param name="path">
-						<xsl:value-of select="@RefBaseSystemUnitPath"/>
-					</xsl:with-param>
+					<xsl:with-param name="path" select="@RefBaseSystemUnitPath"/>
 				</xsl:call-template>
 			</xsl:if>
 		</xsl:variable>
-		<!-- Get object variables -->
-		<xsl:variable name="ObjectName">
-			<xsl:value-of select="@Name"/>
-		</xsl:variable>
-		<xsl:variable name="ObjectId">
-			<xsl:value-of select="@ID"/>
-		</xsl:variable>
-		<xsl:variable name="ObjectNodeId">ns=2;g={<xsl:value-of select="$ObjectId"/>}</xsl:variable>
 		<!-- Create UAObject -->
 		<UAObject>
-			<xsl:attribute name="NodeId"><xsl:value-of select="$ObjectNodeId"/></xsl:attribute>
-			<xsl:attribute name="BrowseName"><xsl:value-of select="$ObjectName"/></xsl:attribute>
-			<DisplayName><xsl:value-of select="$ObjectName"/></DisplayName>
+			<xsl:attribute name="NodeId">ns=2;g={<xsl:value-of select="@ID"/>}</xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<DisplayName><xsl:value-of select="@Name"/></DisplayName>
 			<xsl:if test="Description">
 				<Description><xsl:value-of select="Description"/></Description>
 			</xsl:if>
@@ -446,14 +444,10 @@
 				<xsl:comment>
 					<xsl:text>Class definition</xsl:text>
 				</xsl:comment>
-				<Reference ReferenceType="HasTypeDefinition">ns=<xsl:value-of select="$UCName"/>;s=<xsl:value-of select="$UCContent/SystemUnitClass/@Name"/></Reference>
+				<Reference ReferenceType="HasTypeDefinition">ns=<xsl:value-of select="$UCName"/>;s=<xsl:value-of select="exslt:node-set($UCContent)/SystemUnitClass/@Name"/></Reference>
 				<xsl:call-template name="References">
-					<xsl:with-param name="ObjectName">
-						<xsl:value-of select="$ObjectName"/>
-					</xsl:with-param>
-					<xsl:with-param name="ObjectId">
-						<xsl:value-of select="$ObjectId"/>
-					</xsl:with-param>
+					<xsl:with-param name="ObjectName" select="@Name"/>
+					<xsl:with-param name="ObjectId" select="@ID"/>
 				</xsl:call-template>
 			</References>
 		</UAObject>
