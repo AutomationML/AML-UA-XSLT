@@ -75,6 +75,8 @@
 				<xsl:value-of select="concat('ns=', $Namespace, ';s=Library')"/>
 			</xsl:attribute>
 			<xsl:attribute name="Name"><xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<DisplayName><xsl:value-of select="@Name"/></DisplayName>
 			<xsl:if test="Description!=''">
 				<Description><xsl:value-of select="Description"/></Description>
 			</xsl:if>
@@ -94,9 +96,6 @@
 		InterfaceClassLib: Create UAObjectTypes
 	.........................................................................-->
 	<xsl:template match="InterfaceClassLib">
-		<xsl:variable name="Namespace">
-			<xsl:call-template name="GetNamespace"/>
-		</xsl:variable>
 		<xsl:comment>
 			InterfaceClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -109,27 +108,7 @@
 				- Why is there a Reference to RoleClassLib in the Opc.Ua.AMLLibraries.Nodeset2.xml
 					&lt;Reference ReferenceType="HasComponent" IsForward="false"&gt;ns=2;i=345&lt;/Reference&gt; 
 		</xsl:comment>
-		<UAObject>
-			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=Library')"/></xsl:attribute>
-			<xsl:attribute name="Name"><xsl:value-of select="@Name"/></xsl:attribute>
-			<xsl:if test="Description!=''">
-				<Description><xsl:value-of select="Description"/></Description>
-			</xsl:if>
-			<References>
-				<!-- Reference to Version property -->
-				<xsl:if test="Version">
-					<xsl:comment>Version</xsl:comment>
-					<Reference ReferenceType="HasProperty">ns=<xsl:value-of select="@Name"/>;s=Library_Version</Reference>
-				</xsl:if>
-				<!-- Reference to CopyRight property -->
-				<xsl:if test="Copyright">
-					<xsl:comment>Copyright</xsl:comment>
-					<Reference ReferenceType="HasProperty"><xsl:value-of select="concat('ns=', @Name, ';s=Library_Copyright')"/></Reference>
-				</xsl:if>
-				<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-				<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
-			</References>
-		</UAObject>
+		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>	
 	<xsl:template match="//InterfaceClass">
@@ -139,7 +118,7 @@
 
 		<UAObjectType>
 			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
-			<xsl:attribute name="BrowserName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
@@ -175,7 +154,7 @@
 
 		<UAObjectType>
 			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
-			<xsl:attribute name="BrowserName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
@@ -212,7 +191,7 @@
 		</xsl:variable>
 		<UAObjectType>
 			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
-			<xsl:attribute name="BrowserName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
