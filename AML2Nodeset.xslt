@@ -122,7 +122,8 @@
 				- AdditionalInformation is handled as blackbox (no ID)
 				- AdditionalInformation AutomationMLVersion
 				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
-				- XSL + script for generation of MD5 hash				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
+				- XSL + script for generation of MD5 hash				
+				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
 			</xsl:comment>
 			<xsl:copy-of select="$NamespaceUris"/>
 			<Models>

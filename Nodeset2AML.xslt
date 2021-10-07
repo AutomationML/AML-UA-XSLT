@@ -7,7 +7,7 @@
 	xmlns:ua="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
 	xmlns:uaTypes="http://opcfoundation.org/UA/2008/02/Types.xsd"
 	xmlns:exslt="http://exslt.org/common"
-	exclude-result-prefixes="#default xsi xsl ua uaTypes xsd exslt">
+	exclude-result-prefixes="xsi xsl ua uaTypes xsd exslt">
 	<!--xmlns:csharp="http://csharp.org"-->
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 			
