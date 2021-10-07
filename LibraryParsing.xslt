@@ -121,6 +121,17 @@
 	</xsl:template>
 	<!-- ________________________________________________________________________________________________ -->
 
+	<xsl:template name="GetNamespaceIdByName">
+		<xsl:param name="Namespace"/>
+		<xsl:for-each select="exslt:node-set($NamespaceUris)//*[local-name()='Uri']">
+		
+			<xsl:if test="$Namespace = substring(text(), string-length(text()) - string-length($Namespace) + 1)">
+			<!--xsl:if test="exslt:ends-with(text(), exslt:node-set($Namespace))"-->
+				<xsl:value-of select="position()"/>
+			</xsl:if>
+		</xsl:for-each>
+
+	</xsl:template>
 	<xsl:template name="GetNamespace">
 		<xsl:variable name="Namespace">
 			<xsl:choose>
@@ -143,13 +154,9 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		<xsl:for-each select="exslt:node-set($NamespaceUris)//*[local-name()='Uri']">
-		
-			<xsl:if test="$Namespace = substring(text(), string-length(text()) - string-length($Namespace) + 1)">
-			<!--xsl:if test="exslt:ends-with(text(), exslt:node-set($Namespace))"-->
-				<xsl:value-of select="position()"/>
-			</xsl:if>
-		</xsl:for-each>
+		<xsl:call-template name="GetNamespaceIdByName">
+			<xsl:with-param name="Namespace" select="$Namespace"/>
+		</xsl:call-template>
 	</xsl:template>
 	<!-- ________________________________________________________________________________________________ -->
 
