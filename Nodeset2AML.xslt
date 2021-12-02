@@ -26,7 +26,16 @@
 			}
 		]]>
 	</msxsl:script-->
-    
+
+	<!--
+Laut Microsoft muss man die Funktionalität mit „XsltSettings.EnableScript“ aktivieren, bevor man XslTransform startet:
+https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablescript?view=net-5.0
+
+	-->
+
+	<!--
+	
+    -->
    	<xsl:function name="exslt:node-set">
 		<xsl:param name="rtf"/>
 		<xsl:sequence select="$rtf"/>
