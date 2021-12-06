@@ -11,7 +11,8 @@
 	<!--xmlns:csharp="http://csharp.org"-->
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 			
-    <!--msxsl:script language="C#" implements-prefix="csharp">
+    <!--TODO:must be resolved as javascript-->
+	<!--msxsl:script language="C#" implements-prefix="csharp">
 		<msxsl:using namespace="System.Security.Cryptography" />
 		<![CDATA[   
 			public string GenerateGuid(string input)
