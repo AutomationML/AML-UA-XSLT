@@ -1,20 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" 
-	xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+<xsl:stylesheet version="2.0"
+	xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
 	xmlns:msxsl="urn:schemas-microsoft-com:xslt"
 	xmlns:ua="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
 	xmlns:uaTypes="http://opcfoundation.org/UA/2008/02/Types.xsd"
 	xmlns:exslt="http://exslt.org/common"
+	xmlns:csharp="http://csharp.org"
 	exclude-result-prefixes="xsi xsl ua uaTypes xsd exslt">
-	<!--xmlns:csharp="http://csharp.org"-->
+	
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
-			
-    <!--TODO:must be resolved as javascript-->
-	<!--msxsl:script language="C#" implements-prefix="csharp">
-		<msxsl:using namespace="System.Security.Cryptography" />
-		<![CDATA[   
+
+	<!--TODO:must be resolved as javascript-->
+
+	<!-- xmlns:js="urn:custom-javascript"
+    exclude-result-prefixes="custom js"
+
+	 <custom:script language="Javascript" implements-prefix="js">
+        <![CDATA[
+        function GenerateGuid (string input) {
+            ... java code for GUID ...
+        }
+    ]]>
+    </custom:script>
+
+	-->
+	<msxsl:script language="C#" implements-prefix="csharp">
+	<msxsl:using namespace="System.Security.Cryptography" />
+	<![CDATA[   
 			public string GenerateGuid(string input)
 			{
 				Guid guid = Guid.Empty;
@@ -26,7 +40,7 @@
 				return guid.ToString();
 			}
 		]]>
-	</msxsl:script-->
+	</msxsl:script>
 
 	<!--
 Laut Microsoft muss man die Funktionalität mit „XsltSettings.EnableScript“ aktivieren, bevor man XslTransform startet:
@@ -34,10 +48,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 
 	-->
 
-	<!--
-	
-    -->
-   	<xsl:function name="exslt:node-set">
+	<xsl:function name="exslt:node-set">
 		<xsl:param name="rtf"/>
 		<xsl:sequence select="$rtf"/>
 	</xsl:function>
@@ -67,26 +78,26 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 						<xsl:copy-of select="@*"/>
 						<xsl:copy-of select="*[local-name()!='References']"/>
 						<xsl:variable name="LocalReferences">
-							<xsl:copy-of select="ua:References/ua:Reference"/>						
+							<xsl:copy-of select="ua:References/ua:Reference"/>
 						</xsl:variable>
 						<xsl:for-each select="ua:References">
-						<xsl:copy>
-							<xsl:copy-of select="exslt:node-set($LocalReferences)"/>
-							<!-- do not add twice -->
-							<xsl:for-each select="exslt:node-set($AdditionalReferences)/ua:Reference">
-								<xsl:variable name="AddRefId" select="text()"/>
-								<xsl:if test="count(exslt:node-set($LocalReferences)//ua:Reference[text()=$AddRefId])=0">
-									<xsl:copy-of select="."/>
-								</xsl:if>
-							</xsl:for-each>
-						</xsl:copy>
+							<xsl:copy>
+								<xsl:copy-of select="exslt:node-set($LocalReferences)"/>
+								<!-- do not add twice -->
+								<xsl:for-each select="exslt:node-set($AdditionalReferences)/ua:Reference">
+									<xsl:variable name="AddRefId" select="text()"/>
+									<xsl:if test="count(exslt:node-set($LocalReferences)//ua:Reference[text()=$AddRefId])=0">
+										<xsl:copy-of select="."/>
+									</xsl:if>
+								</xsl:for-each>
+							</xsl:copy>
 						</xsl:for-each>
 					</xsl:copy>
-				</xsl:for-each>						
+				</xsl:for-each>
 			</xsl:copy>
 		</xsl:for-each>
 	</xsl:variable>
-	
+
 	<xsl:variable name="Libraries">
 		<xsl:for-each select="exslt:node-set($UANodeSet)//ua:NamespaceUris/ua:Uri">
 			<Library>
@@ -102,7 +113,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 			</Library>
 		</xsl:for-each>
 	</xsl:variable>
-	
+
 	<!-- .........................................................................
 		Unknown Elements: Ignore
 	.........................................................................-->
@@ -110,7 +121,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 
 	<xsl:template name="GetAttributeValue">
 		<xsl:param name="NodeId"/>
-		
+
 		<xsl:value-of select="//ua:UAVariable[@NodeId=$NodeId]/ua:Value/uaTypes:String"/>
 	</xsl:template>
 
@@ -118,7 +129,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 		<xsl:param name="Parent"/>
 		<xsl:param name="DisplayName"/>
 		<xsl:param name="ReferenceType"/>
-		
+
 		<xsl:for-each select="exslt:node-set($Parent)//ua:Reference[@ReferenceType=$ReferenceType]">
 			<xsl:variable name="ComponentId" select="text()"/>
 			<xsl:variable name="TargetObject">
@@ -134,7 +145,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 		<xsl:param name="Parent"/>
 		<xsl:param name="DisplayName"/>
 		<xsl:param name="ReferenceType"/>
-		
+
 		<xsl:variable name="Attribute">
 			<xsl:call-template name="GetAttributeByDisplayName">
 				<xsl:with-param name="Parent" select="$Parent"/>
@@ -142,14 +153,14 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 				<xsl:with-param name="ReferenceType" select="$ReferenceType"/>
 			</xsl:call-template>
 		</xsl:variable>
-		
+
 		<xsl:value-of select="exslt:node-set($Attribute)//ua:Value/uaTypes:String"/>
 	</xsl:template>
 
 	<xsl:template name="GetAttributeByReferenceType">
 		<xsl:param name="Parent"/>
 		<xsl:param name="ReferenceType"/>
-		
+
 		<xsl:for-each select="exslt:node-set($Parent)//ua:Reference[@ReferenceType=$ReferenceType]">
 			<xsl:variable name="ComponentId" select="text()"/>
 			<xsl:variable name="TargetObject">
@@ -158,12 +169,12 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 			<xsl:copy-of select="exslt:node-set($TargetObject)"/>
 		</xsl:for-each>
 	</xsl:template>
-	
+
 	<xsl:template name="GetAttributeByTypeDefinition">
 		<xsl:param name="Parent"/>
 		<xsl:param name="TypeDefinition"/>
 		<xsl:param name="ReferenceType"/>
-		
+
 		<xsl:variable name="AttributeByReferenceType">
 			<xsl:call-template name="GetAttributeByReferenceType">
 				<xsl:with-param name="Parent" select="$Parent"/>
@@ -181,7 +192,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 		<xsl:param name="Parent"/>
 		<xsl:param name="TypeDefinition"/>
 		<xsl:param name="ReferenceType"/>
-		
+
 		<xsl:variable name="Attribute">
 			<xsl:call-template name="GetAttributeByTypeDefinition">
 				<xsl:with-param name="Parent" select="$Parent"/>
@@ -207,7 +218,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
-	
+
 	<xsl:template name="CreateAmlId">
 		<xsl:variable name="Id">
 			<xsl:call-template name="GetAttributeByDisplayName">
@@ -218,17 +229,24 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 		</xsl:variable>
 		<xsl:attribute name="ID">
 			<xsl:choose>
-				<xsl:when test="exslt:node-set($Id)/*/ua:Value/uaTypes:String!=''"><xsl:value-of select="exslt:node-set($Id)/*/ua:Value/uaTypes:String"/></xsl:when>
-				<xsl:otherwise>TODO:GenerateGuid<!--xsl:value-of select="'csharp:GenerateGuid(@NodeId)'"/--></xsl:otherwise>
+				<xsl:when test="exslt:node-set($Id)/*/ua:Value/uaTypes:String!=''">
+					<xsl:value-of select="exslt:node-set($Id)/*/ua:Value/uaTypes:String"/>
+				</xsl:when>
+				<!--TODO GenerateGUID Java-->
+				<xsl:otherwise>
+					<xsl:value-of select="'csharp:GenerateGuid(@NodeId)'"/>
+				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:attribute>
 	</xsl:template>
-	
-	<xsl:template name="CreateBody">		
-		<xsl:attribute name="Name"><xsl:value-of select="@BrowseName"/></xsl:attribute>
+
+	<xsl:template name="CreateBody">
+		<xsl:attribute name="Name">
+			<xsl:value-of select="@BrowseName"/>
+		</xsl:attribute>
 		<xsl:variable name="ID" select="@NodeId"/>
 		<xsl:call-template name="CreateAmlId"/>
-		
+
 		<xsl:variable name="ExternalInterfaces">
 			<xsl:call-template name="GetAttributeByReferenceType">
 				<xsl:with-param name="Parent" select="."/>
@@ -253,15 +271,17 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 				<xsl:with-param name="ReferenceType" select="'HasComponent'"/>
 			</xsl:call-template>
 		</xsl:variable>
-				
+
 		<xsl:for-each select="exslt:node-set($Attributes)/ua:UAVariable">
 			<xsl:if test="@BrowseName!='ID'">
-			<Attribute>
-				<xsl:attribute name="Name"><xsl:value-of select="@BrowseName"/></xsl:attribute>
-				<xsl:if test="ua:Value/uaTypes:String">
-					<xsl:value-of select="ua:Value/uaTypes:String"/>
-				</xsl:if>
-			</Attribute>
+				<Attribute>
+					<xsl:attribute name="Name">
+						<xsl:value-of select="@BrowseName"/>
+					</xsl:attribute>
+					<xsl:if test="ua:Value/uaTypes:String">
+						<xsl:value-of select="ua:Value/uaTypes:String"/>
+					</xsl:if>
+				</Attribute>
 			</xsl:if>
 		</xsl:for-each>
 		<xsl:for-each select="exslt:node-set($InternalElements)/ua:UAObject">
@@ -274,47 +294,55 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 		<xsl:for-each select="exslt:node-set($ExternalInterfaces)/ua:UAObject">
 			<xsl:if test="ua:References/ua:Reference[@ReferenceType='HasComponent' and @IsForward=false() and text()=$ID]">
 				<ExternalInterface>
-					<xsl:attribute name="Name"><xsl:value-of select="@BrowseName"/></xsl:attribute>				
-					<xsl:call-template name="CreateAmlId"/>			
+					<xsl:attribute name="Name">
+						<xsl:value-of select="@BrowseName"/>
+					</xsl:attribute>
+					<xsl:call-template name="CreateAmlId"/>
 				</ExternalInterface>
 			</xsl:if>
 		</xsl:for-each>
 		<!-- TODO: Complete RefRoleClassPath -->
 		<xsl:for-each select="exslt:node-set($RoleReference)/*">
 			<xsl:if test="ua:References/ua:Reference[@ReferenceType='HasAMLRoleReference' and @IsForward=false() and text()=$ID]">
-			<SupportedRoleClass>
-				<xsl:attribute name="RefRoleClassPath"><xsl:value-of select="@BrowseName"/></xsl:attribute>
-			</SupportedRoleClass>
+				<SupportedRoleClass>
+					<xsl:attribute name="RefRoleClassPath">
+						<xsl:value-of select="@BrowseName"/>
+					</xsl:attribute>
+				</SupportedRoleClass>
 			</xsl:if>
 		</xsl:for-each>
 	</xsl:template>
-	
-	<xsl:template match="ua:UANodeSet">		
+
+	<xsl:template match="ua:UANodeSet">
 		<xsl:comment>
 			CAEXFile
 			=============
 			TODOs:
-				- are '{GUID}' and 'GUID' equal? -> done
-				- get correct NS id for http://opcfoundation.org/UA/AML/
-				- what is the marker for the FileName/ SchemaVersion/ etc.-> done (@BrowseName)
-				- How to handle forward and backward references? (and missing forward or backward references) -> done (generate both directions)
-				- How to handle dublicate NodeIds? -> CAEXFile_WriterHeader -> done (not allowed)
-			</xsl:comment>
-		<CAEXFile>		
+			- are '{GUID}' and 'GUID' equal? -> done
+			- get correct NS id for http://opcfoundation.org/UA/AML/
+			- what is the marker for the FileName/ SchemaVersion/ etc.-> done (@BrowseName)
+			- How to handle forward and backward references? (and missing forward or backward references) -> done (generate both directions)
+			- How to handle dublicate NodeIds? -> CAEXFile_WriterHeader -> done (not allowed)
+		</xsl:comment>
+		<CAEXFile>
 			<xsl:variable name="CAEXFileObject" select="//ua:UAObject//ua:Reference[@ReferenceType='HasTypeDefinition'  and text()='ns=1;i=1005']/../.."/>
 
 			<xsl:if test="$CAEXFileObject">
 				<xsl:attribute name="FileName">
 					<xsl:call-template name="GetAttributeValueByDisplayName">
-						<xsl:with-param name="Parent"><xsl:copy-of select="exslt:node-set($CAEXFileObject)"/></xsl:with-param>
+						<xsl:with-param name="Parent">
+							<xsl:copy-of select="exslt:node-set($CAEXFileObject)"/>
+						</xsl:with-param>
 						<xsl:with-param name="DisplayName" select="'FileName'"/>
 						<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
 					</xsl:call-template>
-				</xsl:attribute>	
-				
+				</xsl:attribute>
+
 				<xsl:attribute name="SchemaVersion">
 					<xsl:call-template name="GetAttributeValueByDisplayName">
-						<xsl:with-param name="Parent"><xsl:copy-of select="exslt:node-set($CAEXFileObject)"/></xsl:with-param>
+						<xsl:with-param name="Parent">
+							<xsl:copy-of select="exslt:node-set($CAEXFileObject)"/>
+						</xsl:with-param>
 						<xsl:with-param name="DisplayName" select="'SchemaVersion'"/>
 						<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
 					</xsl:call-template>
@@ -323,25 +351,27 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 
 			<xsl:variable name="MaybeAdditionalInformation">
 				<xsl:call-template name="GetAttributeByReferenceType">
-					<xsl:with-param name="Parent"><xsl:copy-of select="exslt:node-set($CAEXFileObject)"/></xsl:with-param>
+					<xsl:with-param name="Parent">
+						<xsl:copy-of select="exslt:node-set($CAEXFileObject)"/>
+					</xsl:with-param>
 					<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
 				</xsl:call-template>
 			</xsl:variable>
-					
+
 			<xsl:for-each select="exslt:node-set($MaybeAdditionalInformation)//ua:Value/uaTypes:String/AdditionalInformation">
 				<xsl:copy-of select="."/>
 			</xsl:for-each>
-			
+
 			<xsl:comment>
-			InstanceHierarchy
-			=============
-			TODOs:
-			- distingish between Internal Elements and ExternalInterfaces
+				InstanceHierarchy
+				=============
+				TODOs:
+				- distingish between Internal Elements and ExternalInterfaces
 			</xsl:comment>
 
 			<xsl:for-each select="exslt:node-set($Libraries)//Library">
 				<xsl:variable name="Id" select="@Id"/>
-				
+
 				<xsl:variable name="MaybeInternalElement">
 					<xsl:for-each select="exslt:node-set($UANodeSet)//ua:UAObject[starts-with(@NodeId, concat('ns=',$Id))]">
 						<xsl:choose>
@@ -363,7 +393,9 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 							<!-- only copy sub components if the parent is the InstanceHierarchy -->
 							<xsl:when test="ua:References/ua:Reference[@ReferenceType='HasComponent' and @IsForward=false()]">
 								<xsl:for-each select="ua:References/ua:Reference[@ReferenceType='HasComponent']">
-									<xsl:variable name="RefId"><xsl:value-of select="."/></xsl:variable>
+									<xsl:variable name="RefId">
+										<xsl:value-of select="."/>
+									</xsl:variable>
 									<!-- if we have a child of InstanceHierarchy then copy it -->
 									<xsl:if test="exslt:node-set($UANodeSet)//*[@NodeId=$RefId]/ua:References/ua:Reference[@ReferenceType='Organizes' and @IsForward=false() and text()='ns=1;i=5005']">
 										<xsl:copy-of select="../.."/>
@@ -372,21 +404,25 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 							</xsl:when>
 							<!-- all other criterias for non InternalElements -->
 							<!--xsl:when test=""></xsl:when-->
-							<xsl:otherwise><xsl:copy-of select="."/></xsl:otherwise>
+							<xsl:otherwise>
+								<xsl:copy-of select="."/>
+							</xsl:otherwise>
 						</xsl:choose>
 					</xsl:for-each>
 				</xsl:variable>
-							
+
 				<xsl:if test="$MaybeInternalElement!=''">
 					<InstanceHierarchy>
-						<xsl:attribute name="Name"><xsl:value-of select="@Name"/></xsl:attribute>
+						<xsl:attribute name="Name">
+							<xsl:value-of select="@Name"/>
+						</xsl:attribute>
 						<xsl:if test="exslt:node-set($UANodeSet)//ua:UAObject[@NodeId=concat('ns=', $Id, ';s=Library')]">
 							<Version>
 								<xsl:call-template name="GetAttributeValueByDisplayName">
 									<xsl:with-param name="Parent" select="exslt:node-set($UANodeSet)//ua:UAObject[@NodeId=concat('ns=', $Id, ';s=Library')]"/>
 									<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
 									<xsl:with-param name="DisplayName" select="'Version'"/>
-								</xsl:call-template>								
+								</xsl:call-template>
 							</Version>
 						</xsl:if>
 						<xsl:for-each select="exslt:node-set($MaybeInternalElement)/ua:UAObject">
@@ -398,26 +434,28 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 				</xsl:if>
 			</xsl:for-each>
 
-			<xsl:if test="ua:UAObjectType">				
+			<xsl:if test="ua:UAObjectType">
 				<xsl:comment>
-				Libraries
-				=============
-				TODOs:
-				- Distinction between SystemUnitClass, RoleClass, InterfaceClass
-				- Handle class hierarchies
+					Libraries
+					=============
+					TODOs:
+					- Distinction between SystemUnitClass, RoleClass, InterfaceClass
+					- Handle class hierarchies
 				</xsl:comment>
 				<xsl:for-each select="exslt:node-set($Libraries)//Library">
 					<xsl:variable name="Id" select="@Id"/>
 					<xsl:if test="exslt:node-set($UANodeSet)//ua:UAObjectType[starts-with(@NodeId, concat('ns=',$Id))]">
 						<SystemUnitClassLib>
-							<xsl:attribute name="Name"><xsl:value-of select="@Name"/></xsl:attribute>
+							<xsl:attribute name="Name">
+								<xsl:value-of select="@Name"/>
+							</xsl:attribute>
 							<xsl:if test="exslt:node-set($UANodeSet)//ua:UAObject[@NodeId=concat('ns=', $Id, ';s=Library')]">
 								<Version>
 									<xsl:call-template name="GetAttributeValueByDisplayName">
 										<xsl:with-param name="Parent" select="exslt:node-set($UANodeSet)//ua:UAObject[@NodeId=concat('ns=', $Id, ';s=Library')]"/>
 										<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
 										<xsl:with-param name="DisplayName" select="'Version'"/>
-									</xsl:call-template>								
+									</xsl:call-template>
 								</Version>
 							</xsl:if>
 							<xsl:for-each select="exslt:node-set($UANodeSet)//ua:UAObjectType[starts-with(@NodeId, concat('ns=',$Id))]">

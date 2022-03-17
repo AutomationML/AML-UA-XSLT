@@ -15,7 +15,7 @@
 		<xsl:param name="rtf"/>
 		<xsl:sequence select="$rtf"/>
 	</xsl:function>
-
+	
 	<!-- Does not work with MSXSL -->
 	<!--xsl:function name="exslt:ends-with">
 		<xsl:param name="target"/>
@@ -165,8 +165,14 @@
 			===============
 			TODOs:
 				- is this the correct translation (AMLFile = Object)? -> currently yes
-				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements?
+				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements? --> variable in xslt to include or not, flag in xslt if things were included
 				- How to model ExternalReferences?
+					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
+					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
+					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
+					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
+					- Preferences: 2-1-3 or 1-2-3/2-1-3 
+					- report in AML TAC
 			</xsl:comment>
 
 			<UAObject>
@@ -226,7 +232,7 @@
 					    use first ElementName (or AttributeName) as BrowseName/ID/DisplayName
 						define specific SystemUnitClass or RoleClass						
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
-			    - which versione (1. or 2.) is the correct translation of an AdditionalInformation?
+			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			</xsl:comment>
 			<xsl:apply-templates select="node()[local-name()='AdditionalInformation']"/>
 			
@@ -234,7 +240,7 @@
 			InstanceHierarchies
 			===============
 			TODOs:
-				- do we need a InstanceHierarchies node? What was the result of the discussion?
+				- do we need a InstanceHierarchies node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			    - Complete References
 				- Do we need BackwardReferences here?
 				- Test child of AutomationMLBaseRole/UABaseObjectType
@@ -249,7 +255,7 @@
 			InterfaceClassLibs
 			===============
 			TODOs:
-				- do we need a InterfaceClassLibs node? What was the result of the discussion?
+				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			</xsl:comment>
 
 			<xsl:call-template name="HierarchicalElement">
