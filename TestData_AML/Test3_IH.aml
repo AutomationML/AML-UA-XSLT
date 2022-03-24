@@ -1,0 +1,4 @@
+<CAEXFile FileName="Test1_IE_Attribute.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <InstanceHierarchy Name="ManufacturingSystem">
+  </InstanceHierarchy>
+</CAEXFile>

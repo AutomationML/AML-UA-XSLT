@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--TODO: Change xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" schema here to CAEX V3-->
+
 <xsl:stylesheet version="2.0" 
 		xmlns:fn="http://www.w3.org/2005/xpath-functions"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
@@ -35,7 +37,14 @@
 								<xsl:with-param name="path" select="@RefBaseClassPath"/>
 							</xsl:call-template>	
 						</xsl:variable>
-						<xsl:value-of select="concat('ns=', substring-before(@RefBaseClassPath,'/'), ';s=', exslt:node-set($BaseClass)/*/@Name)"/>
+								<xsl:variable name="ParentNS">
+			<xsl:call-template name="GetNamespaceIdByName">
+				<xsl:with-param name="Namespace"><xsl:value-of select="substring-before(@RefBaseClassPath,'/')"/></xsl:with-param>
+			</xsl:call-template>
+		</xsl:variable>
+
+						
+						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', exslt:node-set($BaseClass)/*/@Name)"/>
 					</xsl:when>
 					<xsl:otherwise><xsl:text>TODO</xsl:text></xsl:otherwise>
 				</xsl:choose>
@@ -65,6 +74,7 @@
 				<xsl:with-param name="Namespace" select="$Namespace"/>
 			</xsl:call-template>
 		</References>	
+
 	</xsl:template>
 	<xsl:template name="Library">
 		<xsl:variable name="Namespace">
@@ -127,7 +137,7 @@
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
-		<xsl:apply-templates select="node()"/>
+		<xsl:apply-templates select="node()|@*"/>
 	</xsl:template>
 
 	<!-- .........................................................................
@@ -163,7 +173,7 @@
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
-		<xsl:apply-templates select="node()"/>
+		<xsl:apply-templates select="node()|@*"/>
 	</xsl:template>
 
 	<!-- .........................................................................
@@ -200,6 +210,6 @@
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
-		<xsl:apply-templates select="node()"/>
+		<xsl:apply-templates select="node()|@*"/>
 	</xsl:template>
 </xsl:stylesheet>

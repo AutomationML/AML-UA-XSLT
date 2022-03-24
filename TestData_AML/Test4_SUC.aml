@@ -1,0 +1,35 @@
+﻿<CAEXFile FileName="Test4_SUC.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AdditionalInformation>
+    <WriterHeader>
+      <WriterName>AutomationML Editor</WriterName>
+      <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+      <WriterVendor>AutomationML e.V.</WriterVendor>
+      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+      <WriterVersion>5.6.7.0</WriterVersion>
+      <WriterRelease>5.6.7.0</WriterRelease>
+      <LastWritingDateTime>2022-03-24T10:04:31.8711313</LastWritingDateTime>
+      <WriterProjectTitle>unspecified</WriterProjectTitle>
+      <WriterProjectID>unspecified</WriterProjectID>
+    </WriterHeader>
+  </AdditionalInformation>
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="5.6.7.0" LastWritingDateTime="2022-02-09T14:20:30.3358606+01:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.6.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <SystemUnitClassLib Name="SystemUnitClassLib">
+    <Version>0</Version>
+    <SystemUnitClass Name="SystemUnitClass1" ID="43774c42-12aa-48d3-b5d5-931fecb7a86c">
+      <SystemUnitClass Name="SystemUnitClass1-1" ID="737c2e56-d3ac-42bb-8d73-15172adc3147" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass3">
+        <SystemUnitClass Name="SystemUnitClass1-1-1" ID="f6f36dda-c278-46f4-9bd8-4eb356a9c7c5" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+    <SystemUnitClass Name="SystemUnitClass3" ID="d0e8e6e9-e50f-4731-b431-cd6239b65807" />
+    <SystemUnitClass Name="SystemUnitClass4" ID="f532c3ba-2133-46ba-bd9b-3d0864ca3f4a" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass3" />
+  </SystemUnitClassLib>
+  <SystemUnitClassLib Name="SystemUnitClassLib1">
+    <Version>0</Version>
+    <SystemUnitClass Name="SystemUnitClass" ID="f365606c-d629-42e7-8472-0e47fdb8922c" />
+    <SystemUnitClass Name="SystemUnitClass1" ID="77b7c073-9243-4cd7-9c5a-1b14a161a359" />
+  </SystemUnitClassLib>
+  <SystemUnitClassLib Name="SystemUnitClassLib2">
+    <Version>0</Version>
+  </SystemUnitClassLib>
+</CAEXFile>
