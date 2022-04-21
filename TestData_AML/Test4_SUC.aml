@@ -1,19 +1,18 @@
-﻿<CAEXFile FileName="Test4_SUC.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="Test4_SUC.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AdditionalInformation AutomationMLVersion="2.0" />
   <AdditionalInformation>
     <WriterHeader>
       <WriterName>AutomationML Editor</WriterName>
       <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
       <WriterVendor>AutomationML e.V.</WriterVendor>
       <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-      <WriterVersion>5.6.7.0</WriterVersion>
-      <WriterRelease>5.6.7.0</WriterRelease>
-      <LastWritingDateTime>2022-03-24T10:04:31.8711313</LastWritingDateTime>
+      <WriterVersion>5.6.1.0</WriterVersion>
+      <WriterRelease>5.6.1.0</WriterRelease>
+      <LastWritingDateTime>2021-09-09T08:33:35.9508795</LastWritingDateTime>
       <WriterProjectTitle>unspecified</WriterProjectTitle>
       <WriterProjectID>unspecified</WriterProjectID>
     </WriterHeader>
   </AdditionalInformation>
-  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="5.6.7.0" LastWritingDateTime="2022-02-09T14:20:30.3358606+01:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.6.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
   <SystemUnitClassLib Name="SystemUnitClassLib">
     <Version>0</Version>
     <SystemUnitClass Name="SystemUnitClass1" ID="43774c42-12aa-48d3-b5d5-931fecb7a86c">

@@ -1,62 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes=" xsl exslt fn" xmlns:exslt="http://exslt.org/common">
+
+<xsl:stylesheet version="2.0" 
+		xmlns:fn="http://www.w3.org/2005/xpath-functions"
+		xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+		xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" 
+		exclude-result-prefixes="#default xsi xsl exslt fn"
+		xmlns:exslt="http://exslt.org/common">
+		
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+		
 	<xsl:function name="exslt:node-set">
 		<xsl:param name="rtf"/>
 		<xsl:sequence select="$rtf"/>
 	</xsl:function>
+	
 	<!-- Does not work with MSXSL -->
 	<!--xsl:function name="exslt:ends-with">
 		<xsl:param name="target"/>
 		<xsl:param name="suffix"/>
 		<xsl:sequence select="$suffix = substring($target, string-length($target) - string-length($suffix) + 1)"/>
 	</xsl:function-->
-	<xsl:template match="@*|node()[not(self::*)]">
-		<!--xsl:copy/-->
-		<xsl:apply-templates select="node()|@*"/>
-		<xsl:value-of select="."/>
-	</xsl:template>
-	<xsl:template match="*[local-name()='CAEXFile']/@*"></xsl:template>
-	<xsl:template match="*[local-name()='CAEXFile']">
-		<xsl:variable name="clean">
-			<xsl:element name="cleanCAEXFile">
-				<xsl:call-template name="cleanUp1">
-					<xsl:with-param name="input" select="."/>
-				</xsl:call-template>
-			</xsl:element>
-		</xsl:variable>
-		<xsl:apply-templates select="$clean/*"/>
-		<xsl:copy-of select="$clean"/>
-	</xsl:template>
-	<!--xsl:template match="*[local-name()='cleanCAEXFile']">
-<Test2></Test2>
-</xsl:template-->
-	<xsl:template name="cleanUp1">
-		<xsl:param name="input"/>
-		<xsl:for-each select="$input/*">
-			<xsl:element name="{local-name()}">
-				<xsl:call-template name="cleanUp2">
-					<xsl:with-param name="input" select="@*"/>
-				</xsl:call-template>
-				<xsl:call-template name="cleanUp1">
-					<xsl:with-param name="input" select="*"/>
-				</xsl:call-template>
-			</xsl:element>
-		</xsl:for-each>
-	</xsl:template>
-	<xsl:template name="cleanUp2">
-		<xsl:param name="input"/>
-		<xsl:for-each select="@*">
-			<xsl:attribute name="{local-name()}">
-				<xsl:value-of select="."/>
-			</xsl:attribute>
-		</xsl:for-each>
-	</xsl:template>
+	
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
 	<xsl:include href="DatatypeTranslation.xslt"/>
 	<!-- Translation of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryTranslation.xslt"/>
+	
 	<!-- Collect all namespaces -->
 	<xsl:variable name="NamespaceUris">
 		<NamespaceUris>
@@ -79,54 +51,45 @@
 			</xsl:for-each>
 		</NamespaceUris>
 	</xsl:variable>
+	
 	<!-- Create Collection as parent for InstanceHierarchies and the differnt types of libraries -->
 	<xsl:template name="HierarchicalElement">
 		<xsl:param name="Name"/>
 		<xsl:param name="ChildName"/>
-		<xsl:comment>
-			<xsl:value-of select="concat('Collection: CAEXFile.', $Name)"/>
-		</xsl:comment>
+
+		<xsl:comment><xsl:value-of select="concat('Collection: CAEXFile.', $Name)"/></xsl:comment>
 		<xsl:if test="*[local-name()=$ChildName]">
 			<UAObject>
-				<xsl:attribute name="NodeId">
-					<xsl:value-of select="concat('ns=2;s=CAEXFile_', $Name)"/>
-				</xsl:attribute>
-				<xsl:attribute name="BrowseName">
-					<xsl:value-of select="$Name"/>
-				</xsl:attribute>
-				<xsl:attribute name="ParentNodeId">
-					<xsl:value-of select="'ns=2;s=CAEXFile'"/>
-				</xsl:attribute>
-				<DisplayName>
-					<xsl:value-of select="$Name"/>
-				</DisplayName>
+				<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=2;s=CAEXFile_', $Name)"/></xsl:attribute>
+				<xsl:attribute name="BrowseName"><xsl:value-of select="$Name"/></xsl:attribute>
+				<xsl:attribute name="ParentNodeId"><xsl:value-of select="'ns=2;s=CAEXFile'"/></xsl:attribute>
+				<DisplayName><xsl:value-of select="$Name"/></DisplayName>
 				<References>
 					<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
 					<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 					<xsl:for-each select="*[local-name()=$ChildName]">
-						<xsl:comment>
-							<xsl:value-of select="concat($ChildName, ': ', @Name)"/>
-						</xsl:comment>
+						<xsl:comment><xsl:value-of select="concat($ChildName, ': ', @Name)"/></xsl:comment>
 						<Reference ReferenceType="HasComponent">
-							<xsl:choose>
-								<xsl:when test="$Name='InstanceHierarchies'">
-									<xsl:value-of select="concat('ns=2;InstanceHierarchy_', @Name)"/>
-								</xsl:when>
-								<xsl:otherwise>
-									<xsl:variable name="Namespace">
-										<xsl:call-template name="GetNamespace"/>
-									</xsl:variable>
-									<xsl:value-of select="concat('ns=', $Namespace, ';s=Library')"/>
-								</xsl:otherwise>
-							</xsl:choose>
+						<xsl:choose>
+							<xsl:when test="$Name='InstanceHierarchies'">
+								<xsl:value-of select="concat('ns=2;InstanceHierarchy_', @Name)"/>
+							</xsl:when>
+							<xsl:otherwise>
+								<xsl:variable name="Namespace">
+									<xsl:call-template name="GetNamespace"/>
+								</xsl:variable>
+								<xsl:value-of select="concat('ns=', $Namespace, ';s=Library')"/>
+							</xsl:otherwise>
+						</xsl:choose>
 						</Reference>
 					</xsl:for-each>
 				</References>
 			</UAObject>
 		</xsl:if>
-		<xsl:apply-templates select="node()[local-name()=$ChildName]"/>
+		<xsl:apply-templates select="node()[local-name()=$ChildName]"/>		
 	</xsl:template>
-	<!-- ************************************************************************
+
+<!-- ************************************************************************
 ***  
 ***  Skeleton
 ***
@@ -134,7 +97,7 @@
 	<!-- .........................................................................
 		CAEXFile: Create Skeleton
 	.........................................................................-->
-	<xsl:template match="cleanCAEXFile">
+	<xsl:template match="CAEXFile">
 		<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
 			<xsl:comment>
 			UANodeSet
@@ -166,7 +129,7 @@
 			<Models>
 				<Model ModelUri="http://opcfoundation.org/UA/AMLLibs/">
 					<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/"/>
-					<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04" PublicationDate="2019-05-01T00:00:00Z"/>
+						<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04" PublicationDate="2019-05-01T00:00:00Z"/>
 				</Model>
 			</Models>
 			<Aliases>
@@ -196,6 +159,7 @@
 				<Alias Alias="HasProperty">i=46</Alias>
 				<Alias Alias="PropertyType">i=68</Alias>
 			</Aliases>
+			
 			<xsl:comment>
 			CAEXFile
 			===============
@@ -210,22 +174,17 @@
 					- Preferences: 2-1-3 or 1-2-3/2-1-3 
 					- report in AML TAC
 			</xsl:comment>
+
 			<UAObject>
-				<xsl:attribute name="NodeId">
-					<xsl:value-of select="'ns=2;s=CAEXFile'"/>
-				</xsl:attribute>
-				<xsl:attribute name="BrowseName">
-					<xsl:value-of select="@FileName"/>
-				</xsl:attribute>
-				<DisplayName>
-					<xsl:value-of select="@FileName"/>
-				</DisplayName>
+				<xsl:attribute name="NodeId"><xsl:value-of select="'ns=2;s=CAEXFile'"/></xsl:attribute>
+				<xsl:attribute name="BrowseName"><xsl:value-of select="@FileName"/></xsl:attribute>
+				<DisplayName><xsl:value-of select="@FileName"/></DisplayName>
 				<xsl:copy-of select="Description"/>
 				<References>
 					<Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
 					<xsl:if test="@FileName">
 						<xsl:comment>FileName</xsl:comment>
-						<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_FileName</Reference>
+						<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_FileName</Reference>					
 					</xsl:if>
 					<xsl:if test="@SchemaVersion">
 						<xsl:comment>SchemaVersion</xsl:comment>
@@ -233,17 +192,17 @@
 					</xsl:if>
 					<xsl:comment>InstanceHierarchy</xsl:comment>
 					<xsl:if test="//InstanceHierarchy">
-						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InstanceHierarchies</Reference>
+						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InstanceHierarchies</Reference>					
 					</xsl:if>
 					<xsl:comment>Libraries</xsl:comment>
 					<xsl:if test="//InterfaceClassLib">
-						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InterfaceClassLibs</Reference>
+						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InterfaceClassLibs</Reference>					
 					</xsl:if>
 					<xsl:if test="//RoleClassLib">
-						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_RoleClassLibs</Reference>
+						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_RoleClassLibs</Reference>					
 					</xsl:if>
 					<xsl:if test="//SystemUnitClassLib">
-						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference>
+						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference>					
 					</xsl:if>
 					<xsl:for-each select="AdditionalInformation">
 						<xsl:variable name="AttributeName">
@@ -253,20 +212,18 @@
 								<xsl:otherwise>AdditionalInformation</xsl:otherwise>
 							</xsl:choose-->
 							<xsl:value-of select="concat('AdditionalInformation_', position())"/>
-						</xsl:variable>
-						<xsl:comment>
-							<xsl:value-of select="concat('AdditionalInformation: ', $AttributeName)"/>
-						</xsl:comment>
-						<Reference ReferenceType="HasProperty">
-							<xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/>
-						</Reference>
+						</xsl:variable>	
+						<xsl:comment><xsl:value-of select="concat('AdditionalInformation: ', $AttributeName)"/></xsl:comment>
+						<Reference ReferenceType="HasProperty"><xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/></Reference>
 					</xsl:for-each>
 					<xsl:comment>TODO: is this correct? (AutomationMLFiles)</xsl:comment>
 					<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
 				</References>
-			</UAObject>
+				</UAObject>
+							
 			<xsl:apply-templates select="@FileName"/>
 			<xsl:apply-templates select="@SchemaVersion"/>
+			
 			<xsl:comment>
 			AdditionalInformation
 			===============
@@ -278,6 +235,7 @@
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			</xsl:comment>
 			<xsl:apply-templates select="node()[local-name()='AdditionalInformation']"/>
+			
 			<xsl:comment>
 			InstanceHierarchies
 			===============
@@ -292,55 +250,53 @@
 				<xsl:with-param name="Name" select="'InstanceHierarchies'"/>
 				<xsl:with-param name="ChildName" select="'InstanceHierarchy'"/>
 			</xsl:call-template>
+
 			<xsl:comment>
 			InterfaceClassLibs
 			===============
 			TODOs:
 				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			</xsl:comment>
+
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'InterfaceClassLibs'"/>
 				<xsl:with-param name="ChildName" select="'InterfaceClassLib'"/>
 			</xsl:call-template>
+
 			<xsl:comment>
 			RoleClassLibs
 			===============
 			TODOs:
 				- ...
 			</xsl:comment>
+
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'RoleClassLibs'"/>
 				<xsl:with-param name="ChildName" select="'RoleClassLib'"/>
 			</xsl:call-template>
+
 			<xsl:comment>
 			SystemUnitClassLibs
 			===============
 			TODOs:
-				- check all inner elements, e.g. attributes, etc.
+				- ...
 			</xsl:comment>
+
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'SystemUnitClassLibs'"/>
 				<xsl:with-param name="ChildName" select="'SystemUnitClassLib'"/>
-			</xsl:call-template>
+			</xsl:call-template>			
 		</UANodeSet>
 	</xsl:template>
 	<!-- .........................................................................
 		InstanceHierarchy: Create UAObjecs
 	.........................................................................-->
-	<xsl:template match="InstanceHierarchy">
-		<xsl:comment>
-			<xsl:value-of select="concat('InstanceHierarchy: ', @Name)"/>
-		</xsl:comment>
+	<xsl:template match="InstanceHierarchy">	
+		<xsl:comment><xsl:value-of select="concat('InstanceHierarchy: ', @Name)"/></xsl:comment> 
 		<UAObject>
-			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=2;s=InstanceHierarchy_', @Name)"/>
-			</xsl:attribute>
-			<xsl:attribute name="BrowseName">
-				<xsl:value-of select="@Name"/>
-			</xsl:attribute>
-			<DisplayName>
-				<xsl:value-of select="@Name"/>
-			</DisplayName>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=2;s=InstanceHierarchy_', @Name)"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<DisplayName><xsl:value-of select="@Name"/></DisplayName>
 			<xsl:copy-of select="Description"/>
 			<References>
 				<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
@@ -349,18 +305,15 @@
 				<xsl:comment>Backward reference to CAEX InstanceHierarchies</xsl:comment>
 				<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_InstanceHierarchies</Reference>
 				<xsl:for-each select="InternalElement">
-					<xsl:comment>
-						<xsl:value-of select="concat('InternalElement: ', @Name)"/>
-					</xsl:comment>
-					<Reference ReferenceType="HasComponent">
-						<xsl:value-of select="concat('ns=2;g={', @ID, '}')"/>
-					</Reference>
+					<xsl:comment><xsl:value-of select="concat('InternalElement: ', @Name)"/></xsl:comment>
+					<Reference ReferenceType="HasComponent"><xsl:value-of select="concat('ns=2;g={', @ID, '}')"/></Reference>				
 				</xsl:for-each>
 			</References>
 		</UAObject>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
-	<!-- ************************************************************************
+
+<!-- ************************************************************************
 ***  
 ***  Attributes
 ***
@@ -376,10 +329,7 @@
 		<xsl:param name="AttributeName"/>
 		<xsl:param name="AttributeValue"/>
 		<!-- Create property -->
-		<xsl:comment>
-			<xsl:text>Attribute: </xsl:text>
-			<xsl:value-of select="$ObjectName"/>.<xsl:value-of select="$AttributeName"/>
-		</xsl:comment>
+		<xsl:comment><xsl:text>Attribute: </xsl:text><xsl:value-of select="$ObjectName"/>.<xsl:value-of select="$AttributeName"/></xsl:comment>
 		<UAVariable>
 			<xsl:attribute name="NodeId">
 				<!--xsl:value-of select="concat($Namespace, ';s=', $ParentId, '_', $AttributeName)"/-->
@@ -391,13 +341,11 @@
 						<xsl:value-of select="concat($Namespace, ';s={', $ParentId, '}_',$AttributeName)"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="concat($Namespace, ';s=', $ParentId, '_', $AttributeName)"/>
+						<xsl:value-of select="concat($Namespace, ';s=', $ParentId, '_', $AttributeName)"/>					
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:attribute>
-			<xsl:attribute name="BrowseName">
-				<xsl:value-of select="$AttributeName"/>
-			</xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="$AttributeName"/></xsl:attribute>
 			<xsl:attribute name="ParentNodeId">
 				<xsl:choose>
 					<xsl:when test="$ParentIdType='g' and starts-with($ParentId, '{')">
@@ -407,14 +355,12 @@
 						<xsl:value-of select="concat($Namespace, ';g={', $ParentId, '}')"/>
 					</xsl:when>
 					<xsl:otherwise>
-						<xsl:value-of select="concat($Namespace, ';s=', $ParentId)"/>
+						<xsl:value-of select="concat($Namespace, ';s=', $ParentId)"/>					
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:attribute>
 			<xsl:attribute name="DataType">String</xsl:attribute>
-			<DisplayName>
-				<xsl:value-of select="$AttributeName"/>
-			</DisplayName>
+			<DisplayName><xsl:value-of select="$AttributeName"/></DisplayName>
 			<References>
 				<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
 			</References>
@@ -425,10 +371,12 @@
 			</Value>
 		</UAVariable>
 	</xsl:template>
+
 	<xsl:template match="@FileName">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
-		</xsl:variable>
+		</xsl:variable>		
+	
 		<!-- Create FileName property -->
 		<xsl:call-template name="StringAttributeVariable">
 			<xsl:with-param name="ObjectName" select="'CAEXFile'"/>
@@ -436,15 +384,15 @@
 			<xsl:with-param name="ParentIdType" select="'s'"/>
 			<xsl:with-param name="Namespace" select="concat('ns=', $Namespace)"/>
 			<xsl:with-param name="AttributeName" select="'FileName'"/>
-			<xsl:with-param name="AttributeValue">
-				<xsl:value-of select="."/>
-			</xsl:with-param>
+			<xsl:with-param name="AttributeValue"><xsl:value-of select="."/></xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
+
 	<xsl:template match="@SchemaVersion">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
-		</xsl:variable>
+		</xsl:variable>		
+	
 		<!-- Create SchemaVersion property -->
 		<xsl:call-template name="StringAttributeVariable">
 			<xsl:with-param name="ObjectName" select="'CAEXFile'"/>
@@ -452,15 +400,15 @@
 			<xsl:with-param name="ParentIdType" select="'s'"/>
 			<xsl:with-param name="Namespace" select="concat('ns=', $Namespace)"/>
 			<xsl:with-param name="AttributeName" select="'SchemaVersion'"/>
-			<xsl:with-param name="AttributeValue">
-				<xsl:value-of select="."/>
-			</xsl:with-param>
+			<xsl:with-param name="AttributeValue"><xsl:value-of select="."/></xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
+	
 	<xsl:template match="@ID">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
+		
 		<!-- Create AML-ID property -->
 		<xsl:call-template name="StringAttributeVariable">
 			<xsl:with-param name="ObjectName" select="../@Name"/>
@@ -471,19 +419,21 @@
 			<xsl:with-param name="AttributeValue">
 				<xsl:choose>
 					<xsl:when test="starts-with(../@ID, '{')">
-						<xsl:value-of select="../@ID"/>
+						<xsl:value-of select="../@ID"/>					
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:value-of select="concat('{', ../@ID, '}')"/>
 					</xsl:otherwise>
 				</xsl:choose>
-			</xsl:with-param>
+			</xsl:with-param> 
 		</xsl:call-template>
 	</xsl:template>
+	
 	<xsl:template match="Version">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
+
 		<xsl:choose>
 			<xsl:when test="local-name(..)='InterfaceClassLib' or local-name(..)='RoleClassLib' or local-name(..)='SystemUnitClassLib'">
 				<xsl:call-template name="StringAttributeVariable">
@@ -492,9 +442,7 @@
 					<xsl:with-param name="ParentIdType" select="'s'"/>
 					<xsl:with-param name="Namespace" select="concat('ns=', $Namespace)"/>
 					<xsl:with-param name="AttributeName" select="'Version'"/>
-					<xsl:with-param name="AttributeValue">
-						<xsl:copy-of select="."/>
-					</xsl:with-param>
+					<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:when test="local-name(..)='InstanceHierarchy'">
@@ -504,9 +452,7 @@
 					<xsl:with-param name="ParentIdType" select="'s'"/>
 					<xsl:with-param name="Namespace" select="'ns=2'"/>
 					<xsl:with-param name="AttributeName" select="'Version'"/>
-					<xsl:with-param name="AttributeValue">
-						<xsl:copy-of select="."/>
-					</xsl:with-param>
+					<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 				</xsl:call-template>
 			</xsl:when>
 			<xsl:otherwise>
@@ -516,14 +462,14 @@
 					<xsl:with-param name="ParentIdType" select="'g'"/>
 					<xsl:with-param name="Namespace" select="'ns=2'"/>
 					<xsl:with-param name="AttributeName" select="'Version'"/>
-					<xsl:with-param name="AttributeValue">
-						<xsl:copy-of select="."/>
-					</xsl:with-param>
+					<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 				</xsl:call-template>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
+	
 	<!--xsl:template match="Revision"></xsl:template-->
+
 	<xsl:template match="Copyright">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
@@ -534,11 +480,10 @@
 			<xsl:with-param name="ParentIdType" select="'g'"/>
 			<xsl:with-param name="Namespace" select="concat('ns=', $Namespace)"/>
 			<xsl:with-param name="AttributeName" select="'Copyright'"/>
-			<xsl:with-param name="AttributeValue">
-				<xsl:copy-of select="."/>
-			</xsl:with-param>
+			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
+
 	<xsl:template match="*[name()!='CAEXFile']/AdditionalInformation">
 		<xsl:call-template name="StringAttributeVariable">
 			<xsl:with-param name="ObjectName" select="../@Name"/>
@@ -546,40 +491,29 @@
 			<xsl:with-param name="ParentIdType" select="'g'"/>
 			<xsl:with-param name="Namespace" select="'ns=2'"/>
 			<xsl:with-param name="AttributeName" select="concat('AdditionalInformation_', position())"/>
-			<xsl:with-param name="AttributeValue">
-				<xsl:copy-of select="."/>
-			</xsl:with-param>
-		</xsl:call-template>
+			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
+		</xsl:call-template>	
 	</xsl:template>
+
 	<xsl:template match="CAEXFile/AdditionalInformation">
 		<!--xsl:comment>Version 1:</xsl:comment-->
 		<xsl:variable name="AttributeName">
 			<xsl:choose>
-				<xsl:when test="name(*[1])!=''">
-					<xsl:value-of select="name(*[1])"/>
-				</xsl:when>
-				<xsl:when test="name(@*[1])!=''">
-					<xsl:value-of select="name(@*[1])"/>
-				</xsl:when>
+				<xsl:when test="name(*[1])!=''"><xsl:value-of select="name(*[1])"/></xsl:when>
+				<xsl:when test="name(@*[1])!=''"><xsl:value-of select="name(@*[1])"/></xsl:when>
 				<xsl:otherwise>AdditionalInformation</xsl:otherwise>
 			</xsl:choose>
-		</xsl:variable>
+		</xsl:variable>	
+
+
 		<!-- Create property -->
-		<xsl:comment>
-			<xsl:text>Attribute: </xsl:text>CAEXFile.<xsl:value-of select="$AttributeName"/>
-		</xsl:comment>
+		<xsl:comment><xsl:text>Attribute: </xsl:text>CAEXFile.<xsl:value-of select="$AttributeName"/></xsl:comment>
 		<UAVariable>
-			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=2;s=CAEXFile_AdditionalInformation_', position())"/>
-			</xsl:attribute>
-			<xsl:attribute name="BrowseName">
-				<xsl:value-of select="$AttributeName"/>
-			</xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=2;s=CAEXFile_AdditionalInformation_', position())"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="$AttributeName"/></xsl:attribute>
 			<xsl:attribute name="ParentNodeId">ns=2;s=CAEXFile</xsl:attribute>
 			<xsl:attribute name="DataType">String</xsl:attribute>
-			<DisplayName>
-				<xsl:value-of select="$AttributeName"/>
-			</DisplayName>
+			<DisplayName><xsl:value-of select="$AttributeName"/></DisplayName>
 			<References>
 				<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
 			</References>
@@ -589,6 +523,7 @@
 				</String>
 			</Value>
 		</UAVariable>
+
 		<!--xsl:comment>Version 2:</xsl:comment>
 		<xsl:call-template name="StringAttributeVariable">
 			<xsl:with-param name="ObjectName">CAEXFile</xsl:with-param>
@@ -597,8 +532,9 @@
 			<xsl:with-param name="Namespace">ns=2</xsl:with-param>
 			<xsl:with-param name="AttributeName">AdditionalInformation</xsl:with-param>
 			<xsl:with-param name="AttributeValue"><xsl:copy-of select="."/></xsl:with-param>
-		</xsl:call-template-->
+		</xsl:call-template-->	
 	</xsl:template>
+
 	<!-- .........................................................................
 		Attribute tags of InternalElements and Class definitions
 	.........................................................................-->
@@ -606,45 +542,30 @@
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
+	
 		<!-- Get object variables -->
 		<xsl:variable name="ObjectId">
 			<xsl:choose>
-				<xsl:when test="../@ID!='' and starts-with(../@ID, '{')">
-					<xsl:value-of select="../@ID"/>
-				</xsl:when>
-				<xsl:when test="../@ID!=''">
-					<xsl:value-of select="concat('{', ../@ID, '}')"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="../@Name"/>
-				</xsl:otherwise>
+				<xsl:when test="../@ID!='' and starts-with(../@ID, '{')"><xsl:value-of select="../@ID"/></xsl:when>
+				<xsl:when test="../@ID!=''"><xsl:value-of select="concat('{', ../@ID, '}')"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="../@Name"/></xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 		<xsl:variable name="ObjectNodeId">
 			<xsl:choose>
-				<xsl:when test="../@ID!=''">g=<xsl:value-of select="$ObjectId"/>
-				</xsl:when>
-				<xsl:otherwise>s=<xsl:value-of select="$ObjectId"/>
-				</xsl:otherwise>
-			</xsl:choose>
+				<xsl:when test="../@ID!=''">g=<xsl:value-of select="$ObjectId"/></xsl:when>
+				<xsl:otherwise>s=<xsl:value-of select="$ObjectId"/></xsl:otherwise>
+			</xsl:choose>		
 		</xsl:variable>
-		<xsl:variable name="AttributeDataType">
-			<xsl:value-of select="@AttributeDataType"/>
-		</xsl:variable>
+		<xsl:variable name="AttributeDataType"><xsl:value-of select="@AttributeDataType"/></xsl:variable>
 		<xsl:comment>
 			<xsl:text>Attribute: </xsl:text>
 			<xsl:value-of select="../@Name"/>.<xsl:value-of select="@Name"/>
 		</xsl:comment>
 		<UAVariable>
-			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=', $Namespace, ';s=',  $ObjectId, '_', @Name)"/>
-			</xsl:attribute>
-			<xsl:attribute name="BrowseName">
-				<xsl:value-of select="@Name"/>
-			</xsl:attribute>
-			<xsl:attribute name="ParentNodeId">
-				<xsl:value-of select="concat('ns=', $Namespace, ';', $ObjectNodeId)"/>
-			</xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=',  $ObjectId, '_', @Name)"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="ParentNodeId"><xsl:value-of select="concat('ns=', $Namespace, ';', $ObjectNodeId)"/></xsl:attribute>
 			<xsl:attribute name="DataType">
 				<xsl:choose>
 					<xsl:when test="exslt:node-set($DataTypes)/*[@AML=$AttributeDataType]/@OPC!=''">
@@ -675,16 +596,18 @@
 		<xsl:param name="ObjectId"/>
 		<xsl:param name="ObjectIdType"/>
 		<xsl:param name="Namespace"/>
+
 		<xsl:variable name="CompleteNamespace">
 			<xsl:choose>
 				<xsl:when test="$Namespace">
 					<xsl:value-of select="$Namespace"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="'2'"/>
+					<xsl:value-of select="'2'"/>					
 				</xsl:otherwise>
-			</xsl:choose>
+			</xsl:choose>					
 		</xsl:variable>
+
 		<xsl:variable name="CompleteObjectId">
 			<xsl:choose>
 				<xsl:when test="$ObjectIdType='g' and starts-with($ObjectId, '{')">
@@ -694,23 +617,20 @@
 					<xsl:value-of select="concat('ns=' , $CompleteNamespace, ';s={', $ObjectId, '}_')"/>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:value-of select="concat('ns=' , $CompleteNamespace, ';s=', $ObjectId, '_')"/>
+					<xsl:value-of select="concat('ns=' , $CompleteNamespace, ';s=', $ObjectId, '_')"/>					
 				</xsl:otherwise>
-			</xsl:choose>
+			</xsl:choose>			
 		</xsl:variable>
+		
 		<xsl:if test="@ID">
 			<!-- Reference to AML-ID property -->
 			<xsl:comment>AML-ID</xsl:comment>
-			<Reference ReferenceType="HasProperty">
-				<xsl:value-of select="concat($CompleteObjectId, 'ID')"/>
-			</Reference>
+			<Reference ReferenceType="HasProperty"><xsl:value-of select="concat($CompleteObjectId, 'ID')"/></Reference>
 		</xsl:if>
 		<!-- Reference to Version property -->
 		<xsl:if test="Version">
 			<xsl:comment>Version</xsl:comment>
-			<Reference ReferenceType="HasProperty">
-				<xsl:value-of select="concat($CompleteObjectId, 'Version')"/>
-			</Reference>
+			<Reference ReferenceType="HasProperty"><xsl:value-of select="concat($CompleteObjectId, 'Version')"/></Reference>
 		</xsl:if>
 		<!-- References for all Attribute properties -->
 		<xsl:for-each select="Attribute">
@@ -718,8 +638,7 @@
 				<xsl:text>Attribute: </xsl:text>
 				<xsl:value-of select="@Name"/>
 			</xsl:comment>
-			<Reference ReferenceType="HasProperty">
-				<xsl:value-of select="concat($CompleteObjectId, @Name)"/>
+			<Reference ReferenceType="HasProperty"><xsl:value-of select="concat($CompleteObjectId, @Name)"/>
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to SupportedRoleClass -->
@@ -744,8 +663,9 @@
 					<xsl:with-param name="Namespace" select="$RCName"/>
 				</xsl:call-template>
 			</xsl:variable>
+			
 			<Reference ReferenceType="HasAMLRoleReference">
-				<xsl:value-of select="concat('ns=', $LibNsId, ';s=', exslt:node-set($RCContent)/RoleClass/@Name)"/>
+				<xsl:value-of select="concat('ns=', $LibNsId, ';s=', exslt:node-set($RCContent)/RoleClass/@Name)"/>				
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to ExternalInterface objects -->
@@ -769,7 +689,8 @@
 			</Reference>
 		</xsl:for-each>
 	</xsl:template>
-	<!-- ************************************************************************
+
+<!-- ************************************************************************
 ***  
 ***  Hierarchical elements
 ***
@@ -780,46 +701,31 @@
 	<xsl:template match="ExternalInterface">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
-		</xsl:variable>
+		</xsl:variable>	
+	
 		<!-- Get object variables -->
 		<xsl:variable name="ObjectName" select="../@Name"/>
 		<xsl:variable name="ObjectId">
-			<xsl:choose>
-				<xsl:when test="../@ID!='' and starts-with(../@ID, '{')">
-					<xsl:value-of select="../@ID"/>
-				</xsl:when>
-				<xsl:when test="../@ID!=''">
-					<xsl:value-of select="concat('{', ../@ID, '}')"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="../@Name"/>
-				</xsl:otherwise>
+			<xsl:choose>			
+				<xsl:when test="../@ID!='' and starts-with(../@ID, '{')"><xsl:value-of select="../@ID"/></xsl:when>
+				<xsl:when test="../@ID!=''"><xsl:value-of select="concat('{', ../@ID, '}')"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="../@Name"/></xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
 		<xsl:variable name="ObjectNodeId">
 			<xsl:choose>
-				<xsl:when test="../@ID!=''">
-					<xsl:value-of select="concat('g=', $ObjectId)"/>
-				</xsl:when>
-				<xsl:otherwise>
-					<xsl:value-of select="concat('s=', $ObjectId)"/>
-				</xsl:otherwise>
-			</xsl:choose>
+				<xsl:when test="../@ID!=''"><xsl:value-of select="concat('g=', $ObjectId)"/></xsl:when>
+				<xsl:otherwise><xsl:value-of select="concat('s=', $ObjectId)"/></xsl:otherwise>
+			</xsl:choose>		
 		</xsl:variable>
 		<xsl:comment>
 			<xsl:text>ExternalInterface: </xsl:text>
 			<xsl:value-of select="$ObjectName"/>.<xsl:value-of select="@Name"/>
 		</xsl:comment>
 		<UAObject>
-			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=', $Namespace, ';s=' , $ObjectId, '_', @Name)"/>
-			</xsl:attribute>
-			<xsl:attribute name="BrowseName">
-				<xsl:value-of select="@Name"/>
-			</xsl:attribute>
-			<xsl:attribute name="ParentNodeId">
-				<xsl:value-of select="concat('ns=', $Namespace, ';', $ObjectNodeId)"/>
-			</xsl:attribute>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=' , $ObjectId, '_', @Name)"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<xsl:attribute name="ParentNodeId"><xsl:value-of select="concat('ns=', $Namespace, ';', $ObjectNodeId)"/></xsl:attribute>
 			<xsl:attribute name="DataType">String</xsl:attribute>
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
@@ -830,10 +736,11 @@
 				<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
 				<xsl:call-template name="References">
 					<xsl:with-param name="ObjectName" select="@Name"/>
-					<xsl:with-param name="ObjectId" select="@ID"/>
+					<xsl:with-param name="ObjectId" select="@ID"/>						
 					<xsl:with-param name="ObjectIdType" select="'g'"/>
 					<xsl:with-param name="Namespace" select="$Namespace"/>
 				</xsl:call-template>
+
 			</References>
 		</UAObject>
 		<!-- Create referred UAVariables and UAObjects -->
@@ -845,7 +752,8 @@
 	<xsl:template match="InternalElement">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
-		</xsl:variable>
+		</xsl:variable>	
+
 		<!-- Parse SystemUnitClass -->
 		<xsl:variable name="UCName" select="substring-before(@RefBaseSystemUnitPath,'/')"/>
 		<xsl:variable name="UCContent">
@@ -857,19 +765,11 @@
 		</xsl:variable>
 		<!-- Create UAObject -->
 		<UAObject>
-			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=', $Namespace, ';g={', @ID, '}')"/>
-			</xsl:attribute>
-			<xsl:attribute name="BrowseName">
-				<xsl:value-of select="@Name"/>
-			</xsl:attribute>
-			<DisplayName>
-				<xsl:value-of select="@Name"/>
-			</DisplayName>
+			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';g={', @ID, '}')"/></xsl:attribute>
+			<xsl:attribute name="BrowseName"><xsl:value-of select="@Name"/></xsl:attribute>
+			<DisplayName><xsl:value-of select="@Name"/></DisplayName>
 			<xsl:if test="Description">
-				<Description>
-					<xsl:value-of select="Description"/>
-				</Description>
+				<Description><xsl:value-of select="Description"/></Description>
 			</xsl:if>
 			<References>
 				<xsl:if test="exslt:node-set($UCContent)/*!=''">
@@ -892,4 +792,6 @@
 		<!-- Create referred UAVariables and UAObjects -->
 		<xsl:apply-templates select="@ID|node()"/>
 	</xsl:template>
+
 </xsl:stylesheet>
+
