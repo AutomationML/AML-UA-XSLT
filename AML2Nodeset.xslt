@@ -27,12 +27,19 @@
 		</xsl:variable>
 		<xsl:apply-templates select="$clean/*"/>
 		<xsl:copy-of select="$clean"/>
+
+
 	</xsl:template>
 	<!--xsl:template match="*[local-name()='cleanCAEXFile']">
 <Test2></Test2>
 </xsl:template-->
 	<xsl:template name="cleanUp1">
 		<xsl:param name="input"/>
+		<xsl:for-each select="$input/@*">
+			<xsl:attribute name="{local-name()}">
+				<xsl:value-of select="."/>
+			</xsl:attribute>
+		</xsl:for-each>
 		<xsl:for-each select="$input/*">
 			<xsl:element name="{local-name()}">
 				<xsl:call-template name="cleanUp2">
@@ -51,6 +58,7 @@
 				<xsl:value-of select="."/>
 			</xsl:attribute>
 		</xsl:for-each>
+		<xsl:value-of select="text()"/>
 	</xsl:template>
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
@@ -231,6 +239,10 @@
 						<xsl:comment>SchemaVersion</xsl:comment>
 						<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_SchemaVersion</Reference>
 					</xsl:if>
+					<xsl:if test="SuperiorStandardVersion">
+						<xsl:comment>SuperiorStandardVersion</xsl:comment>
+						<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_SuperiorStandardVersion</Reference>
+					</xsl:if>
 					<xsl:comment>InstanceHierarchy</xsl:comment>
 					<xsl:if test="//InstanceHierarchy">
 						<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InstanceHierarchies</Reference>
@@ -260,13 +272,33 @@
 						<Reference ReferenceType="HasProperty">
 							<xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/>
 						</Reference>
-					</xsl:for-each>
+					</xsl:for-each>					
 					<xsl:comment>TODO: is this correct? (AutomationMLFiles)</xsl:comment>
+					<xsl:comment>TODO: Wie soll das hier aussehen? Einzelne Unter-Properties oder Gesamt-SourceDocumentInformation Element?</xsl:comment>
+					<xsl:for-each select="SourceDocumentInformation">
+						<xsl:variable name="AttributeName">
+							<!--xsl:choose>
+								<xsl:when test="name(*[1])!=''"><xsl:value-of select="name(*[1])"/></xsl:when>
+								<xsl:when test="name(@*[1])!=''"><xsl:value-of select="name(@*[1])"/></xsl:when>
+								<xsl:otherwise>AdditionalInformation</xsl:otherwise>
+							</xsl:choose-->
+							<xsl:text>SourceDocumentInformation</xsl:text>
+						</xsl:variable>
+						<xsl:comment>
+							<xsl:value-of select="concat('SourceDocumentInformation: ', $AttributeName)"/>
+						</xsl:comment>
+						<Reference ReferenceType="HasProperty">
+							<xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/>
+						</Reference>
+					</xsl:for-each>
+										
 					<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
 				</References>
 			</UAObject>
 			<xsl:apply-templates select="@FileName"/>
 			<xsl:apply-templates select="@SchemaVersion"/>
+			<xsl:apply-templates select="SuperiorStandardVersion"/>
+
 			<xsl:comment>
 			AdditionalInformation
 			===============
@@ -278,6 +310,7 @@
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			</xsl:comment>
 			<xsl:apply-templates select="node()[local-name()='AdditionalInformation']"/>
+			<xsl:apply-templates select="node()[local-name()='SourceDocumentInformation']"/>
 			<xsl:comment>
 			InstanceHierarchies
 			===============
@@ -457,6 +490,22 @@
 			</xsl:with-param>
 		</xsl:call-template>
 	</xsl:template>
+	<xsl:template match="SuperiorStandardVersion">
+		<xsl:variable name="Namespace">
+			<xsl:call-template name="GetNamespace"/>
+		</xsl:variable>
+		<!-- Create SuperiorStandardVersion property -->
+		<xsl:call-template name="StringAttributeVariable">
+			<xsl:with-param name="ObjectName" select="'CAEXFile'"/>
+			<xsl:with-param name="ParentId" select="'CAEXFile'"/>
+			<xsl:with-param name="ParentIdType" select="'s'"/>
+			<xsl:with-param name="Namespace" select="concat('ns=', $Namespace)"/>
+			<xsl:with-param name="AttributeName" select="'SuperiorStandardVersion'"/>
+			<xsl:with-param name="AttributeValue">
+				<xsl:value-of select="."/>
+			</xsl:with-param>
+		</xsl:call-template>
+	</xsl:template>
 	<xsl:template match="@ID">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
@@ -546,6 +595,19 @@
 			<xsl:with-param name="ParentIdType" select="'g'"/>
 			<xsl:with-param name="Namespace" select="'ns=2'"/>
 			<xsl:with-param name="AttributeName" select="concat('AdditionalInformation_', position())"/>
+			<xsl:with-param name="AttributeValue">
+				<xsl:copy-of select="."/>
+			</xsl:with-param>
+		</xsl:call-template>
+	</xsl:template>
+	<!--Hier müsste umgestellt werden auf das nächste Template von AdditionalInformation, in dem die einzelnen Elemente ausgelesen werden und nicht nur alles als ein Block-->
+	<xsl:template match="SourceDocumentInformation">
+		<xsl:call-template name="StringAttributeVariable">
+			<xsl:with-param name="ObjectName" select="../@Name"/>
+			<xsl:with-param name="ParentId" select="'CAEXFile'"/>
+			<xsl:with-param name="ParentIdType" select="'s'"/>
+			<xsl:with-param name="Namespace" select="'ns=2'"/>
+			<xsl:with-param name="AttributeName" select="'SourceDocumentInformation'"/>
 			<xsl:with-param name="AttributeValue">
 				<xsl:copy-of select="."/>
 			</xsl:with-param>
