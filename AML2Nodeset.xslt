@@ -33,7 +33,10 @@
 	<!--xsl:template match="*[local-name()='cleanCAEXFile']">
 <Test2></Test2>
 </xsl:template-->
+
+
 	<xsl:template name="cleanUp1">
+	
 		<xsl:param name="input"/>
 		<xsl:for-each select="$input/@*">
 			<xsl:attribute name="{local-name()}">
@@ -70,17 +73,18 @@
 		<NamespaceUris>
 			<Uri>http://opcfoundation.org/UA/AML/</Uri>
 			<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
-			<xsl:for-each select="//InterfaceClassLib">
+			
+			<xsl:for-each select="*[local-name()='CAEXFile']/*[local-name()='InterfaceClassLib']">
 				<Uri>
 					<xsl:value-of select="concat('http://opcfoundation.org/UA/AML/', @Name)"/>
 				</Uri>
 			</xsl:for-each>
-			<xsl:for-each select="//RoleClassLib">
+			<xsl:for-each select="*[local-name()='CAEXFile']/*[local-name()='RoleClassLib']">
 				<Uri>
 					<xsl:value-of select="concat('http://opcfoundation.org/UA/AML/', @Name)"/>
 				</Uri>
 			</xsl:for-each>
-			<xsl:for-each select="//SystemUnitClassLib">
+			<xsl:for-each select="*[local-name()='CAEXFile']/*[local-name()='SystemUnitClassLib']">
 				<Uri>
 					<xsl:value-of select="concat('http://opcfoundation.org/UA/AML/', @Name)"/>
 				</Uri>
@@ -144,7 +148,11 @@
 	.........................................................................-->
 	<xsl:template match="cleanCAEXFile">
 		<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
-			<xsl:comment>
+<xsl:comment>
+			Documentation
+			===============
+			Due to different supported CAEX versions (2.15, 3.0), the CAEXFile node is first copied into cleanCAEXFile. The XSLT itself does not rely on the XML schema. This is also the reason to search for local names and not directly for the elements based on an XML schema. 
+
 			UANodeSet
 			=============
 			TODOs:

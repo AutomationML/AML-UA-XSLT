@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" 
+<!--xsl:stylesheet version="2.0" 
 		xmlns:fn="http://www.w3.org/2005/xpath-functions"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
@@ -7,9 +7,15 @@
 		xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" 
 		exclude-result-prefixes="#default xsi xsl exslt fn"
 		xmlns:exslt="http://exslt.org/common">
+	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/-->
 
 		
+		<xsl:stylesheet version="2.0" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes=" xsl exslt fn" xmlns:exslt="http://exslt.org/common">
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+<!--<xsl:function name="exslt:node-set">
+		<xsl:param name="rtf"/>
+		<xsl:sequence select="$rtf"/>
+	</xsl:function>-->
 
 	<xsl:variable name="DataTypes">
 		<DataType OPC="String" AML="xs:string" />
