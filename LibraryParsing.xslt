@@ -144,12 +144,11 @@
 		<xsl:variable name="Namespace">
 			<xsl:choose>
 				<xsl:when test="local-name(.)='InterfaceClassLib' or local-name(.)='RoleClassLib' or local-name(.)='SystemUnitClassLib'">
-					<xsl:value-of select="@Name"/>
+					<xsl:value-of select="@Name"/><xsl:value-of select="local-name(.)"/>
 				</xsl:when>
 <!--HIER wird das Kindelement nicht gefunden-->
 				<xsl:when test="ancestor::*[local-name(.)='InterfaceClassLib'][1]">
 					<xsl:value-of select="ancestor::*[local-name(.)='InterfaceClassLib'][1]/@Name"/>
-					
 				</xsl:when>
 				<xsl:when test="ancestor::RoleClassLib[1]">
 					<xsl:value-of select="ancestor::RoleClassLib[1]/@Name"/>
@@ -157,12 +156,12 @@
 				<xsl:when test="ancestor::SystemUnitClassLib[1]">
 					<xsl:value-of select="ancestor::SystemUnitClassLib[1]/@Name"/>
 				</xsl:when>
-
 				<xsl:otherwise>
 					<xsl:value-of select="'MyInstances'"/>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
+		
 		<xsl:call-template name="GetNamespaceIdByName">
 			<xsl:with-param name="Namespace" select="$Namespace"/>
 		</xsl:call-template>

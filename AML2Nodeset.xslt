@@ -36,20 +36,24 @@
 
 
 	<xsl:template name="cleanUp1">
-	
+		<!--Hier cleanup 2, um alle Elemente mitzunehmen, nicht nur Kindobjekte/-attribute-->
 		<xsl:param name="input"/>
+			<xsl:call-template name="cleanUp2">
+				<xsl:with-param name="input" select="@*"/>
+			</xsl:call-template>
+		<!--das hier nicht mehr, statt dessen cleanup2
 		<xsl:for-each select="$input/@*">
 			<xsl:attribute name="{local-name()}">
 				<xsl:value-of select="."/>
 			</xsl:attribute>
-		</xsl:for-each>
+		</xsl:for-each>-->
 		<xsl:for-each select="$input/*">
 			<xsl:element name="{local-name()}">
-				<xsl:call-template name="cleanUp2">
+				<!--xsl:call-template name="cleanUp2">
 					<xsl:with-param name="input" select="@*"/>
-				</xsl:call-template>
+				</xsl:call-template-->
 				<xsl:call-template name="cleanUp1">
-					<xsl:with-param name="input" select="*"/>
+					<xsl:with-param name="input" select="."/>
 				</xsl:call-template>
 			</xsl:element>
 		</xsl:for-each>
