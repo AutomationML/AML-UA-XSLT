@@ -12,9 +12,11 @@
 		<xsl:sequence select="$suffix = substring($target, string-length($target) - string-length($suffix) + 1)"/>
 	</xsl:function-->
 	<xsl:template match="@*|node()[not(self::*)]">
-		<!--xsl:copy/-->
 		<xsl:apply-templates select="node()|@*"/>
 		<xsl:value-of select="."/>
+	</xsl:template>
+	<xsl:template match="@ChangeMode">
+	  <xsl:comment>ChangeMode will be ignored due to error</xsl:comment>
 	</xsl:template>
 	<xsl:template match="*[local-name()='CAEXFile']/@*"></xsl:template>
 	<xsl:template match="*[local-name()='CAEXFile']">
@@ -36,10 +38,11 @@
 
 
 	<xsl:template name="cleanUp1">
+	<!--HIER: Attribute von InterfaceClass werden nicht ordentlich mitgenommen, evtl. Fehler im Cleanup2 oder beim template der Attributes mit XML-Attributen-->
 		<!--Hier cleanup 2, um alle Elemente mitzunehmen, nicht nur Kindobjekte/-attribute-->
 		<xsl:param name="input"/>
-			<xsl:call-template name="cleanUp2">
-				<xsl:with-param name="input" select="@*"/>
+		<xsl:call-template name="cleanUp2">
+			<xsl:with-param name="input" select="@*"/>
 			</xsl:call-template>
 		<!--das hier nicht mehr, statt dessen cleanup2
 		<xsl:for-each select="$input/@*">
@@ -60,12 +63,13 @@
 	</xsl:template>
 	<xsl:template name="cleanUp2">
 		<xsl:param name="input"/>
-		<xsl:for-each select="@*">
+		<TestCleanUp2><xsl:copy-of select="$input"/></TestCleanUp2>
+		<xsl:for-each select="$input/@*">
 			<xsl:attribute name="{local-name()}">
 				<xsl:value-of select="."/>
 			</xsl:attribute>
 		</xsl:for-each>
-		<xsl:value-of select="text()"/>
+		<!--xsl:value-of select="$input/text()"/-->
 	</xsl:template>
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
