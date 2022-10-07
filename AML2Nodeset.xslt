@@ -11,14 +11,34 @@
 		<xsl:param name="suffix"/>
 		<xsl:sequence select="$suffix = substring($target, string-length($target) - string-length($suffix) + 1)"/>
 	</xsl:function-->
+	
+	<!--ToDo: delete namespace for all elements-->
+	<xsl:template match="*">
+		<xsl:element name="{local-name()}">
+			<xsl:apply-templates select="@* | node()"/>
+		</xsl:element>
+	</xsl:template>
+	<!--ToDo: delete namespace for all attributes-->
+	<xsl:template match="@*">
+		<xsl:attribute name="{local-name()}">
+			<xsl:value-of select="."/>
+		</xsl:attribute>
+	</xsl:template>
+	<!--ToDo: delete namespace for all other elements-->
+	<xsl:template match="comment() | text() | processing-instruction()">
+		<xsl:copy/>
+	</xsl:template>
+	
+	<!--ToDo check with 3 instructions above-->
 	<xsl:template match="@*|node()[not(self::*)]">
 		<xsl:apply-templates select="node()|@*"/>
+		<!--take everything which could not be mapped in original state-->
 		<xsl:value-of select="."/>
 	</xsl:template>
-	<xsl:template match="@ChangeMode">
-	  <xsl:comment>ChangeMode will be ignored due to error</xsl:comment>
-	</xsl:template>
-	<xsl:template match="*[local-name()='CAEXFile']/@*"></xsl:template>
+	
+	
+	<!--ToDo: check all things concerning localName-->
+	<xsl:template match="*[local-name()='CAEXFile']/@*"/>
 	<xsl:template match="*[local-name()='CAEXFile']">
 		<xsl:variable name="clean">
 			<xsl:element name="cleanCAEXFile">
@@ -29,28 +49,21 @@
 		</xsl:variable>
 		<xsl:apply-templates select="$clean/*"/>
 		<xsl:copy-of select="$clean"/>
-
-
 	</xsl:template>
-	<!--xsl:template match="*[local-name()='cleanCAEXFile']">
-<Test2></Test2>
-</xsl:template-->
-
-
 	<xsl:template name="cleanUp1">
-	<!--HIER: Attribute von InterfaceClass werden nicht ordentlich mitgenommen, evtl. Fehler im Cleanup2 oder beim template der Attributes mit XML-Attributen-->
+		<!--HIER: Attribute von InterfaceClass werden nicht ordentlich mitgenommen, evtl. Fehler im Cleanup2 oder beim template der Attributes mit XML-Attributen-->
 		<!--Hier cleanup 2, um alle Elemente mitzunehmen, nicht nur Kindobjekte/-attribute-->
 		<xsl:param name="input"/>
 		<xsl:call-template name="cleanUp2">
 			<xsl:with-param name="input" select="@*"/>
-			</xsl:call-template>
+		</xsl:call-template>
 		<!--das hier nicht mehr, statt dessen cleanup2
 		<xsl:for-each select="$input/@*">
 			<xsl:attribute name="{local-name()}">
 				<xsl:value-of select="."/>
 			</xsl:attribute>
 		</xsl:for-each>-->
-		<xsl:for-each select="$input/*">
+		<xsl:for-each select="*">
 			<xsl:element name="{local-name()}">
 				<!--xsl:call-template name="cleanUp2">
 					<xsl:with-param name="input" select="@*"/>
@@ -63,14 +76,18 @@
 	</xsl:template>
 	<xsl:template name="cleanUp2">
 		<xsl:param name="input"/>
-		<TestCleanUp2><xsl:copy-of select="$input"/></TestCleanUp2>
-		<xsl:for-each select="$input/@*">
+		<xsl:for-each select="@*">
 			<xsl:attribute name="{local-name()}">
 				<xsl:value-of select="."/>
 			</xsl:attribute>
 		</xsl:for-each>
-		<!--xsl:value-of select="$input/text()"/-->
 	</xsl:template>
+	
+	<!--ToDo: ignore ChangeMode=state-->
+	<xsl:template match="@*[local-name()='ChangeMode']">
+		<xsl:comment>ChangeMode will be ignored due to error</xsl:comment>
+	</xsl:template>
+	
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
 	<xsl:include href="DatatypeTranslation.xslt"/>
@@ -81,7 +98,6 @@
 		<NamespaceUris>
 			<Uri>http://opcfoundation.org/UA/AML/</Uri>
 			<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
-			
 			<xsl:for-each select="*[local-name()='CAEXFile']/*[local-name()='InterfaceClassLib']">
 				<Uri>
 					<xsl:value-of select="concat('http://opcfoundation.org/UA/AML/', @Name)"/>
@@ -156,7 +172,7 @@
 	.........................................................................-->
 	<xsl:template match="cleanCAEXFile">
 		<UANodeSet xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd">
-<xsl:comment>
+			<xsl:comment>
 			Documentation
 			===============
 			Due to different supported CAEX versions (2.15, 3.0), the CAEXFile node is first copied into cleanCAEXFile. The XSLT itself does not rely on the XML schema. This is also the reason to search for local names and not directly for the elements based on an XML schema. 
@@ -288,7 +304,7 @@
 						<Reference ReferenceType="HasProperty">
 							<xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/>
 						</Reference>
-					</xsl:for-each>					
+					</xsl:for-each>
 					<xsl:comment>TODO: is this correct? (AutomationMLFiles)</xsl:comment>
 					<xsl:comment>TODO: Wie soll das hier aussehen? Einzelne Unter-Properties oder Gesamt-SourceDocumentInformation Element?</xsl:comment>
 					<xsl:for-each select="SourceDocumentInformation">
@@ -307,14 +323,12 @@
 							<xsl:value-of select="concat('ns=2;s=CAEXFile_', $AttributeName)"/>
 						</Reference>
 					</xsl:for-each>
-										
 					<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
 				</References>
 			</UAObject>
 			<xsl:apply-templates select="@FileName"/>
 			<xsl:apply-templates select="@SchemaVersion"/>
 			<xsl:apply-templates select="SuperiorStandardVersion"/>
-
 			<xsl:comment>
 			AdditionalInformation
 			===============
@@ -433,6 +447,7 @@
 			<xsl:attribute name="NodeId">
 				<!--xsl:value-of select="concat($Namespace, ';s=', $ParentId, '_', $AttributeName)"/-->
 				<xsl:choose>
+					<!--question: first when with =g or =s-->
 					<xsl:when test="$ParentIdType='g' and starts-with($ParentId, '{')">
 						<xsl:value-of select="concat($Namespace, ';s=', $ParentId, '_',$AttributeName)"/>
 					</xsl:when>
