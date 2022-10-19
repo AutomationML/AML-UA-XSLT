@@ -13,8 +13,9 @@
 	</xsl:function-->
 	
 
-
-<!--ToDo: check all things concerning localName-->
+	
+	
+	<!--ToDo: check all things concerning localName-->
 	<xsl:template match="*[local-name()='CAEXFile']/@*"/>
 	<xsl:template match="*[local-name()='CAEXFile']">
 		<xsl:variable name="clean">
@@ -59,14 +60,11 @@
 			</xsl:attribute>
 		</xsl:for-each>
 	</xsl:template>
-
-
-
-<!--ToDo: ignore ChangeMode=state-->
+	
+	<!--ToDo: ignore ChangeMode=state-->
 	<xsl:template match="@*[local-name()='ChangeMode']">
 		<xsl:comment>ChangeMode will be ignored due to error</xsl:comment>
 	</xsl:template>
-
 	
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
