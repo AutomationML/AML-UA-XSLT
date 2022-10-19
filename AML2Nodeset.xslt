@@ -12,32 +12,9 @@
 		<xsl:sequence select="$suffix = substring($target, string-length($target) - string-length($suffix) + 1)"/>
 	</xsl:function-->
 	
-	<!--ToDo: delete namespace for all elements-->
-	<xsl:template match="*">
-		<xsl:element name="{local-name()}">
-			<xsl:apply-templates select="@* | node()"/>
-		</xsl:element>
-	</xsl:template>
-	<!--ToDo: delete namespace for all attributes-->
-	<xsl:template match="@*">
-		<xsl:attribute name="{local-name()}">
-			<xsl:value-of select="."/>
-		</xsl:attribute>
-	</xsl:template>
-	<!--ToDo: delete namespace for all other elements-->
-	<xsl:template match="comment() | text() | processing-instruction()">
-		<xsl:copy/>
-	</xsl:template>
-	
-	<!--ToDo check with 3 instructions above-->
-	<xsl:template match="@*|node()[not(self::*)]">
-		<xsl:apply-templates select="node()|@*"/>
-		<!--take everything which could not be mapped in original state-->
-		<xsl:value-of select="."/>
-	</xsl:template>
-	
-	
-	<!--ToDo: check all things concerning localName-->
+
+
+<!--ToDo: check all things concerning localName-->
 	<xsl:template match="*[local-name()='CAEXFile']/@*"/>
 	<xsl:template match="*[local-name()='CAEXFile']">
 		<xsl:variable name="clean">
@@ -82,11 +59,14 @@
 			</xsl:attribute>
 		</xsl:for-each>
 	</xsl:template>
-	
-	<!--ToDo: ignore ChangeMode=state-->
+
+
+
+<!--ToDo: ignore ChangeMode=state-->
 	<xsl:template match="@*[local-name()='ChangeMode']">
 		<xsl:comment>ChangeMode will be ignored due to error</xsl:comment>
 	</xsl:template>
+
 	
 	<!-- Parsing of SystemUnitClassLib, InterfaceClassLib, RoleClassLib-->
 	<xsl:include href="LibraryParsing.xslt"/>
