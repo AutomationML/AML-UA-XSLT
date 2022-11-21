@@ -133,7 +133,6 @@
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
-		<HERE1>test</HERE1>
 
 		<UAObjectType>
 			<xsl:attribute name="NodeId"><xsl:value-of select="concat('ns=', $Namespace, ';s=', @Name)"/></xsl:attribute>
@@ -146,10 +145,8 @@
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
-		<HERE2>test</HERE2>
 
 		<xsl:apply-templates select="node()|@*"/>
-		<HERE3>test</HERE3>
 	</xsl:template>
 
 	<!-- .........................................................................
