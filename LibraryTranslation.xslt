@@ -2,19 +2,21 @@
 <!--TODO: Change xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" schema here to CAEX V3-->
 
 	
-<!--xsl:stylesheet version="2.0" 
+<xsl:stylesheet version="2.0" 
 		xmlns:fn="http://www.w3.org/2005/xpath-functions"
 		xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
 		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-		xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd" 
 		exclude-result-prefixes="#default xsi xsl exslt fn"
+		xmlns:ua="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
 		xmlns:exslt="http://exslt.org/common">
-	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/-->
+	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
 
 		
-		<xsl:stylesheet version="2.0" xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes=" xsl exslt fn" xmlns:exslt="http://exslt.org/common">
-	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
+		<!--xsl:stylesheet version="2.0" 
+		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
+		xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes=" xsl exslt fn" xmlns:exslt="http://exslt.org/common">
+	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/-->
 <!--<xsl:function name="exslt:node-set">
 		<xsl:param name="rtf"/>
 		<xsl:sequence select="$rtf"/>
@@ -113,7 +115,7 @@
 	<!-- .........................................................................
 		InterfaceClassLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="InterfaceClassLib">
+	<xsl:template match="ua:InterfaceClassLib">
 		<xsl:comment>
 			InterfaceClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -127,9 +129,9 @@
 					&lt;Reference ReferenceType="HasComponent" IsForward="false"&gt;ns=2;i=345&lt;/Reference&gt; 
 		</xsl:comment>
 		<xsl:call-template name="Library"/>
-		<xsl:apply-templates select="node()"/>
+		<xsl:apply-templates select="*"/>
 	</xsl:template>	
-	<xsl:template match="//InterfaceClass">
+	<xsl:template match="//ua:InterfaceClass">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
@@ -152,7 +154,7 @@
 	<!-- .........................................................................
 		RoleClassLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="RoleClassLib">
+	<xsl:template match="ua:RoleClassLib">
 		<xsl:comment>
 			RoleClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -166,7 +168,7 @@
 		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
-	<xsl:template match="//RoleClass">
+	<xsl:template match="//ua:RoleClass">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
@@ -188,7 +190,7 @@
 	<!-- .........................................................................
 		SystemUnitClassLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="SystemUnitClassLib">
+	<xsl:template match="ua:SystemUnitClassLib">
 		<xsl:comment>
 			SystemUnitClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -204,7 +206,7 @@
 		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
-	<xsl:template match="//SystemUnitClass">
+	<xsl:template match="//ua:SystemUnitClass">
 		<xsl:variable name="Namespace">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
