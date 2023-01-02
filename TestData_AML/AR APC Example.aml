@@ -140,7 +140,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 1</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -154,7 +154,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 1</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -168,7 +168,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Input 2</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -182,7 +182,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 3.Input</Value>
+								<Value>3</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -196,7 +196,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 4^Input</Value>
+								<Value>4</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -210,7 +210,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>WcState^WcState</Value>
+								<Value>5</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -256,7 +256,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel1</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -270,7 +270,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Input2</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -298,7 +298,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Input4</Value>
+								<Value>4</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -338,7 +338,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 1</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -352,7 +352,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Output 2</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -366,7 +366,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel3.Output</Value>
+								<Value>3</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -380,7 +380,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 4^Output</Value>
+								<Value>4</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -408,7 +408,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 6</Value>
+								<Value>6</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -422,7 +422,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 7</Value>
+								<Value>7</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -436,7 +436,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 8</Value>
+								<Value>8</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -476,7 +476,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Ch. 1^Ch. 1 Al Inputs^Status^Underrange</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -490,7 +490,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 2.Value</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -504,7 +504,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Ch. 1.Ch. 1 Al Inputs.Value</Value>
+								<Value>3</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -552,7 +552,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 1</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -566,7 +566,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 3</Value>
+								<Value>3</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -580,7 +580,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 7</Value>
+								<Value>7</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -594,7 +594,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 5</Value>
+								<Value>5</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -608,7 +608,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Input2</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -622,7 +622,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 4</Value>
+								<Value>4</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -636,7 +636,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 6</Value>
+								<Value>6</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -650,7 +650,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 8</Value>
+								<Value>8</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -664,7 +664,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 9</Value>
+								<Value>9</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -678,7 +678,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 10</Value>
+								<Value>10</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -692,7 +692,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 11</Value>
+								<Value>11</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -706,7 +706,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Output4</Value>
+								<Value>4</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -720,7 +720,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 13</Value>
+								<Value>13</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -734,7 +734,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 14</Value>
+								<Value>14</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -748,7 +748,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 15</Value>
+								<Value>15</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -762,7 +762,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 16</Value>
+								<Value>16</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -831,7 +831,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 2</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -845,7 +845,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 4</Value>
+								<Value>4</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -859,7 +859,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 8</Value>
+								<Value>8</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -873,7 +873,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Module 2 (DIO)^DIO Outputs^Safety Linked Output 0</Value>
+								<Value>2</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -887,7 +887,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Module 2 (DIO).DIO Inputs.Input 0</Value>
+								<Value>1</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -901,7 +901,7 @@
 								<Value>Input</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 3</Value>
+								<Value>3</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -915,7 +915,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Module 1 (FSOE)^Outputs^FSOE^OutputChannel1</Value>
+								<Value>5</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>
@@ -929,7 +929,7 @@
 								<Value>Output</Value>
 							</Attribute>
 							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>Channel 7</Value>
+								<Value>7</Value>
 							</Attribute>
 							<Attribute Name="Length" AttributeDataType="xs:int">
 								<Value>1</Value>

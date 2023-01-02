@@ -1,12 +1,12 @@
-<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><!--
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:fn2="http://whatever" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<!--
 			Documentation
 			===============
-			Due to different supported CAEX versions (2.15, 3.0), the CAEXFile node is first copied into cleanCAEXFile. The XSLT itself does not rely on the XML schema. This is also the reason to search for local names and not directly for the elements based on an XML schema. 
+			To support both CAEX V2.15 and CAEX V3.0 we add the namespace to CAEX V2.15 before translation. 
 
 			UANodeSet
 			=============
 			TODOs:
-				- avoid duplicate AdditionalInformation
 				- Do we need aliases?? 
 					- to be clarified with UA -> Miriam
 				    - only used ones or standard template set of aliases
@@ -27,46 +27,53 @@
 				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
 				- XSL + script for generation of MD5 hash				
 				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
-			--><NamespaceUris xmlns="">
-      <Uri>http://opcfoundation.org/UA/AML/</Uri>
-      <Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
-      <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
-      <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
-      <Uri>http://opcfoundation.org/UA/AML/SystemUnitClassLib</Uri>
-   </NamespaceUris>
-   <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AMLLibs/">
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04" PublicationDate="2019-05-01T00:00:00Z"/>
-      </Model>
-   </Models>
-   <Aliases>
-      <Alias Alias="Boolean">i=1</Alias>
-      <Alias Alias="SByte">i=2</Alias>
-      <Alias Alias="Byte">i=3</Alias>
-      <Alias Alias="Int16">i=4</Alias>
-      <Alias Alias="UInt16">i=5</Alias>
-      <Alias Alias="Int32">i=6</Alias>
-      <Alias Alias="UInt32">i=7</Alias>
-      <Alias Alias="Int64">i=8</Alias>
-      <Alias Alias="UInt64">i=9</Alias>
-      <Alias Alias="Float">i=10</Alias>
-      <Alias Alias="Double">i=11</Alias>
-      <Alias Alias="DateTime">i=13</Alias>
-      <Alias Alias="String">i=12</Alias>
-      <Alias Alias="ByteString">i=15</Alias>
-      <Alias Alias="Guid">i=14</Alias>
-      <Alias Alias="XmlElement">i=16</Alias>
-      <Alias Alias="NodeId">i=17</Alias>
-      <Alias Alias="LocalizedText">i=21</Alias>
-      <Alias Alias="Structure">i=22</Alias>
-      <Alias Alias="Number">i=26</Alias>
-      <Alias Alias="Integer">i=27</Alias>
-      <Alias Alias="UInteger">i=28</Alias>
-      <Alias Alias="HasComponent">i=47</Alias>
-      <Alias Alias="HasProperty">i=46</Alias>
-      <Alias Alias="PropertyType">i=68</Alias>
-   </Aliases><!--
+				- support AttributeTypeLib (CAEX V3.0)
+			-->
+	<NamespaceUris>
+		<Uri>http://opcfoundation.org/UA/AML/</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/SystemUnitClassLib</Uri>
+	</NamespaceUris>
+	<Models>
+		<Model ModelUri="http://opcfoundation.org/UA/AMLLibs/">
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04" PublicationDate="2019-05-01T00:00:00Z"/>
+		</Model>
+	</Models>
+	<Aliases>
+		<Alias Alias="Boolean">i=1</Alias>
+		<Alias Alias="SByte">i=2</Alias>
+		<Alias Alias="Byte">i=3</Alias>
+		<Alias Alias="Int16">i=4</Alias>
+		<Alias Alias="UInt16">i=5</Alias>
+		<Alias Alias="Int32">i=6</Alias>
+		<Alias Alias="UInt32">i=7</Alias>
+		<Alias Alias="Int64">i=8</Alias>
+		<Alias Alias="UInt64">i=9</Alias>
+		<Alias Alias="Float">i=10</Alias>
+		<Alias Alias="Double">i=11</Alias>
+		<Alias Alias="DateTime">i=13</Alias>
+		<Alias Alias="String">i=12</Alias>
+		<Alias Alias="ByteString">i=15</Alias>
+		<Alias Alias="Guid">i=14</Alias>
+		<Alias Alias="XmlElement">i=16</Alias>
+		<Alias Alias="NodeId">i=17</Alias>
+		<Alias Alias="LocalizedText">i=21</Alias>
+		<Alias Alias="Structure">i=22</Alias>
+		<Alias Alias="Number">i=26</Alias>
+		<Alias Alias="Integer">i=27</Alias>
+		<Alias Alias="UInteger">i=28</Alias>
+		<Alias Alias="HasComponent">i=47</Alias>
+		<Alias Alias="HasProperty">i=46</Alias>
+		<Alias Alias="PropertyType">i=68</Alias>
+		<Alias Alias="HasTypeDefinition">TODO</Alias>
+		<Alias Alias="HasAMLInternalLink">ns=1;i=4002</Alias>
+		<Alias Alias="HasAMLRoleReference">TODO</Alias>
+		<Alias Alias="CAEXObjectType">n=1;i=1001</Alias>
+	</Aliases>
+	<!--
 			CAEXFile
 			===============
 			TODOs:
@@ -79,81 +86,79 @@
 					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
 					- Preferences: 2-1-3 or 1-2-3/2-1-3 
 					- report in AML TAC
-			--><UAObject NodeId="ns=2;s=CAEXFile" BrowseName="Test4_SUC_V2.aml">
-      <DisplayName>Test4_SUC_V2.aml</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference><!--FileName--><Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_FileName</Reference><!--SchemaVersion--><Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_SchemaVersion</Reference><!--InstanceHierarchy--><!--Libraries--><Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InterfaceClassLibs</Reference>
-         <Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_RoleClassLibs</Reference>
-         <Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference><!--AdditionalInformation: AdditionalInformation_1--><Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_AdditionalInformation_1</Reference><!--AdditionalInformation: AdditionalInformation_2--><Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_AdditionalInformation_2</Reference><!--TODO: is this correct? (AutomationMLFiles)--><!--TODO: Wie soll das hier aussehen? Einzelne Unter-Properties oder Gesamt-SourceDocumentInformation Element?--><Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
-      </References>
-   </UAObject><!--Attribute: CAEXFile.FileName--><UAVariable xmlns="" NodeId="ns=2;s=CAEXFile_FileName" BrowseName="FileName" ParentNodeId="ns=2;s=CAEXFile" DataType="String">
-      <DisplayName>FileName</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">Test4_SUC_V2.aml</String>
-      </Value>
-   </UAVariable><!--Attribute: CAEXFile.SchemaVersion--><UAVariable xmlns="" NodeId="ns=2;s=CAEXFile_SchemaVersion" BrowseName="SchemaVersion" ParentNodeId="ns=2;s=CAEXFile" DataType="String">
-      <DisplayName>SchemaVersion</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">2.15</String>
-      </Value>
-   </UAVariable><!--
+			-->
+	<UAObject NodeId="ns=2;s=CAEXFile" BrowseName="Test4_SUC_V3.aml">
+		<DisplayName>Test4_SUC_V3.aml</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">ns=1;i=1005</Reference>
+			<!--FileName-->
+			<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_FileName</Reference>
+			<!--SchemaVersion-->
+			<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_SchemaVersion</Reference>
+			<!--SuperiorStandardVersion-->
+			<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_SuperiorStandardVersion</Reference>
+			<!--InstanceHierarchy-->
+			<!--Libraries-->
+			<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_InterfaceClassLibs</Reference>
+			<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_RoleClassLibs</Reference>
+			<Reference ReferenceType="HasComponent">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference>
+			<!--TODO: is this correct? (AutomationMLFiles)-->
+			<!--TODO: Wie soll das hier aussehen? Einzelne Unter-Properties oder Gesamt-SourceDocumentInformation Element?-->
+			<!--SourceDocumentInformation: SourceDocumentInformation-->
+			<Reference ReferenceType="HasProperty">ns=2;s=CAEXFile_SourceDocumentInformation</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5006</Reference>
+		</References>
+	</UAObject>
+	<!--Attribute: CAEXFile.FileName-->
+	<UAVariable NodeId="ns=2;s=CAEXFile_FileName" BrowseName="FileName" ParentNodeId="ns=2;s=CAEXFile" DataType="String">
+		<DisplayName>FileName</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">Test4_SUC_V3.aml</String>
+		</Value>
+	</UAVariable>
+	<!--Attribute: CAEXFile.SchemaVersion-->
+	<UAVariable NodeId="ns=2;s=CAEXFile_SchemaVersion" BrowseName="SchemaVersion" ParentNodeId="ns=2;s=CAEXFile" DataType="String">
+		<DisplayName>SchemaVersion</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">3.0</String>
+		</Value>
+	</UAVariable>
+	<!--Attribute: CAEXFile.SuperiorStandardVersion-->
+	<UAVariable NodeId="ns=2;s=CAEXFile_SuperiorStandardVersion" BrowseName="SuperiorStandardVersion" ParentNodeId="ns=2;s=CAEXFile" DataType="String">
+		<DisplayName>SuperiorStandardVersion</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">AutomationML 2.10</String>
+		</Value>
+	</UAVariable>
+	<!--
 			AdditionalInformation
 			===============
 			TODOs:
- 				- How to handle multiple AdditionalInformation
-					    use first ElementName (or AttributeName) as BrowseName/ID/DisplayName
-						define specific SystemUnitClass or RoleClass						
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
-			--><!--Attribute: .AdditionalInformation_1--><UAVariable xmlns="" NodeId="ns=2;s={}_AdditionalInformation_1" BrowseName="AdditionalInformation_1" ParentNodeId="ns=2;g={}" DataType="String">
-      <DisplayName>AdditionalInformation_1</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
-            <AdditionalInformation xmlns="" AutomationMLVersion="2.0"/>
-         </String>
-      </Value>
-   </UAVariable><!--Attribute: .AdditionalInformation_2--><UAVariable xmlns="" NodeId="ns=2;s={}_AdditionalInformation_2" BrowseName="AdditionalInformation_2" ParentNodeId="ns=2;g={}" DataType="String">
-      <DisplayName>AdditionalInformation_2</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
-            <AdditionalInformation xmlns="">
-    
-  <WriterHeader>
-      
-      
-      
-      
-      
-      
-      
-      
-      
-    <WriterName>AutomationML Editor</WriterName>
-                  <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
-                  <WriterVendor>AutomationML e.V.</WriterVendor>
-                  <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-                  <WriterVersion>5.6.7.0</WriterVersion>
-                  <WriterRelease>5.6.7.0</WriterRelease>
-                  <LastWritingDateTime>2022-03-24T16:54:46.9532667</LastWritingDateTime>
-                  <WriterProjectTitle>unspecified</WriterProjectTitle>
-                  <WriterProjectID>unspecified</WriterProjectID>
-               </WriterHeader>
-            </AdditionalInformation>
-         </String>
-      </Value>
-   </UAVariable><!--
+			-->
+	<!--Attribute: .SourceDocumentInformation-->
+	<UAVariable NodeId="ns=2;s=CAEXFile_SourceDocumentInformation" BrowseName="SourceDocumentInformation" ParentNodeId="ns=2;s=CAEXFile" DataType="String">
+		<DisplayName>SourceDocumentInformation</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
+				<SourceDocumentInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="5.6.7.0" LastWritingDateTime="2022-03-24T16:48:03.9814731+01:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="5.6.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org"/>
+			</String>
+		</Value>
+	</UAVariable>
+	<!--
 			InstanceHierarchies
 			===============
 			TODOs:
@@ -162,261 +167,542 @@
 				- Do we need BackwardReferences here?
 				- Test child of AutomationMLBaseRole/UABaseObjectType
 				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
-			--><!--Collection: CAEXFile.InstanceHierarchies--><!--
+			-->
+	<!--Collection: CAEXFile.InstanceHierarchies-->
+	<!--
 			InterfaceClassLibs
 			===============
 			TODOs:
 				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
-			--><!--Collection: CAEXFile.InterfaceClassLibs--><UAObject xmlns="" NodeId="ns=2;s=CAEXFile_InterfaceClassLibs" BrowseName="InterfaceClassLibs" ParentNodeId="ns=2;s=CAEXFile">
-      <DisplayName>InterfaceClassLibs</DisplayName>
-      <References>
-         <Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference><!--InterfaceClassLib: AutomationMLInterfaceClassLib--><Reference ReferenceType="HasComponent">ns=;s=Library</Reference>
-      </References>
-   </UAObject><!--
+			-->
+	<!--Collection: CAEXFile.InterfaceClassLibs-->
+	<UAObject NodeId="ns=2;s=CAEXFile_InterfaceClassLibs" BrowseName="InterfaceClassLibs" ParentNodeId="ns=2;s=CAEXFile">
+		<DisplayName>InterfaceClassLibs</DisplayName>
+		<References>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+			<!--InterfaceClassLib: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent">ns=3;s=InterfaceClassLib1</Reference>
+		</References>
+	</UAObject>
+	<!--
 			InterfaceClassLib: AutomationMLInterfaceClassLib
 			==================================================
 			TODOs:
-				- Why are the libraries mapped as UAObject in the example file?
-				- Do we need BackwardReferences here?
 				- How to handle DefaultValues for attributes?
 				- What is the corresponding UAObjectType for AutomationMLBaseInterface?
 				- How to handle if the parent interface is not specified in the InterfaceClassLibs of the document?
-				- Why is there a Reference to RoleClassLib in the Opc.Ua.AMLLibraries.Nodeset2.xml
-					<Reference ReferenceType="HasComponent" IsForward="false">ns=2;i=345</Reference> 
-		--><UAObject xmlns="" NodeId="ns=;s=Library" Name="AutomationMLInterfaceClassLib" BrowseName="AutomationMLInterfaceClassLib">
-      <DisplayName>AutomationMLInterfaceClassLib</DisplayName>
-      <Description>Standard Automation Markup Language Interface Class Library</Description>
-      <References>
-         <Reference ReferenceType="HasProperty">ns=;s=Library_Version</Reference>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-         <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
-      </References>
-   </UAObject>Standard Automation Markup Language Interface Class Library<!--Attribute: AutomationMLInterfaceClassLib.Version--><UAVariable xmlns="" NodeId="ns=3;s=Library_Version" BrowseName="Version" ParentNodeId="ns=3;s=Library" DataType="String">
-      <DisplayName>Version</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
-            <Version xmlns="" ChangeMode="state">2.10.0</Version>
-         </String>
-      </Value>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=3;s=AutomationMLBaseInterface" BrowseName="AutomationMLBaseInterface">
-      <DisplayName>AutomationMLBaseInterface</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">TODO</Reference>
-      </References>
-   </UAObjectType>AutomationMLBaseInterfacestate<UAObjectType xmlns="" NodeId="ns=3;s=Order" BrowseName="Order">
-      <DisplayName>Order</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference><!--Attribute: Direction--><Reference ReferenceType="HasProperty">ns=3;s=Order_Direction</Reference>
-      </References>
-   </UAObjectType>OrderAutomationMLBaseInterfacestate<!--Attribute: Order.Direction--><UAVariable xmlns="" NodeId="ns=3;s=Order_Direction" BrowseName="Direction" ParentNodeId="ns=3;s=Order" DataType="String">
-      <DisplayName>Direction</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=3;s=Port" BrowseName="Port">
-      <DisplayName>Port</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference><!--Attribute: Direction--><Reference ReferenceType="HasProperty">ns=3;s=Port_Direction</Reference><!--Attribute: Cardinality--><Reference ReferenceType="HasProperty">ns=3;s=Port_Cardinality</Reference><!--Attribute: Category--><Reference ReferenceType="HasProperty">ns=3;s=Port_Category</Reference>
-      </References>
-   </UAObjectType>PortAutomationMLBaseInterfacestate<!--Attribute: Port.Direction--><UAVariable xmlns="" NodeId="ns=3;s=Port_Direction" BrowseName="Direction" ParentNodeId="ns=3;s=Port" DataType="String">
-      <DisplayName>Direction</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><!--Attribute: Port.Cardinality--><UAVariable xmlns="" NodeId="ns=3;s=Port_Cardinality" BrowseName="Cardinality" ParentNodeId="ns=3;s=Port" DataType="">
-      <DisplayName>Cardinality</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><!--Attribute: Port.Category--><UAVariable xmlns="" NodeId="ns=3;s=Port_Category" BrowseName="Category" ParentNodeId="ns=3;s=Port" DataType="String">
-      <DisplayName>Category</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=3;s=PPRConnector" BrowseName="PPRConnector">
-      <DisplayName>PPRConnector</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
-      </References>
-   </UAObjectType>PPRConnectorAutomationMLBaseInterfacestate<UAObjectType xmlns="" NodeId="ns=3;s=ExternalDataConnector" BrowseName="ExternalDataConnector">
-      <DisplayName>ExternalDataConnector</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference><!--Attribute: refURI--><Reference ReferenceType="HasProperty">ns=3;s=ExternalDataConnector_refURI</Reference>
-      </References>
-   </UAObjectType>ExternalDataConnectorAutomationMLBaseInterfacestate<!--Attribute: ExternalDataConnector.refURI--><UAVariable xmlns="" NodeId="ns=3;s=ExternalDataConnector_refURI" BrowseName="refURI" ParentNodeId="ns=3;s=ExternalDataConnector" DataType="UriString">
-      <DisplayName>refURI</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=3;s=COLLADAInterface" BrowseName="COLLADAInterface">
-      <DisplayName>COLLADAInterface</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=ExternalDataConnector</Reference>
-      </References>
-   </UAObjectType>COLLADAInterfaceExternalDataConnectorstate<UAObjectType xmlns="" NodeId="ns=3;s=PLCopenXMLInterface" BrowseName="PLCopenXMLInterface">
-      <DisplayName>PLCopenXMLInterface</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=ExternalDataConnector</Reference>
-      </References>
-   </UAObjectType>PLCopenXMLInterfaceExternalDataConnectorstate<UAObjectType xmlns="" NodeId="ns=3;s=ExternalDataReference" BrowseName="ExternalDataReference">
-      <DisplayName>ExternalDataReference</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=ExternalDataConnector</Reference><!--Attribute: MIMEType--><Reference ReferenceType="HasProperty">ns=3;s=ExternalDataReference_MIMEType</Reference>
-      </References>
-   </UAObjectType>ExternalDataReferenceExternalDataConnectorstate<!--Attribute: ExternalDataReference.MIMEType--><UAVariable xmlns="" NodeId="ns=3;s=ExternalDataReference_MIMEType" BrowseName="MIMEType" ParentNodeId="ns=3;s=ExternalDataReference" DataType="String">
-      <DisplayName>MIMEType</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=3;s=Communication" BrowseName="Communication">
-      <DisplayName>Communication</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
-      </References>
-   </UAObjectType>CommunicationAutomationMLBaseInterfacestate<UAObjectType xmlns="" NodeId="ns=3;s=SignalInterface" BrowseName="SignalInterface">
-      <DisplayName>SignalInterface</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=Communication</Reference>
-      </References>
-   </UAObjectType>SignalInterfaceCommunicationstate<!--
+				- compare to line 79ff. https://github.com/OPCFoundation/UA-Nodeset/blob/latest/AML/Opc.Ua.AMLLibraries.NodeSet2.xml
+					- why is there in InternalLink (ns=1;i=4002) to AutomationMLBaseInterface (ns=2;i=22)?
+					- why is there an additional ID attribute (ns=2;i=2)?
+		-->
+	<!--
+			Libraries:
+			===============================================
+			TODOs:
+				- is there a maximum length for NodeId?
+				- how do we handle very long lib names -> generate short name?
+		-->
+	<UAObject NodeId="ns=3;s=Library" Name="AutomationMLInterfaceClassLib" BrowseName="AutomationMLInterfaceClassLib">
+		<DisplayName>AutomationMLInterfaceClassLib</DisplayName>
+		<Description>Standard Automation Markup Language Interface Class Library</Description>
+		<References>
+			<Reference ReferenceType="HasProperty">ns=3;s=Library_Version</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+			<!--Collection of InterfaceClassLib-->
+			<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=345</Reference>
+			<!--TODO: what is the correct way to list all elements of the Lib?-->
+			<!--List of included InterfaceClass-->
+			<Reference ReferenceType="HasComponent">ns=3;s=AutomationMLBaseInterface</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=Order</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=Port</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=PPRConnector</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=ExternalDataConnector</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=COLLADAInterface</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=PLCopenXMLInterface</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=ExternalDataReference</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=Communication</Reference>
+			<Reference ReferenceType="HasComponent">ns=3;s=SignalInterface</Reference>
+		</References>
+	</UAObject>
+	<!--Attribute: AutomationMLInterfaceClassLib.Version-->
+	<UAVariable NodeId="ns=3;s=InterfaceClassLib1_Version" BrowseName="Version" ParentNodeId="ns=3;s=InterfaceClassLib1" DataType="String">
+		<DisplayName>Version</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<!--
+		***		
+		*** TODO: how to display String values?
+		*** 1. as String element with unchanged content
+		*** 2. as String element with CDATA content (current output)
+		*** 3. as ListOfExtensionObjects
+		***
+		-->
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">&lt;![CDATA[<Version xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ChangeMode="state">2.10.0</Version>]]&gt;</String>
+		</Value>
+	</UAVariable>
+	<!--InterfaceClass: AutomationMLBaseInterface-->
+	<UAObjectType NodeId="ns=3;s=AutomationMLBaseInterface" BrowseName="AutomationMLBaseInterface">
+		<DisplayName>AutomationMLBaseInterface</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">CAEXObjectType</Reference>
+		</References>
+	</UAObjectType>
+	<!--InterfaceClass: Order-->
+	<UAObjectType NodeId="ns=3;s=Order" BrowseName="Order">
+		<DisplayName>Order</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
+			<!--Attribute: Direction-->
+			<Reference ReferenceType="HasProperty">ns=3;s=Order_Direction</Reference>
+		</References>
+	</UAObjectType>
+	<!--Attribute: Order.Direction-->
+	<UAVariable NodeId="ns=3;s=Order_Direction" BrowseName="Direction" ParentNodeId="ns=3;s=Order" DataType="String">
+		<DisplayName>Direction</DisplayName>
+		<References>
+			<!--Parent: Order-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=Order</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--InterfaceClass: Port-->
+	<UAObjectType NodeId="ns=3;s=Port" BrowseName="Port">
+		<DisplayName>Port</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
+			<!--Attribute: Direction-->
+			<Reference ReferenceType="HasProperty">ns=3;s=Port_Direction</Reference>
+			<!--Attribute: Cardinality-->
+			<Reference ReferenceType="HasProperty">ns=3;s=Port_Cardinality</Reference>
+			<!--Attribute: Category-->
+			<Reference ReferenceType="HasProperty">ns=3;s=Port_Category</Reference>
+		</References>
+	</UAObjectType>
+	<!--Attribute: Port.Direction-->
+	<UAVariable NodeId="ns=3;s=Port_Direction" BrowseName="Direction" ParentNodeId="ns=3;s=Port" DataType="String">
+		<DisplayName>Direction</DisplayName>
+		<References>
+			<!--Parent: Port-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=Port</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+		<!--TODO: handle constraint AllowedValues-->
+	</UAVariable>
+	<!--Attribute: Port.Cardinality-->
+	<UAVariable NodeId="ns=3;s=Port_Cardinality" BrowseName="Cardinality" ParentNodeId="ns=3;s=Port" DataType="">
+		<DisplayName>Cardinality</DisplayName>
+		<References>
+			<!--Parent: Port-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=Port</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<!--Attribute: MinOccur-->
+			<Reference ReferenceType="HasProperty">ns=3;s=Port_Cardinality_MinOccur</Reference>
+			<!--Attribute: MaxOccur-->
+			<Reference ReferenceType="HasProperty">ns=3;s=Port_Cardinality_MaxOccur</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--Attribute: Cardinality.MinOccur-->
+	<UAVariable NodeId="ns=3;s=Port_Cardinality_MinOccur" BrowseName="MinOccur" ParentNodeId="ns=3;s=Port_Cardinality" DataType="UInt32">
+		<DisplayName>MinOccur</DisplayName>
+		<References>
+			<!--Parent: Port_Cardinality-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=Port_Cardinality</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--Attribute: Cardinality.MaxOccur-->
+	<UAVariable NodeId="ns=3;s=Port_Cardinality_MaxOccur" BrowseName="MaxOccur" ParentNodeId="ns=3;s=Port_Cardinality" DataType="UInt32">
+		<DisplayName>MaxOccur</DisplayName>
+		<References>
+			<!--Parent: Port_Cardinality-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=Port_Cardinality</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--Attribute: Port.Category-->
+	<UAVariable NodeId="ns=3;s=Port_Category" BrowseName="Category" ParentNodeId="ns=3;s=Port" DataType="String">
+		<DisplayName>Category</DisplayName>
+		<References>
+			<!--Parent: Port-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=Port</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--InterfaceClass: PPRConnector-->
+	<UAObjectType NodeId="ns=3;s=PPRConnector" BrowseName="PPRConnector">
+		<DisplayName>PPRConnector</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
+		</References>
+	</UAObjectType>
+	<!--InterfaceClass: ExternalDataConnector-->
+	<UAObjectType NodeId="ns=3;s=ExternalDataConnector" BrowseName="ExternalDataConnector">
+		<DisplayName>ExternalDataConnector</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
+			<!--Attribute: refURI-->
+			<Reference ReferenceType="HasProperty">ns=3;s=ExternalDataConnector_refURI</Reference>
+		</References>
+	</UAObjectType>
+	<!--Attribute: ExternalDataConnector.refURI-->
+	<UAVariable NodeId="ns=3;s=ExternalDataConnector_refURI" BrowseName="refURI" ParentNodeId="ns=3;s=ExternalDataConnector" DataType="UriString">
+		<DisplayName>refURI</DisplayName>
+		<References>
+			<!--Parent: ExternalDataConnector-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=ExternalDataConnector</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--InterfaceClass: COLLADAInterface-->
+	<UAObjectType NodeId="ns=3;s=COLLADAInterface" BrowseName="COLLADAInterface">
+		<DisplayName>COLLADAInterface</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=ExternalDataConnector</Reference>
+		</References>
+	</UAObjectType>
+	<!--InterfaceClass: PLCopenXMLInterface-->
+	<UAObjectType NodeId="ns=3;s=PLCopenXMLInterface" BrowseName="PLCopenXMLInterface">
+		<DisplayName>PLCopenXMLInterface</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=ExternalDataConnector</Reference>
+		</References>
+	</UAObjectType>
+	<!--InterfaceClass: ExternalDataReference-->
+	<UAObjectType NodeId="ns=3;s=ExternalDataReference" BrowseName="ExternalDataReference">
+		<DisplayName>ExternalDataReference</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=ExternalDataConnector</Reference>
+			<!--Attribute: MIMEType-->
+			<Reference ReferenceType="HasProperty">ns=3;s=ExternalDataReference_MIMEType</Reference>
+		</References>
+	</UAObjectType>
+	<!--Attribute: ExternalDataReference.MIMEType-->
+	<UAVariable NodeId="ns=3;s=ExternalDataReference_MIMEType" BrowseName="MIMEType" ParentNodeId="ns=3;s=ExternalDataReference" DataType="String">
+		<DisplayName>MIMEType</DisplayName>
+		<References>
+			<!--Parent: ExternalDataReference-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=3;s=ExternalDataReference</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--InterfaceClass: Communication-->
+	<UAObjectType NodeId="ns=3;s=Communication" BrowseName="Communication">
+		<DisplayName>Communication</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=AutomationMLBaseInterface</Reference>
+		</References>
+	</UAObjectType>
+	<!--InterfaceClass: SignalInterface-->
+	<UAObjectType NodeId="ns=3;s=SignalInterface" BrowseName="SignalInterface">
+		<DisplayName>SignalInterface</DisplayName>
+		<References>
+			<!--Library: AutomationMLInterfaceClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=3;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=3;s=Communication</Reference>
+		</References>
+	</UAObjectType>
+	<!--
 			RoleClassLibs
 			===============
 			TODOs:
 				- ...
-			--><!--Collection: CAEXFile.RoleClassLibs--><UAObject xmlns="" NodeId="ns=2;s=CAEXFile_RoleClassLibs" BrowseName="RoleClassLibs" ParentNodeId="ns=2;s=CAEXFile">
-      <DisplayName>RoleClassLibs</DisplayName>
-      <References>
-         <Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference><!--RoleClassLib: AutomationMLBaseRoleClassLib--><Reference ReferenceType="HasComponent">ns=;s=Library</Reference>
-      </References>
-   </UAObject><!--
+			-->
+	<!--Collection: CAEXFile.RoleClassLibs-->
+	<UAObject NodeId="ns=2;s=CAEXFile_RoleClassLibs" BrowseName="RoleClassLibs" ParentNodeId="ns=2;s=CAEXFile">
+		<DisplayName>RoleClassLibs</DisplayName>
+		<References>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+			<!--RoleClassLib: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent">ns=4;s=RoleClassLib1</Reference>
+		</References>
+	</UAObject>
+	<!--
 			RoleClassLib: AutomationMLBaseRoleClassLib
 			==================================================
 			TODOs:
-				- We need an example with ClassInClass definition
-				- Do we need BackwardReferences here?
-				- Why are this Objects in the example file?
 				- What was the correct translation for an RoleClass?
 				- Why is the lib modelled as UAObject?
-		--><UAObject xmlns="" NodeId="ns=;s=Library" Name="AutomationMLBaseRoleClassLib" BrowseName="AutomationMLBaseRoleClassLib">
-      <DisplayName>AutomationMLBaseRoleClassLib</DisplayName>
-      <Description>Automation Markup Language base role class library</Description>
-      <References>
-         <Reference ReferenceType="HasProperty">ns=;s=Library_Version</Reference>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-         <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
-      </References>
-   </UAObject>Automation Markup Language base role class library<!--Attribute: AutomationMLBaseRoleClassLib.Version--><UAVariable xmlns="" NodeId="ns=4;s=Library_Version" BrowseName="Version" ParentNodeId="ns=4;s=Library" DataType="String">
-      <DisplayName>Version</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
-            <Version xmlns="" ChangeMode="state">2.10.0</Version>
-         </String>
-      </Value>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=4;s=AutomationMLBaseRole" BrowseName="AutomationMLBaseRole">
-      <DisplayName>AutomationMLBaseRole</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">TODO</Reference>
-      </References>
-   </UAObjectType>AutomationMLBaseRolestate<UAObjectType xmlns="" NodeId="ns=4;s=Group" BrowseName="Group">
-      <DisplayName>Group</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference><!--Attribute: AssociatedFacet--><Reference ReferenceType="HasProperty">ns=4;s=Group_AssociatedFacet</Reference>
-      </References>
-   </UAObjectType>GroupAutomationMLBaseRolestate<!--Attribute: Group.AssociatedFacet--><UAVariable xmlns="" NodeId="ns=4;s=Group_AssociatedFacet" BrowseName="AssociatedFacet" ParentNodeId="ns=4;s=Group" DataType="String">
-      <DisplayName>AssociatedFacet</DisplayName><!--TODO: correct TypeDefinition--><References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value/>
-   </UAVariable><UAObjectType xmlns="" NodeId="ns=4;s=Facet" BrowseName="Facet">
-      <DisplayName>Facet</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
-      </References>
-   </UAObjectType>FacetAutomationMLBaseRolestate<UAObjectType xmlns="" NodeId="ns=4;s=Resource" BrowseName="Resource">
-      <DisplayName>Resource</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
-      </References>
-   </UAObjectType>ResourceAutomationMLBaseRolestate<UAObjectType xmlns="" NodeId="ns=4;s=Product" BrowseName="Product">
-      <DisplayName>Product</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
-      </References>
-   </UAObjectType>ProductAutomationMLBaseRolestate<UAObjectType xmlns="" NodeId="ns=4;s=Process" BrowseName="Process">
-      <DisplayName>Process</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
-      </References>
-   </UAObjectType>ProcessAutomationMLBaseRolestate<UAObjectType xmlns="" NodeId="ns=4;s=Structure" BrowseName="Structure">
-      <DisplayName>Structure</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
-      </References>
-   </UAObjectType>StructureAutomationMLBaseRolestate<UAObjectType xmlns="" NodeId="ns=4;s=ProductStructure" BrowseName="ProductStructure">
-      <DisplayName>ProductStructure</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=Structure</Reference>
-      </References>
-   </UAObjectType>ProductStructureStructurestate<UAObjectType xmlns="" NodeId="ns=4;s=ProcessStructure" BrowseName="ProcessStructure">
-      <DisplayName>ProcessStructure</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=Structure</Reference>
-      </References>
-   </UAObjectType>ProcessStructureStructurestate<UAObjectType xmlns="" NodeId="ns=4;s=ResourceStructure" BrowseName="ResourceStructure">
-      <DisplayName>ResourceStructure</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=Structure</Reference>
-      </References>
-   </UAObjectType>ResourceStructureStructurestate<UAObjectType xmlns="" NodeId="ns=4;s=ExternalData" BrowseName="ExternalData">
-      <DisplayName>ExternalData</DisplayName>
-      <References>
-         <Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
-      </References>
-   </UAObjectType>ExternalDataAutomationMLBaseRolestate<!--
+		-->
+	<!--
+			Libraries:
+			===============================================
+			TODOs:
+				- is there a maximum length for NodeId?
+				- how do we handle very long lib names -> generate short name?
+		-->
+	<UAObject NodeId="ns=4;s=Library" Name="AutomationMLBaseRoleClassLib" BrowseName="AutomationMLBaseRoleClassLib">
+		<DisplayName>AutomationMLBaseRoleClassLib</DisplayName>
+		<Description>Automation Markup Language base role class library</Description>
+		<References>
+			<Reference ReferenceType="HasProperty">ns=4;s=Library_Version</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+			<!--Collection of RoleClassLib-->
+			<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5009</Reference>
+			<!--TODO: das macht so keinen Sinn (ns=1;i=344 -> RoleClassLibs). Vielmehr müsste diese Rückwärtsrefernz an den einzelnen Libs hängen-->
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=344</Reference>
+			<!--TODO: what is the correct way to list all elements of the Lib?-->
+			<!--List of included RoleClass-->
+			<Reference ReferenceType="HasComponent">ns=4;s=AutomationMLBaseRole</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=Group</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=Facet</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=Resource</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=Product</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=Process</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=Structure</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=ProductStructure</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=ProcessStructure</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=ResourceStructure</Reference>
+			<Reference ReferenceType="HasComponent">ns=4;s=ExternalData</Reference>
+		</References>
+	</UAObject>
+	<!--Attribute: AutomationMLBaseRoleClassLib.Version-->
+	<UAVariable NodeId="ns=4;s=RoleClassLib1_Version" BrowseName="Version" ParentNodeId="ns=4;s=RoleClassLib1" DataType="String">
+		<DisplayName>Version</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<!--
+		***		
+		*** TODO: how to display String values?
+		*** 1. as String element with unchanged content
+		*** 2. as String element with CDATA content (current output)
+		*** 3. as ListOfExtensionObjects
+		***
+		-->
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">&lt;![CDATA[<Version xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ChangeMode="state">2.10.0</Version>]]&gt;</String>
+		</Value>
+	</UAVariable>
+	<!--RoleClass: AutomationMLBaseRole-->
+	<UAObjectType NodeId="ns=4;s=AutomationMLBaseRole" BrowseName="AutomationMLBaseRole">
+		<DisplayName>AutomationMLBaseRole</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">CAEXObjectType</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: Group-->
+	<UAObjectType NodeId="ns=4;s=Group" BrowseName="Group">
+		<DisplayName>Group</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+			<!--Attribute: AssociatedFacet-->
+			<Reference ReferenceType="HasProperty">ns=4;s=Group_AssociatedFacet</Reference>
+		</References>
+	</UAObjectType>
+	<!--Attribute: Group.AssociatedFacet-->
+	<UAVariable NodeId="ns=4;s=Group_AssociatedFacet" BrowseName="AssociatedFacet" ParentNodeId="ns=4;s=Group" DataType="String">
+		<DisplayName>AssociatedFacet</DisplayName>
+		<References>
+			<!--Parent: Group-->
+			<Reference ReferenceType="HasProperty" IsForward="False">ns=4;s=Group</Reference>
+			<!--HasTypeDefinition: Property Type-->
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value/>
+	</UAVariable>
+	<!--RoleClass: Facet-->
+	<UAObjectType NodeId="ns=4;s=Facet" BrowseName="Facet">
+		<DisplayName>Facet</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: Resource-->
+	<UAObjectType NodeId="ns=4;s=Resource" BrowseName="Resource">
+		<DisplayName>Resource</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: Product-->
+	<UAObjectType NodeId="ns=4;s=Product" BrowseName="Product">
+		<DisplayName>Product</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: Process-->
+	<UAObjectType NodeId="ns=4;s=Process" BrowseName="Process">
+		<DisplayName>Process</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: Structure-->
+	<UAObjectType NodeId="ns=4;s=Structure" BrowseName="Structure">
+		<DisplayName>Structure</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: ProductStructure-->
+	<UAObjectType NodeId="ns=4;s=ProductStructure" BrowseName="ProductStructure">
+		<DisplayName>ProductStructure</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=Structure</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: ProcessStructure-->
+	<UAObjectType NodeId="ns=4;s=ProcessStructure" BrowseName="ProcessStructure">
+		<DisplayName>ProcessStructure</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=Structure</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: ResourceStructure-->
+	<UAObjectType NodeId="ns=4;s=ResourceStructure" BrowseName="ResourceStructure">
+		<DisplayName>ResourceStructure</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=Structure</Reference>
+		</References>
+	</UAObjectType>
+	<!--RoleClass: ExternalData-->
+	<UAObjectType NodeId="ns=4;s=ExternalData" BrowseName="ExternalData">
+		<DisplayName>ExternalData</DisplayName>
+		<References>
+			<!--Library: AutomationMLBaseRoleClassLib-->
+			<Reference ReferenceType="HasComponent" IsFoward="False">ns=4;s=Library</Reference>
+			<!--Parent class-->
+			<Reference ReferenceType="HasSubType" IsForward="False">ns=4;s=AutomationMLBaseRole</Reference>
+		</References>
+	</UAObjectType>
+	<!--
 			SystemUnitClassLibs
 			===============
 			TODOs:
 				- check all inner elements, e.g. attributes, etc.
-			--><!--Collection: CAEXFile.SystemUnitClassLibs--><UAObject xmlns="" NodeId="ns=2;s=CAEXFile_SystemUnitClassLibs" BrowseName="SystemUnitClassLibs" ParentNodeId="ns=2;s=CAEXFile">
-      <DisplayName>SystemUnitClassLibs</DisplayName>
-      <References>
-         <Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference><!--SystemUnitClassLib: SystemUnitClassLib--><Reference ReferenceType="HasComponent">ns=;s=Library</Reference>
-      </References>
-   </UAObject><!--
+			-->
+	<!--Collection: CAEXFile.SystemUnitClassLibs-->
+	<UAObject NodeId="ns=2;s=CAEXFile_SystemUnitClassLibs" BrowseName="SystemUnitClassLibs" ParentNodeId="ns=2;s=CAEXFile">
+		<DisplayName>SystemUnitClassLibs</DisplayName>
+		<References>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+			<!--SystemUnitClassLib: SystemUnitClassLib-->
+			<Reference ReferenceType="HasComponent">ns=5;s=SystemUnitClassLib1</Reference>
+		</References>
+	</UAObject>
+	<!--
 			SystemUnitClassLib: SystemUnitClassLib
 			==================================================
 			TODOs:
-				- We need an example with ClassInClass definition.
-				- We need an inheritance example.
-				- We need an example with multiple SystemUnitClassLibs and cross references.
-				- Do we need BackwardReferences here?
-				- Why are this Objects in the example file?
 				- What was the correct translation for a SystemUnitClass?
 				- Why is the lib modelled as UAObject?
-		--><UAObject xmlns="" NodeId="ns=;s=Library" Name="SystemUnitClassLib" BrowseName="SystemUnitClassLib">
-      <DisplayName>SystemUnitClassLib</DisplayName>
-      <References>
-         <Reference ReferenceType="HasProperty">ns=;s=Library_Version</Reference>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-         <Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
-      </References>
-   </UAObject><!--Attribute: SystemUnitClassLib.Version--><UAVariable xmlns="" NodeId="ns=5;s=Library_Version" BrowseName="Version" ParentNodeId="ns=5;s=Library" DataType="String">
-      <DisplayName>Version</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=68</Reference>
-      </References>
-      <Value>
-         <String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">
-            <Version xmlns="" ChangeMode="state">0</Version>
-         </String>
-      </Value>
-   </UAVariable></UANodeSet>
+		-->
+	<!--
+			Libraries:
+			===============================================
+			TODOs:
+				- is there a maximum length for NodeId?
+				- how do we handle very long lib names -> generate short name?
+		-->
+	<UAObject NodeId="ns=5;s=Library" Name="SystemUnitClassLib" BrowseName="SystemUnitClassLib">
+		<DisplayName>SystemUnitClassLib</DisplayName>
+		<References>
+			<Reference ReferenceType="HasProperty">ns=5;s=Library_Version</Reference>
+			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+			<!--Collection of SystemUnitClassLib-->
+			<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5010</Reference>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=343</Reference>
+			<!--TODO: what is the correct way to list all elements of the Lib?-->
+			<!--List of included SystemUnitClass-->
+		</References>
+	</UAObject>
+	<!--Attribute: SystemUnitClassLib.Version-->
+	<UAVariable NodeId="ns=5;s=SystemUnitClassLib1_Version" BrowseName="Version" ParentNodeId="ns=5;s=SystemUnitClassLib1" DataType="String">
+		<DisplayName>Version</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+		</References>
+		<Value>
+			<!--
+		***		
+		*** TODO: how to display String values?
+		*** 1. as String element with unchanged content
+		*** 2. as String element with CDATA content (current output)
+		*** 3. as ListOfExtensionObjects
+		***
+		-->
+			<String xmlns="http://opcfoundation.org/UA/2008/02/Types.xsd">&lt;![CDATA[<Version xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" ChangeMode="state">0</Version>]]&gt;</String>
+		</Value>
+	</UAVariable>
+</UANodeSet>

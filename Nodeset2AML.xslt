@@ -67,7 +67,7 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 						<xsl:for-each select="../*/ua:References/ua:Reference[text()=$NodeId]">
 							<xsl:copy>
 								<xsl:copy-of select="@*[local-name()!='IsForward']"/>
-								<xsl:if test="not(@IsForward=false())">
+								<xsl:if test="@IsForward='False' or @IsForward=false()">
 									<xsl:attribute name="IsForward" select="false()"/>
 								</xsl:if>
 								<xsl:value-of select="../../@NodeId"/>
@@ -325,6 +325,66 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 			- How to handle dublicate NodeIds? -> CAEXFile_WriterHeader -> done (not allowed)
 		</xsl:comment>
 		<CAEXFile>
+			<xsl:variable name="AMLBaseNsId">
+				<xsl:value-of select="$UANodeSet//ua:NamespaceUris/ua:Uri[text()='http://opcfoundation.org/UA/AML/']/position()"></xsl:value-of>
+			</xsl:variable>
+			<xsl:variable name="CAEXFileObject">
+				<xsl:copy-of select="//ua:UAObject//ua:Reference[@ReferenceType='HasTypeDefinition'  and text()=concat('ns=',$AMLBaseNsId,';i=1005')]/../.."/>
+			</xsl:variable> 	
+			<xsl:variable name="SuperiorStandardVersion">
+				<xsl:call-template name="GetAttributeValueByDisplayName">
+					<xsl:with-param name="Parent">
+						<xsl:copy-of select="exslt:node-set($CAEXFileObject)"/>
+					</xsl:with-param>
+					<xsl:with-param name="DisplayName" select="'SuperiorStandardVersion'"/>
+					<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
+				</xsl:call-template>
+			</xsl:variable>
+
+			<xsl:if test="$CAEXFileObject">
+				<xsl:attribute name="FileName">
+					<xsl:call-template name="GetAttributeValueByDisplayName">
+						<xsl:with-param name="Parent">
+							<xsl:copy-of select="exslt:node-set($CAEXFileObject)"/>
+						</xsl:with-param>
+						<xsl:with-param name="DisplayName" select="'FileName'"/>
+						<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
+					</xsl:call-template>
+				</xsl:attribute>
+
+				<xsl:attribute name="SchemaVersion">
+					<xsl:call-template name="GetAttributeValueByDisplayName">
+						<xsl:with-param name="Parent">
+							<xsl:copy-of select="exslt:node-set($CAEXFileObject)"/>
+						</xsl:with-param>
+						<xsl:with-param name="DisplayName" select="'SchemaVersion'"/>
+						<xsl:with-param name="ReferenceType" select="'HasProperty'"/>
+					</xsl:call-template>
+				</xsl:attribute>
+			</xsl:if>
+			<xsl:if test="$SuperiorStandardVersion!=''">
+				<SuperiorStandardVersion>
+					<xsl:value-of select="$SuperiorStandardVersion"/>
+				</SuperiorStandardVersion>
+			</xsl:if>
+			
+			<Test><xsl:copy-of select="$CAEXFileObject"/></Test>
+
+		</CAEXFile>
+	</xsl:template>
+
+	<!--xsl:template match="ua:UANodeSet">
+		<xsl:comment>
+			CAEXFile
+			=============
+			TODOs:
+			- are '{GUID}' and 'GUID' equal? -> done
+			- get correct NS id for http://opcfoundation.org/UA/AML/
+			- what is the marker for the FileName/ SchemaVersion/ etc.-> done (@BrowseName)
+			- How to handle forward and backward references? (and missing forward or backward references) -> done (generate both directions)
+			- How to handle dublicate NodeIds? -> CAEXFile_WriterHeader -> done (not allowed)
+		</xsl:comment>
+		<CAEXFile>
 			<xsl:variable name="CAEXFileObject" select="//ua:UAObject//ua:Reference[@ReferenceType='HasTypeDefinition'  and text()='ns=1;i=1005']/../.."/>
 
 			<xsl:if test="$CAEXFileObject">
@@ -376,34 +436,34 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 					<xsl:for-each select="exslt:node-set($UANodeSet)//ua:UAObject[starts-with(@NodeId, concat('ns=',$Id))]">
 						<xsl:choose>
 							<xsl:when test="ua:References/ua:Reference/@ReferenceType='Organizes'">
-								<!--ignore folder types-->
+								<ignore folder types>
 							</xsl:when>
 							<xsl:when test="@BrowseName='InterfaceClassLibs'">
-								<!--ignore folder types-->
+								<ignore folder types>
 							</xsl:when>
 							<xsl:when test="@BrowseName='RoleClassLibs'">
-								<!--ignore folder types-->
+								<ignore folder types>
 							</xsl:when>
 							<xsl:when test="@BrowseName='SystemUnitClassLibs'">
-								<!--ignore folder types-->
+								<ignore folder types>
 							</xsl:when>
 							<xsl:when test="@BrowseName='InstanceHierarchies'">
-								<!--ignore folder types-->
+								<ignore folder types>
 							</xsl:when>
-							<!-- only copy sub components if the parent is the InstanceHierarchy -->
+							< only copy sub components if the parent is the InstanceHierarchy >
 							<xsl:when test="ua:References/ua:Reference[@ReferenceType='HasComponent' and @IsForward=false()]">
 								<xsl:for-each select="ua:References/ua:Reference[@ReferenceType='HasComponent']">
 									<xsl:variable name="RefId">
 										<xsl:value-of select="."/>
 									</xsl:variable>
-									<!-- if we have a child of InstanceHierarchy then copy it -->
+									< if we have a child of InstanceHierarchy then copy it >
 									<xsl:if test="exslt:node-set($UANodeSet)//*[@NodeId=$RefId]/ua:References/ua:Reference[@ReferenceType='Organizes' and @IsForward=false() and text()='ns=1;i=5005']">
 										<xsl:copy-of select="../.."/>
 									</xsl:if>
 								</xsl:for-each>
 							</xsl:when>
-							<!-- all other criterias for non InternalElements -->
-							<!--xsl:when test=""></xsl:when-->
+							< all other criterias for non InternalElements >
+							<xsl:when test=""></xsl:when>
 							<xsl:otherwise>
 								<xsl:copy-of select="."/>
 							</xsl:otherwise>
@@ -468,6 +528,6 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 				</xsl:for-each>
 			</xsl:if>
 		</CAEXFile>
-	</xsl:template>
+	</xsl:template-->
 
 </xsl:stylesheet>
