@@ -146,20 +146,6 @@
 								<Value>1</Value>
 							</Attribute>
 						</ExternalInterface>
-						<ExternalInterface Name="Channel_DI_Channel 1" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/Channel" ID="7428D54D-A67C-43ED-8EEE-651F6EDBDA54">
-							<Attribute Name="Type" AttributeDataType="xs:string">
-								<Value>Digital</Value>
-							</Attribute>
-							<Attribute Name="IoType" AttributeDataType="xs:string">
-								<Value>Input</Value>
-							</Attribute>
-							<Attribute Name="Number" AttributeDataType="xs:int">
-								<Value>1</Value>
-							</Attribute>
-							<Attribute Name="Length" AttributeDataType="xs:int">
-								<Value>1</Value>
-							</Attribute>
-						</ExternalInterface>
 						<ExternalInterface Name="Channel_DI_Input 2" RefBaseClassPath="AutomationProjectConfigurationInterfaceClassLib/Channel" ID="DA5EB0D7-DEB6-49B7-BD36-7C5E272BFC22">
 							<Attribute Name="Type" AttributeDataType="xs:string">
 								<Value>Digital</Value>

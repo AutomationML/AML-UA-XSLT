@@ -28,16 +28,25 @@
 		<xsl:variable name="NsName">
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
+		<xsl:variable name="LibId">
+			<xsl:for-each select="ancestor::*[name()='InterfaceClassLib' or name()='RoleClassLib' or name()='SystemUnitClassLib'  or name()='AttributeTypeLib']">
+				<xsl:value-of select="fn2:remove-space(name(.))"/>
+			</xsl:for-each>
+		</xsl:variable>
+
 		<References>
 			<xsl:comment>
 				<xsl:value-of select="concat('Library: ', $NsName)"/>
 			</xsl:comment>
-			<Reference ReferenceType="HasComponent" IsForward="false">
+			<!--Reference ReferenceType="HasComponent" IsForward="false">
 				<xsl:value-of select="concat('ns=', $NsId,';s=Library')"/>
+			</Reference-->
+			<Reference ReferenceType="HasComponent" IsForward="false">
+				<xsl:value-of select="concat('ns=', $NsId,';s=',$LibId)"/>
 			</Reference>
 			<!-- Class hierarchy -->
 			<xsl:comment>Parent class</xsl:comment>
-			<Reference ReferenceType="HasSubType" IsForward="false">
+			<Reference ReferenceType="HasSubtype" IsForward="false">
 				<xsl:choose>
 					<xsl:when test="ancestor::caex:InterfaceClass[1]">
 						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:InterfaceClass[1]/@Name)"/>
@@ -47,6 +56,9 @@
 					</xsl:when>
 					<xsl:when test="ancestor::caex:SystemUnitClass[1]">
 						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:SystemUnitClass[1]/@Name)"/>
+					</xsl:when>
+					<xsl:when test="ancestor::caex:AttributeType[1]">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:AttributeType[1]/@Name)"/>
 					</xsl:when>
 					<xsl:when test="@RefBaseClassPath">
 						<xsl:variable name="BaseClass">
@@ -61,7 +73,7 @@
 								</xsl:with-param>
 							</xsl:call-template>
 						</xsl:variable>
-						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', exslt:node-set($BaseClass)/*/@Name)"/>
+						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', fn2:remove-space(exslt:node-set($BaseClass)/*/@Name))"/>
 					</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>CAEXObjectType</xsl:text>
@@ -100,7 +112,7 @@
 		</xsl:variable>
 		<xsl:variable name="LibId">
 			<!--xsl:text>Library</xsl:text-->
-			<xsl:value-of select="concat(fn2:remove-space(name(.)), fn:position())"/>
+			<xsl:value-of select="fn2:remove-space(name(.))"/>
 		</xsl:variable>
 		<xsl:comment>
 			Libraries:
@@ -138,24 +150,23 @@
 					<xsl:when test="name(.)='InterfaceClassLib'">
 						<xsl:comment>Collection of InterfaceClassLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=345</Reference>
+						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_InterfaceClassLibs</Reference>
 					</xsl:when>
 					<xsl:when test="name(.)='RoleClassLib'">
 						<xsl:comment>Collection of RoleClassLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5009</Reference>
-						<xsl:comment>TODO: das macht so keinen Sinn (ns=1;i=344 -> RoleClassLibs). Vielmehr müsste diese Rückwärtsrefernz an den einzelnen Libs hängen</xsl:comment>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=344</Reference>
+						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_RoleClassLibs</Reference>
 					</xsl:when>
 					<xsl:when test="name(.)='SystemUnitClassLib'">
 						<xsl:comment>Collection of SystemUnitClassLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5010</Reference>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=343</Reference>
+						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference>
 					</xsl:when>
 					<xsl:when test="name(.)='AttributeTypeLib'">
 						<xsl:comment>TODO: AttributeTypeLib not supported, yet.</xsl:comment>
 						<xsl:comment>Collection of AttributeTypeLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=?</Reference>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=?</Reference>
+						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_AttributeTypeLibs</Reference>
 					</xsl:when>
 				</xsl:choose>
 				<xsl:comment>TODO: what is the correct way to list all elements of the Lib?</xsl:comment>
@@ -191,7 +202,7 @@
 		<xsl:comment><xsl:value-of select="concat('InterfaceClass: ', @Name)"/></xsl:comment>
 		<UAObjectType>
 			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=', $NsId, ';s=', @Name)"/>
+				<xsl:value-of select="concat('ns=', $NsId, ';s=', fn2:remove-space(@Name))"/>
 			</xsl:attribute>
 			<xsl:attribute name="BrowseName">
 				<xsl:value-of select="@Name"/>
@@ -229,7 +240,7 @@
 		<xsl:comment><xsl:value-of select="concat('RoleClass: ', @Name)"/></xsl:comment>
 		<UAObjectType>
 			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=', $NsId, ';s=', @Name)"/>
+				<xsl:value-of select="concat('ns=', $NsId, ';s=', fn2:remove-space(@Name))"/>
 			</xsl:attribute>
 			<xsl:attribute name="BrowseName">
 				<xsl:value-of select="@Name"/>
@@ -267,7 +278,44 @@
 		<xsl:comment><xsl:value-of select="concat('SystemUnitClass: ', @Name)"/></xsl:comment>
 		<UAObjectType>
 			<xsl:attribute name="NodeId">
-				<xsl:value-of select="concat('ns=', $NsId, ';s=', @Name)"/>
+				<xsl:value-of select="concat('ns=', $NsId, ';s=', fn2:remove-space(@Name))"/>
+			</xsl:attribute>
+			<xsl:attribute name="BrowseName">
+				<xsl:value-of select="@Name"/>
+			</xsl:attribute>
+			<DisplayName>
+				<xsl:value-of select="@Name"/>
+			</DisplayName>
+			<xsl:if test="Description!=''">
+				<Description>
+					<xsl:value-of select="Description"/>
+				</Description>
+			</xsl:if>
+			<xsl:call-template name="ClassReferences"/>
+		</UAObjectType>
+		<xsl:apply-templates select="node()|@*"/>
+	</xsl:template>
+	<!-- .........................................................................
+		AttributeTypeLib: Create UAObjectTypes
+	.........................................................................-->
+	<xsl:template match="caex:AttributeTypeLib">
+		<xsl:comment>
+			AttributeTypeLib: <xsl:value-of select="@Name"/>
+			==================================================
+			TODOs:
+				- What was the correct translation for a AttributeType?
+		</xsl:comment>
+		<xsl:call-template name="Library"/>
+		<xsl:apply-templates select="node()"/>
+	</xsl:template>
+	<xsl:template match="//caex:AttributeType">
+		<xsl:variable name="NsId">
+			<xsl:call-template name="GetNamespaceId"/>
+		</xsl:variable>
+		<xsl:comment><xsl:value-of select="concat('AttributeType: ', @Name)"/></xsl:comment>
+		<UAObjectType>
+			<xsl:attribute name="NodeId">
+				<xsl:value-of select="concat('ns=', $NsId, ';s=', fn2:remove-space(@Name))"/>
 			</xsl:attribute>
 			<xsl:attribute name="BrowseName">
 				<xsl:value-of select="@Name"/>

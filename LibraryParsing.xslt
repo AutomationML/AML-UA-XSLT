@@ -23,6 +23,7 @@
 			<xsl:copy-of select="//*[name()='SystemUnitClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
 			<xsl:copy-of select="//*[name()='RoleClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
 			<xsl:copy-of select="//*[name()='InterfaceClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
+			<xsl:copy-of select="//*[name()='AttributeTypeLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
 		</_libraries>
 	</xsl:variable>
 	<!-- ________________________________________________________________________________________________ -->
@@ -33,17 +34,17 @@
 			<xsl:when test="contains($search, '/')">
 				<xsl:variable name="parentclass" select="substring-before($search,'/')"/>
 				<xsl:variable name="subclass" select="substring-after($search,'/')"/>
-				<xsl:if test="exslt:node-set($input)/*[(name()='SystemUnitClass' or name()='RoleClass' or name()='InterfaceClass') and @Name=$parentclass]">
+				<xsl:if test="exslt:node-set($input)/*[(name()='SystemUnitClass' or name()='RoleClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$parentclass]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subclass"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($input)/*[(name()='SystemUnitClass' or name()='RoleClass' or name()='InterfaceClass') and @Name=$parentclass]/*"/>
+							<xsl:copy-of select="exslt:node-set($input)/*[(name()='SystemUnitClass' or name()='RoleClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$parentclass]/*"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:copy-of select="exslt:node-set($input)//*[(name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass') and @Name=$search]"/>
+				<xsl:copy-of select="exslt:node-set($input)//*[(name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$search]"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -54,7 +55,7 @@
 		<xsl:variable name="subPath" select="substring-after($path,'/')"/>
 		<xsl:variable name="currentClass">
 			<xsl:choose>
-				<xsl:when test="$libName!= '' and exslt:node-set($Libraries)//RoleClassLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//RoleClassLib[@Name=$libName]!=''">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
@@ -70,11 +71,11 @@
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//RoleClassLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]!=''">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//RoleClassLib[@Name=$libName]/SystemUnitClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]/AttributeType"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
@@ -133,7 +134,7 @@
 	</xsl:template>
 	<xsl:template name="GetNamespace">
 		<xsl:choose>
-			<xsl:when test="name(.)='InterfaceClassLib' or name(.)='RoleClassLib' or name(.)='SystemUnitClassLib'">
+			<xsl:when test="name(.)='InterfaceClassLib' or name(.)='RoleClassLib' or name(.)='SystemUnitClassLib' or name(.)='AttributeTypeLib'">
 				<xsl:value-of select="@Name"/>
 			</xsl:when>
 			<!--HIER wird das Kindelement nicht gefunden-->
@@ -146,6 +147,9 @@
 			<xsl:when test="ancestor::caex:SystemUnitClassLib[1]">
 				<xsl:value-of select="ancestor::caex:SystemUnitClassLib[1]/@Name"/>
 			</xsl:when>
+			<xsl:when test="ancestor::caex:AttributeTypeLib[1]">
+				<xsl:value-of select="ancestor::caex:AttributeTypeLib[1]/@Name"/>
+			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="'MyInstances'"/>
 			</xsl:otherwise>
@@ -157,7 +161,7 @@
 		</xsl:variable>
 		<xsl:call-template name="GetNamespaceIdByName">
 			<xsl:with-param name="Namespace" select="$Namespace"/>
-		</xsl:call-template>
+		</xsl:call-template>		
 	</xsl:template>
 	<!-- ________________________________________________________________________________________________ -->
 	<!-- .........................................................................
