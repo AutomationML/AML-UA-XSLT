@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msxsl="urn:schemas-microsoft-com:xslt" xmlns:ua="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uaTypes="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:exslt="http://exslt.org/common" xmlns:csharp="http://csharp.org" exclude-result-prefixes="xsi xsl ua uaTypes xsd exslt">
+<xsl:stylesheet version="2.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+	xmlns:msxsl="urn:schemas-microsoft-com:xslt" 
+	xmlns:ua="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
+	xmlns:uaTypes="http://opcfoundation.org/UA/2008/02/Types.xsd" 
+	xmlns:exslt="http://exslt.org/common" 
+	xmlns:csharp="http://csharp.org" 
+	exclude-result-prefixes="xsi xsl ua uaTypes xsd exslt">
+	
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes"/>
 	<xsl:variable name="DefaultFileName">TODO: unspecified FileName</xsl:variable>
 	<xsl:variable name="DefaultSchemaVersion">3.0</xsl:variable>
@@ -286,46 +295,45 @@ https://docs.microsoft.com/de-de/dotnet/api/system.xml.xsl.xsltsettings.enablesc
 					</xsl:otherwise>
 				</xsl:choose>
 			</xsl:attribute>
-				<xsl:if test="$SchemaVersion='3.0'">
-					<xsl:comment>TODO: SupperiorStandardVersion and Co. needed to load</xsl:comment>
-				</xsl:if>
-				<xsl:for-each select="$References/*/Reference[@Source=$FileInfo/ua:UAObject/@NodeId]">
-					<xsl:choose>
-						<xsl:when test="@ReferenceType='HasTypeDefinition'">
-							<!--ignore-->
-						</xsl:when>
-						<xsl:when test="@ReferenceType='HasProperty'">
-							<xsl:comment>TODO: check if this is only FileName and SchemaVersion</xsl:comment>
-							
-							HIER
-							<xsl:call-template name="GetTargetElement">
-								<xsl:with-param name="Reference" select="."/>
-							</xsl:call-template>
-							
-						</xsl:when>
-						<xsl:when test="@ReferenceType='HasComponent'">
-							<xsl:comment>TODO: check if this is only FileName and SchemaVersion</xsl:comment>
-							<xsl:comment>TODO: otherwise check if Additional Information</xsl:comment>
-							<xsl:comment>TODO: otherwise interprete as Additional Information</xsl:comment>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:comment>
-								<xsl:value-of select="concat('Unknown reference: ´', @Source, '´ ', @ReferenceType, ' ´', @Target), '´'"/>
-							</xsl:comment>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:for-each>
-				<xsl:for-each select="$References/*/Reference[@Target=$FileInfo/ua:UAObject/@NodeId]">
-					<xsl:choose>
-						<xsl:when test="@ReferenceType='Organizes' and @Target='ns=1;i=5006'"/>
-						<xsl:otherwise>
-							<xsl:comment>
-								<xsl:value-of select="concat('Unknown reference: ´', @Source, '´ ', @ReferenceType, ' ´', @Target), '´'"/>
-							</xsl:comment>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:for-each>
-				<!--xsl:call-template name="GetAttributeByDisplayName">
+			<xsl:if test="$SchemaVersion='3.0'">
+				<xsl:comment>TODO: SupperiorStandardVersion and Co. needed to load</xsl:comment>
+			</xsl:if>
+			<xsl:for-each select="$References/*/Reference[@Source=$FileInfo/ua:UAObject/@NodeId]">
+				<xsl:choose>
+					<xsl:when test="@ReferenceType='HasTypeDefinition'">
+						<!--ignore-->
+					</xsl:when>
+					<xsl:when test="@ReferenceType='HasProperty'">
+						<xsl:comment>TODO: check if this is only FileName and SchemaVersion</xsl:comment>
+						
+						<xsl:call-template name="GetTargetElement">
+							<xsl:with-param name="Reference" select="."/>
+						</xsl:call-template>
+						
+					</xsl:when>
+					<xsl:when test="@ReferenceType='HasComponent'">
+						<xsl:comment>TODO: check if this is only FileName and SchemaVersion</xsl:comment>
+						<xsl:comment>TODO: otherwise check if Additional Information</xsl:comment>
+						<xsl:comment>TODO: otherwise interprete as Additional Information</xsl:comment>
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:comment>
+							<xsl:value-of select="concat('Unknown reference: ´', @Source, '´ ', @ReferenceType, ' ´', @Target), '´'"/>
+						</xsl:comment>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:for-each>
+			<xsl:for-each select="$References/*/Reference[@Target=$FileInfo/ua:UAObject/@NodeId]">
+				<xsl:choose>
+					<xsl:when test="@ReferenceType='Organizes' and @Target='ns=1;i=5006'"/>
+					<xsl:otherwise>
+						<xsl:comment>
+							<xsl:value-of select="concat('Unknown reference: ´', @Source, '´ ', @ReferenceType, ' ´', @Target), '´'"/>
+						</xsl:comment>
+					</xsl:otherwise>
+				</xsl:choose>
+			</xsl:for-each>
+			<!--xsl:call-template name="GetAttributeByDisplayName">
 				<xsl:with-param name="Parent" select="$FileInfo/ua:UAObject/@NodeId"/>
 				<xsl:with-param name="DisplayName" select="'SchemaVersion'"/>
 				<xsl:with-param name="ReferenceType" select="'HasProperty'"/>

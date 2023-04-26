@@ -135,9 +135,9 @@
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
 			<xsl:if test="caex:Description!=''">
-				<Description>
+				<Documentation>
 					<xsl:value-of select="caex:Description"/>
-				</Description>
+				</Documentation>
 			</xsl:if>
 			<References>
 				<xsl:if test="caex:Version">
@@ -211,9 +211,9 @@
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
 			<xsl:if test="Description!=''">
-				<Description>
+				<Documentation>
 					<xsl:value-of select="Description"/>
-				</Description>
+				</Documentation>
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
@@ -249,9 +249,9 @@
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
 			<xsl:if test="Description!=''">
-				<Description>
+				<Documentation>
 					<xsl:value-of select="Description"/>
-				</Description>
+				</Documentation>
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
@@ -287,9 +287,9 @@
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
 			<xsl:if test="Description!=''">
-				<Description>
+				<Documentation>
 					<xsl:value-of select="Description"/>
-				</Description>
+				</Documentation>
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
@@ -324,9 +324,9 @@
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
 			<xsl:if test="Description!=''">
-				<Description>
+				<Documentation>
 					<xsl:value-of select="Description"/>
-				</Description>
+				</Documentation>
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
 		</UAObjectType>
