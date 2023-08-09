@@ -12,14 +12,7 @@
 	xmlns:exslt="http://exslt.org/common">
 	
 	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/>
-	<!--xsl:stylesheet version="2.0" 
-		xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd"
-		xmlns:fn="http://www.w3.org/2005/xpath-functions" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" exclude-result-prefixes=" xsl exslt fn" xmlns:exslt="http://exslt.org/common">
-	<xsl:output method="xml" version="1.0" encoding="UTF-8" indent="yes" omit-xml-declaration="yes"/-->
-	<!--<xsl:function name="exslt:node-set">
-		<xsl:param name="rtf"/>
-		<xsl:sequence select="$rtf"/>
-	</xsl:function>-->
+
 	
 	<xsl:template name="ClassReferences">
 		<xsl:variable name="NsId">
@@ -80,28 +73,13 @@
 					</xsl:otherwise>
 				</xsl:choose>
 			</Reference>
+			<xsl:variable name="ObjectId">
+				<xsl:call-template name="GetObjectName">
+					<xsl:with-param name="Object" select="."/>
+				</xsl:call-template>		
+			</xsl:variable>
 			<xsl:call-template name="References">
-				<xsl:with-param name="ObjectName" select="@Name"/>
-				<xsl:with-param name="ObjectId">
-					<xsl:choose>
-						<xsl:when test="@ID!=''">
-							<xsl:value-of select="@ID"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="@Name"/>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:with-param>
-				<xsl:with-param name="ObjectIdType">
-					<xsl:choose>
-						<xsl:when test="@ID!=''">
-							<xsl:value-of select="'g'"/>
-						</xsl:when>
-						<xsl:otherwise>
-							<xsl:value-of select="'s'"/>
-						</xsl:otherwise>
-					</xsl:choose>
-				</xsl:with-param>
+				<xsl:with-param name="ObjectId" select="$ObjectId"/>
 				<xsl:with-param name="Namespace" select="$NsId"/>
 			</xsl:call-template>
 		</References>
@@ -165,7 +143,7 @@
 					<xsl:when test="name(.)='AttributeTypeLib'">
 						<xsl:comment>TODO: AttributeTypeLib not supported, yet.</xsl:comment>
 						<xsl:comment>Collection of AttributeTypeLib</xsl:comment>
-						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=?</Reference>
+						<!--Reference ReferenceType="Organizes" IsForward="false">ns=1;i=?</Reference-->
 						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_AttributeTypeLibs</Reference>
 					</xsl:when>
 				</xsl:choose>
@@ -275,6 +253,17 @@
 		<xsl:variable name="NsId">
 			<xsl:call-template name="GetNamespaceId"/>
 		</xsl:variable>
+		<xsl:variable name="ObjectName">
+			<xsl:call-template name="GetObjectName">
+				<xsl:with-param name="Object" select="."/>
+			</xsl:call-template>
+		</xsl:variable>
+		<xsl:variable name="ObjectId">
+			<xsl:call-template name="FormatRef">
+				<xsl:with-param name="ObjectId" select="@ID"/>
+				<xsl:with-param name="Namespace" select="$NsId"/>
+			</xsl:call-template>
+		</xsl:variable>
 		<xsl:comment><xsl:value-of select="concat('SystemUnitClass: ', @Name)"/></xsl:comment>
 		<UAObjectType>
 			<xsl:attribute name="NodeId">
@@ -313,7 +302,7 @@
 			<xsl:call-template name="GetNamespaceId"/>
 		</xsl:variable>
 		<xsl:comment><xsl:value-of select="concat('AttributeType: ', @Name)"/></xsl:comment>
-		<UAObjectType>
+		<UAVariableType>
 			<xsl:attribute name="NodeId">
 				<xsl:value-of select="concat('ns=', $NsId, ';s=', fn2:remove-space(@Name))"/>
 			</xsl:attribute>
@@ -329,7 +318,7 @@
 				</Documentation>
 			</xsl:if>
 			<xsl:call-template name="ClassReferences"/>
-		</UAObjectType>
+		</UAVariableType>
 		<xsl:apply-templates select="node()|@*"/>
 	</xsl:template>
 </xsl:stylesheet>

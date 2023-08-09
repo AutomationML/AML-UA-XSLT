@@ -33,5 +33,6 @@
 		<DataType OPC="NormalizedString " AML="xs:normalizedString "/>
 		<DataType OPC="LocaleId" AML="xs:language"/>
 		<DataType OPC="UriString" AML="xs:anyURI"/>
+		<DataType OPC="String" AML="xs:token"/>
 	</xsl:variable>
 </xsl:stylesheet>
