@@ -63,27 +63,27 @@
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:SystemUnitClassLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//SystemUnitClassLib[@Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//caex:SystemUnitClassLib[@Name=$libName]/caex:SystemUnitClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//ystemUnitClassLib[@Name=$libName]/SystemUnitClass"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:AttributeTypeLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]!=''">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//caex:AttributeTypeLib[@Name=$libName]/caex:AttributeType"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]/AttributeType"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:InterfaceClassLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//InterfaceClassLib[@Name=$libName]!=''">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//caex:InterfaceClassLib[@Name=$libName]/caex:InterfaceClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//InterfaceClassLib[@Name=$libName]/InterfaceClass"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>

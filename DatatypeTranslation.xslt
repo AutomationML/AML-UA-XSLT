@@ -15,24 +15,27 @@
 		<xsl:sequence select="$rtf"/>
 	</xsl:function>-->
 	<xsl:variable name="DataTypes">
-		<DataType OPC="String" AML="xs:string"/>
-		<DataType OPC="Boolean" AML="xs:boolean"/>
-		<DataType OPC="Decimal" AML="xs:decimal"/>
-		<DataType OPC="Float" AML="xs:float"/>
-		<DataType OPC="Double" AML="xs:double"/>
-		<DataType OPC="Duration" AML="xs:duration"/>
-		<DataType OPC="ByteString" AML="xs:base64Binary"/>
-		<DataType OPC="Int64" AML="xs:long"/>
-		<DataType OPC="Int32" AML="xs:int"/>
-		<DataType OPC="Int16" AML="xs:short"/>
-		<DataType OPC="SByte" AML="xs:byte"/>
-		<DataType OPC="UInt64" AML="xs:unsignedLong"/>
-		<DataType OPC="UInt32" AML="xs:unsignedInt"/>
-		<DataType OPC="UInt16" AML="xs:unsignedShort"/>
-		<DataType OPC="Byte" AML="xs:unsignedByte"/>
-		<DataType OPC="NormalizedString " AML="xs:normalizedString "/>
-		<DataType OPC="LocaleId" AML="xs:language"/>
-		<DataType OPC="UriString" AML="xs:anyURI"/>
-		<DataType OPC="String" AML="xs:token"/>
+		<DataType OPCAlias="String" OPCNodeId="i=12" AML="xs:string"/>
+		<DataType OPCAlias="Boolean" OPCNodeId="i=1" AML="xs:boolean"/>
+		<DataType OPCAlias="Decimal" OPCNodeId="" AML="xs:decimal"/>
+		<DataType OPCAlias="Float" OPCNodeId="i=10" AML="xs:float"/>
+		<DataType OPCAlias="Double" OPCNodeId="i=11" AML="xs:double"/>
+		<DataType OPCAlias="Duration" OPCNodeId="" AML="xs:duration"/>
+		<DataType OPCAlias="ByteString" OPCNodeId="i=15" AML="xs:base64Binary"/>
+		<DataType OPCAlias="Int64" OPCNodeId="i=8" AML="xs:long"/>
+		<DataType OPCAlias="Int32" OPCNodeId="i=6" AML="xs:int"/>
+		<DataType OPCAlias="Int16" OPCNodeId="i=4" AML="xs:short"/>
+		<DataType OPCAlias="SByte" OPCNodeId="i=2" AML="xs:byte"/>
+		<DataType OPCAlias="UInt64" OPCNodeId="i=9" AML="xs:unsignedLong"/>
+		<DataType OPCAlias="UInt32" OPCNodeId="i=7" AML="xs:unsignedInt"/>
+		<DataType OPCAlias="UInt16" OPCNodeId="i=5" AML="xs:unsignedShort"/>
+		<DataType OPCAlias="Byte" OPCNodeId="i=3" AML="xs:unsignedByte"/>
+		<DataType OPCAlias="NormalizedString" OPCNodeId="" AML="xs:normalizedString "/>
+		<DataType OPCAlias="LocaleId" OPCNodeId="" AML="xs:language"/>
+		<DataType OPCAlias="UriString" OPCNodeId="" AML="xs:anyURI"/>
+		<DataType OPCAlias="Guid" OPCNodeId="i=14" AML="xs:token"/>
+		<!-- TODO: überprüfen -->
+		<DataType OPCAlias="String" OPCNodeId="i=12" AML="xs:string"/>
+		<DataType OPCAlias="ImagePNG" OPCNodeId="i=2003" AML="xs:string"/>
 	</xsl:variable>
 </xsl:stylesheet>

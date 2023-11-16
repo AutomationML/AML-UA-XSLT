@@ -6,6 +6,9 @@
 	xmlns:ua="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" 
 	xmlns:uaTypes="http://opcfoundation.org/UA/2008/02/Types.xsd" 
 	xmlns:exslt="http://exslt.org/common" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns="http://www.dke.de/CAEX"
+	xmlns:caex="http://www.dke.de/CAEX"
 
 	exclude-result-prefixes="xsl ua uaTypes exslt">
 	
@@ -55,10 +58,10 @@
 
 		<!-- remove duplicated -->
 		<References>
-			<xsl:for-each select="$AllRefs/Reference">
+			<xsl:for-each select="$AllRefs/caex:Reference">
 				<xsl:variable name="Source" select="@Source"/>
 				<xsl:variable name="Target" select="@Target"/>
-				<xsl:if test="not(preceding-sibling::Reference[@Target=$Target and @Source=$Source])">
+				<xsl:if test="not(preceding-sibling::caex:Reference[@Target=$Target and @Source=$Source])">
 					<xsl:copy-of select="."/>
 				</xsl:if>
 			</xsl:for-each>
@@ -130,7 +133,7 @@
 		Bottom-up-Approach: 
 			- get all type definitions
 			- find out those type definitions that are derived from types of other NSs
-			- if available: locate library element for thos top-level types
+			- if available: locate library element for those top-level types
 			- otherwise define library elements
 
 		Generate the tree of libraries, identify the library type and add first level classes for the libraries 
@@ -140,6 +143,7 @@
 			<xsl:for-each select="$Libraries/*">
 				<xsl:variable name="LibId" select="concat('ns=', @Id, ';')"/>
 				<xsl:variable name="LibName" select="@Name"/>
+				<xsl:copy-of select="$RoleClassLibs"/>
 				<xsl:copy>
 					<xsl:copy-of select="@*"/>
 					<!-- check the library type if available -->
@@ -160,7 +164,7 @@
 					
 					<!-- copy all References that have their target in this Lib but the source outside of the Lib -->
 					<xsl:for-each select="
-						$References//Reference[	@ReferenceType='HasSubtype' and 
+						$References//caex:Reference[@ReferenceType='HasSubtype' and 
 												not(fn:starts-with(@Source, $LibId)) and 
 												fn:starts-with(@Target, $LibId)]">
 						<xsl:copy>
@@ -186,7 +190,7 @@
 		<xsl:param name="Parent"/>
 		<xsl:param name="DisplayName"/>
 		<xsl:param name="ReferenceType"/>
-		<xsl:for-each select="$References/*/Reference[@ReferenceType=$ReferenceType and @Source=$Parent]">
+		<xsl:for-each select="$References/*/caex:Reference[@ReferenceType=$ReferenceType and @Source=$Parent]">
 			<xsl:variable name="Target" select="@Target"/>
 			<xsl:copy-of select="$UANodeSet//*[@NodeId=$Target and ua:DisplayName=$DisplayName]"/>
 		</xsl:for-each>
@@ -207,7 +211,7 @@
 	<xsl:template name="GetAttributeByReferenceType">
 		<xsl:param name="Parent"/>
 		<xsl:param name="ReferenceType"/>
-		<xsl:for-each select="$References/*/Reference[@ReferenceType=$ReferenceType and @Source=$Parent]">
+		<xsl:for-each select="$References/*/caex:Reference[@ReferenceType=$ReferenceType and @Source=$Parent]">
 			<xsl:variable name="Target" select="@Target"/>
 			<xsl:copy-of select="$UANodeSet//*[@NodeId=$Target]"/>
 		</xsl:for-each>
@@ -301,7 +305,7 @@
 				<xsl:with-param name="ID" select="$ClassId"/>
 			</xsl:call-template>
 		</xsl:variable>		
-		
+				
 		<xsl:variable name="UAParentDefinition">
 			<xsl:call-template name="GetElementById">
 				<xsl:with-param name="ID" select="@Source"/>
@@ -334,8 +338,7 @@
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:variable>
-		
-		
+				
 		<xsl:comment>TODO: wie wird der BrowseName abgebildet?</xsl:comment>
 		<xsl:element name="{$ClassType}">
 			<xsl:attribute name="Name"><xsl:value-of select="$UAClassDefinition//ua:DisplayName"/></xsl:attribute>
@@ -351,8 +354,11 @@
 					<xsl:attribute name="Name" select="ua:DisplayName"/>
 					<xsl:attribute name="AttributeDataType">
 						<xsl:choose>
-							<xsl:when test="exslt:node-set($DataTypes)/*[@OPC=$AttributeDataType]/@AML!=''">
-								<xsl:value-of select="exslt:node-set($DataTypes)/*[@OPC=$AttributeDataType]/@AML"/>
+							<xsl:when test="exslt:node-set($DataTypes)/*[@OPCAlias=$AttributeDataType]/@AML!=''">
+								<xsl:value-of select="exslt:node-set($DataTypes)/*[@OPCAlias=$AttributeDataType]/@AML"/>
+							</xsl:when>
+							<xsl:when test="exslt:node-set($DataTypes)/*[@OPCNodeId=$AttributeDataType]/@AML!=''">
+								<xsl:value-of select="exslt:node-set($DataTypes)/*[@OPCNodeId=$AttributeDataType]/@AML"/>
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:value-of select="$AttributeDataType"/>
@@ -364,7 +370,7 @@
 			</xsl:for-each>
 			
 			<!-- get all SubType descriptions -->
-			<xsl:for-each select="$References/*/Reference[@ReferenceType='HasSubtype' and @Source=$ClassId]">
+			<xsl:for-each select="$References/*/caex:Reference[@ReferenceType='HasSubtype' and @Source=$ClassId]">
 				<xsl:call-template name="GetClassDefinition">
 					<xsl:with-param name="ClassId" select="@Target"/>
 					<xsl:with-param name="AssumedClassType" select="$AssumedClassType"/>
@@ -373,7 +379,7 @@
 		</xsl:element>
 		
 	</xsl:template>
-
+	
 <!-- *************************************************************
 ***
 *** translation
@@ -393,25 +399,34 @@
 		</xsl:variable>		
 		
 		<CAEXFile>
+			
+			<xsl:attribute name="SchemaVersion" select="'3.0'"/>
+			
 			<!--xsl:copy-of select="$LibraryTree"/-->
 			
+			<!-- TODO: generate -->
+			<AdditionalInformation DocumentVersions="Recommendations" />
+			<SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+			<SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.1.7.0" LastWritingDateTime="2023-11-13T13:51:54.1061533+01:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.1.7.0" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+	
 			<!-- Generate AMLLibraries from collected data -->
 			<xsl:variable name="AMLLibraries">				
-				<xsl:for-each select="$LibraryTree//Library[Reference]">	
-					<xsl:variable name="Reference" select="Reference"/>
+				<xsl:for-each select="$LibraryTree//caex:Library[caex:Reference]">	
+					<xsl:variable name="Reference" select="caex:Reference"/>
 					<xsl:variable name="ClassType" select="@ClassType"/>
 					<xsl:variable name="LibName">
 						<xsl:value-of select="fn:replace(fn:replace(fn:replace(fn:replace(@Name, 'SystemUnitClassLib', ''), 'RoleClassLib', ''), 'InterfaceClassLib', ''), 'AttributeTypeLib', '')"/>
 					</xsl:variable>
+
 					<xsl:variable name="ListOfClasses">				
 						<xsl:for-each select="$Reference">
-							<Test><xsl:copy-of select="."/></Test>
 							<xsl:call-template name="GetClassDefinition">
 								<xsl:with-param name="ClassId" select="@Target"/>		
 								<xsl:with-param name="AssumedClassType" select="$ClassType"/>					
 							</xsl:call-template>
 						</xsl:for-each>
 					</xsl:variable>
+			
 					<xsl:variable name="Version">
 						<xsl:call-template name="GetAttributeByDisplayName">
 							<xsl:with-param name="Parent" select="ua:UAObject/@NodeId"/>
@@ -420,40 +435,62 @@
 						</xsl:call-template>
 					</xsl:variable>
 	
-					<xsl:if test="$ListOfClasses/SystemUnitClass">
+					<xsl:if test="$ListOfClasses/caex:SystemUnitClass">
 						<SystemUnitClassLib>
 							<xsl:attribute name="Name" select="concat($LibName,'SystemUnitClassLib')"/>		
-							<Version><xsl:value-of select="$Version//ua:Value/*"/></Version>
+							<Version>
+								<xsl:choose>
+									<xsl:when test="$Version//ua:Value/*"><xsl:value-of select="$Version//ua:Value/*"/></xsl:when>
+									<xsl:otherwise>0.0.0</xsl:otherwise>
+								</xsl:choose>
+							</Version>
 							<Description><xsl:value-of select="./ua:UAObject/ua:Documentation"/></Description>
 			
-							<xsl:copy-of select="$ListOfClasses/SystemUnitClass"/>
+							<xsl:copy-of select="$ListOfClasses/caex:SystemUnitClass"/>
 						</SystemUnitClassLib>
 					</xsl:if>
-					<xsl:if test="$ListOfClasses/RoleClass">
+					<xsl:if test="$ListOfClasses/caex:RoleClass">
 						<RoleClassLib>
 							<xsl:attribute name="Name" select="concat($LibName,'RoleClassLib')"/>
-							<Version><xsl:value-of select="$Version//ua:Value/*"/></Version>
+							<Version>
+								<xsl:choose>
+									<xsl:when test="$Version//ua:Value/*"><xsl:value-of select="$Version//ua:Value/*"/></xsl:when>
+									<xsl:otherwise>0.0.0</xsl:otherwise>
+								</xsl:choose>
+							</Version>
 							<Description><xsl:value-of select="./ua:UAObject/ua:Documentation"/></Description>
 
-							<xsl:copy-of select="$ListOfClasses/RoleClass"/>							
+							<Test>
+								<xsl:copy-of select="$ListOfClasses/caex:RoleClass"/>							
+							</Test>
 						</RoleClassLib>
 					</xsl:if>
-					<xsl:if test="$ListOfClasses/InterfaceClass">
+					<xsl:if test="$ListOfClasses/caex:InterfaceClass">
 						<InterfaceClassLib>
 							<xsl:attribute name="Name" select="concat($LibName,'InterfaceClassLib')"/>
-							<Version><xsl:value-of select="$Version//ua:Value/*"/></Version>
+							<Version>
+								<xsl:choose>
+									<xsl:when test="$Version//ua:Value/*"><xsl:value-of select="$Version//ua:Value/*"/></xsl:when>
+									<xsl:otherwise>0.0.0</xsl:otherwise>
+								</xsl:choose>
+							</Version>
 							<Description><xsl:value-of select="./ua:UAObject/ua:Documentation"/></Description>
 
-							<xsl:copy-of select="$ListOfClasses/InterfaceClass"/>
+							<xsl:copy-of select="$ListOfClasses/caex:InterfaceClass"/>
 						</InterfaceClassLib>
 					</xsl:if>
-					<xsl:if test="$ListOfClasses/AttributeType">
+					<xsl:if test="$ListOfClasses/caex:AttributeType">
 						<AttributeTypeLib>
 							<xsl:attribute name="Name" select="concat($LibName,'AttributeTypeLib')"/>
-							<Version><xsl:value-of select="$Version//ua:Value/*"/></Version>
+							<Version>
+								<xsl:choose>
+									<xsl:when test="$Version//ua:Value/*"><xsl:value-of select="$Version//ua:Value/*"/></xsl:when>
+									<xsl:otherwise>0.0.0</xsl:otherwise>
+								</xsl:choose>
+							</Version>
 							<Description><xsl:value-of select="./ua:UAObject/ua:Documentation"/></Description>
 
-							<xsl:copy-of select="$ListOfClasses/AttributeType"/>
+							<xsl:copy-of select="$ListOfClasses/caex:AttributeType"/>
 						</AttributeTypeLib>				
 					</xsl:if>
 				</xsl:for-each>
