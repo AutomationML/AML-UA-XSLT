@@ -24,18 +24,21 @@
 		<DataType OPCAlias="ByteString" OPCNodeId="i=15" AML="xs:base64Binary"/>
 		<DataType OPCAlias="Int64" OPCNodeId="i=8" AML="xs:long"/>
 		<DataType OPCAlias="Int32" OPCNodeId="i=6" AML="xs:int"/>
+		<DataType OPCAlias="Int32" OPCNodeId="i=6" AML="xs:integer"/>
 		<DataType OPCAlias="Int16" OPCNodeId="i=4" AML="xs:short"/>
 		<DataType OPCAlias="SByte" OPCNodeId="i=2" AML="xs:byte"/>
+		<DataType OPCAlias="UInt64" OPCNodeId="i=9" AML="xs:positiveInteger"/>
 		<DataType OPCAlias="UInt64" OPCNodeId="i=9" AML="xs:unsignedLong"/>
 		<DataType OPCAlias="UInt32" OPCNodeId="i=7" AML="xs:unsignedInt"/>
 		<DataType OPCAlias="UInt16" OPCNodeId="i=5" AML="xs:unsignedShort"/>
 		<DataType OPCAlias="Byte" OPCNodeId="i=3" AML="xs:unsignedByte"/>
 		<DataType OPCAlias="NormalizedString" OPCNodeId="" AML="xs:normalizedString "/>
 		<DataType OPCAlias="LocaleId" OPCNodeId="" AML="xs:language"/>
+		<DataType OPCAlias="QualifiedName" OPCNodeId="" AML="xs:anyURI"/>
 		<DataType OPCAlias="UriString" OPCNodeId="" AML="xs:anyURI"/>
+		<DataType OPCAlias="DateTime" OPCNodeId="i=13" AML="xs:date"/>
 		<DataType OPCAlias="Guid" OPCNodeId="i=14" AML="xs:token"/>
 		<!-- TODO: überprüfen -->
-		<DataType OPCAlias="String" OPCNodeId="i=12" AML="xs:string"/>
 		<DataType OPCAlias="ImagePNG" OPCNodeId="i=2003" AML="xs:string"/>
 	</xsl:variable>
 </xsl:stylesheet>

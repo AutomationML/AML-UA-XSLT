@@ -51,7 +51,7 @@
 					</xsl:otherwise>			
 				</xsl:choose>			
 			</Reference>
-			<xsl:comment>Parent class</xsl:comment>			
+			<xsl:comment>Parent class</xsl:comment>	
 			<Reference ReferenceType="HasSubtype" IsForward="false">
 				<xsl:choose>
 					<xsl:when test="@RefBaseClassPath and not(fn:contains(@RefBaseClassPath, '/'))">
@@ -75,7 +75,7 @@
 					<xsl:when test="local-name()='SystemUnitClass' and @Name!='AutomationMLBaseSystemUnit'">AutomationMLBaseSystemUnit</xsl:when>
 					<xsl:when test="local-name()='RoleClass' and @Name!='AutomationMLBaseRole'">AutomationMLBaseRole</xsl:when>
 					<xsl:when test="local-name()='InterfaceClass' and @Name!='AutomationMLBaseInterface'">AutomationMLBaseInterface</xsl:when>
-					<xsl:when test="local-name()='AttributeClass' and @Name!='AutomationMLBaseAttribute'">AutomationMLBaseAttribute</xsl:when>
+					<xsl:when test="local-name()='AttributeType' and @Name!='AutomationMLBaseAttribute'">CAEXObjectType</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>CAEXObjectType</xsl:text>
 					</xsl:otherwise>
@@ -136,24 +136,24 @@
 				<xsl:choose>
 					<xsl:when test="name(.)='InterfaceClassLib'">
 						<xsl:comment>Collection of InterfaceClassLib</xsl:comment>
-						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5008</Reference>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_InterfaceClassLibs</Reference>
+						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_InterfaceClassLibs</Reference>
+						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_InterfaceClassLibs</Reference-->
 					</xsl:when>
 					<xsl:when test="name(.)='RoleClassLib'">
 						<xsl:comment>Collection of RoleClassLib</xsl:comment>
-						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5009</Reference>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_RoleClassLibs</Reference>
+						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_RoleClassLibs</Reference>
+						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_RoleClassLibs</Reference-->
 					</xsl:when>
 					<xsl:when test="name(.)='SystemUnitClassLib'">
 						<xsl:comment>Collection of SystemUnitClassLib</xsl:comment>
-						<Reference ReferenceType="Organizes" IsForward="false">ns=1;i=5010</Reference>
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference>
+						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_SystemUnitClassLibs</Reference>
+						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference-->
 					</xsl:when>
 					<xsl:when test="name(.)='AttributeTypeLib'">
 						<xsl:comment>TODO: AttributeTypeLib not supported, yet.</xsl:comment>
 						<xsl:comment>Collection of AttributeTypeLib</xsl:comment>
 						<!--Reference ReferenceType="Organizes" IsForward="false">ns=1;i=?</Reference-->
-						<Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_AttributeTypeLibs</Reference>
+						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AttributeTypeLibs</Reference>
 					</xsl:when>
 				</xsl:choose>
 				<xsl:comment>TODO: what is the correct way to list all elements of the Lib?</xsl:comment>

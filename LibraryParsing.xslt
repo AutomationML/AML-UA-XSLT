@@ -55,40 +55,45 @@
 		<xsl:variable name="subPath" select="substring-after($path,'/')"/>
 		<xsl:variable name="currentClass">
 			<xsl:choose>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:RoleClassLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:RoleClassLib[@Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
 							<xsl:copy-of select="exslt:node-set($Libraries)//caex:RoleClassLib[@Name=$libName]/caex:RoleClass"/>
 						</xsl:with-param>
 					</xsl:call-template>
+					<Test3/>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//SystemUnitClassLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:SystemUnitClassLib[@Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//ystemUnitClassLib[@Name=$libName]/SystemUnitClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//caex:SystemUnitClassLib[@Name=$libName]/caex:SystemUnitClass"/>
 						</xsl:with-param>
 					</xsl:call-template>
+					<Test4/>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:AttributeTypeLib[@Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]/AttributeType"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//caex:AttributeTypeLib[@Name=$libName]/caex:AttributeType"/>
 						</xsl:with-param>
 					</xsl:call-template>
+					<Test5/>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//InterfaceClassLib[@Name=$libName]!=''">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:InterfaceClassLib[@Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//InterfaceClassLib[@Name=$libName]/InterfaceClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//caex:InterfaceClassLib[@Name=$libName]/caex:InterfaceClass"/>
 						</xsl:with-param>
 					</xsl:call-template>
+					<Test6/>					
 				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
+		
 		<xsl:choose>
 			<xsl:when test="exslt:node-set($currentClass)/*[1]/@RefBaseClassPath!=''">
 				<xsl:variable name="baseClass">
@@ -134,7 +139,7 @@
 	</xsl:template>
 	<xsl:template name="GetNamespace">
 		<xsl:choose>
-			<xsl:when test="name(.)='InterfaceClassLib' or name(.)='RoleClassLib' or name(.)='SystemUnitClassLib' or name(.)='AttributeTypeLib'">
+			<xsl:when test="name(.)='InterfaceClassLib' or name(.)='RoleClassLib' or name(.)='SystemUnitClassLib' or name(.)='AttributeTypeLib' or name(.)='InstanceHierarchy'">
 				<xsl:value-of select="@Name"/>
 			</xsl:when>
 			<!--HIER wird das Kindelement nicht gefunden-->
@@ -149,6 +154,9 @@
 			</xsl:when>
 			<xsl:when test="ancestor::caex:AttributeTypeLib[1]">
 				<xsl:value-of select="ancestor::caex:AttributeTypeLib[1]/@Name"/>
+			</xsl:when>
+			<xsl:when test="ancestor::caex:InstanceHierarchy[1]">
+				<xsl:value-of select="ancestor::caex:InstanceHierarchy[1]/@Name"/>
 			</xsl:when>
 			<xsl:otherwise>
 				<xsl:value-of select="'MyInstances'"/>
