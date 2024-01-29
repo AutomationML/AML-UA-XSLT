@@ -68,7 +68,7 @@
   <UAObject NodeId="ns=1;i=5004" BrowseName="1:SystemUnitClassLibs" ParentNodeId="ns=1;i=1005">
     <DisplayName>SystemUnitClassLibs</DisplayName>
     <References>
-101      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+      <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
       <Reference ReferenceType="HasModellingRule">i=78</Reference>
       <Reference ReferenceType="HasComponent" IsForward="false">ns=1;i=1005</Reference>
     </References>
