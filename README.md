@@ -8,6 +8,7 @@ To use it, just take the XSLT files, use a standard XSLT processor and apply eit
 - Nodeset2AML.xslt to an OPC UA file.
 Be careful, the other XSLTs in the repository are linked within these top-level transformations, i.e. they are necessary, too.
 
-The project is work in progress and contains the current status of the work of the joint working group of AutomationML and OPC UA.
+The project is work in progress and contains the current status of the work of the joint working group of AutomationML and OPC UA. 
+It is a newer version of the published companion spec rules: https://opcfoundation.org/developer-tools/documents/view/276.
 
 [1]: https://raw.githubusercontent.com/AutomationML/AMLEngine2.1/master/img/AutomationML-Logo.png
