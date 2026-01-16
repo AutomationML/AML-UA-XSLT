@@ -1,7 +1,7 @@
 <CAEXFile FileName="Test1_IE_Attribute.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <InstanceHierarchy Name="ManufacturingSystem">
     <InternalElement Name="firstScrewdriver" ID="788eb291-f103-4fdc-aba0-4893b599f556">
-          <InternalElement Name="subElement" ID=""/>
+          <InternalElement Name="subElement" ID="25b09e4f-2d04-47a1-a587-6dc4f8456b0b"/>
     </InternalElement>
   </InstanceHierarchy>
 </CAEXFile>

@@ -1,0 +1,112 @@
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+	<NamespaceUris>
+		<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
+		<!--Uri>http://opcfoundation.org/UA/AML/</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib</Uri-->
+	</NamespaceUris>
+	<Models>
+		<Model ModelUri="http://opcfoundation.org/UA/AML/MyInstances" Version="0.0.0" PublicationDate="2025-10-30T09:53:08Z">
+			<!--RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/-->
+		</Model>
+	</Models>
+	<Aliases>
+		<Alias Alias="Boolean">i=1</Alias>
+		<Alias Alias="SByte">i=2</Alias>
+		<Alias Alias="Byte">i=3</Alias>
+		<Alias Alias="Int16">i=4</Alias>
+		<Alias Alias="UInt16">i=5</Alias>
+		<Alias Alias="Int32">i=6</Alias>
+		<Alias Alias="UInt32">i=7</Alias>
+		<Alias Alias="Int64">i=8</Alias>
+		<Alias Alias="UInt64">i=9</Alias>
+		<Alias Alias="Float">i=10</Alias>
+		<Alias Alias="Double">i=11</Alias>
+		<Alias Alias="DateTime">i=13</Alias>
+		<Alias Alias="String">i=12</Alias>
+		<Alias Alias="ByteString">i=15</Alias>
+		<Alias Alias="Guid">i=14</Alias>
+		<Alias Alias="XmlElement">i=16</Alias>
+		<Alias Alias="NodeId">i=17</Alias>
+		<Alias Alias="ExpandedNodeId">i=18</Alias>
+		<Alias Alias="QualifiedName">i=20</Alias>
+		<Alias Alias="LocalizedText">i=21</Alias>
+		<Alias Alias="StatusCode">i=19</Alias>
+		<Alias Alias="Structure">i=22</Alias>
+		<Alias Alias="Number">i=26</Alias>
+		<Alias Alias="Integer">i=27</Alias>
+		<Alias Alias="UInteger">i=28</Alias>
+		<Alias Alias="HasComponent">i=47</Alias>
+		<Alias Alias="HasProperty">i=46</Alias>
+		<Alias Alias="Organizes">i=35</Alias>
+		<Alias Alias="HasEventSource">i=36</Alias>
+		<Alias Alias="HasNotifier">i=48</Alias>
+		<Alias Alias="HasSubtype">i=45</Alias>
+		<Alias Alias="HasTypeDefinition">i=40</Alias>
+		<Alias Alias="HasModellingRule">i=37</Alias>
+		<Alias Alias="HasEncoding">i=38</Alias>
+		<Alias Alias="HasDescription">i=39</Alias>
+		<Alias Alias="Duration">i=290</Alias>
+		<Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
+		<Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+		<Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
+		<Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
+		<Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
+		<Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
+		<Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
+		<Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
+		<Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
+		<Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
+		<Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
+		<Alias Alias="AutomationMLBaseSystemUnit">ns=2;i=1004</Alias>
+		<Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+		<Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
+	</Aliases>
+	<UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:0_EmptyFile.aml">
+		<DisplayName>0_EmptyFile.aml</DisplayName>
+		<Documentation/>
+		<References>
+			<!--Type definition: CAEXFileType-->
+			<Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
+			<!--FileName-->
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_FileName</Reference>
+			<!--SchemaVersion-->
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SchemaVersion</Reference>
+			<!--InstanceHierarchy-->
+			<!--Libraries-->
+			<!--AdditionalInformation: AutomationMLVersion-->
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
+		</References>
+	</UAObject>
+	<UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+		<DisplayName>FileName</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+		</References>
+		<Value>
+			<uax:String>0_EmptyFile.aml</uax:String>
+		</Value>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+		<DisplayName>SchemaVersion</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+		</References>
+		<Value>
+			<uax:String>2.15</uax:String>
+		</Value>
+	</UAVariable>
+	<!--Attribute: CAEXFile.AutomationMLVersion-->
+	<UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+		<DisplayName>AutomationMLVersion</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+		</References>
+		<Value>
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" AutomationMLVersion="2.0"/>]]></uax:String>
+		</Value>
+	</UAVariable>
+</UANodeSet>
