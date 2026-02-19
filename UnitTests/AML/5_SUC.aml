@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="5_SUC.aml">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.1" LastWritingDateTime="2026-02-19T09:41:18.8035101+01:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.1" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
+  <SystemUnitClassLib Name="SystemUnitClassLib">
+    <Version>0</Version>
+    <SystemUnitClass Name="SystemUnitClass1" ID="d0e8e6e9-e50f-4731-b431-cd6239b65807">
+      <Attribute Name="SU_Attr" AttributeDataType="xs:int" Unit="m">
+        <Description>Test-Attribute</Description>
+        <DefaultValue>1</DefaultValue>
+      </Attribute>
+    </SystemUnitClass>
+    <SystemUnitClass Name="SystemUnitClass2" ID="43774c42-12aa-48d3-b5d5-931fecb7a86c" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass1">
+      <SystemUnitClass Name="SystemUnitClass2-1" ID="737c2e56-d3ac-42bb-8d73-15172adc3147" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass2">
+        <SystemUnitClass Name="SystemUnitClass2-1-1" ID="f6f36dda-c278-46f4-9bd8-4eb356a9c7c5" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass2/SystemUnitClass2-1" />
+      </SystemUnitClass>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+  <SystemUnitClassLib Name="SystemUnitClassLib1">
+    <Version>0</Version>
+    <SystemUnitClass Name="SystemUnitClass1" ID="77b7c073-9243-4cd7-9c5a-1b14a161a359" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass1" />
+  </SystemUnitClassLib>
+</CAEXFile>

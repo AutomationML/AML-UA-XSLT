@@ -32,7 +32,7 @@
 		<References>
 			<!-- Class hierarchy -->
 			<xsl:comment>Hierarchical parent in AutomationML library</xsl:comment>			
-			<Reference ReferenceType="HasAMLClassComponent" IsForward="false">
+			<Reference ReferenceType="Organizes" IsForward="false">
 				<xsl:choose>
 					<xsl:when test="ancestor::caex:InterfaceClass[1]">
 						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:InterfaceClass[1]/@Name)"/>
@@ -72,7 +72,7 @@
 						</xsl:variable>
 						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', fn2:remove-space(exslt:node-set($BaseClass)/*/@Name))"/>
 					</xsl:when>
-					<xsl:when test="local-name()='SystemUnitClass' and @Name!='AutomationMLBaseSystemUnit'">AutomationMLBaseSystemUnit</xsl:when>
+					<xsl:when test="local-name()='SystemUnitClass' and @Name!='AutomationMLBaseSystemUnit'">CAEXObjectType</xsl:when>
 					<xsl:when test="local-name()='RoleClass' and @Name!='AutomationMLBaseRole'">AutomationMLBaseRole</xsl:when>
 					<xsl:when test="local-name()='InterfaceClass' and @Name!='AutomationMLBaseInterface'">AutomationMLBaseInterface</xsl:when>
 					<xsl:when test="local-name()='AttributeType' and @Name!='AutomationMLBaseAttribute'">CAEXObjectType</xsl:when>
@@ -159,7 +159,7 @@
 				<xsl:comment>TODO: what is the correct way to list all elements of the Lib?</xsl:comment>
 				<xsl:comment><xsl:value-of select="concat('List of included ', fn:replace(name(), 'Lib', ''))"/></xsl:comment>
 				<xsl:for-each select="./*[name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType']">
-					<Reference ReferenceType="HasAMLClassComponent"><xsl:value-of select="concat('ns=',$NsId, ';s=',fn2:remove-space(@Name))"/></Reference>
+					<Reference ReferenceType="Organizes"><xsl:value-of select="concat('ns=',$NsId, ';s=',fn2:remove-space(@Name))"/></Reference>
 				</xsl:for-each>
 			</References>
 		</UAObject>

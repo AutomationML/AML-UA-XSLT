@@ -119,8 +119,8 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-	<UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:Test1_IE_Attribute.aml">
-		<DisplayName>Test1_IE_Attribute.aml</DisplayName>
+	<UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:2_IE.aml">
+		<DisplayName>2_IE.aml</DisplayName>
 		<Documentation/>
 		<References>
 			<!--Type definition: CAEXFileType-->
@@ -141,7 +141,7 @@
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String>Test1_IE_Attribute.aml</uax:String>
+			<uax:String>2_IE.aml</uax:String>
 		</Value>
 	</UAVariable>
 	<UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">

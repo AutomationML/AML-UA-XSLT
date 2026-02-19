@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile FileName="6_RCL.aml" SchemaVersion="2.15" xsi:noNamespaceSchemaLocation="./Source/CAEX_ClassModel_V2.15.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <AdditionalInformation>
+    <WriterHeader>
+      <WriterName>AutomationML e.V.</WriterName>
+      <WriterID>AutomationML e.V.</WriterID>
+      <WriterVendor>AutomationML e.V.</WriterVendor>
+      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+      <WriterVersion>1.0</WriterVersion>
+      <WriterRelease>1.0</WriterRelease>
+      <LastWritingDateTime>2012-02-20
+			</LastWritingDateTime>
+      <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+      <WriterProjectID>AutomationML Tutorial Examples
+			</WriterProjectID>
+    </WriterHeader>
+  </AdditionalInformation>
+  <AdditionalInformation>
+    <WriterHeader>
+      <WriterName>AutomationML Editor</WriterName>
+      <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+      <WriterVendor>AutomationML e.V.</WriterVendor>
+      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+      <WriterVersion>6.4.3.1</WriterVersion>
+      <WriterRelease>6.4.3.1</WriterRelease>
+      <LastWritingDateTime>2026-02-19T11:18:27.6175234</LastWritingDateTime>
+      <WriterProjectTitle>unspecified</WriterProjectTitle>
+      <WriterProjectID>unspecified</WriterProjectID>
+    </WriterHeader>
+  </AdditionalInformation>
+  <ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
+  <ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
+  <RoleClassLib Name="RoleClassLib1">
+    <Version>1.0</Version>
+    <RoleClass Name="RoleClass1" RefBaseClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole">
+      <Attribute Name="TestAttribute" AttributeDataType="xs:string" Unit="m">
+        <Description>TestAttribute</Description>
+        <DefaultValue>1</DefaultValue>
+      </Attribute>
+    </RoleClass>
+    <RoleClass Name="RoleClass2" ID="9e7f747f-efdf-4558-9e8d-3d847c2bfa2b" RefBaseClassPath="RoleClassLib1/RoleClass1">
+      <Version>1.0.0</Version>
+      <RoleClass Name="RoleClass2-1" ID="4a0abf98-e2bd-4b07-b94a-549098b781ee" RefBaseClassPath="RoleClass2">
+        <Version>1.0.0</Version>
+        <RoleClass Name="RoleClass2-1-1" ID="e3a9745b-8bbd-493c-91de-534633b6667b" RefBaseClassPath="RoleClassLib1/RoleClass2/RoleClass2-1">
+          <Version>1.0.0</Version>
+        </RoleClass>
+      </RoleClass>
+    </RoleClass>
+  </RoleClassLib>
+  <RoleClassLib Name="RoleClassLib2">
+    <Version>1.0</Version>
+    <RoleClass Name="RoleClass" RefBaseClassPath="RoleClassLib1/RoleClass1" />
+  </RoleClassLib>
+</CAEXFile>
