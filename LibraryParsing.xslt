@@ -131,8 +131,7 @@
 	<xsl:template name="GetNamespaceIdByName">
 		<xsl:param name="Namespace"/>
 		<xsl:for-each select="exslt:node-set($NamespaceUris)//*[local-name()='Uri']">
-			<xsl:if test="$Namespace = substring(text(), string-length(text()) - string-length($Namespace) + 1)">
-				<!--xsl:if test="exslt:ends-with(text(), exslt:node-set($Namespace))"-->
+			<xsl:if test="concat('/',$Namespace) = substring(text(), string-length(text()) - string-length($Namespace))">
 				<xsl:value-of select="position()"/>
 			</xsl:if>
 		</xsl:for-each>

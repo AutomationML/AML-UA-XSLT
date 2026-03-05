@@ -72,10 +72,28 @@
 						</xsl:variable>
 						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', fn2:remove-space(exslt:node-set($BaseClass)/*/@Name))"/>
 					</xsl:when>
+					<xsl:when test="@RefAttributeType and not(fn:contains(@RefAttributeType, '/'))">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', @RefAttributeType)"/>
+					</xsl:when>
+					<xsl:when test="@RefAttributeType">
+						<xsl:variable name="BaseClass">
+							<xsl:call-template name="GetClass">
+								<xsl:with-param name="path" select="@RefAttributeType"/>
+							</xsl:call-template>
+						</xsl:variable>
+						<xsl:variable name="ParentNS">
+							<xsl:call-template name="GetNamespaceIdByName">
+								<xsl:with-param name="Namespace">
+									<xsl:value-of select="substring-before(@RefAttributeType,'/')"/>
+								</xsl:with-param>
+							</xsl:call-template>
+						</xsl:variable>
+						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', fn2:remove-space(exslt:node-set($BaseClass)/*/@Name))"/>
+					</xsl:when>
 					<xsl:when test="local-name()='SystemUnitClass' and @Name!='AutomationMLBaseSystemUnit'">CAEXObjectType</xsl:when>
 					<xsl:when test="local-name()='RoleClass' and @Name!='AutomationMLBaseRole'">AutomationMLBaseRole</xsl:when>
 					<xsl:when test="local-name()='InterfaceClass' and @Name!='AutomationMLBaseInterface'">AutomationMLBaseInterface</xsl:when>
-					<xsl:when test="local-name()='AttributeType' and @Name!='AutomationMLBaseAttribute'">CAEXObjectType</xsl:when>
+					<xsl:when test="local-name()='AttributeType'">AMLBaseVariableType</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>CAEXObjectType</xsl:text>
 					</xsl:otherwise>
