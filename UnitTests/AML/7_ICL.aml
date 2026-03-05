@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<CAEXFile FileName="7_ICL.aml" SchemaVersion="2.15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<CAEXFile FileName="7_ICL.aml" SchemaVersion="2.15" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="CAEX_ClassModel_V2.15.xsd">
   <AdditionalInformation AutomationMLVersion="2.0" />
   <AdditionalInformation>
     <WriterHeader>
@@ -9,7 +9,7 @@
       <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
       <WriterVersion>6.4.3.1</WriterVersion>
       <WriterRelease>6.4.3.1</WriterRelease>
-      <LastWritingDateTime>2026-02-19T11:17:53.7985788</LastWritingDateTime>
+      <LastWritingDateTime>2026-03-05T10:43:13.3037506</LastWritingDateTime>
       <WriterProjectTitle>unspecified</WriterProjectTitle>
       <WriterProjectID>unspecified</WriterProjectID>
     </WriterHeader>
@@ -32,7 +32,7 @@
       </InterfaceClass>
     </InterfaceClass>
   </InterfaceClassLib>
-  <InterfaceClassLib Name="InterfaceClassLib1" ID="4783fdfc-1388-4644-acb6-2d1a801e1b12">
+  <InterfaceClassLib Name="InterfaceClassLib123" ID="4783fdfc-1388-4644-acb6-2d1a801e1b12">
     <Version>1.0.0</Version>
     <InterfaceClass Name="InterfaceClass1" ID="97ba4484-aa8d-4af1-854d-de494b6acb1a" RefBaseClassPath="InterfaceClassLib/InterfaceClass1">
       <Version>1.0.0</Version>

@@ -28,16 +28,16 @@
     <Version>2.2.0</Version>
     <RoleClass Name="AutomationMLBaseRole">
       <RoleClass Name="Group" RefBaseClassPath="AutomationMLBaseRole">
-        <Attribute Name="AssociatedFacet" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/AutomationMLBaseAttribute" />
+        <Attribute Name="AssociatedFacet" AttributeDataType="xs:string"/>
       </RoleClass>
       <RoleClass Name="Facet" RefBaseClassPath="AutomationMLBaseRole" />
       <RoleClass Name="Port" RefBaseClassPath="AutomationMLBaseRole">
-        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/AutomationMLBaseAttribute" />
-        <Attribute Name="Cardinality" RefAttributeType="AutomationMLBaseAttributeTypeLib/AutomationMLBaseAttribute">
-          <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt" RefAttributeType="AutomationMLBaseAttributeTypeLib/AutomationMLBaseAttribute" />
-          <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt" RefAttributeType="AutomationMLBaseAttributeTypeLib/AutomationMLBaseAttribute" />
+        <Attribute Name="Direction" AttributeDataType="xs:string"/>
+        <Attribute Name="Cardinality">
+          <Attribute Name="MinOccur" AttributeDataType="xs:unsignedInt"/>
+          <Attribute Name="MaxOccur" AttributeDataType="xs:unsignedInt"/>
         </Attribute>
-        <Attribute Name="Category" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/AutomationMLBaseAttribute" />
+        <Attribute Name="Category" AttributeDataType="xs:string"/>
         <ExternalInterface Name="ConnectionPoint" ID="9942bd9c-c19d-44e4-a197-11b9edf264e7" RefBaseClassPath="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector" />
       </RoleClass>
       <RoleClass Name="Resource" RefBaseClassPath="AutomationMLBaseRole" />
@@ -51,9 +51,9 @@
       <RoleClass Name="PropertySet" RefBaseClassPath="AutomationMLBaseRole" />
     </RoleClass>
   </RoleClassLib>
-  <AttributeTypeLib Name="AutomationMLBaseAttributeTypeLib">
+  <!--AttributeTypeLib Name="AutomationMLBaseAttributeTypeLib">
     <Description>Automation Markup Language base attribute type library</Description>
     <Version>1.1.0</Version>
     <AttributeType Name="AutomationMLBaseAttribute" />
-  </AttributeTypeLib>
+  </AttributeTypeLib-->
 </CAEXFile>
