@@ -118,6 +118,16 @@
 					</xsl:copy>
 				</xsl:for-each>
 			</xsl:when>
+			<!-- find the parent class in the list of aliases -->
+			<xsl:when test="$ImportedAMLLibraries//*[fn:starts-with($path, concat(@name, '/'))]">
+				<xsl:variable name="lib">
+					<xsl:copy-of select="$ImportedAMLLibraries//*[fn:starts-with($path, concat(@name, '/'))]"/>
+				</xsl:variable>
+				<xsl:variable name="libName" select="$lib/*[fn:local-name()='Library']/@name"/>
+				<Alias>
+					<xsl:attribute name="Name" select="$lib//*[$path=fn:concat($libName,'/',@Alias)]/@Alias"/>			
+				</Alias>
+			</xsl:when>
 			<xsl:otherwise>
 				<xsl:copy-of select="exslt:node-set($currentClass)/*[1]"/>
 			</xsl:otherwise>

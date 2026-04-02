@@ -47,6 +47,7 @@
   <InterfaceClassLib Name="MyInterfaces">
     <Version>1.0</Version>
     <InterfaceClass Name="Energy" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
+    <InterfaceClass Name="Energy2" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface2" />
   </InterfaceClassLib>
   <RoleClassLib Name="ManufacturingRoleClasses">
     <Version>1.0</Version>
