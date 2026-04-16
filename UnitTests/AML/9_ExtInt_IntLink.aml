@@ -34,24 +34,27 @@
     <InternalElement Name="firstScrewdriver" ID="788eb291-f103-4fdc-aba0-4893b599f556" RefBaseSystemUnitPath="LibOfCommonTools/ElectricScrewdriver">
       <Attribute Name="New Attribute" />
       <ExternalInterface Name="EnergySupply" ID="{5f535d4c-dd46-4c1c-898c-4e58419048b6}" RefBaseClassPath="MyInterfaces/Energy" />
-      <SupportedRoleClass RefRoleClassPath="ManufacturingRoleClasses/Tool" />
       <InternalLink Name="Link" RefPartnerSideA="788eb291-f103-4fdc-aba0-4893b599f556:EnergySupply" RefPartnerSideB="19dcf818-4716-4fc1-a85f-28e1938c4c3a:EnergySupply" />
       <RoleRequirements RefBaseRoleClassPath="ManufacturingRoleClasses/Tool" />
     </InternalElement>
     <InternalElement Name="secondScrewdriver" ID="19dcf818-4716-4fc1-a85f-28e1938c4c3a" RefBaseSystemUnitPath="LibOfCommonTools/ElectricScrewdriver">
       <ExternalInterface Name="EnergySupply" ID="50e10905-ac18-413c-afab-ad8ed1569fff" RefBaseClassPath="MyInterfaces/Energy" />
       <SupportedRoleClass RefRoleClassPath="ManufacturingRoleClasses/Tool" />
-      <RoleRequirements RefBaseRoleClassPath="ManufacturingRoleClasses/Tool" />
     </InternalElement>
   </InstanceHierarchy>
   <InterfaceClassLib Name="MyInterfaces">
     <Version>1.0</Version>
-    <InterfaceClass Name="Energy" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface" />
-    <InterfaceClass Name="Energy2" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface2" />
+    <InterfaceClass Name="Energy" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface">
+		<InterfaceClass Name="Energy2"/>
+    </InterfaceClass>
   </InterfaceClassLib>
   <RoleClassLib Name="ManufacturingRoleClasses">
     <Version>1.0</Version>
     <RoleClass Name="Tool" RefBaseClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+    <RoleClass Name="Tool2" RefBaseClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
+    <RoleClass Name="Tool3">
+      <ExternalInterface Name="EnergySupply" ID="50e10905-ac18-413c-afab-ad8ed1569111" RefBaseClassPath="MyInterfaces/Energy" />    
+    </RoleClass>
   </RoleClassLib>
   <SystemUnitClassLib Name="LibOfCommonTools">
     <Version>1.0</Version>

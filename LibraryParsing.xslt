@@ -63,11 +63,11 @@
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//SystemUnitClassLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//caex:SystemUnitClassLib[@Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//SystemUnitClassLib[@Name=$libName]/SystemUnitClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//caex:SystemUnitClassLib[@Name=$libName]/caex:SystemUnitClass"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
@@ -89,15 +89,21 @@
 				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
-				
 		<xsl:choose>
-			<xsl:when test="exslt:node-set($currentClass)/*[1]/@RefBaseClassPath!=''">
+			<xsl:when test="exslt:node-set($currentClass)/*[1]/@RefBaseClassPath!='' or exslt:node-set($currentClass)/@RefBaseSystemUnitPath!=''">
 				<xsl:variable name="baseClass">
 					<xsl:choose>
 						<xsl:when test="contains(exslt:node-set($currentClass)/*[1]/@RefBaseClassPath, '/')">
 							<xsl:call-template name="GetClass">
 								<xsl:with-param name="path">
 									<xsl:value-of select="exslt:node-set($currentClass)/*[1]/@RefBaseClassPath"/>
+								</xsl:with-param>
+							</xsl:call-template>
+						</xsl:when>
+						<xsl:when test="contains(exslt:node-set($currentClass)/*[1]/@RefBaseSystemUnitPath, '/')">
+							<xsl:call-template name="GetClass">
+								<xsl:with-param name="path">
+									<xsl:value-of select="exslt:node-set($currentClass)/*[1]/@RefBaseSystemUnitPath"/>
 								</xsl:with-param>
 							</xsl:call-template>
 						</xsl:when>

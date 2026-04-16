@@ -1,8 +1,13 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="5_SUC.aml">
+<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="5_SUC.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <AdditionalInformation AutomationMLVersion="2.0" />
   <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
-  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.1" LastWritingDateTime="2026-02-19T09:41:18.8035101+01:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.1" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.1" LastWritingDateTime="2026-04-16T11:44:52.6968334+02:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.1" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
+  <InstanceHierarchy Name="InstanceHierarchy" ID="b9a19f5a-f56d-4c52-87c1-adc0b618fa04">
+    <Version>1.0.0</Version>
+    <InternalElement Name="InternalElement1" ID="abf22b81-9a66-4378-9ae8-41f1750635ff" RefBaseSystemUnitPath="SystemUnitClassLib/SystemUnitClass2/SystemUnitClass2-1/SystemUnitClass2-1-1" />
+    <InternalElement Name="InternalElement" ID="ccb62733-001d-43cd-9d5e-3160c7086e24" />
+  </InstanceHierarchy>
   <SystemUnitClassLib Name="SystemUnitClassLib">
     <Version>0</Version>
     <SystemUnitClass Name="SystemUnitClass1" ID="d0e8e6e9-e50f-4731-b431-cd6239b65807">
@@ -19,6 +24,9 @@
   </SystemUnitClassLib>
   <SystemUnitClassLib Name="SystemUnitClassLib1">
     <Version>0</Version>
-    <SystemUnitClass Name="SystemUnitClass1" ID="77b7c073-9243-4cd7-9c5a-1b14a161a359" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass1" />
+    <SystemUnitClass Name="SystemUnitClass1" ID="77b7c073-9243-4cd7-9c5a-1b14a161a359" RefBaseClassPath="SystemUnitClassLib/SystemUnitClass1">
+      <InternalElement Name="InternalElement" ID="3ecc5cca-e5fd-4045-9f6f-49b213f4ba13"  RefBaseSystemUnitPath="SystemUnitClassLib/SystemUnitClass2/SystemUnitClass2-1/SystemUnitClass2-1-1" />
+      <InternalElement Name="InternalElement" ID="3ecc5cca-e5fd-4045-9f6f-49b213f4b125"/>
+    </SystemUnitClass>
   </SystemUnitClassLib>
 </CAEXFile>
