@@ -51,40 +51,30 @@
 					</xsl:otherwise>			
 				</xsl:choose>			
 			</Reference>
+			
+			<xsl:variable name="BasePath">
+				<xsl:choose>
+					<xsl:when test="@RefBaseClassPath"><xsl:value-of select="@RefBaseClassPath"/></xsl:when>
+					<xsl:when test="@RefAttributeType"><xsl:value-of select="@RefAttributeType"/></xsl:when>
+				</xsl:choose>
+			</xsl:variable>
+			<xsl:variable name="BaseClass">
+				<xsl:call-template name="GetClass">
+					<xsl:with-param name="path" select="$BasePath"/>
+				</xsl:call-template>
+			</xsl:variable>
+
 			<xsl:comment>Parent class</xsl:comment>	
 			<Reference ReferenceType="HasSubtype" IsForward="false">
 				<xsl:choose>
-					<xsl:when test="@RefBaseClassPath and not(fn:contains(@RefBaseClassPath, '/'))">
-						<xsl:value-of select="concat('ns=', $NsId, ';s=', @RefBaseClassPath)"/>
+					<xsl:when test="$BasePath!='' and not(fn:contains($BasePath, '/'))">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', $BasePath)"/>
 					</xsl:when>
-					<xsl:when test="@RefBaseClassPath">
-						<xsl:variable name="BaseClass">
-							<xsl:call-template name="GetClass">
-								<xsl:with-param name="path" select="@RefBaseClassPath"/>
-							</xsl:call-template>
-						</xsl:variable>
+					<xsl:when test="$BasePath!=''">
 						<xsl:variable name="ParentNS">
 							<xsl:call-template name="GetNamespaceIdByName">
 								<xsl:with-param name="Namespace">
-									<xsl:value-of select="substring-before(@RefBaseClassPath,'/')"/>
-								</xsl:with-param>
-							</xsl:call-template>
-						</xsl:variable>
-						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', fn2:remove-space(exslt:node-set($BaseClass)/*/@Name))"/>
-					</xsl:when>
-					<xsl:when test="@RefAttributeType and not(fn:contains(@RefAttributeType, '/'))">
-						<xsl:value-of select="concat('ns=', $NsId, ';s=', @RefAttributeType)"/>
-					</xsl:when>
-					<xsl:when test="@RefAttributeType">
-						<xsl:variable name="BaseClass">
-							<xsl:call-template name="GetClass">
-								<xsl:with-param name="path" select="@RefAttributeType"/>
-							</xsl:call-template>
-						</xsl:variable>
-						<xsl:variable name="ParentNS">
-							<xsl:call-template name="GetNamespaceIdByName">
-								<xsl:with-param name="Namespace">
-									<xsl:value-of select="substring-before(@RefAttributeType,'/')"/>
+									<xsl:value-of select="substring-before($BasePath,'/')"/>
 								</xsl:with-param>
 							</xsl:call-template>
 						</xsl:variable>
@@ -168,7 +158,6 @@
 						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference-->
 					</xsl:when>
 					<xsl:when test="name(.)='AttributeTypeLib'">
-						<xsl:comment>TODO: AttributeTypeLib not supported, yet.</xsl:comment>
 						<xsl:comment>Collection of AttributeTypeLib</xsl:comment>
 						<!--Reference ReferenceType="Organizes" IsForward="false">ns=1;i=?</Reference-->
 						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AttributeTypeLibs</Reference>
@@ -238,6 +227,7 @@
 		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
+	
 	<xsl:template match="//caex:RoleClass">
 		<xsl:variable name="NsId">
 			<xsl:call-template name="GetNamespaceId"/>

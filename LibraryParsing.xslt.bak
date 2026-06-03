@@ -20,10 +20,10 @@
 	<!-- ________________________________________________________________________________________________ -->
 	<xsl:variable name="Libraries">
 		<_libraries>
-			<xsl:copy-of select="//*[name()='SystemUnitClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
-			<xsl:copy-of select="//*[name()='RoleClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
-			<xsl:copy-of select="//*[name()='InterfaceClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
-			<xsl:copy-of select="//*[name()='AttributeTypeLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
+			<xsl:copy-of select="//*[name()='SystemUnitClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]" copy-namespaces="no"/>
+			<xsl:copy-of select="//*[name()='RoleClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]" copy-namespaces="no"/>
+			<xsl:copy-of select="//*[name()='InterfaceClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]" copy-namespaces="no"/>
+			<xsl:copy-of select="//*[name()='AttributeTypeLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]" copy-namespaces="no"/>
 		</_libraries>
 	</xsl:variable>
 	<!-- ________________________________________________________________________________________________ -->
@@ -38,13 +38,13 @@
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subclass"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($input)/*[(name()='SystemUnitClass' or name()='RoleClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$parentclass]/*"/>
+							<xsl:copy-of select="exslt:node-set($input)/*[(name()='SystemUnitClass' or name()='RoleClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$parentclass]/*" copy-namespaces="no"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:copy-of select="exslt:node-set($input)//*[(name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$search]"/>
+				<xsl:copy-of select="exslt:node-set($input)//*[(name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$search]" copy-namespaces="no"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -117,17 +117,17 @@
 					</xsl:choose>
 				</xsl:variable>
 				<xsl:for-each select="exslt:node-set($currentClass)/*[1]">
-					<xsl:copy>
+					<xsl:copy copy-namespaces="no">
 						<xsl:copy-of select="@*"/>
 						<xsl:copy-of select="Attribute"/>
-						<xsl:copy-of select="exslt:node-set($baseClass)/*/Attribute"/>
+						<xsl:copy-of select="exslt:node-set($baseClass)/*/Attribute" copy-namespaces="no"/>
 					</xsl:copy>
 				</xsl:for-each>
 			</xsl:when>
 			<!-- find the parent class in the list of aliases -->
 			<xsl:when test="$ImportedAMLLibraries//*[fn:starts-with($path, concat(@name, '/'))]">
 				<xsl:variable name="lib">
-					<xsl:copy-of select="$ImportedAMLLibraries//*[fn:starts-with($path, concat(@name, '/'))]"/>
+					<xsl:copy-of select="$ImportedAMLLibraries//*[fn:starts-with($path, concat(@name, '/'))]" copy-namespaces="no"/>
 				</xsl:variable>
 				<xsl:variable name="libName" select="$lib/*[fn:local-name()='Library']/@name"/>
 				<Alias>
@@ -135,7 +135,7 @@
 				</Alias>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:copy-of select="exslt:node-set($currentClass)/*[1]"/>
+				<xsl:copy-of select="exslt:node-set($currentClass)/*[1]" copy-namespaces="no"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>

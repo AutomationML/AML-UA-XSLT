@@ -14,12 +14,14 @@
 		<xsl:param name="rtf"/>
 		<xsl:sequence select="$rtf"/>
 	</xsl:function>-->
+	
 	<!-- .........................................................................
 		Library parsing
 	.........................................................................-->
 	<!-- ________________________________________________________________________________________________ -->
 	<xsl:variable name="Libraries">
 		<_libraries>
+			<!-- avoid namespaces also if XSLT1.0 is used -->
 			<xsl:copy-of select="//*[name()='SystemUnitClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
 			<xsl:copy-of select="//*[name()='RoleClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
 			<xsl:copy-of select="//*[name()='InterfaceClassLib' and count(preceding-sibling::*[@Name=current()/@Name])=0]"/>
@@ -30,6 +32,7 @@
 	<xsl:template name="GetSubClass">
 		<xsl:param name="search"/>
 		<xsl:param name="input"/>
+		
 		<xsl:choose>
 			<xsl:when test="contains($search, '/')">
 				<xsl:variable name="parentclass" select="substring-before($search,'/')"/>
@@ -44,7 +47,7 @@
 				</xsl:if>
 			</xsl:when>
 			<xsl:otherwise>
-				<xsl:copy-of select="exslt:node-set($input)//*[(name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$search]"/>
+				<xsl:copy-of select="exslt:node-set($input)/*[(name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType') and @Name=$search]"/>
 			</xsl:otherwise>
 		</xsl:choose>
 	</xsl:template>
@@ -53,42 +56,44 @@
 		<xsl:param name="path"/>
 		<xsl:variable name="libName" select="substring-before($path,'/')"/>
 		<xsl:variable name="subPath" select="substring-after($path,'/')"/>
+				
 		<xsl:variable name="currentClass">
 			<xsl:choose>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//RoleClassLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//*[name()='RoleClassLib' and @Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//RoleClassLib[@Name=$libName]/RoleClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//*[name()='RoleClassLib' and @Name=$libName]/*[name()='RoleClass']"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//SystemUnitClassLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//*[name()='SystemUnitClassLib' and @Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//SystemUnitClassLib[@Name=$libName]/SystemUnitClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//*[name()='SystemUnitClassLib' and @Name=$libName]/*[name()='SystemUnitClass']"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//*[name()='AttributeTypeLib' and @Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//AttributeTypeLib[@Name=$libName]/AttributeType"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//*[name()='AttributeTypeLib' and @Name=$libName]/*[name()='AttributeType']"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
-				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//InterfaceClassLib[@Name=$libName]">
+				<xsl:when test="$libName!='' and exslt:node-set($Libraries)//*[name()='InterfaceClassLib' and @Name=$libName]">
 					<xsl:call-template name="GetSubClass">
 						<xsl:with-param name="search" select="$subPath"/>
 						<xsl:with-param name="input">
-							<xsl:copy-of select="exslt:node-set($Libraries)//InterfaceClassLib[@Name=$libName]/InterfaceClass"/>
+							<xsl:copy-of select="exslt:node-set($Libraries)//*[name()='InterfaceClassLib' and @Name=$libName]/*[name()='InterfaceClass']"/>
 						</xsl:with-param>
 					</xsl:call-template>
 				</xsl:when>
 			</xsl:choose>
 		</xsl:variable>
+
 		<xsl:choose>
 			<xsl:when test="exslt:node-set($currentClass)/*[1]/@RefBaseClassPath!='' or exslt:node-set($currentClass)/@RefBaseSystemUnitPath!=''">
 				<xsl:variable name="baseClass">
