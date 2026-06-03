@@ -1,4 +1,5 @@
-<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
 	<!--
 			Documentation
 			===============
@@ -7,6 +8,7 @@
 			UANodeSet
 			=============
 			TODOs:
+				- how to handle mirror objects?
 				- Do we need aliases?? 
 					- to be clarified with UA -> Miriam
 				    - only used ones or standard template set of aliases
@@ -31,29 +33,35 @@
 				- fix model version for RequiredModels -> is this correct?
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			-->
+	<!--!!! Warning !!! 
+		===============
+		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		-->
 	<NamespaceUris>
-		<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/6_RCL.aml</Uri>
+		<!--AML Base-->
 		<Uri>http://opcfoundation.org/UA/AML/</Uri>
+		<!--Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml-->
 		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+		<!--Fallback: AutomationMLBaseInterface-->
 		<Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
-		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib</Uri>
 		<Uri>http://opcfoundation.org/UA/AML/RoleClassLib1</Uri>
 		<Uri>http://opcfoundation.org/UA/AML/RoleClassLib2</Uri>
 	</NamespaceUris>
 	<Models>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="" PublicationDate="2026-02-19T11:19:08Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="" PublicationDate="2026-02-19T11:19:08Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/MyInstances" Version="0.0.0" PublicationDate="2026-02-19T11:19:08Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/6_RCL.aml" Version="0.0.0" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="" PublicationDate="2026-02-19T11:19:08Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="" PublicationDate="2026-02-19T11:19:08Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="" PublicationDate="2026-06-03T05:38:19Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="" PublicationDate="2026-06-03T05:38:19Z"/>
 		</Model>
 	</Models>
 	<Aliases>
@@ -107,9 +115,9 @@
 		<Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
 		<Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
 		<Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
+		<Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
 		<Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
 		<Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
-		<Alias Alias="AutomationMLBaseAttribute">ns=5;s=AutomationMLBaseAttribute</Alias>
 	</Aliases>
 	<!--
 			CAEXFile
@@ -120,35 +128,35 @@
 				- How to model ExternalReferences?
 					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
 					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
-					- Option 1: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
+					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
 					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
 					- Preferences: 2-1-3 or 1-2-3/2-1-3 
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-	<UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:6_RCL.aml">
+	<UAObject NodeId="ns=1;s=CAEXFile_6_RCL.aml" BrowseName="1:6_RCL.aml">
 		<DisplayName>6_RCL.aml</DisplayName>
 		<Documentation/>
 		<References>
 			<!--Type definition: CAEXFileType-->
 			<Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
 			<!--FileName-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_FileName</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_FileName</Reference>
 			<!--SchemaVersion-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SchemaVersion</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_SchemaVersion</Reference>
 			<!--InstanceHierarchy-->
 			<!--Libraries-->
-			<Reference ReferenceType="Organizes">ns=1;s=CAEXFile_RoleClassLibs</Reference>
-			<!--AdditionalInformation: AutomationMLVersion-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation</Reference>
-			<!--AdditionalInformation: WriterHeader-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation_1</Reference>
-			<!--AdditionalInformation: WriterHeader-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation_2</Reference>
+			<Reference ReferenceType="Organizes">ns=1;s=CAEXFile_6_RCL.aml_RoleClassLibs</Reference>
+			<!--AdditionalInformation: 6_RCL.aml_AutomationMLVersion-->
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation</Reference>
+			<!--AdditionalInformation: 6_RCL.aml_WriterHeader-->
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_1</Reference>
+			<!--AdditionalInformation: 6_RCL.aml_WriterHeader-->
+			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_2</Reference>
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
 		<DisplayName>FileName</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -157,7 +165,7 @@
 			<uax:String>6_RCL.aml</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
 		<DisplayName>SchemaVersion</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -173,60 +181,64 @@
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-	<!--Attribute: CAEXFile.AutomationMLVersion-->
-	<UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<!--Attribute: CAEXFile.6_RCL.aml_AutomationMLVersion-->
+	<UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
 		<DisplayName>AutomationMLVersion</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" AutomationMLVersion="2.0"/>]]></uax:String>
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                   AutomationMLVersion="2.0"/>]]></uax:String>
 		</Value>
 	</UAVariable>
-	<!--Attribute: CAEXFile.WriterHeader-->
-	<UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<!--Attribute: CAEXFile.6_RCL.aml_WriterHeader-->
+	<UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
 		<DisplayName>WriterHeader</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <WriterHeader>
-      <WriterName>AutomationML e.V.</WriterName>
-      <WriterID>AutomationML e.V.</WriterID>
-      <WriterVendor>AutomationML e.V.</WriterVendor>
-      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-      <WriterVersion>1.0</WriterVersion>
-      <WriterRelease>1.0</WriterRelease>
-      <LastWritingDateTime>2012-02-20
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <WriterHeader>
+                  <WriterName>AutomationML e.V.</WriterName>
+                  <WriterID>AutomationML e.V.</WriterID>
+                  <WriterVendor>AutomationML e.V.</WriterVendor>
+                  <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+                  <WriterVersion>1.0</WriterVersion>
+                  <WriterRelease>1.0</WriterRelease>
+                  <LastWritingDateTime>2012-02-20
 			</LastWritingDateTime>
-      <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
-      <WriterProjectID>AutomationML Tutorial Examples
+                  <WriterProjectTitle>AutomationML Tutorial Examples</WriterProjectTitle>
+                  <WriterProjectID>AutomationML Tutorial Examples
 			</WriterProjectID>
-    </WriterHeader>
-  </AdditionalInformation>]]></uax:String>
+               </WriterHeader>
+            </AdditionalInformation>]]></uax:String>
 		</Value>
 	</UAVariable>
-	<!--Attribute: CAEXFile.WriterHeader-->
-	<UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation_2" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<!--Attribute: CAEXFile.6_RCL.aml_WriterHeader-->
+	<UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_2" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
 		<DisplayName>WriterHeader</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <WriterHeader>
-      <WriterName>AutomationML Editor</WriterName>
-      <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
-      <WriterVendor>AutomationML e.V.</WriterVendor>
-      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-      <WriterVersion>6.4.3.1</WriterVersion>
-      <WriterRelease>6.4.3.1</WriterRelease>
-      <LastWritingDateTime>2026-02-19T11:18:27.6175234</LastWritingDateTime>
-      <WriterProjectTitle>unspecified</WriterProjectTitle>
-      <WriterProjectID>unspecified</WriterProjectID>
-    </WriterHeader>
-  </AdditionalInformation>]]></uax:String>
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <WriterHeader>
+                  <WriterName>AutomationML Editor</WriterName>
+                  <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+                  <WriterVendor>AutomationML e.V.</WriterVendor>
+                  <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+                  <WriterVersion>6.4.3.1</WriterVersion>
+                  <WriterRelease>6.4.3.1</WriterRelease>
+                  <LastWritingDateTime>2026-02-19T11:18:27.6175234</LastWritingDateTime>
+                  <WriterProjectTitle>unspecified</WriterProjectTitle>
+                  <WriterProjectID>unspecified</WriterProjectID>
+               </WriterHeader>
+            </AdditionalInformation>]]></uax:String>
 		</Value>
 	</UAVariable>
 	<!--
@@ -254,14 +266,14 @@
 				- ...
 			-->
 	<!--Collection: CAEXFile.RoleClassLibs-->
-	<UAObject NodeId="ns=1;s=CAEXFile_RoleClassLibs" BrowseName="1:RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile">
+	<UAObject NodeId="ns=1;s=CAEXFile_6_RCL.aml_RoleClassLibs" BrowseName="1:6_RCL.aml_RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml">
 		<DisplayName>RoleClassLibs</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 			<!--RoleClassLib: RoleClassLib1-->
-			<Reference ReferenceType="Organizes">ns=6;s=RoleClassLib</Reference>
+			<Reference ReferenceType="Organizes">ns=5;s=RoleClassLib</Reference>
 			<!--RoleClassLib: RoleClassLib2-->
-			<Reference ReferenceType="Organizes">ns=7;s=RoleClassLib</Reference>
+			<Reference ReferenceType="Organizes">ns=6;s=RoleClassLib</Reference>
 		</References>
 	</UAObject>
 	<!--
@@ -278,21 +290,21 @@
 				- is there a maximum length for NodeId?
 				- how do we handle very long lib names -> generate short name?
 		-->
-	<UAObject NodeId="ns=6;s=RoleClassLib" BrowseName="RoleClassLib1">
+	<UAObject NodeId="ns=5;s=RoleClassLib" BrowseName="RoleClassLib1">
 		<DisplayName>RoleClassLib1</DisplayName>
 		<References>
 			<!--Id no longer part of the specification-->
-			<Reference ReferenceType="HasProperty">ns=6;s=RoleClassLib_Version</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=RoleClassLib_Version</Reference>
 			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 			<!--Collection of RoleClassLib-->
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_RoleClassLibs</Reference>
 			<!--TODO: what is the correct way to list all elements of the Lib?-->
 			<!--List of included RoleClass-->
-			<Reference ReferenceType="Organizes">ns=6;s=RoleClass1</Reference>
-			<Reference ReferenceType="Organizes">ns=6;s=RoleClass2</Reference>
+			<Reference ReferenceType="Organizes">ns=5;s=RoleClass1</Reference>
+			<Reference ReferenceType="Organizes">ns=5;s=RoleClass2</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=6;s=RoleClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=RoleClassLib" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClassLib_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=RoleClassLib" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -302,26 +314,25 @@
 		</Value>
 	</UAVariable>
 	<!--RoleClass: RoleClass1-->
-	<UAObjectType NodeId="ns=6;s=RoleClass1" BrowseName="RoleClass1">
+	<UAObjectType NodeId="ns=5;s=RoleClass1" BrowseName="RoleClass1">
 		<DisplayName>RoleClass1</DisplayName>
 		<!--Library: RoleClassLib1-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=6;s=RoleClassLib</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=RoleClassLib</Reference>
 			<!--Parent class-->
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=;s=</Reference>
 			<!--Attribute: TestAttribute-->
-			<Reference ReferenceType="HasComponent">ns=6;s=RoleClass1_TestAttribute</Reference>
+			<Reference ReferenceType="HasComponent">ns=5;s=RoleClass1_TestAttribute</Reference>
 		</References>
 	</UAObjectType>
 	<!--Attribute: TestAttribute-->
-	<UAVariable NodeId="ns=6;s=RoleClass1_TestAttribute" BrowseName="6:TestAttribute" ParentNodeId="ns=6;s=RoleClass1" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass1_TestAttribute" BrowseName="5:TestAttribute" ParentNodeId="ns=5;s=RoleClass1" DataType="String">
 		<DisplayName>TestAttribute</DisplayName>
 		<References>
 			<!--Parent: -->
-			<Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RoleClass1</Reference>
-			<!--HasTypeDefinition: Property Type-->
-			<Reference ReferenceType="HasTypeDefinition">AutomationMLBaseAttribute</Reference>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=5;s=RoleClass1</Reference>
+			<Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
 		</References>
 		<!--Hier-->
 		<Value>
@@ -329,19 +340,19 @@
 		</Value>
 	</UAVariable>
 	<!--RoleClass: RoleClass2-->
-	<UAObjectType NodeId="ns=6;s=RoleClass2" BrowseName="RoleClass2">
+	<UAObjectType NodeId="ns=5;s=RoleClass2" BrowseName="RoleClass2">
 		<DisplayName>RoleClass2</DisplayName>
 		<!--Library: RoleClassLib1-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=6;s=RoleClassLib</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=RoleClassLib</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=6;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=RoleClass1</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=6;s=RoleClass2_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=RoleClass2_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=6;s=RoleClass2_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s=RoleClass2" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass2_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=RoleClass2" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -350,7 +361,7 @@
 			<uax:String>{9e7f747f-efdf-4558-9e8d-3d847c2bfa2b}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=6;s=RoleClass2_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=RoleClass2" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass2_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=RoleClass2" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -360,19 +371,19 @@
 		</Value>
 	</UAVariable>
 	<!--RoleClass: RoleClass2-1-->
-	<UAObjectType NodeId="ns=6;s=RoleClass2-1" BrowseName="RoleClass2-1">
+	<UAObjectType NodeId="ns=5;s=RoleClass2-1" BrowseName="RoleClass2-1">
 		<DisplayName>RoleClass2-1</DisplayName>
 		<!--Library: RoleClassLib1-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=6;s=RoleClass2</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=RoleClass2</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=6;s=RoleClass2</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=RoleClass2</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=6;s=RoleClass2-1_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=RoleClass2-1_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=6;s=RoleClass2-1_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s=RoleClass2-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass2-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=RoleClass2-1" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -381,7 +392,7 @@
 			<uax:String>{4a0abf98-e2bd-4b07-b94a-549098b781ee}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=6;s=RoleClass2-1_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=RoleClass2-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass2-1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=RoleClass2-1" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -391,19 +402,19 @@
 		</Value>
 	</UAVariable>
 	<!--RoleClass: RoleClass2-1-1-->
-	<UAObjectType NodeId="ns=6;s=RoleClass2-1-1" BrowseName="RoleClass2-1-1">
+	<UAObjectType NodeId="ns=5;s=RoleClass2-1-1" BrowseName="RoleClass2-1-1">
 		<DisplayName>RoleClass2-1-1</DisplayName>
 		<!--Library: RoleClassLib1-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=6;s=RoleClass2-1</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=RoleClass2-1</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=6;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=RoleClass2-1</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=6;s=RoleClass2-1-1_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=RoleClass2-1-1_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=6;s=RoleClass2-1-1_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s=RoleClass2-1-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass2-1-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=RoleClass2-1-1" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -412,7 +423,7 @@
 			<uax:String>{e3a9745b-8bbd-493c-91de-534633b6667b}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=6;s=RoleClass2-1-1_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=RoleClass2-1-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=RoleClass2-1-1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=RoleClass2-1-1" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -435,20 +446,20 @@
 				- is there a maximum length for NodeId?
 				- how do we handle very long lib names -> generate short name?
 		-->
-	<UAObject NodeId="ns=7;s=RoleClassLib" BrowseName="RoleClassLib2">
+	<UAObject NodeId="ns=6;s=RoleClassLib" BrowseName="RoleClassLib2">
 		<DisplayName>RoleClassLib2</DisplayName>
 		<References>
 			<!--Id no longer part of the specification-->
-			<Reference ReferenceType="HasProperty">ns=7;s=RoleClassLib_Version</Reference>
+			<Reference ReferenceType="HasProperty">ns=6;s=RoleClassLib_Version</Reference>
 			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 			<!--Collection of RoleClassLib-->
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_RoleClassLibs</Reference>
 			<!--TODO: what is the correct way to list all elements of the Lib?-->
 			<!--List of included RoleClass-->
-			<Reference ReferenceType="Organizes">ns=7;s=RoleClass</Reference>
+			<Reference ReferenceType="Organizes">ns=6;s=RoleClass</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=7;s=RoleClassLib_Version" BrowseName="7:Version" ParentNodeId="ns=7;s=RoleClassLib" DataType="String">
+	<UAVariable NodeId="ns=6;s=RoleClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=RoleClassLib" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -458,14 +469,14 @@
 		</Value>
 	</UAVariable>
 	<!--RoleClass: RoleClass-->
-	<UAObjectType NodeId="ns=7;s=RoleClass" BrowseName="RoleClass">
+	<UAObjectType NodeId="ns=6;s=RoleClass" BrowseName="RoleClass">
 		<DisplayName>RoleClass</DisplayName>
 		<!--Library: RoleClassLib2-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=7;s=RoleClassLib</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=6;s=RoleClassLib</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=6;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=RoleClass1</Reference>
 		</References>
 	</UAObjectType>
 	<!--

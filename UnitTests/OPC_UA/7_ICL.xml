@@ -1,4 +1,5 @@
-<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
 	<!--
 			Documentation
 			===============
@@ -7,6 +8,7 @@
 			UANodeSet
 			=============
 			TODOs:
+				- how to handle mirror objects?
 				- Do we need aliases?? 
 					- to be clarified with UA -> Miriam
 				    - only used ones or standard template set of aliases
@@ -31,29 +33,35 @@
 				- fix model version for RequiredModels -> is this correct?
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			-->
+	<!--!!! Warning !!! 
+		===============
+		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		-->
 	<NamespaceUris>
-		<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/7_ICL.aml</Uri>
+		<!--AML Base-->
 		<Uri>http://opcfoundation.org/UA/AML/</Uri>
+		<!--Fallback: AutomationMLBaseRole-->
 		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+		<!--Fallback: AutomationMLBaseInterface-->
 		<Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
-		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib</Uri>
 		<Uri>http://opcfoundation.org/UA/AML/InterfaceClassLib</Uri>
-		<Uri>http://opcfoundation.org/UA/AML/InterfaceClassLib1</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/InterfaceClassLib123</Uri>
 	</NamespaceUris>
 	<Models>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="" PublicationDate="2026-02-19T12:01:18Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib1" Version="" PublicationDate="2026-02-19T12:01:18Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/MyInstances" Version="0.0.0" PublicationDate="2026-02-19T12:01:18Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/7_ICL.aml" Version="0.0.0" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="" PublicationDate="2026-02-19T12:01:18Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib1" Version="" PublicationDate="2026-02-19T12:01:18Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="" PublicationDate="2026-06-03T05:38:19Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="" PublicationDate="2026-06-03T05:38:19Z"/>
 		</Model>
 	</Models>
 	<Aliases>
@@ -107,9 +115,9 @@
 		<Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
 		<Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
 		<Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
+		<Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
 		<Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
 		<Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
-		<Alias Alias="AutomationMLBaseAttribute">ns=5;s=AutomationMLBaseAttribute</Alias>
 	</Aliases>
 	<!--
 			CAEXFile
@@ -120,7 +128,7 @@
 				- How to model ExternalReferences?
 					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
 					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
-					- Option 1: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
+					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
 					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
 					- Preferences: 2-1-3 or 1-2-3/2-1-3 
 					- report in AML TAC
@@ -146,7 +154,7 @@
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_7_ICL.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_7_ICL.aml" DataType="String">
 		<DisplayName>FileName</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -155,7 +163,7 @@
 			<uax:String>7_ICL.aml</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_7_ICL.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_7_ICL.aml" DataType="String">
 		<DisplayName>SchemaVersion</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -178,7 +186,9 @@
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX" AutomationMLVersion="2.0"/>]]></uax:String>
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                   AutomationMLVersion="2.0"/>]]></uax:String>
 		</Value>
 	</UAVariable>
 	<!--Attribute: CAEXFile.7_ICL.aml_WriterHeader-->
@@ -188,19 +198,20 @@
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX">
-    <WriterHeader>
-      <WriterName>AutomationML Editor</WriterName>
-      <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
-      <WriterVendor>AutomationML e.V.</WriterVendor>
-      <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
-      <WriterVersion>6.4.3.1</WriterVersion>
-      <WriterRelease>6.4.3.1</WriterRelease>
-      <LastWritingDateTime>2026-02-19T11:17:53.7985788</LastWritingDateTime>
-      <WriterProjectTitle>unspecified</WriterProjectTitle>
-      <WriterProjectID>unspecified</WriterProjectID>
-    </WriterHeader>
-  </AdditionalInformation>]]></uax:String>
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+               <WriterHeader>
+                  <WriterName>AutomationML Editor</WriterName>
+                  <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
+                  <WriterVendor>AutomationML e.V.</WriterVendor>
+                  <WriterVendorURL>www.AutomationML.org</WriterVendorURL>
+                  <WriterVersion>6.4.3.1</WriterVersion>
+                  <WriterRelease>6.4.3.1</WriterRelease>
+                  <LastWritingDateTime>2026-03-05T10:43:13.3037506</LastWritingDateTime>
+                  <WriterProjectTitle>unspecified</WriterProjectTitle>
+                  <WriterProjectID>unspecified</WriterProjectID>
+               </WriterHeader>
+            </AdditionalInformation>]]></uax:String>
 		</Value>
 	</UAVariable>
 	<!--
@@ -226,9 +237,9 @@
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 			<!--InterfaceClassLib: InterfaceClassLib-->
-			<Reference ReferenceType="Organizes">ns=46;s=InterfaceClassLib</Reference>
-			<!--InterfaceClassLib: InterfaceClassLib1-->
-			<Reference ReferenceType="Organizes">ns=7;s=InterfaceClassLib</Reference>
+			<Reference ReferenceType="Organizes">ns=5;s=InterfaceClassLib</Reference>
+			<!--InterfaceClassLib: InterfaceClassLib123-->
+			<Reference ReferenceType="Organizes">ns=6;s=InterfaceClassLib</Reference>
 		</References>
 	</UAObject>
 	<!--
@@ -249,21 +260,21 @@
 				- is there a maximum length for NodeId?
 				- how do we handle very long lib names -> generate short name?
 		-->
-	<UAObject NodeId="ns=46;s=InterfaceClassLib" BrowseName="InterfaceClassLib">
+	<UAObject NodeId="ns=5;s=InterfaceClassLib" BrowseName="InterfaceClassLib">
 		<DisplayName>InterfaceClassLib</DisplayName>
 		<References>
 			<!--Id no longer part of the specification-->
-			<Reference ReferenceType="HasProperty">ns=46;s=InterfaceClassLib_Version</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=InterfaceClassLib_Version</Reference>
 			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 			<!--Collection of InterfaceClassLib-->
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_InterfaceClassLibs</Reference>
 			<!--TODO: what is the correct way to list all elements of the Lib?-->
 			<!--List of included InterfaceClass-->
-			<Reference ReferenceType="Organizes">ns=46;s=InterfaceClass1</Reference>
-			<Reference ReferenceType="Organizes">ns=46;s=InterfaceClass2</Reference>
+			<Reference ReferenceType="Organizes">ns=5;s=InterfaceClass1</Reference>
+			<Reference ReferenceType="Organizes">ns=5;s=InterfaceClass2</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=46;s=InterfaceClassLib_Version" BrowseName="46:Version" ParentNodeId="ns=46;s=InterfaceClassLib" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClassLib_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClassLib" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -273,21 +284,21 @@
 		</Value>
 	</UAVariable>
 	<!--InterfaceClass: InterfaceClass1-->
-	<UAObjectType NodeId="ns=46;s=InterfaceClass1" BrowseName="InterfaceClass1">
+	<UAObjectType NodeId="ns=5;s=InterfaceClass1" BrowseName="InterfaceClass1">
 		<DisplayName>InterfaceClass1</DisplayName>
 		<!--Library: InterfaceClassLib-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=46;s=InterfaceClassLib</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=InterfaceClassLib</Reference>
 			<!--Parent class-->
 			<Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseInterface</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=46;s=InterfaceClass1_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass1_AML_ID</Reference>
 			<!--Attribute: TestAttribute-->
-			<Reference ReferenceType="HasComponent">ns=46;s=InterfaceClass1_TestAttribute</Reference>
+			<Reference ReferenceType="HasComponent">ns=5;s=InterfaceClass1_TestAttribute</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=46;s=InterfaceClass1_AML_ID" BrowseName="46:AML_ID" ParentNodeId="ns=46;s=InterfaceClass1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass1" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -296,7 +307,7 @@
 			<uax:String>{5ffabff9-b08d-491d-bc51-aaf23585f088}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=46;s=InterfaceClass1_Version" BrowseName="46:Version" ParentNodeId="ns=46;s=InterfaceClass1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass1" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -306,13 +317,12 @@
 		</Value>
 	</UAVariable>
 	<!--Attribute: TestAttribute-->
-	<UAVariable NodeId="ns=46;s=InterfaceClass1_TestAttribute" BrowseName="46:TestAttribute" ParentNodeId="ns=46;s=InterfaceClass1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass1_TestAttribute" BrowseName="5:TestAttribute" ParentNodeId="ns=5;s=InterfaceClass1" DataType="String">
 		<DisplayName>TestAttribute</DisplayName>
 		<References>
 			<!--Parent: -->
-			<Reference ReferenceType="HasComponent" IsForward="false">ns=46;s=InterfaceClass1</Reference>
-			<!--HasTypeDefinition: Property Type-->
-			<Reference ReferenceType="HasTypeDefinition">AutomationMLBaseAttribute</Reference>
+			<Reference ReferenceType="HasComponent" IsForward="false">ns=5;s=InterfaceClass1</Reference>
+			<Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
 		</References>
 		<!--Hier-->
 		<Value>
@@ -320,19 +330,19 @@
 		</Value>
 	</UAVariable>
 	<!--InterfaceClass: InterfaceClass2-->
-	<UAObjectType NodeId="ns=46;s=InterfaceClass2" BrowseName="InterfaceClass2">
+	<UAObjectType NodeId="ns=5;s=InterfaceClass2" BrowseName="InterfaceClass2">
 		<DisplayName>InterfaceClass2</DisplayName>
 		<!--Library: InterfaceClassLib-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=46;s=InterfaceClassLib</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=InterfaceClassLib</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=46;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass1</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=46;s=InterfaceClass2_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=46;s=InterfaceClass2_AML_ID" BrowseName="46:AML_ID" ParentNodeId="ns=46;s=InterfaceClass2" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass2_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -341,7 +351,7 @@
 			<uax:String>{22cae364-995a-4780-b3a9-1eaaedeb7877}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=46;s=InterfaceClass2_Version" BrowseName="46:Version" ParentNodeId="ns=46;s=InterfaceClass2" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass2_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass2" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -351,19 +361,19 @@
 		</Value>
 	</UAVariable>
 	<!--InterfaceClass: InterfaceClass2-1-->
-	<UAObjectType NodeId="ns=46;s=InterfaceClass2-1" BrowseName="InterfaceClass2-1">
+	<UAObjectType NodeId="ns=5;s=InterfaceClass2-1" BrowseName="InterfaceClass2-1">
 		<DisplayName>InterfaceClass2-1</DisplayName>
 		<!--Library: InterfaceClassLib-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=46;s=InterfaceClass2</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=InterfaceClass2</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=46;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass2</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=46;s=InterfaceClass2-1_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2-1_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=46;s=InterfaceClass2-1_AML_ID" BrowseName="46:AML_ID" ParentNodeId="ns=46;s=InterfaceClass2-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass2-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2-1" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -372,7 +382,7 @@
 			<uax:String>{4e3ab4ca-2882-4e30-980b-4707c1cb0e1e}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=46;s=InterfaceClass2-1_Version" BrowseName="46:Version" ParentNodeId="ns=46;s=InterfaceClass2-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass2-1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass2-1" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -382,19 +392,19 @@
 		</Value>
 	</UAVariable>
 	<!--InterfaceClass: InterfaceClass2-1-1-->
-	<UAObjectType NodeId="ns=46;s=InterfaceClass2-1-1" BrowseName="InterfaceClass2-1-1">
+	<UAObjectType NodeId="ns=5;s=InterfaceClass2-1-1" BrowseName="InterfaceClass2-1-1">
 		<DisplayName>InterfaceClass2-1-1</DisplayName>
 		<!--Library: InterfaceClassLib-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=46;s=InterfaceClass2-1</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=5;s=InterfaceClass2-1</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=46;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass2-1</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=46;s=InterfaceClass2-1-1_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2-1-1_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=46;s=InterfaceClass2-1-1_AML_ID" BrowseName="46:AML_ID" ParentNodeId="ns=46;s=InterfaceClass2-1-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass2-1-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2-1-1" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -403,7 +413,7 @@
 			<uax:String>{83dfa3be-b242-4da9-82b1-715f545ef10f}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=46;s=InterfaceClass2-1-1_Version" BrowseName="46:Version" ParentNodeId="ns=46;s=InterfaceClass2-1-1" DataType="String">
+	<UAVariable NodeId="ns=5;s=InterfaceClass2-1-1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass2-1-1" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -413,7 +423,7 @@
 		</Value>
 	</UAVariable>
 	<!--
-			InterfaceClassLib: InterfaceClassLib1
+			InterfaceClassLib: InterfaceClassLib123
 			==================================================
 			TODOs:
 				- How to handle DefaultValues for attributes?
@@ -430,20 +440,20 @@
 				- is there a maximum length for NodeId?
 				- how do we handle very long lib names -> generate short name?
 		-->
-	<UAObject NodeId="ns=7;s=InterfaceClassLib" BrowseName="InterfaceClassLib1">
-		<DisplayName>InterfaceClassLib1</DisplayName>
+	<UAObject NodeId="ns=6;s=InterfaceClassLib" BrowseName="InterfaceClassLib123">
+		<DisplayName>InterfaceClassLib123</DisplayName>
 		<References>
 			<!--Id no longer part of the specification-->
-			<Reference ReferenceType="HasProperty">ns=7;s=InterfaceClassLib_Version</Reference>
+			<Reference ReferenceType="HasProperty">ns=6;s=InterfaceClassLib_Version</Reference>
 			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 			<!--Collection of InterfaceClassLib-->
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_InterfaceClassLibs</Reference>
 			<!--TODO: what is the correct way to list all elements of the Lib?-->
 			<!--List of included InterfaceClass-->
-			<Reference ReferenceType="Organizes">ns=7;s=InterfaceClass1</Reference>
+			<Reference ReferenceType="Organizes">ns=6;s=InterfaceClass1</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=7;s=InterfaceClassLib_Version" BrowseName="7:Version" ParentNodeId="ns=7;s=InterfaceClassLib" DataType="String">
+	<UAVariable NodeId="ns=6;s=InterfaceClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=InterfaceClassLib" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -453,19 +463,19 @@
 		</Value>
 	</UAVariable>
 	<!--InterfaceClass: InterfaceClass1-->
-	<UAObjectType NodeId="ns=7;s=InterfaceClass1" BrowseName="InterfaceClass1">
+	<UAObjectType NodeId="ns=6;s=InterfaceClass1" BrowseName="InterfaceClass1">
 		<DisplayName>InterfaceClass1</DisplayName>
-		<!--Library: InterfaceClassLib1-->
+		<!--Library: InterfaceClassLib123-->
 		<References>
 			<!--Hierarchical parent in AutomationML library-->
-			<Reference ReferenceType="Organizes" IsForward="false">ns=7;s=InterfaceClassLib</Reference>
+			<Reference ReferenceType="Organizes" IsForward="false">ns=6;s=InterfaceClassLib</Reference>
 			<!--Parent class-->
-			<Reference ReferenceType="HasSubtype" IsForward="false">ns=46;s=</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass1</Reference>
 			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=7;s=InterfaceClass1_AML_ID</Reference>
+			<Reference ReferenceType="HasProperty">ns=6;s=InterfaceClass1_AML_ID</Reference>
 		</References>
 	</UAObjectType>
-	<UAVariable NodeId="ns=7;s=InterfaceClass1_AML_ID" BrowseName="7:AML_ID" ParentNodeId="ns=7;s=InterfaceClass1" DataType="String">
+	<UAVariable NodeId="ns=6;s=InterfaceClass1_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s=InterfaceClass1" DataType="String">
 		<DisplayName>AML_ID</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -474,7 +484,7 @@
 			<uax:String>{97ba4484-aa8d-4af1-854d-de494b6acb1a}</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=7;s=InterfaceClass1_Version" BrowseName="7:Version" ParentNodeId="ns=7;s=InterfaceClass1" DataType="String">
+	<UAVariable NodeId="ns=6;s=InterfaceClass1_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=InterfaceClass1" DataType="String">
 		<DisplayName>Version</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>

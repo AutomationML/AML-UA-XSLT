@@ -1,4 +1,5 @@
-<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<?xml version="1.0" encoding="UTF-8"?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
 	<!--
 			Documentation
 			===============
@@ -7,6 +8,7 @@
 			UANodeSet
 			=============
 			TODOs:
+				- how to handle mirror objects?
 				- Do we need aliases?? 
 					- to be clarified with UA -> Miriam
 				    - only used ones or standard template set of aliases
@@ -31,8 +33,12 @@
 				- fix model version for RequiredModels -> is this correct?
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			-->
+	<!--!!! Warning !!! 
+		===============
+		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		-->
 	<NamespaceUris>
-		<Uri>http://opcfoundation.org/UA/AML/MyInstances</Uri>
+		<Uri>http://opcfoundation.org/UA/AML/5_SUC.aml</Uri>
 		<!--AML Base-->
 		<Uri>http://opcfoundation.org/UA/AML/</Uri>
 		<!--Fallback: AutomationMLBaseRole-->
@@ -44,24 +50,24 @@
 		<Uri>http://opcfoundation.org/UA/AML/SystemUnitClassLib1</Uri>
 	</NamespaceUris>
 	<Models>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-04-16T05:44:52Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0" PublicationDate="2026-04-16T05:44:52Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0" PublicationDate="2026-04-16T05:44:52Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
 		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/MyInstances" Version="0.0.0" PublicationDate="2026-04-16T05:44:52Z">
+		<Model ModelUri="http://opcfoundation.org/UA/AML/5_SUC.aml" Version="0.0.0" PublicationDate="2026-06-03T05:38:19Z">
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
 			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-04-16T05:44:52Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0.0.0" PublicationDate="2026-04-16T05:44:52Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0.0.0" PublicationDate="2026-04-16T05:44:52Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-03T05:38:19Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0.0.0" PublicationDate="2026-06-03T05:38:19Z"/>
+			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0.0.0" PublicationDate="2026-06-03T05:38:19Z"/>
 		</Model>
 	</Models>
 	<Aliases>
@@ -103,19 +109,19 @@
 		<Alias Alias="FolderType">i=61</Alias>
 		<Alias Alias="BaseDataVariableType">i=63</Alias>
 		<Alias Alias="Duration">i=290</Alias>
-		<Alias Alias="HasAMLInternalLink">ns=;i=4002</Alias>
-		<Alias Alias="HasAMLClassComponent">ns=;i=4002</Alias>
-		<Alias Alias="HasAMLRoleReference">ns=;i=4001</Alias>
-		<Alias Alias="CAEXObjectType">ns=;i=1001</Alias>
-		<Alias Alias="CAEXVariableType">ns=;i=3001</Alias>
-		<Alias Alias="CAEXFileType">ns=;i=1005</Alias>
-		<Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=;i=5005</Alias>
-		<Alias Alias="CAEXFile_RoleClassLibs">ns=;i=5009</Alias>
-		<Alias Alias="CAEXFile_InterfaceClassLibs">ns=;i=5008</Alias>
-		<Alias Alias="CAEXFile_SystemUnitClassLibs">ns=;i=5010</Alias>
-		<Alias Alias="CAEXFile_AttributeTypeLibs">ns=;i=5011</Alias>
-		<Alias Alias="CAEXFile_AutomationMLFiles">ns=;i=5006</Alias>
-		<Alias Alias="AMLBaseVariableType">ns=;i=3001</Alias>
+		<Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
+		<Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+		<Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
+		<Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
+		<Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
+		<Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
+		<Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
+		<Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
+		<Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
+		<Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
+		<Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
+		<Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
+		<Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
 		<Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
 		<Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
 	</Aliases>
@@ -157,7 +163,7 @@
 			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
 		</References>
 	</UAObject>
-	<UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_5_SUC.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_5_SUC.aml" DataType="String">
 		<DisplayName>FileName</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -166,7 +172,7 @@
 			<uax:String>5_SUC.aml</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_5_SUC.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_5_SUC.aml" DataType="String">
 		<DisplayName>SchemaVersion</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -175,7 +181,7 @@
 			<uax:String>3.0</uax:String>
 		</Value>
 	</UAVariable>
-	<UAVariable NodeId="ns=1;s=CAEXFile_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+	<UAVariable NodeId="ns=1;s=CAEXFile_5_SUC.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_5_SUC.aml" DataType="String">
 		<DisplayName>SuperiorStandardVersion</DisplayName>
 		<References>
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -198,7 +204,9 @@
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" AutomationMLVersion="2.0"/>]]></uax:String>
+			<uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
+                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                   AutomationMLVersion="2.0"/>]]></uax:String>
 		</Value>
 	</UAVariable>
 	<UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
@@ -207,7 +215,17 @@
 			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
 		</References>
 		<Value>
-			<uax:String><![CDATA[<SourceDocumentInformation xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.1" LastWritingDateTime="2026-04-16T11:44:52.6968334+02:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.1" OriginProjectTitle="unspecified" OriginProjectID="unspecified"/>]]></uax:String>
+			<uax:String><![CDATA[<SourceDocumentInformation xmlns="http://www.dke.de/CAEX"
+                                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                       OriginName="AutomationML Editor"
+                                       OriginID="916578CA-FE0D-474E-A4FC-9E1719892369"
+                                       OriginVersion="6.4.3.1"
+                                       LastWritingDateTime="2026-04-16T11:44:52.6968334+02:00"
+                                       OriginVendor="AutomationML e.V."
+                                       OriginVendorURL="www.AutomationML.org"
+                                       OriginRelease="6.4.3.1"
+                                       OriginProjectTitle="unspecified"
+                                       OriginProjectID="unspecified"/>]]></uax:String>
 		</Value>
 	</UAVariable>
 	<!--
