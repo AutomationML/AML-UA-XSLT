@@ -1,6 +1,5 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd">
-	<!--
+<?xml version='1.0' encoding='UTF-8'?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"><!--
 			Documentation
 			===============
 			To support both CAEX V2.15 and CAEX V3.0 we add the namespace to CAEX V2.15 before translation. 
@@ -32,88 +31,87 @@
 				- support AttributeTypeLib (CAEX V3.0)
 				- fix model version for RequiredModels -> is this correct?
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
-			-->
-	<!--!!! Warning !!! 
+			--><!--!!! Warning !!! 
 		===============
 		Auto-generated namespaces. Check if equal to namespace of translated library file. 
 		-->
-	<NamespaceUris>
-		<Uri>http://opcfoundation.org/UA/AML/2_IE.aml</Uri>
-		<!--AML Base-->
-		<Uri>http://opcfoundation.org/UA/AML/</Uri>
-		<!--Fallback: AutomationMLBaseRole-->
-		<Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
-		<!--Fallback: AutomationMLBaseInterface-->
-		<Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
-		<Uri>http://opcfoundation.org/UA/AML/ManufacturingSystem</Uri>
-	</NamespaceUris>
-	<Models>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-03T05:59:42Z">
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-		</Model>
-		<Model ModelUri="http://opcfoundation.org/UA/AML/2_IE.aml" Version="0.0.0" PublicationDate="2026-06-03T05:59:42Z">
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-			<RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-03T05:59:42Z"/>
-		</Model>
-	</Models>
-	<Aliases>
-		<Alias Alias="Boolean">i=1</Alias>
-		<Alias Alias="SByte">i=2</Alias>
-		<Alias Alias="Byte">i=3</Alias>
-		<Alias Alias="Int16">i=4</Alias>
-		<Alias Alias="UInt16">i=5</Alias>
-		<Alias Alias="Int32">i=6</Alias>
-		<Alias Alias="UInt32">i=7</Alias>
-		<Alias Alias="Int64">i=8</Alias>
-		<Alias Alias="UInt64">i=9</Alias>
-		<Alias Alias="Float">i=10</Alias>
-		<Alias Alias="Double">i=11</Alias>
-		<Alias Alias="DateTime">i=13</Alias>
-		<Alias Alias="String">i=12</Alias>
-		<Alias Alias="ByteString">i=15</Alias>
-		<Alias Alias="Guid">i=14</Alias>
-		<Alias Alias="XmlElement">i=16</Alias>
-		<Alias Alias="NodeId">i=17</Alias>
-		<Alias Alias="ExpandedNodeId">i=18</Alias>
-		<Alias Alias="QualifiedName">i=20</Alias>
-		<Alias Alias="LocalizedText">i=21</Alias>
-		<Alias Alias="StatusCode">i=19</Alias>
-		<Alias Alias="Structure">i=22</Alias>
-		<Alias Alias="Number">i=26</Alias>
-		<Alias Alias="Integer">i=27</Alias>
-		<Alias Alias="UInteger">i=28</Alias>
-		<Alias Alias="HasComponent">i=47</Alias>
-		<Alias Alias="HasProperty">i=46</Alias>
-		<Alias Alias="Organizes">i=35</Alias>
-		<Alias Alias="HasEventSource">i=36</Alias>
-		<Alias Alias="HasNotifier">i=48</Alias>
-		<Alias Alias="HasSubtype">i=45</Alias>
-		<Alias Alias="HasTypeDefinition">i=40</Alias>
-		<Alias Alias="HasModellingRule">i=37</Alias>
-		<Alias Alias="HasEncoding">i=38</Alias>
-		<Alias Alias="HasDescription">i=39</Alias>
-		<Alias Alias="FolderType">i=61</Alias>
-		<Alias Alias="BaseDataVariableType">i=63</Alias>
-		<Alias Alias="Duration">i=290</Alias>
-		<Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-		<Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
-		<Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
-		<Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
-		<Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
-		<Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
-		<Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
-		<Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
-		<Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
-		<Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
-		<Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
-		<Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
-		<Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
-		<Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
-		<Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
-	</Aliases>
-	<!--
+   <NamespaceUris>
+      <Uri>http://opcfoundation.org/UA/AML/2_IE.aml</Uri>
+      <!--AML Base-->
+      <Uri>http://opcfoundation.org/UA/AML/</Uri>
+      <!--Fallback: AutomationMLBaseRole-->
+      <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+      <!--Fallback: AutomationMLBaseInterface-->
+      <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <Uri>http://opcfoundation.org/UA/AML/ManufacturingSystem</Uri>
+   </NamespaceUris>
+   <Models>
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-03T07:20:17Z">
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
+      </Model>
+      <Model ModelUri="http://opcfoundation.org/UA/AML/2_IE.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:17Z">
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-03T07:20:17Z"/>
+      </Model>
+   </Models>
+   <Aliases>
+      <Alias Alias="Boolean">i=1</Alias>
+      <Alias Alias="SByte">i=2</Alias>
+      <Alias Alias="Byte">i=3</Alias>
+      <Alias Alias="Int16">i=4</Alias>
+      <Alias Alias="UInt16">i=5</Alias>
+      <Alias Alias="Int32">i=6</Alias>
+      <Alias Alias="UInt32">i=7</Alias>
+      <Alias Alias="Int64">i=8</Alias>
+      <Alias Alias="UInt64">i=9</Alias>
+      <Alias Alias="Float">i=10</Alias>
+      <Alias Alias="Double">i=11</Alias>
+      <Alias Alias="DateTime">i=13</Alias>
+      <Alias Alias="String">i=12</Alias>
+      <Alias Alias="ByteString">i=15</Alias>
+      <Alias Alias="Guid">i=14</Alias>
+      <Alias Alias="XmlElement">i=16</Alias>
+      <Alias Alias="NodeId">i=17</Alias>
+      <Alias Alias="ExpandedNodeId">i=18</Alias>
+      <Alias Alias="QualifiedName">i=20</Alias>
+      <Alias Alias="LocalizedText">i=21</Alias>
+      <Alias Alias="StatusCode">i=19</Alias>
+      <Alias Alias="Structure">i=22</Alias>
+      <Alias Alias="Number">i=26</Alias>
+      <Alias Alias="Integer">i=27</Alias>
+      <Alias Alias="UInteger">i=28</Alias>
+      <Alias Alias="HasComponent">i=47</Alias>
+      <Alias Alias="HasProperty">i=46</Alias>
+      <Alias Alias="Organizes">i=35</Alias>
+      <Alias Alias="HasEventSource">i=36</Alias>
+      <Alias Alias="HasNotifier">i=48</Alias>
+      <Alias Alias="HasSubtype">i=45</Alias>
+      <Alias Alias="HasTypeDefinition">i=40</Alias>
+      <Alias Alias="HasModellingRule">i=37</Alias>
+      <Alias Alias="HasEncoding">i=38</Alias>
+      <Alias Alias="HasDescription">i=39</Alias>
+      <Alias Alias="FolderType">i=61</Alias>
+      <Alias Alias="BaseDataVariableType">i=63</Alias>
+      <Alias Alias="Duration">i=290</Alias>
+      <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
+      <Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+      <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
+      <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
+      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
+      <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
+      <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
+      <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
+      <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
+      <Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
+      <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
+      <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
+      <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
+      <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+      <Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
+   </Aliases>
+   <!--
 			CAEXFile
 			===============
 			TODOs:
@@ -128,48 +126,47 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-	<UAObject NodeId="ns=1;s=CAEXFile_2_IE.aml" BrowseName="1:2_IE.aml">
-		<DisplayName>2_IE.aml</DisplayName>
-		<Documentation/>
-		<References>
-			<!--Type definition: CAEXFileType-->
-			<Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
-			<!--FileName-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_2_IE.aml_FileName</Reference>
-			<!--SchemaVersion-->
-			<Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_2_IE.aml_SchemaVersion</Reference>
-			<!--InstanceHierarchy-->
-			<Reference ReferenceType="Organizes">ns=1;s=CAEXFile_2_IE.aml_InstanceHierarchies</Reference>
-			<!--Libraries-->
-			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
-		</References>
-	</UAObject>
-	<UAVariable NodeId="ns=1;s=CAEXFile_2_IE.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_2_IE.aml" DataType="String">
-		<DisplayName>FileName</DisplayName>
-		<References>
-			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-		</References>
-		<Value>
-			<uax:String>2_IE.aml</uax:String>
-		</Value>
-	</UAVariable>
-	<UAVariable NodeId="ns=1;s=CAEXFile_2_IE.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_2_IE.aml" DataType="String">
-		<DisplayName>SchemaVersion</DisplayName>
-		<References>
-			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-		</References>
-		<Value>
-			<uax:String>2.15</uax:String>
-		</Value>
-	</UAVariable>
-	<!--
+   <UAObject NodeId="ns=1;s=CAEXFile_2_IE.aml" BrowseName="1:2_IE.aml">
+      <DisplayName>2_IE.aml</DisplayName>
+      <Documentation/>
+      <References><!--Type definition: CAEXFileType-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
+         <!--FileName-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_2_IE.aml_FileName</Reference>
+         <!--SchemaVersion-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_2_IE.aml_SchemaVersion</Reference>
+         <!--InstanceHierarchy-->
+         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_2_IE.aml_InstanceHierarchies</Reference>
+         <!--Libraries-->
+         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=1;s=CAEXFile_2_IE.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_2_IE.aml" DataType="String">
+      <DisplayName>FileName</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>2_IE.aml</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=1;s=CAEXFile_2_IE.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_2_IE.aml" DataType="String">
+      <DisplayName>SchemaVersion</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>2.15</uax:String>
+      </Value>
+   </UAVariable>
+   <!--
 			AdditionalInformation
 			===============
 			TODOs:
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-	<!--
+   <!--
 			InstanceHierarchies
 			===============
 			TODOs:
@@ -179,87 +176,85 @@
 				- Test child of AutomationMLBaseRole/UABaseObjectType
 				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			-->
-	<!--Collection: CAEXFile.InstanceHierarchies-->
-	<UAObject NodeId="ns=1;s=CAEXFile_2_IE.aml_InstanceHierarchies" BrowseName="1:2_IE.aml_InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile_2_IE.aml">
-		<DisplayName>InstanceHierarchies</DisplayName>
-		<References>
-			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-			<!--InstanceHierarchy: ManufacturingSystem-->
-			<Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_2_IE.aml_ManufacturingSystem</Reference>
-		</References>
-	</UAObject>
-	<!--InstanceHierarchy: ManufacturingSystem-->
-	<UAObject NodeId="ns=5;s=InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
-		<DisplayName>ManufacturingSystem</DisplayName>
-		<Documentation/>
-		<References>
-			<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-			<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLInstanceHierarchies</Reference>
-			<!--Backward reference to CAEX InstanceHierarchies-->
-			<!--InternalElement: firstScrewdriver-->
-			<Reference ReferenceType="HasComponent">ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}</Reference>
-		</References>
-	</UAObject>
-	<UAObject NodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}" BrowseName="5:firstScrewdriver">
-		<DisplayName>firstScrewdriver</DisplayName>
-		<References>
-			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_AML_ID</Reference>
-			<!--Class definition-->
-			<Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
-			<!--InternalElement: subElement-->
-			<Reference ReferenceType="HasComponent">ns=5;s={25b09e4f-2d04-47a1-a587-6dc4f8456b0b}</Reference>
-		</References>
-	</UAObject>
-	<UAVariable NodeId="ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}" DataType="String">
-		<DisplayName>AML_ID</DisplayName>
-		<References>
-			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-		</References>
-		<Value>
-			<uax:String>{788eb291-f103-4fdc-aba0-4893b599f556}</uax:String>
-		</Value>
-	</UAVariable>
-	<UAObject NodeId="ns=5;s={25b09e4f-2d04-47a1-a587-6dc4f8456b0b}" BrowseName="5:subElement">
-		<DisplayName>subElement</DisplayName>
-		<References>
-			<!--AML-ID-->
-			<Reference ReferenceType="HasProperty">ns=5;s=25b09e4f-2d04-47a1-a587-6dc4f8456b0b_AML_ID</Reference>
-			<!--Class definition-->
-			<Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
-		</References>
-	</UAObject>
-	<UAVariable NodeId="ns=5;s=25b09e4f-2d04-47a1-a587-6dc4f8456b0b_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={25b09e4f-2d04-47a1-a587-6dc4f8456b0b}" DataType="String">
-		<DisplayName>AML_ID</DisplayName>
-		<References>
-			<Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-		</References>
-		<Value>
-			<uax:String>{25b09e4f-2d04-47a1-a587-6dc4f8456b0b}</uax:String>
-		</Value>
-	</UAVariable>
-	<!--
+   <!--Collection: CAEXFile.InstanceHierarchies-->
+   <UAObject NodeId="ns=1;s=CAEXFile_2_IE.aml_InstanceHierarchies" BrowseName="1:2_IE.aml_InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile_2_IE.aml">
+      <DisplayName>InstanceHierarchies</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--InstanceHierarchy: ManufacturingSystem-->
+         <Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_2_IE.aml_ManufacturingSystem</Reference>
+      </References>
+   </UAObject>
+   <!--InstanceHierarchy: ManufacturingSystem-->
+   <UAObject NodeId="ns=5;s=InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
+      <DisplayName>ManufacturingSystem</DisplayName>
+      <Documentation/>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLInstanceHierarchies</Reference>
+         <!--Backward reference to CAEX InstanceHierarchies-->
+         <!--InternalElement: firstScrewdriver-->
+         <Reference ReferenceType="HasComponent">ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}</Reference>
+      </References>
+   </UAObject>
+   <UAObject NodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}" BrowseName="5:firstScrewdriver">
+      <DisplayName>firstScrewdriver</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_AML_ID</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--InternalElement: subElement-->
+         <Reference ReferenceType="HasComponent">ns=5;s={25b09e4f-2d04-47a1-a587-6dc4f8456b0b}</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{788eb291-f103-4fdc-aba0-4893b599f556}</uax:String>
+      </Value>
+   </UAVariable>
+   <UAObject NodeId="ns=5;s={25b09e4f-2d04-47a1-a587-6dc4f8456b0b}" BrowseName="5:subElement">
+      <DisplayName>subElement</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=5;s=25b09e4f-2d04-47a1-a587-6dc4f8456b0b_AML_ID</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=5;s=25b09e4f-2d04-47a1-a587-6dc4f8456b0b_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={25b09e4f-2d04-47a1-a587-6dc4f8456b0b}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{25b09e4f-2d04-47a1-a587-6dc4f8456b0b}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--
 			InterfaceClassLibs
 			===============
 			TODOs:
 				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
-	<!--Collection: CAEXFile.InterfaceClassLibs-->
-	<!--
+   <!--Collection: CAEXFile.InterfaceClassLibs-->
+   <!--
 			RoleClassLibs
 			===============
 			TODOs:
 				- ...
 			-->
-	<!--Collection: CAEXFile.RoleClassLibs-->
-	<!--
+   <!--Collection: CAEXFile.RoleClassLibs-->
+   <!--
 			SystemUnitClassLibs
 			===============
 			TODOs:
 				- check all inner elements, e.g. attributes, etc.
 			-->
-	<!--Collection: CAEXFile.SystemUnitClassLibs-->
-	<!--
+   <!--Collection: CAEXFile.SystemUnitClassLibs-->
+   <!--
 			AttributeTypeLibs
 			===============
 			TODOs:
@@ -267,5 +262,5 @@
 				- is this a proper translation?
 				- how are the AttributeTypes used? - Instances
 			-->
-	<!--Collection: CAEXFile.AttributeTypeLibs-->
+   <!--Collection: CAEXFile.AttributeTypeLibs-->
 </UANodeSet>

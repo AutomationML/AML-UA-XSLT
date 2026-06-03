@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="10_RefSemantic.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.5" LastWritingDateTime="2026-06-03T19:14:49.8631691+02:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.5" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
+  <InstanceHierarchy Name="ReferenceDesignation">
+    <Version>1.0.0</Version>
+    <InternalElement ID="3d7d5923-f2b7-448c-a4bb-4d2603fe25b1" Name="Organization">
+      <Attribute Name="functionOrientedReferenceDesignation" AttributeDataType="xs:string">
+        <Description>Function oriented reference designation following IEC 81346.</Description>
+        <Value>=U1</Value>
+        <RefSemantic CorrespondingAttributePath="IEC81346" />
+      </Attribute>
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLExtendedRoleClassLib/Enterprise" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLReferenceDesignationRoleClassLib/ContainsReferenceDesignation">
+        <Attribute Name="functionOrientedReferenceDesignation" AttributeDataType="xs:string">
+          <Description>Function oriented reference designation following IEC 81346.</Description>
+          <RefSemantic CorrespondingAttributePath="IEC81346" />
+        </Attribute>
+      </RoleRequirements>
+    </InternalElement>
+  </InstanceHierarchy>
+  <RoleClassLib Name="AutomationMLExtendedRoleClassLib">
+    <Version>2.7.0</Version>
+    <RoleClass Name="Enterprise" />
+  </RoleClassLib>
+  <RoleClassLib Name="AutomationMLReferenceDesignationRoleClassLib">
+    <Version>1.0.0</Version>
+    <RoleClass Name="ContainsReferenceDesignation">
+      <Attribute Name="functionOrientedReferenceDesignation" AttributeDataType="xs:string">
+        <Description>Function oriented reference designation following IEC 81346.</Description>
+        <RefSemantic CorrespondingAttributePath="IEC81346" />
+      </Attribute>
+    </RoleClass>
+  </RoleClassLib>
+</CAEXFile>

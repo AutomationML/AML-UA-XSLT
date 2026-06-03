@@ -45,7 +45,7 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/EmptyAML.aml" Version="0.0.0" PublicationDate="2026-06-03T05:59:41Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/EmptyAML.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:17Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>

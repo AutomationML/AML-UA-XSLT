@@ -36,30 +36,28 @@
 		Auto-generated namespaces. Check if equal to namespace of translated library file. 
 		-->
    <NamespaceUris>
-      <Uri>http://opcfoundation.org/UA/AML/8_AMLAttributeLibrary.aml</Uri>
+      <Uri>http://opcfoundation.org/UA/AML/11_Constraints.aml</Uri>
       <!--AML Base-->
       <Uri>http://opcfoundation.org/UA/AML/</Uri>
       <!--Fallback: AutomationMLBaseRole-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
-      <!--Fallback: AutomationMLBaseInterface-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
-      <Uri>http://opcfoundation.org/UA/AML/ManufacturingSystem</Uri>
-      <Uri>http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib</Uri>
+      <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-06-03T07:20:17Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib" Version="1.1.0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-06-03T07:20:17Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/8_AMLAttributeLibrary.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/11_Constraints.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:17Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-03T07:20:18Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib" Version="1.1.0" PublicationDate="2026-06-03T07:20:18Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-06-03T07:20:17Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-06-03T07:20:17Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -115,7 +113,6 @@
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
-      <Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
    </Aliases>
    <!--
 			CAEXFile
@@ -132,38 +129,34 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-   <UAObject NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml" BrowseName="1:8_AMLAttributeLibrary.aml">
-      <DisplayName>8_AMLAttributeLibrary.aml</DisplayName>
+   <UAObject NodeId="ns=1;s=CAEXFile_11_Constraints.aml" BrowseName="1:11_Constraints.aml">
+      <DisplayName>11_Constraints.aml</DisplayName>
       <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_FileName</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_11_Constraints.aml_FileName</Reference>
          <!--SchemaVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_SchemaVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_11_Constraints.aml_SchemaVersion</Reference>
          <!--SuperiorStandardVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_SuperiorStandardVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_11_Constraints.aml_SuperiorStandardVersion</Reference>
          <!--InstanceHierarchy-->
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_InstanceHierarchies</Reference>
          <!--Libraries-->
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_AttributeTypeLibs</Reference>
-         <!--AdditionalInformation: 8_AMLAttributeLibrary.aml_AutomationMLVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_AdditionalInformation</Reference>
-         <!--SourceDocumentInformation: 8_AMLAttributeLibrary.aml_SourceDocumentInformation-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_SourceDocumentInformation</Reference>
+         <!--SourceDocumentInformation: 11_Constraints.aml_SourceDocumentInformation-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_11_Constraints.aml_SourceDocumentInformation</Reference>
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_11_Constraints.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String>8_AMLAttributeLibrary.aml</uax:String>
+         <uax:String>11_Constraints.aml</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_11_Constraints.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -172,13 +165,13 @@
          <uax:String>3.0</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_11_Constraints.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml" DataType="String">
       <DisplayName>SuperiorStandardVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String>AutomationML 2.1</uax:String>
+         <uax:String>AutomationML 2.10</uax:String>
       </Value>
    </UAVariable>
    <!--
@@ -188,18 +181,6 @@
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-   <!--Attribute: CAEXFile.8_AMLAttributeLibrary.aml_AutomationMLVersion-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml" DataType="String">
-      <DisplayName>AutomationMLVersion</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-      </References>
-      <Value>
-         <uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
-                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                                   AutomationMLVersion="2.0"/>]]></uax:String>
-      </Value>
-   </UAVariable>
    <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SourceDocumentInformation</DisplayName>
       <References>
@@ -210,13 +191,13 @@
                                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                                        OriginName="AutomationML Editor"
                                        OriginID="916578CA-FE0D-474E-A4FC-9E1719892369"
-                                       OriginVersion="6.4.3.1"
-                                       LastWritingDateTime="2026-03-05T09:56:29.0910183+01:00"
-                                       OriginVendor="AutomationML e.V."
-                                       OriginVendorURL="www.AutomationML.org"
-                                       OriginRelease="6.4.3.1"
+                                       OriginVersion="6.4.3.5"
+                                       LastWritingDateTime="2026-06-03T19:20:06.3586916+02:00"
+                                       OriginProjectID="unspecified"
                                        OriginProjectTitle="unspecified"
-                                       OriginProjectID="unspecified"/>]]></uax:String>
+                                       OriginRelease="6.4.3.5"
+                                       OriginVendor="AutomationML e.V."
+                                       OriginVendorURL="www.AutomationML.org"/>]]></uax:String>
       </Value>
    </UAVariable>
    <!--
@@ -230,57 +211,6 @@
 				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			-->
    <!--Collection: CAEXFile.InstanceHierarchies-->
-   <UAObject NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_InstanceHierarchies" BrowseName="1:8_AMLAttributeLibrary.aml_InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml">
-      <DisplayName>InstanceHierarchies</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-         <!--InstanceHierarchy: ManufacturingSystem-->
-         <Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_8_AMLAttributeLibrary.aml_ManufacturingSystem</Reference>
-      </References>
-   </UAObject>
-   <!--InstanceHierarchy: ManufacturingSystem-->
-   <UAObject NodeId="ns=5;s=InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
-      <DisplayName>ManufacturingSystem</DisplayName>
-      <Documentation/>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLInstanceHierarchies</Reference>
-         <!--Backward reference to CAEX InstanceHierarchies-->
-         <!--InternalElement: firstScrewdriver-->
-         <Reference ReferenceType="HasComponent">ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}</Reference>
-      </References>
-   </UAObject>
-   <UAObject NodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}" BrowseName="5:firstScrewdriver">
-      <DisplayName>firstScrewdriver</DisplayName>
-      <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_AML_ID</Reference>
-         <!--Attribute: New Attribute-->
-         <Reference ReferenceType="HasComponent">ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_NewAttribute</Reference>
-         <!--Class definition-->
-         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
-      </References>
-   </UAObject>
-   <UAVariable NodeId="ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}" DataType="String">
-      <DisplayName>AML_ID</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-      </References>
-      <Value>
-         <uax:String>{788eb291-f103-4fdc-aba0-4893b599f556}</uax:String>
-      </Value>
-   </UAVariable>
-   <!--Attribute: firstScrewdriver.New Attribute-->
-   <UAVariable NodeId="ns=5;s=788eb291-f103-4fdc-aba0-4893b599f556_NewAttribute" BrowseName="5:New Attribute" ParentNodeId="ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}">
-      <DisplayName>New Attribute</DisplayName>
-      <References><!--Parent: firstScrewdriver.-->
-         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}</Reference>
-         <Reference ReferenceType="HasTypeDefinition">ns=6;s=AutomationMLTestAttribute</Reference>
-      </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
-   </UAVariable>
    <!--
 			InterfaceClassLibs
 			===============
@@ -288,6 +218,129 @@
 				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
    <!--Collection: CAEXFile.InterfaceClassLibs-->
+   <UAObject NodeId="ns=1;s=CAEXFile_11_Constraints.aml_InterfaceClassLibs" BrowseName="1:11_Constraints.aml_InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml">
+      <DisplayName>InterfaceClassLibs</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--InterfaceClassLib: AutomationMLInterfaceClassLib-->
+         <Reference ReferenceType="Organizes">ns=4;s=InterfaceClassLib</Reference>
+      </References>
+   </UAObject>
+   <!--
+			InterfaceClassLib: AutomationMLInterfaceClassLib
+			==================================================
+			TODOs:
+				- How to handle DefaultValues for attributes?
+				- What is the corresponding UAObjectType for AutomationMLBaseInterface?
+				- How to handle if the parent interface is not specified in the InterfaceClassLibs of the document?
+				- compare to line 79ff. https://github.com/OPCFoundation/UA-Nodeset/blob/latest/AML/Opc.Ua.AMLLibraries.NodeSet2.xml
+					- why is there in InternalLink (ns=1;i=4002) to AutomationMLBaseInterface (ns=2;i=22)?
+					- why is there an additional ID attribute (ns=2;i=2)?
+		-->
+   <!--
+			Libraries:
+			===============================================
+			TODOs:
+				- is there a maximum length for NodeId?
+				- how do we handle very long lib names -> generate short name?
+		-->
+   <UAObject NodeId="ns=4;s=InterfaceClassLib" BrowseName="AutomationMLInterfaceClassLib">
+      <DisplayName>AutomationMLInterfaceClassLib</DisplayName>
+      <Documentation>Extended Standard Automation Markup Language Interface Class Library with Part 3 interface attributes.</Documentation>
+      <References><!--Id no longer part of the specification-->
+         <Reference ReferenceType="HasProperty">ns=4;s=InterfaceClassLib_Version</Reference>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--Collection of InterfaceClassLib-->
+         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_InterfaceClassLibs</Reference>
+         <!--TODO: what is the correct way to list all elements of the Lib?-->
+         <!--List of included InterfaceClass-->
+         <Reference ReferenceType="Organizes">ns=4;s=AutomationMLBaseInterface</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=4;s=InterfaceClassLib_Version" BrowseName="4:Version" ParentNodeId="ns=4;s=InterfaceClassLib" DataType="String">
+      <DisplayName>Version</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>experimental</uax:String>
+      </Value>
+   </UAVariable>
+   <!--InterfaceClass: AutomationMLBaseInterface-->
+   <UAObjectType NodeId="ns=4;s=AutomationMLBaseInterface" BrowseName="AutomationMLBaseInterface">
+      <DisplayName>AutomationMLBaseInterface</DisplayName>
+      <!--Library: AutomationMLInterfaceClassLib-->
+      <References><!--Hierarchical parent in AutomationML library-->
+         <Reference ReferenceType="Organizes" IsForward="false">ns=4;s=InterfaceClassLib</Reference>
+         <!--Parent class-->
+         <Reference ReferenceType="HasSubtype" IsForward="false">CAEXObjectType</Reference>
+      </References>
+   </UAObjectType>
+   <!--InterfaceClass: Order-->
+   <UAObjectType NodeId="ns=4;s=Order" BrowseName="Order">
+      <DisplayName>Order</DisplayName>
+      <!--Library: AutomationMLInterfaceClassLib-->
+      <References><!--Hierarchical parent in AutomationML library-->
+         <Reference ReferenceType="Organizes" IsForward="false">ns=4;s=AutomationMLBaseInterface</Reference>
+         <!--Parent class-->
+         <Reference ReferenceType="HasSubtype" IsForward="false">ns=4;s=AutomationMLBaseInterface</Reference>
+         <!--Attribute: Direction-->
+         <Reference ReferenceType="HasComponent">ns=4;s=Order_Direction</Reference>
+      </References>
+   </UAObjectType>
+   <!--Attribute: Direction-->
+   <UAVariable NodeId="ns=4;s=Order_Direction" BrowseName="4:Direction" ParentNodeId="ns=4;s=Order" DataType="String">
+      <DisplayName>Direction</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Order</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=5;s=Direction</Reference>
+      </References>
+      <!--Hier-->
+      <Value/>
+   </UAVariable>
+   <!--InterfaceClass: Port-->
+   <UAObjectType NodeId="ns=4;s=Port" BrowseName="Port">
+      <DisplayName>Port</DisplayName>
+      <!--Library: AutomationMLInterfaceClassLib-->
+      <References><!--Hierarchical parent in AutomationML library-->
+         <Reference ReferenceType="Organizes" IsForward="false">ns=4;s=AutomationMLBaseInterface</Reference>
+         <!--Parent class-->
+         <Reference ReferenceType="HasSubtype" IsForward="false">ns=4;s=AutomationMLBaseInterface</Reference>
+         <!--Attribute: Direction-->
+         <Reference ReferenceType="HasComponent">ns=4;s=Port_Direction</Reference>
+      </References>
+   </UAObjectType>
+   <!--Attribute: Direction-->
+   <UAVariable NodeId="ns=4;s=Port_Direction" BrowseName="4:Direction" ParentNodeId="ns=4;s=Port" DataType="String">
+      <DisplayName>Direction</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Port</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=5;s=Direction</Reference>
+         <!--Constraint-->
+         <!--TODO: how to model RequiredValues fr the NominalScaleType?-->
+         <Reference ReferenceType="HasProperty">ns=4;s=Port_Direction_Constraint</Reference>
+      </References>
+      <!--Hier-->
+      <Value/>
+   </UAVariable>
+   <!--Constraint (NominalScaledConstraintType))-->
+   <UAVariable NodeId="ns=4;s=Port_Direction_Constraint" BrowseName="4:NominalScaledType" ParentNodeId="ns=4;s=Port_Direction" DataType="String">
+      <DisplayName>NominalScaledType</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String><![CDATA[<Constraint xmlns="http://www.dke.de/CAEX"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        Name="AllowedValues">
+               <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+               </NominalScaledType>
+            </Constraint>]]></uax:String>
+      </Value>
+   </UAVariable>
    <!--
 			RoleClassLibs
 			===============
@@ -311,16 +364,16 @@
 				- how are the AttributeTypes used? - Instances
 			-->
    <!--Collection: CAEXFile.AttributeTypeLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml_AttributeTypeLibs" BrowseName="1:8_AMLAttributeLibrary.aml_AttributeTypeLibs" ParentNodeId="ns=1;s=CAEXFile_8_AMLAttributeLibrary.aml">
+   <UAObject NodeId="ns=1;s=CAEXFile_11_Constraints.aml_AttributeTypeLibs" BrowseName="1:11_Constraints.aml_AttributeTypeLibs" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml">
       <DisplayName>AttributeTypeLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
-         <!--AttributeTypeLib: AutomationMLTestAttributeTypeLib-->
-         <Reference ReferenceType="Organizes">ns=6;s=AttributeTypeLib</Reference>
+         <!--AttributeTypeLib: AutomationMLBaseAttributeTypeLib-->
+         <Reference ReferenceType="Organizes">ns=5;s=AttributeTypeLib</Reference>
       </References>
    </UAObject>
    <!--
-			AttributeTypeLib: AutomationMLTestAttributeTypeLib
+			AttributeTypeLib: AutomationMLBaseAttributeTypeLib
 			==================================================
 			TODOs:
 				- What was the correct translation for a AttributeType?
@@ -332,67 +385,57 @@
 				- is there a maximum length for NodeId?
 				- how do we handle very long lib names -> generate short name?
 		-->
-   <UAObject NodeId="ns=6;s=AttributeTypeLib" BrowseName="AutomationMLTestAttributeTypeLib">
-      <DisplayName>AutomationMLTestAttributeTypeLib</DisplayName>
-      <Documentation>Automation Markup Language test attribute type library</Documentation>
+   <UAObject NodeId="ns=5;s=AttributeTypeLib" BrowseName="AutomationMLBaseAttributeTypeLib">
+      <DisplayName>AutomationMLBaseAttributeTypeLib</DisplayName>
+      <Documentation>Experimental Standard Automation Markup Language Attribute Type Library with Part 3 Attributes</Documentation>
       <References><!--Id no longer part of the specification-->
-         <Reference ReferenceType="HasProperty">ns=6;s=AttributeTypeLib_Version</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s=AttributeTypeLib_Version</Reference>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--Collection of AttributeTypeLib-->
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AttributeTypeLibs</Reference>
          <!--TODO: what is the correct way to list all elements of the Lib?-->
          <!--List of included AttributeType-->
-         <Reference ReferenceType="Organizes">ns=6;s=AutomationMLTestAttribute</Reference>
-         <Reference ReferenceType="Organizes">ns=6;s=AttributeType2</Reference>
+         <Reference ReferenceType="Organizes">ns=5;s=Direction</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=6;s=AttributeTypeLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=AttributeTypeLib" DataType="String">
+   <UAVariable NodeId="ns=5;s=AttributeTypeLib_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=AttributeTypeLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String>1.1.0</uax:String>
+         <uax:String>experimental</uax:String>
       </Value>
    </UAVariable>
-   <!--AttributeType: AutomationMLTestAttribute-->
-   <UAVariableType NodeId="ns=6;s=AutomationMLTestAttribute" BrowseName="AutomationMLTestAttribute">
-      <DisplayName>AutomationMLTestAttribute</DisplayName>
-      <!--Library: AutomationMLTestAttributeTypeLib-->
+   <!--AttributeType: Direction-->
+   <UAVariableType NodeId="ns=5;s=Direction" BrowseName="Direction">
+      <DisplayName>Direction</DisplayName>
+      <!--Library: AutomationMLBaseAttributeTypeLib-->
       <References><!--Hierarchical parent in AutomationML library-->
-         <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=AttributeTypeLib</Reference>
+         <Reference ReferenceType="Organizes" IsForward="false">ns=5;s=AttributeTypeLib</Reference>
          <!--Parent class-->
          <Reference ReferenceType="HasSubtype" IsForward="false">AMLBaseVariableType</Reference>
+         <!--Constraint-->
+         <!--TODO: how to model RequiredValues fr the NominalScaleType?-->
+         <Reference ReferenceType="HasProperty">ns=5;s=Direction_Constraint</Reference>
       </References>
    </UAVariableType>
-   <!--AttributeType: AttributeType2-->
-   <UAVariableType NodeId="ns=6;s=AttributeType2" BrowseName="AttributeType2">
-      <DisplayName>AttributeType2</DisplayName>
-      <!--Library: AutomationMLTestAttributeTypeLib-->
-      <References><!--Hierarchical parent in AutomationML library-->
-         <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=AttributeTypeLib</Reference>
-         <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">ns=6;s=AutomationMLTestAttribute</Reference>
-         <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=6;s=5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda_AML_ID</Reference>
-      </References>
-   </UAVariableType>
-   <UAVariable NodeId="ns=6;s=5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda}" DataType="String">
-      <DisplayName>AML_ID</DisplayName>
+   <!--Constraint (NominalScaledConstraintType))-->
+   <UAVariable NodeId="ns=5;s=Direction_Constraint" BrowseName="5:NominalScaledType" ParentNodeId="ns=5;s=Direction" DataType="String">
+      <DisplayName>NominalScaledType</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String>{5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda}</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=6;s=5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda_Version" BrowseName="6:Version" ParentNodeId="ns=6;s={5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda}" DataType="String">
-      <DisplayName>Version</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
-      </References>
-      <Value>
-         <uax:String>1.0.0</uax:String>
+         <uax:String><![CDATA[<Constraint xmlns="http://www.dke.de/CAEX"
+                        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                        Name="AllowedValues">
+               <NominalScaledType>
+                  <RequiredValue>In</RequiredValue>
+                  <RequiredValue>Out</RequiredValue>
+                  <RequiredValue>InOut</RequiredValue>
+               </NominalScaledType>
+            </Constraint>]]></uax:String>
       </Value>
    </UAVariable>
 </UANodeSet>
