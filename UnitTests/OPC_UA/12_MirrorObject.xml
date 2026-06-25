@@ -45,19 +45,19 @@
       <Uri>http://opcfoundation.org/UA/AML/Resources</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T03:18:12Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T03:56:09Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T03:18:12Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T03:56:09Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/13_MirrorObject.aml" Version="0.0.0" PublicationDate="2026-06-25T03:18:12Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/13_MirrorObject.aml" Version="0.0.0" PublicationDate="2026-06-25T03:56:09Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T03:18:12Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T03:18:12Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T03:56:09Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T03:56:09Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -607,8 +607,9 @@
       <DisplayName>LiftUpGate</DisplayName>
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID</Reference>
-         <!--SystemUnitClass: {6aa1bd9a-701a-43a6-bc04-c414d30e0f93}-->
-         <Reference ReferenceType="HasTypeDefinition">ns=2;s=</Reference>
+         <!--Mirror: {6aa1bd9a-701a-43a6-bc04-c414d30e0f93}-->
+         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
+         <Reference ReferenceType="IsMirroredAs">ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" DataType="String">
@@ -624,8 +625,9 @@
       <DisplayName>TransferToSubAssembly</DisplayName>
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID</Reference>
-         <!--SystemUnitClass: {71fc6d29-7797-4e3f-a659-ac69198e464f}-->
-         <Reference ReferenceType="HasTypeDefinition">ns=2;s=</Reference>
+         <!--Mirror: {71fc6d29-7797-4e3f-a659-ac69198e464f}-->
+         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
+         <Reference ReferenceType="IsMirroredAs">ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" DataType="String">
@@ -641,8 +643,9 @@
       <DisplayName>TransferToMainAssembly</DisplayName>
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID</Reference>
-         <!--SystemUnitClass: {9facd06a-1725-4d18-95f7-4814ba2e4cf8}-->
-         <Reference ReferenceType="HasTypeDefinition">ns=2;s=</Reference>
+         <!--Mirror: {9facd06a-1725-4d18-95f7-4814ba2e4cf8}-->
+         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
+         <Reference ReferenceType="IsMirroredAs">ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}" DataType="String">
@@ -658,8 +661,9 @@
       <DisplayName>EndStop</DisplayName>
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID</Reference>
-         <!--SystemUnitClass: {72bf71e8-15fd-4882-9d35-00a12d1aa995}-->
-         <Reference ReferenceType="HasTypeDefinition">ns=2;s=</Reference>
+         <!--Mirror: {72bf71e8-15fd-4882-9d35-00a12d1aa995}-->
+         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
+         <Reference ReferenceType="IsMirroredAs">ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" DataType="String">
@@ -712,8 +716,9 @@
       <DisplayName>SubAssembly</DisplayName>
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID</Reference>
-         <!--SystemUnitClass: {ac026999-a2e2-4a86-8c97-39685607e49a}-->
-         <Reference ReferenceType="HasTypeDefinition">ns=2;s=</Reference>
+         <!--Mirror: {ac026999-a2e2-4a86-8c97-39685607e49a}-->
+         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
+         <Reference ReferenceType="IsMirroredAs">ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" DataType="String">
@@ -729,8 +734,9 @@
       <DisplayName>MainAssemblyStation</DisplayName>
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID</Reference>
-         <!--SystemUnitClass: {22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}-->
-         <Reference ReferenceType="HasTypeDefinition">ns=2;s=</Reference>
+         <!--Mirror: {22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}-->
+         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
+         <Reference ReferenceType="IsMirroredAs">ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" DataType="String">
