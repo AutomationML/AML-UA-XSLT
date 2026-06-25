@@ -33,33 +33,35 @@
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
-		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
 		-->
-   <NamespaceUris>
+   <NamespaceUris><!--Namespace for current AML file.-->
       <Uri>http://opcfoundation.org/UA/AML/14_Facet.aml</Uri>
       <!--AML Base-->
       <Uri>http://opcfoundation.org/UA/AML/</Uri>
-      <!--Fallback: AutomationMLBaseRole-->
+      <!--Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
       <!--Fallback: AutomationMLBaseInterface-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <!--InstanceHierarchy: ConveyerSystem-->
       <Uri>http://opcfoundation.org/UA/AML/ConveyerSystem</Uri>
+      <!--SystemUnitClassLib: Conveyors-->
       <Uri>http://opcfoundation.org/UA/AML/Conveyors</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ConveyerSystem" Version="" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ConveyerSystem" Version="" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/Conveyors" Version="1.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/Conveyors" Version="1.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/14_Facet.aml" Version="0.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/14_Facet.aml" Version="0.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConveyerSystem" Version="" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Conveyors" Version="1.0" PublicationDate="2026-06-25T03:56:09Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConveyerSystem" Version="" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Conveyors" Version="1.0" PublicationDate="2026-06-25T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -114,8 +116,9 @@
       <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
-      <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
-      <Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet">ns=3;s=Facet</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">ns=3;s=Resource</Alias>
+      <Alias Alias="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
    </Aliases>
    <!--
 			CAEXFile
@@ -265,7 +268,7 @@
          <!--SystemUnitClass: Conveyors/RollerConveyor-->
          <Reference ReferenceType="HasTypeDefinition">ns=6;s=RollerConveyor</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
          <!--InternalElement: OperationData-->
          <Reference ReferenceType="HasComponent">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}</Reference>
          <!--InternalElement: DriveData-->
@@ -364,7 +367,7 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" DataType="String">
@@ -409,7 +412,7 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}" DataType="String">
@@ -444,7 +447,7 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="String">
@@ -665,7 +668,7 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" DataType="String">
@@ -710,7 +713,7 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}" DataType="String">
@@ -745,7 +748,7 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="String">

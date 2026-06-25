@@ -33,9 +33,9 @@
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
-		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
 		-->
-   <NamespaceUris>
+   <NamespaceUris><!--Namespace for current AML file.-->
       <Uri>http://opcfoundation.org/UA/AML/10_RefSemantic.aml</Uri>
       <!--AML Base-->
       <Uri>http://opcfoundation.org/UA/AML/</Uri>
@@ -43,29 +43,32 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
       <!--Fallback: AutomationMLBaseInterface-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <!--InstanceHierarchy: ReferenceDesignation-->
       <Uri>http://opcfoundation.org/UA/AML/ReferenceDesignation</Uri>
+      <!--RoleClassLib: AutomationMLExtendedRoleClassLib-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib</Uri>
+      <!--RoleClassLib: AutomationMLReferenceDesignationRoleClassLib-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/10_RefSemantic.aml" Version="0.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/10_RefSemantic.aml" Version="0.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T03:56:09Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -120,8 +123,8 @@
       <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
-      <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
-      <Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+      <Alias Alias="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
    </Aliases>
    <!--
 			CAEXFile
@@ -270,9 +273,9 @@
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: AutomationMLExtendedRoleClassLib/Enterprise-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=6;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">ns=6;s=Enterprise</Reference>
          <!--RoleRequirements: AutomationMLReferenceDesignationRoleClassLib/ContainsReferenceDesignation-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=7;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">ns=7;s=ContainsReferenceDesignation</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s=3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={3d7d5923-f2b7-448c-a4bb-4d2603fe25b1}" DataType="String">
@@ -375,7 +378,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=RoleClassLib</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRole</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
       </References>
    </UAObjectType>
    <!--
@@ -420,7 +423,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=7;s=RoleClassLib</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRole</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
          <!--Attribute: functionOrientedReferenceDesignation-->
          <Reference ReferenceType="HasComponent">ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation</Reference>
       </References>

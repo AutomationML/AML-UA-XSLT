@@ -33,9 +33,9 @@
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
-		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
 		-->
-   <NamespaceUris>
+   <NamespaceUris><!--Namespace for current AML file.-->
       <Uri>http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml</Uri>
       <!--AML Base-->
       <Uri>http://opcfoundation.org/UA/AML/</Uri>
@@ -43,35 +43,39 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
       <!--Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <!--InstanceHierarchy: ManufacturingSystem-->
       <Uri>http://opcfoundation.org/UA/AML/ManufacturingSystem</Uri>
+      <!--InterfaceClassLib: MyInterfaces-->
       <Uri>http://opcfoundation.org/UA/AML/MyInterfaces</Uri>
+      <!--RoleClassLib: ManufacturingRoleClasses-->
       <Uri>http://opcfoundation.org/UA/AML/ManufacturingRoleClasses</Uri>
+      <!--SystemUnitClassLib: LibOfCommonTools-->
       <Uri>http://opcfoundation.org/UA/AML/LibOfCommonTools</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml" Version="0.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml" Version="0.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-25T03:56:09Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-25T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -126,9 +130,9 @@
       <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
-      <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
-      <Alias Alias="AutomationMLBaseRole/Resource">ns=3;s=AutomationMLBaseRole/Resource</Alias>
-      <Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">ns=3;s=Resource</Alias>
+      <Alias Alias="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
    </Aliases>
    <!--
 			CAEXFile
@@ -452,7 +456,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=Energy</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseInterface</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLInterfaceClassLib/AutomationMLBaseInterface</Reference>
       </References>
    </UAObjectType>
    <!--
@@ -534,7 +538,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=7;s=RoleClassLib</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRole</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
          <!--ExternalInterface: EnergySupply-->
          <Reference ReferenceType="HasComponent">ns=7;s={50e10905-ac18-413c-afab-ad8ed1569111}</Reference>
       </References>

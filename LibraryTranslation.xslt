@@ -81,8 +81,8 @@
 						<xsl:value-of select="concat('ns=', $ParentNS, ';s=', fn2:remove-space(exslt:node-set($BaseClass)/*/@Name))"/>
 					</xsl:when>
 					<xsl:when test="local-name()='SystemUnitClass' and @Name!='AutomationMLBaseSystemUnit'">CAEXObjectType</xsl:when>
-					<xsl:when test="local-name()='RoleClass' and @Name!='AutomationMLBaseRole'">AutomationMLBaseRole</xsl:when>
-					<xsl:when test="local-name()='InterfaceClass' and @Name!='AutomationMLBaseInterface'">AutomationMLBaseInterface</xsl:when>
+					<xsl:when test="local-name()='RoleClass' and @Name!='AutomationMLBaseRole'">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</xsl:when>
+					<xsl:when test="local-name()='InterfaceClass' and @Name!='AutomationMLBaseInterface'">AutomationMLInterfaceClassLib/AutomationMLBaseInterface</xsl:when>
 					<xsl:when test="local-name()='AttributeType'">AMLBaseVariableType</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>CAEXObjectType</xsl:text>

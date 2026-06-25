@@ -33,29 +33,31 @@
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
-		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
 		-->
-   <NamespaceUris>
+   <NamespaceUris><!--Namespace for current AML file.-->
       <Uri>http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml</Uri>
       <!--AML Base-->
       <Uri>http://opcfoundation.org/UA/AML/</Uri>
+      <!--InterfaceClassLib: AutomationMLInterfaceClassLib-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <!--RoleClassLib: AutomationMLBaseRoleClassLib-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml" Version="0.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml" Version="0.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:56:09Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -574,7 +576,7 @@
    <UAObject NodeId="ns=4;s={9942bd9c-c19d-44e4-a197-11b9edf264e7}" BrowseName="4:ConnectionPoint" ParentNodeId="ns=4;s=Port">
       <DisplayName>ConnectionPoint</DisplayName>
       <References><!--RefBaseClassPath: AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PortConnector-->
-         <Reference ReferenceType="HasTypeDefinition">ns=3;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=3;s=PortConnector</Reference>
          <!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=4;s=9942bd9c-c19d-44e4-a197-11b9edf264e7_AML_ID</Reference>
       </References>

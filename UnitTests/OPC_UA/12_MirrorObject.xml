@@ -33,31 +33,35 @@
 				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
-		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
 		-->
-   <NamespaceUris>
+   <NamespaceUris><!--Namespace for current AML file.-->
       <Uri>http://opcfoundation.org/UA/AML/13_MirrorObject.aml</Uri>
       <!--AML Base-->
       <Uri>http://opcfoundation.org/UA/AML/</Uri>
-      <!--Fallback: AutomationMLBaseRole-->
+      <!--Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml-->
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+      <!--Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml-->
+      <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <!--InstanceHierarchy: AssemblySystem-->
       <Uri>http://opcfoundation.org/UA/AML/AssemblySystem</Uri>
+      <!--SystemUnitClassLib: Resources-->
       <Uri>http://opcfoundation.org/UA/AML/Resources</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/13_MirrorObject.aml" Version="0.0.0" PublicationDate="2026-06-25T03:56:09Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/13_MirrorObject.aml" Version="0.0.0" PublicationDate="2026-06-25T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T03:56:09Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T03:56:09Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-06-25T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -112,7 +116,12 @@
       <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
-      <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource">ns=3;s=Resource</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group">ns=3;s=Group</Alias>
+      <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly">ns=3;s=MechatronicAssembly</Alias>
+      <Alias Alias="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector">ns=4;s=PPRConnector</Alias>
+      <Alias Alias="AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication">ns=4;s=Communication</Alias>
    </Aliases>
    <!--
 			CAEXFile
@@ -228,11 +237,11 @@
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--InstanceHierarchy: AssemblySystem-->
-         <Reference ReferenceType="Organizes">ns=4;s=InstanceHierarchy_13_MirrorObject.aml_AssemblySystem</Reference>
+         <Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_13_MirrorObject.aml_AssemblySystem</Reference>
       </References>
    </UAObject>
    <!--InstanceHierarchy: AssemblySystem-->
-   <UAObject NodeId="ns=4;s=InstanceHierarchy_AssemblySystem" BrowseName="4:AssemblySystem">
+   <UAObject NodeId="ns=5;s=InstanceHierarchy_AssemblySystem" BrowseName="5:AssemblySystem">
       <DisplayName>AssemblySystem</DisplayName>
       <Documentation/>
       <References>
@@ -240,34 +249,34 @@
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLInstanceHierarchies</Reference>
          <!--Backward reference to CAEX InstanceHierarchies-->
          <!--InternalElement: LiftUpGate-->
-         <Reference ReferenceType="HasComponent">ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
          <!--InternalElement: TransferToSubAssembly-->
-         <Reference ReferenceType="HasComponent">ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
          <!--InternalElement: SubAssembly-->
-         <Reference ReferenceType="HasComponent">ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
          <!--InternalElement: TransferToMainAssembly-->
-         <Reference ReferenceType="HasComponent">ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
          <!--InternalElement: MainAssemblyStation-->
-         <Reference ReferenceType="HasComponent">ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
          <!--InternalElement: EndStop-->
-         <Reference ReferenceType="HasComponent">ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
          <!--InternalElement: ConveyorGroup-->
-         <Reference ReferenceType="HasComponent">ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}</Reference>
          <!--InternalElement: AssemblyStationGroup-->
-         <Reference ReferenceType="HasComponent">ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}</Reference>
       </References>
    </UAObject>
-   <UAObject NodeId="ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" BrowseName="4:LiftUpGate">
+   <UAObject NodeId="ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" BrowseName="5:LiftUpGate">
       <DisplayName>LiftUpGate</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}_AML_ID</Reference>
          <!--SystemUnitClass: Resources/RollerConveyor-->
-         <Reference ReferenceType="HasTypeDefinition">ns=5;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=RollerConveyor</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" DataType="String">
+   <UAVariable NodeId="ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -276,23 +285,21 @@
          <uax:String>{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}" BrowseName="4:TransferToSubAssembly">
+   <UAObject NodeId="ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}" BrowseName="5:TransferToSubAssembly">
       <DisplayName>TransferToSubAssembly</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}_AML_ID</Reference>
          <!--SystemUnitClass: Resources/RollerConveyor-->
-         <Reference ReferenceType="HasTypeDefinition">ns=5;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=RollerConveyor</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
-         <!--RoleRequirements: AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=3;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
          <!--ExternalInterface: Product-->
-         <Reference ReferenceType="HasComponent">ns=4;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}</Reference>
          <!--InternalElement: DriveControl-->
-         <Reference ReferenceType="HasComponent">ns=4;s={571dae74-81ef-41cb-baaa-87de44f1aa82}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}" DataType="String">
+   <UAVariable NodeId="ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -302,15 +309,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: TransferToSubAssembly.Product-->
-   <UAObject NodeId="ns=4;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" BrowseName="4:Product" ParentNodeId="ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}">
+   <UAObject NodeId="ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" BrowseName="5:Product" ParentNodeId="ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}">
       <DisplayName>Product</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" DataType="String">
+   <UAVariable NodeId="ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -319,19 +326,19 @@
          <uax:String>{4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={571dae74-81ef-41cb-baaa-87de44f1aa82}" BrowseName="4:DriveControl">
+   <UAObject NodeId="ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}" BrowseName="5:DriveControl">
       <DisplayName>DriveControl</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={571dae74-81ef-41cb-baaa-87de44f1aa82}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}_AML_ID</Reference>
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
          <!--ExternalInterface: Information-->
-         <Reference ReferenceType="HasComponent">ns=4;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={571dae74-81ef-41cb-baaa-87de44f1aa82}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={571dae74-81ef-41cb-baaa-87de44f1aa82}" DataType="String">
+   <UAVariable NodeId="ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -341,15 +348,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: DriveControl.Information-->
-   <UAObject NodeId="ns=4;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" BrowseName="4:Information" ParentNodeId="ns=4;s={571dae74-81ef-41cb-baaa-87de44f1aa82}">
+   <UAObject NodeId="ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" BrowseName="5:Information" ParentNodeId="ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}">
       <DisplayName>Information</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" DataType="String">
+   <UAVariable NodeId="ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -358,17 +365,17 @@
          <uax:String>{8e422f26-c2ea-49f2-a0bd-1ab410901fb4}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}" BrowseName="4:SubAssembly">
+   <UAObject NodeId="ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}" BrowseName="5:SubAssembly">
       <DisplayName>SubAssembly</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}_AML_ID</Reference>
          <!--SystemUnitClass: Resources/AssemblyStation-->
-         <Reference ReferenceType="HasTypeDefinition">ns=5;s=AssemblyStation</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=AssemblyStation</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}" DataType="String">
+   <UAVariable NodeId="ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -377,23 +384,21 @@
          <uax:String>{ac026999-a2e2-4a86-8c97-39685607e49a}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}" BrowseName="4:TransferToMainAssembly">
+   <UAObject NodeId="ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}" BrowseName="5:TransferToMainAssembly">
       <DisplayName>TransferToMainAssembly</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}_AML_ID</Reference>
          <!--SystemUnitClass: Resources/RollerConveyor-->
-         <Reference ReferenceType="HasTypeDefinition">ns=5;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=RollerConveyor</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
-         <!--RoleRequirements: AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=3;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
          <!--ExternalInterface: Product-->
-         <Reference ReferenceType="HasComponent">ns=4;s={b743533f-0730-479a-9db1-98f38199644c}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={b743533f-0730-479a-9db1-98f38199644c}</Reference>
          <!--InternalElement: DriveControl-->
-         <Reference ReferenceType="HasComponent">ns=4;s={18d0c126-772b-40bd-be11-5a5a18600eb4}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}" DataType="String">
+   <UAVariable NodeId="ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -403,15 +408,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: TransferToMainAssembly.Product-->
-   <UAObject NodeId="ns=4;s={b743533f-0730-479a-9db1-98f38199644c}" BrowseName="4:Product" ParentNodeId="ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}">
+   <UAObject NodeId="ns=5;s={b743533f-0730-479a-9db1-98f38199644c}" BrowseName="5:Product" ParentNodeId="ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}">
       <DisplayName>Product</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={b743533f-0730-479a-9db1-98f38199644c}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={b743533f-0730-479a-9db1-98f38199644c}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={b743533f-0730-479a-9db1-98f38199644c}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={b743533f-0730-479a-9db1-98f38199644c}" DataType="String">
+   <UAVariable NodeId="ns=5;s={b743533f-0730-479a-9db1-98f38199644c}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={b743533f-0730-479a-9db1-98f38199644c}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -420,19 +425,19 @@
          <uax:String>{b743533f-0730-479a-9db1-98f38199644c}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={18d0c126-772b-40bd-be11-5a5a18600eb4}" BrowseName="4:DriveControl">
+   <UAObject NodeId="ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}" BrowseName="5:DriveControl">
       <DisplayName>DriveControl</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={18d0c126-772b-40bd-be11-5a5a18600eb4}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}_AML_ID</Reference>
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
          <!--ExternalInterface: Information-->
-         <Reference ReferenceType="HasComponent">ns=4;s={cd6536ac-4004-43ae-82cc-ddc40731805a}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={18d0c126-772b-40bd-be11-5a5a18600eb4}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={18d0c126-772b-40bd-be11-5a5a18600eb4}" DataType="String">
+   <UAVariable NodeId="ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -442,15 +447,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: DriveControl.Information-->
-   <UAObject NodeId="ns=4;s={cd6536ac-4004-43ae-82cc-ddc40731805a}" BrowseName="4:Information" ParentNodeId="ns=4;s={18d0c126-772b-40bd-be11-5a5a18600eb4}">
+   <UAObject NodeId="ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}" BrowseName="5:Information" ParentNodeId="ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}">
       <DisplayName>Information</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={cd6536ac-4004-43ae-82cc-ddc40731805a}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={cd6536ac-4004-43ae-82cc-ddc40731805a}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={cd6536ac-4004-43ae-82cc-ddc40731805a}" DataType="String">
+   <UAVariable NodeId="ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -459,17 +464,17 @@
          <uax:String>{cd6536ac-4004-43ae-82cc-ddc40731805a}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" BrowseName="4:MainAssemblyStation">
+   <UAObject NodeId="ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" BrowseName="5:MainAssemblyStation">
       <DisplayName>MainAssemblyStation</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}_AML_ID</Reference>
          <!--SystemUnitClass: Resources/AssemblyStation-->
-         <Reference ReferenceType="HasTypeDefinition">ns=5;s=AssemblyStation</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=AssemblyStation</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" DataType="String">
+   <UAVariable NodeId="ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -478,23 +483,21 @@
          <uax:String>{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}" BrowseName="4:EndStop">
+   <UAObject NodeId="ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}" BrowseName="5:EndStop">
       <DisplayName>EndStop</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}_AML_ID</Reference>
          <!--SystemUnitClass: Resources/RollerConveyor-->
-         <Reference ReferenceType="HasTypeDefinition">ns=5;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=RollerConveyor</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
-         <!--RoleRequirements: AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=3;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
          <!--ExternalInterface: Product-->
-         <Reference ReferenceType="HasComponent">ns=4;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}</Reference>
          <!--InternalElement: DriveControl-->
-         <Reference ReferenceType="HasComponent">ns=4;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}" DataType="String">
+   <UAVariable NodeId="ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -504,15 +507,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: EndStop.Product-->
-   <UAObject NodeId="ns=4;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}" BrowseName="4:Product" ParentNodeId="ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}">
+   <UAObject NodeId="ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}" BrowseName="5:Product" ParentNodeId="ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}">
       <DisplayName>Product</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}" DataType="String">
+   <UAVariable NodeId="ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -521,19 +524,19 @@
          <uax:String>{b0b6b4bd-753b-484b-ac71-0893faf7dbac}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" BrowseName="4:DriveControl">
+   <UAObject NodeId="ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" BrowseName="5:DriveControl">
       <DisplayName>DriveControl</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}_AML_ID</Reference>
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
          <!--ExternalInterface: Information-->
-         <Reference ReferenceType="HasComponent">ns=4;s={4cf5d16a-7794-4665-a461-5519694c290b}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" DataType="String">
+   <UAVariable NodeId="ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -543,15 +546,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: DriveControl.Information-->
-   <UAObject NodeId="ns=4;s={4cf5d16a-7794-4665-a461-5519694c290b}" BrowseName="4:Information" ParentNodeId="ns=4;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}">
+   <UAObject NodeId="ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}" BrowseName="5:Information" ParentNodeId="ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}">
       <DisplayName>Information</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={4cf5d16a-7794-4665-a461-5519694c290b}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={4cf5d16a-7794-4665-a461-5519694c290b}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={4cf5d16a-7794-4665-a461-5519694c290b}" DataType="String">
+   <UAVariable NodeId="ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -560,29 +563,29 @@
          <uax:String>{4cf5d16a-7794-4665-a461-5519694c290b}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}" BrowseName="4:ConveyorGroup">
+   <UAObject NodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}" BrowseName="5:ConveyorGroup">
       <DisplayName>ConveyorGroup</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AML_ID</Reference>
          <!--Attribute: AssociatedFacet-->
-         <Reference ReferenceType="HasComponent">ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AssociatedFacet</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AssociatedFacet</Reference>
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
-         <!--RoleRequirements: AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=3;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
          <!--InternalElement: LiftUpGate-->
-         <Reference ReferenceType="HasComponent">ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}</Reference>
          <!--InternalElement: TransferToSubAssembly-->
-         <Reference ReferenceType="HasComponent">ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}</Reference>
          <!--InternalElement: TransferToMainAssembly-->
-         <Reference ReferenceType="HasComponent">ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}</Reference>
          <!--InternalElement: EndStop-->
-         <Reference ReferenceType="HasComponent">ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}" DataType="String">
+   <UAVariable NodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -592,10 +595,10 @@
       </Value>
    </UAVariable>
    <!--Attribute: ConveyorGroup.AssociatedFacet-->
-   <UAVariable NodeId="ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AssociatedFacet" BrowseName="4:AssociatedFacet" ParentNodeId="ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}">
+   <UAVariable NodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AssociatedFacet" BrowseName="5:AssociatedFacet" ParentNodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}">
       <DisplayName>AssociatedFacet</DisplayName>
       <References><!--Parent: ConveyorGroup.-->
-         <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}</Reference>
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <!--Hier-->
@@ -603,16 +606,16 @@
          <uax:String/>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" BrowseName="4:LiftUpGate">
+   <UAObject NodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" BrowseName="5:LiftUpGate">
       <DisplayName>LiftUpGate</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID</Reference>
          <!--Mirror: {6aa1bd9a-701a-43a6-bc04-c414d30e0f93}-->
          <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=4;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
+         <Reference ReferenceType="IsMirroredAs">ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" DataType="String">
+   <UAVariable NodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -621,16 +624,16 @@
          <uax:String>{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" BrowseName="4:TransferToSubAssembly">
+   <UAObject NodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" BrowseName="5:TransferToSubAssembly">
       <DisplayName>TransferToSubAssembly</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID</Reference>
          <!--Mirror: {71fc6d29-7797-4e3f-a659-ac69198e464f}-->
          <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=4;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
+         <Reference ReferenceType="IsMirroredAs">ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" DataType="String">
+   <UAVariable NodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -639,16 +642,16 @@
          <uax:String>{2dd897fb-92ea-48ec-af81-84252f1d91ca}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}" BrowseName="4:TransferToMainAssembly">
+   <UAObject NodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}" BrowseName="5:TransferToMainAssembly">
       <DisplayName>TransferToMainAssembly</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID</Reference>
          <!--Mirror: {9facd06a-1725-4d18-95f7-4814ba2e4cf8}-->
          <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=4;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
+         <Reference ReferenceType="IsMirroredAs">ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={f3e48d15-571f-4376-aeea-189235f6b671}" DataType="String">
+   <UAVariable NodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -657,16 +660,16 @@
          <uax:String>{f3e48d15-571f-4376-aeea-189235f6b671}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" BrowseName="4:EndStop">
+   <UAObject NodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" BrowseName="5:EndStop">
       <DisplayName>EndStop</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID</Reference>
          <!--Mirror: {72bf71e8-15fd-4882-9d35-00a12d1aa995}-->
          <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=4;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
+         <Reference ReferenceType="IsMirroredAs">ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" DataType="String">
+   <UAVariable NodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -675,23 +678,23 @@
          <uax:String>{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}" BrowseName="4:AssemblyStationGroup">
+   <UAObject NodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}" BrowseName="5:AssemblyStationGroup">
       <DisplayName>AssemblyStationGroup</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}_AML_ID</Reference>
          <!--Attribute: AssociatedFacet-->
-         <Reference ReferenceType="HasComponent">ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}_AssociatedFacet</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}_AssociatedFacet</Reference>
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group</Reference>
          <!--InternalElement: SubAssembly-->
-         <Reference ReferenceType="HasComponent">ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}</Reference>
          <!--InternalElement: MainAssemblyStation-->
-         <Reference ReferenceType="HasComponent">ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}</Reference>
+         <Reference ReferenceType="HasComponent">ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}" DataType="String">
+   <UAVariable NodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -701,10 +704,10 @@
       </Value>
    </UAVariable>
    <!--Attribute: AssemblyStationGroup.AssociatedFacet-->
-   <UAVariable NodeId="ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}_AssociatedFacet" BrowseName="4:AssociatedFacet" ParentNodeId="ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}">
+   <UAVariable NodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}_AssociatedFacet" BrowseName="5:AssociatedFacet" ParentNodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}">
       <DisplayName>AssociatedFacet</DisplayName>
       <References><!--Parent: AssemblyStationGroup.-->
-         <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s={7b74d01b-de35-43a4-96bc-4897276adada}</Reference>
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <!--Hier-->
@@ -712,16 +715,16 @@
          <uax:String/>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" BrowseName="4:SubAssembly">
+   <UAObject NodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" BrowseName="5:SubAssembly">
       <DisplayName>SubAssembly</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID</Reference>
          <!--Mirror: {ac026999-a2e2-4a86-8c97-39685607e49a}-->
          <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=4;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
+         <Reference ReferenceType="IsMirroredAs">ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" DataType="String">
+   <UAVariable NodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -730,16 +733,16 @@
          <uax:String>{eb7af72e-a31c-4b99-b627-8249d19b73bb}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" BrowseName="4:MainAssemblyStation">
+   <UAObject NodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" BrowseName="5:MainAssemblyStation">
       <DisplayName>MainAssemblyStation</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID</Reference>
          <!--Mirror: {22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}-->
          <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=4;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
+         <Reference ReferenceType="IsMirroredAs">ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" DataType="String">
+   <UAVariable NodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -774,7 +777,7 @@
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--SystemUnitClassLib: Resources-->
-         <Reference ReferenceType="Organizes">ns=5;s=SystemUnitClassLib</Reference>
+         <Reference ReferenceType="Organizes">ns=6;s=SystemUnitClassLib</Reference>
       </References>
    </UAObject>
    <!--
@@ -791,20 +794,20 @@
 				- is there a maximum length for NodeId?
 				- how do we handle very long lib names -> generate short name?
 		-->
-   <UAObject NodeId="ns=5;s=SystemUnitClassLib" BrowseName="Resources">
+   <UAObject NodeId="ns=6;s=SystemUnitClassLib" BrowseName="Resources">
       <DisplayName>Resources</DisplayName>
       <References><!--Id no longer part of the specification-->
-         <Reference ReferenceType="HasProperty">ns=5;s=SystemUnitClassLib_Version</Reference>
+         <Reference ReferenceType="HasProperty">ns=6;s=SystemUnitClassLib_Version</Reference>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--Collection of SystemUnitClassLib-->
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_SystemUnitClassLibs</Reference>
          <!--TODO: what is the correct way to list all elements of the Lib?-->
          <!--List of included SystemUnitClass-->
-         <Reference ReferenceType="Organizes">ns=5;s=RollerConveyor</Reference>
-         <Reference ReferenceType="Organizes">ns=5;s=AssemblyStation</Reference>
+         <Reference ReferenceType="Organizes">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="Organizes">ns=6;s=AssemblyStation</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=5;s=SystemUnitClassLib_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=SystemUnitClassLib" DataType="String">
+   <UAVariable NodeId="ns=6;s=SystemUnitClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=SystemUnitClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -814,31 +817,31 @@
       </Value>
    </UAVariable>
    <!--SystemUnitClass: RollerConveyor-->
-   <UAObjectType NodeId="ns=5;s=RollerConveyor" BrowseName="RollerConveyor">
+   <UAObjectType NodeId="ns=6;s=RollerConveyor" BrowseName="RollerConveyor">
       <DisplayName>RollerConveyor</DisplayName>
       <!--Library: Resources-->
       <References><!--Hierarchical parent in AutomationML library-->
-         <Reference ReferenceType="Organizes" IsForward="false">ns=5;s=SystemUnitClassLib</Reference>
+         <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=SystemUnitClassLib</Reference>
          <!--Parent class-->
          <Reference ReferenceType="HasSubtype" IsForward="false">CAEXObjectType</Reference>
          <!--SupportedRoleClass: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly</Reference>
          <!--ExternalInterface: Product-->
-         <Reference ReferenceType="HasComponent">ns=5;s={dbaad283-b832-45c5-9c13-5d158fd88488}</Reference>
+         <Reference ReferenceType="HasComponent">ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}</Reference>
          <!--InternalElement: DriveControl-->
-         <Reference ReferenceType="HasComponent">ns=5;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}</Reference>
+         <Reference ReferenceType="HasComponent">ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}</Reference>
       </References>
    </UAObjectType>
    <!--ExternalInterface: RollerConveyor.Product-->
-   <UAObject NodeId="ns=5;s={dbaad283-b832-45c5-9c13-5d158fd88488}" BrowseName="5:Product" ParentNodeId="ns=5;s=RollerConveyor">
+   <UAObject NodeId="ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}" BrowseName="6:Product" ParentNodeId="ns=6;s=RollerConveyor">
       <DisplayName>Product</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=5;s={dbaad283-b832-45c5-9c13-5d158fd88488}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=5;s={dbaad283-b832-45c5-9c13-5d158fd88488}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={dbaad283-b832-45c5-9c13-5d158fd88488}" DataType="String">
+   <UAVariable NodeId="ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -847,19 +850,19 @@
          <uax:String>{dbaad283-b832-45c5-9c13-5d158fd88488}</uax:String>
       </Value>
    </UAVariable>
-   <UAObject NodeId="ns=5;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}" BrowseName="5:DriveControl">
+   <UAObject NodeId="ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}" BrowseName="6:DriveControl">
       <DisplayName>DriveControl</DisplayName>
       <References><!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=5;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}_AML_ID</Reference>
          <!--Class definition-->
          <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
          <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole-->
-         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <Reference ReferenceType="HasAMLRoleReference">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
          <!--ExternalInterface: Information-->
-         <Reference ReferenceType="HasComponent">ns=5;s={f2f15585-de4a-4bc3-996a-50957b56dc17}</Reference>
+         <Reference ReferenceType="HasComponent">ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=5;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}" DataType="String">
+   <UAVariable NodeId="ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -869,15 +872,15 @@
       </Value>
    </UAVariable>
    <!--ExternalInterface: DriveControl.Information-->
-   <UAObject NodeId="ns=5;s={f2f15585-de4a-4bc3-996a-50957b56dc17}" BrowseName="5:Information" ParentNodeId="ns=5;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}">
+   <UAObject NodeId="ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}" BrowseName="6:Information" ParentNodeId="ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}">
       <DisplayName>Information</DisplayName>
       <References><!--RefBaseClassPath: BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication-->
-         <Reference ReferenceType="HasTypeDefinition">ns=;s=</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication</Reference>
          <!--AML-ID-->
-         <Reference ReferenceType="HasProperty">ns=5;s={f2f15585-de4a-4bc3-996a-50957b56dc17}_AML_ID</Reference>
+         <Reference ReferenceType="HasProperty">ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}_AML_ID</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=5;s={f2f15585-de4a-4bc3-996a-50957b56dc17}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={f2f15585-de4a-4bc3-996a-50957b56dc17}" DataType="String">
+   <UAVariable NodeId="ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
@@ -887,11 +890,11 @@
       </Value>
    </UAVariable>
    <!--SystemUnitClass: AssemblyStation-->
-   <UAObjectType NodeId="ns=5;s=AssemblyStation" BrowseName="AssemblyStation">
+   <UAObjectType NodeId="ns=6;s=AssemblyStation" BrowseName="AssemblyStation">
       <DisplayName>AssemblyStation</DisplayName>
       <!--Library: Resources-->
       <References><!--Hierarchical parent in AutomationML library-->
-         <Reference ReferenceType="Organizes" IsForward="false">ns=5;s=SystemUnitClassLib</Reference>
+         <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=SystemUnitClassLib</Reference>
          <!--Parent class-->
          <Reference ReferenceType="HasSubtype" IsForward="false">CAEXObjectType</Reference>
       </References>

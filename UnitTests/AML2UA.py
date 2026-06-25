@@ -1,6 +1,7 @@
 from pathlib import Path
 from saxonche import PySaxonProcessor
 from lxml import etree
+import re
 
 outdir = Path("OPC_UA")
 outdir.mkdir(exist_ok=True)
@@ -36,3 +37,18 @@ with PySaxonProcessor(license=False) as proc:
             xml_declaration=True,
             pretty_print=True
         )
+
+        # PublicationDate timestamps normalisieren
+        with open(outfile, "r", encoding="utf-8") as f:
+            content = f.read()
+        
+        content = re.sub(
+            r'PublicationDate="(\d{4}-\d{2}-\d{2})T[\d:]+Z',
+            r'PublicationDate="\1T00:00:00Z',
+            content
+        )
+        
+        with open(outfile, "w", encoding="utf-8") as f:
+            f.write(content)
+
+        print(f"Successfully processed: {aml.name}")
