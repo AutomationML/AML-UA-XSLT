@@ -45,7 +45,7 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/EmptyAML.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:17Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/EmptyAML.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:52Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
@@ -178,9 +178,7 @@
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String><![CDATA[<SourceDocumentInformation xmlns="http://www.dke.de/CAEX"
-                                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                                       OriginName="AutomationML Editor"
+         <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML Editor"
                                        OriginID="916578CA-FE0D-474E-A4FC-9E1719892369"
                                        OriginVersion="6.4.2.17"
                                        LastWritingDateTime="2025-10-30T09:51:40.1031131+01:00"

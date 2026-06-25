@@ -22,8 +22,8 @@
 			<xsl:call-template name="GetNamespace"/>
 		</xsl:variable>
 		<xsl:variable name="LibId">
-			<xsl:for-each select="ancestor::*[name()='InterfaceClassLib' or name()='RoleClassLib' or name()='SystemUnitClassLib'  or name()='AttributeTypeLib']">
-				<xsl:value-of select="fn2:remove-space(name(.))"/>
+			<xsl:for-each select="ancestor::*[local-name()='InterfaceClassLib' or local-name()='RoleClassLib' or local-name()='SystemUnitClassLib'  or local-name()='AttributeTypeLib']">
+				<xsl:value-of select="fn2:remove-space(local-name(.))"/>
 			</xsl:for-each>
 		</xsl:variable>
 		<xsl:comment>
@@ -34,17 +34,17 @@
 			<xsl:comment>Hierarchical parent in AutomationML library</xsl:comment>			
 			<Reference ReferenceType="Organizes" IsForward="false">
 				<xsl:choose>
-					<xsl:when test="ancestor::caex:InterfaceClass[1]">
-						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:InterfaceClass[1]/@Name)"/>
+					<xsl:when test="ancestor::*[fn:local-name()='InterfaceClass'][1]">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::*[fn:local-name()='InterfaceClass'][1]/@Name)"/>
 					</xsl:when>
-					<xsl:when test="ancestor::caex:RoleClass[1]">
-						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:RoleClass[1]/@Name)"/>
+					<xsl:when test="ancestor::*[fn:local-name()='RoleClass'][1]">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::*[fn:local-name()='RoleClass'][1]/@Name)"/>
 					</xsl:when>
-					<xsl:when test="ancestor::caex:SystemUnitClass[1]">
-						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:SystemUnitClass[1]/@Name)"/>
+					<xsl:when test="ancestor::*[fn:local-name()='SystemUnitClass'][1]">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::*[fn:local-name()='SystemUnitClass'][1]/@Name)"/>
 					</xsl:when>
-					<xsl:when test="ancestor::caex:AttributeType[1]">
-						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::caex:AttributeType[1]/@Name)"/>
+					<xsl:when test="ancestor::*[fn:local-name()='AttributeType'][1]">
+						<xsl:value-of select="concat('ns=', $NsId, ';s=', ancestor::*[fn:local-name()='AttributeType'][1]/@Name)"/>
 					</xsl:when>		
 					<xsl:otherwise>
 						<xsl:value-of select="concat('ns=', $NsId, ';s=', $LibId)"/>
@@ -106,7 +106,7 @@
 		</xsl:variable>
 		<xsl:variable name="LibId">
 			<!--xsl:text>Library</xsl:text-->
-			<xsl:value-of select="fn2:remove-space(name(.))"/>
+			<xsl:value-of select="fn2:remove-space(local-name(.))"/>
 		</xsl:variable>
 		<xsl:comment>
 			Libraries:
@@ -128,44 +128,44 @@
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
-			<xsl:if test="caex:Description!=''">
+			<xsl:if test="*[fn:local-name()='Description']!=''">
 				<Documentation>
-					<xsl:value-of select="caex:Description"/>
+					<xsl:value-of select="*[fn:local-name()='Description']"/>
 				</Documentation>
 			</xsl:if>
 			<References>
 				<xsl:comment>Id no longer part of the specification</xsl:comment>
-				<xsl:if test="caex:Version">
+				<xsl:if test="*[fn:local-name()='Version']">
 					<Reference ReferenceType="HasProperty">
 						<xsl:value-of select="concat('ns=', $NsId, ';s=', $LibId, '_Version')"/>
 					</Reference>
 				</xsl:if>
 				<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 				<xsl:choose>
-					<xsl:when test="name(.)='InterfaceClassLib'">
+					<xsl:when test="local-name(.)='InterfaceClassLib'">
 						<xsl:comment>Collection of InterfaceClassLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_InterfaceClassLibs</Reference>
 						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_InterfaceClassLibs</Reference-->
 					</xsl:when>
-					<xsl:when test="name(.)='RoleClassLib'">
+					<xsl:when test="local-name(.)='RoleClassLib'">
 						<xsl:comment>Collection of RoleClassLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_RoleClassLibs</Reference>
 						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_RoleClassLibs</Reference-->
 					</xsl:when>
-					<xsl:when test="name(.)='SystemUnitClassLib'">
+					<xsl:when test="local-name(.)='SystemUnitClassLib'">
 						<xsl:comment>Collection of SystemUnitClassLib</xsl:comment>
 						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_SystemUnitClassLibs</Reference>
 						<!--Reference ReferenceType="HasComponent" IsForward="false">ns=2;s=CAEXFile_SystemUnitClassLibs</Reference-->
 					</xsl:when>
-					<xsl:when test="name(.)='AttributeTypeLib'">
+					<xsl:when test="local-name(.)='AttributeTypeLib'">
 						<xsl:comment>Collection of AttributeTypeLib</xsl:comment>
 						<!--Reference ReferenceType="Organizes" IsForward="false">ns=1;i=?</Reference-->
 						<Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AttributeTypeLibs</Reference>
 					</xsl:when>
 				</xsl:choose>
 				<xsl:comment>TODO: what is the correct way to list all elements of the Lib?</xsl:comment>
-				<xsl:comment><xsl:value-of select="concat('List of included ', fn:replace(name(), 'Lib', ''))"/></xsl:comment>
-				<xsl:for-each select="./*[name()='RoleClass' or name()='SystemUnitClass' or name()='InterfaceClass' or name()='AttributeType']">
+				<xsl:comment><xsl:value-of select="concat('List of included ', fn:replace(local-name(), 'Lib', ''))"/></xsl:comment>
+				<xsl:for-each select="./*[local-name()='RoleClass' or local-name()='SystemUnitClass' or local-name()='InterfaceClass' or local-name()='AttributeType']">
 					<Reference ReferenceType="Organizes"><xsl:value-of select="concat('ns=',$NsId, ';s=',fn2:remove-space(@Name))"/></Reference>
 				</xsl:for-each>
 			</References>
@@ -174,7 +174,7 @@
 	<!-- .........................................................................
 		InterfaceClassLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="caex:InterfaceClassLib">
+	<xsl:template match="*[fn:local-name()='InterfaceClassLib']">
 		<xsl:comment>
 			InterfaceClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -189,7 +189,7 @@
 		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="*"/>
 	</xsl:template>
-	<xsl:template match="//caex:InterfaceClass">
+	<xsl:template match="//*[fn:local-name()='InterfaceClass']">
 		<xsl:variable name="NsId">
 			<xsl:call-template name="GetNamespaceId"/>
 		</xsl:variable>
@@ -216,7 +216,7 @@
 	<!-- .........................................................................
 		RoleClassLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="caex:RoleClassLib">
+	<xsl:template match="*[fn:local-name()='RoleClassLib']">
 		<xsl:comment>
 			RoleClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -228,7 +228,7 @@
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
 	
-	<xsl:template match="//caex:RoleClass">
+	<xsl:template match="//*[fn:local-name()='RoleClass']">
 		<xsl:variable name="NsId">
 			<xsl:call-template name="GetNamespaceId"/>
 		</xsl:variable>
@@ -255,7 +255,7 @@
 	<!-- .........................................................................
 		SystemUnitClassLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="caex:SystemUnitClassLib">
+	<xsl:template match="*[fn:local-name()='SystemUnitClassLib']">
 		<xsl:comment>
 			SystemUnitClassLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -266,7 +266,7 @@
 		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
-	<xsl:template match="//caex:SystemUnitClass">
+	<xsl:template match="//*[fn:local-name()='SystemUnitClass']">
 		<xsl:variable name="NsId">
 			<xsl:call-template name="GetNamespaceId"/>
 		</xsl:variable>
@@ -304,7 +304,7 @@
 	<!-- .........................................................................
 		AttributeTypeLib: Create UAObjectTypes
 	.........................................................................-->
-	<xsl:template match="caex:AttributeTypeLib">
+	<xsl:template match="*[fn:local-name()='AttributeTypeLib']">
 		<xsl:comment>
 			AttributeTypeLib: <xsl:value-of select="@Name"/>
 			==================================================
@@ -314,7 +314,7 @@
 		<xsl:call-template name="Library"/>
 		<xsl:apply-templates select="node()"/>
 	</xsl:template>
-	<xsl:template match="//caex:AttributeType">
+	<xsl:template match="//*[fn:local-name()='AttributeType']">
 		<xsl:variable name="NsId">
 			<xsl:call-template name="GetNamespaceId"/>
 		</xsl:variable>

@@ -1,0 +1,805 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<UANodeSet xmlns="http://opcfoundation.org/UA/2011/03/UANodeSet.xsd" xmlns:uax="http://opcfoundation.org/UA/2008/02/Types.xsd"><!--
+			Documentation
+			===============
+			To support both CAEX V2.15 and CAEX V3.0 we add the namespace to CAEX V2.15 before translation. 
+
+			UANodeSet
+			=============
+			TODOs:
+				- how to handle mirror objects?
+				- Do we need aliases?? 
+					- to be clarified with UA -> Miriam
+				    - only used ones or standard template set of aliases
+					- purpose? drawback				
+				- InternalLinks are not translated, yet.
+				- Missing translation for UtcTime/DateTime
+				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
+				- no HasTypeDefinition available if there was no SystemUnitClass (see "BPR_005E_ExternalDataReference_Examples_Jul2016.aml")
+				- use correct HasTypeDefinition
+				- are spaces allowed in NodeId string as part if the ID? 
+				    - to be clarified with AML if spaces are allowed (Part 1) -> Miriam
+					- Example in AR APC all Classes AutomationProjectConfigurationRoleClassLib/DeviceItem Attributes
+					- necessary for nodeID (BrowseName keeps space), thus deleted
+				- are '{GUID}' and 'GUID' equal? -> will be handled as equivalent
+				- InterfaceClasses have no specific UA "base structure", but are also of type ObjectType -> how to distinguish between SUC and IC
+				- AdditionalInformation is handled as blackbox (no ID)
+				- AdditionalInformation AutomationMLVersion
+				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
+				- XSL + script for generation of MD5 hash				
+				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
+				- support AttributeTypeLib (CAEX V3.0)
+				- fix model version for RequiredModels -> is this correct?
+				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
+			--><!--!!! Warning !!! 
+		===============
+		Auto-generated namespaces. Check if equal to namespace of translated library file. 
+		-->
+   <NamespaceUris>
+      <Uri>http://opcfoundation.org/UA/AML/14_Facet.aml</Uri>
+      <!--AML Base-->
+      <Uri>http://opcfoundation.org/UA/AML/</Uri>
+      <!--Fallback: AutomationMLBaseRole-->
+      <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
+      <!--Fallback: AutomationMLBaseInterface-->
+      <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
+      <Uri>http://opcfoundation.org/UA/AML/ConveyerSystem</Uri>
+      <Uri>http://opcfoundation.org/UA/AML/Conveyors</Uri>
+   </NamespaceUris>
+   <Models>
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ConveyerSystem" Version="" PublicationDate="2026-06-25T02:06:52Z">
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
+      </Model>
+      <Model ModelUri="http://opcfoundation.org/UA/AML/Conveyors" Version="1.0" PublicationDate="2026-06-25T02:06:52Z">
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
+      </Model>
+      <Model ModelUri="http://opcfoundation.org/UA/AML/14_Facet.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:52Z">
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConveyerSystem" Version="" PublicationDate="2026-06-25T02:06:52Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Conveyors" Version="1.0" PublicationDate="2026-06-25T02:06:52Z"/>
+      </Model>
+   </Models>
+   <Aliases>
+      <Alias Alias="Boolean">i=1</Alias>
+      <Alias Alias="SByte">i=2</Alias>
+      <Alias Alias="Byte">i=3</Alias>
+      <Alias Alias="Int16">i=4</Alias>
+      <Alias Alias="UInt16">i=5</Alias>
+      <Alias Alias="Int32">i=6</Alias>
+      <Alias Alias="UInt32">i=7</Alias>
+      <Alias Alias="Int64">i=8</Alias>
+      <Alias Alias="UInt64">i=9</Alias>
+      <Alias Alias="Float">i=10</Alias>
+      <Alias Alias="Double">i=11</Alias>
+      <Alias Alias="DateTime">i=13</Alias>
+      <Alias Alias="String">i=12</Alias>
+      <Alias Alias="ByteString">i=15</Alias>
+      <Alias Alias="Guid">i=14</Alias>
+      <Alias Alias="XmlElement">i=16</Alias>
+      <Alias Alias="NodeId">i=17</Alias>
+      <Alias Alias="ExpandedNodeId">i=18</Alias>
+      <Alias Alias="QualifiedName">i=20</Alias>
+      <Alias Alias="LocalizedText">i=21</Alias>
+      <Alias Alias="StatusCode">i=19</Alias>
+      <Alias Alias="Structure">i=22</Alias>
+      <Alias Alias="Number">i=26</Alias>
+      <Alias Alias="Integer">i=27</Alias>
+      <Alias Alias="UInteger">i=28</Alias>
+      <Alias Alias="HasComponent">i=47</Alias>
+      <Alias Alias="HasProperty">i=46</Alias>
+      <Alias Alias="Organizes">i=35</Alias>
+      <Alias Alias="HasEventSource">i=36</Alias>
+      <Alias Alias="HasNotifier">i=48</Alias>
+      <Alias Alias="HasSubtype">i=45</Alias>
+      <Alias Alias="HasTypeDefinition">i=40</Alias>
+      <Alias Alias="HasModellingRule">i=37</Alias>
+      <Alias Alias="HasEncoding">i=38</Alias>
+      <Alias Alias="HasDescription">i=39</Alias>
+      <Alias Alias="FolderType">i=61</Alias>
+      <Alias Alias="BaseDataVariableType">i=63</Alias>
+      <Alias Alias="Duration">i=290</Alias>
+      <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
+      <Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+      <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
+      <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
+      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
+      <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
+      <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
+      <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
+      <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
+      <Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
+      <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
+      <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
+      <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
+      <Alias Alias="AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
+      <Alias Alias="AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
+   </Aliases>
+   <!--
+			CAEXFile
+			===============
+			TODOs:
+				- is this the correct translation (AMLFile = Object)? -> currently yes
+				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements? - -> variable in xslt to include or not, flag in xslt if things were included
+				- How to model ExternalReferences?
+					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
+					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
+					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
+					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
+					- Preferences: 2-1-3 or 1-2-3/2-1-3 
+					- report in AML TAC
+				- How to handle DefaultValues of attributes?
+			-->
+   <UAObject NodeId="ns=1;s=CAEXFile_14_Facet.aml" BrowseName="1:14_Facet.aml">
+      <DisplayName>14_Facet.aml</DisplayName>
+      <Documentation/>
+      <References><!--Type definition: CAEXFileType-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
+         <!--FileName-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_14_Facet.aml_FileName</Reference>
+         <!--SchemaVersion-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_14_Facet.aml_SchemaVersion</Reference>
+         <!--SuperiorStandardVersion-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_14_Facet.aml_SuperiorStandardVersion</Reference>
+         <!--InstanceHierarchy-->
+         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_14_Facet.aml_InstanceHierarchies</Reference>
+         <!--Libraries-->
+         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_14_Facet.aml_SystemUnitClassLibs</Reference>
+         <!--AdditionalInformation: 14_Facet.aml_AutomationMLVersion-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_14_Facet.aml_AdditionalInformation</Reference>
+         <!--SourceDocumentInformation: 14_Facet.aml_SourceDocumentInformation-->
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_14_Facet.aml_SourceDocumentInformation</Reference>
+         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=1;s=CAEXFile_14_Facet.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_14_Facet.aml" DataType="String">
+      <DisplayName>FileName</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>14_Facet.aml</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=1;s=CAEXFile_14_Facet.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_14_Facet.aml" DataType="String">
+      <DisplayName>SchemaVersion</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>3.0</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=1;s=CAEXFile_14_Facet.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_14_Facet.aml" DataType="String">
+      <DisplayName>SuperiorStandardVersion</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>AutomationML 2.1</uax:String>
+      </Value>
+   </UAVariable>
+   <!--
+			AdditionalInformation
+			===============
+			TODOs:
+				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
+			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
+			-->
+   <!--Attribute: CAEXFile.14_Facet.aml_AutomationMLVersion-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_14_Facet.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_14_Facet.aml" DataType="String">
+      <DisplayName>AutomationMLVersion</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
+      <DisplayName>SourceDocumentInformation</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML e.V."
+                                       OriginID="AutomationML e.V."
+                                       OriginVersion="1.0"
+                                       LastWritingDateTime="2012-02-20T00:00:00+01:00"
+                                       OriginVendor="AutomationML e.V."
+                                       OriginVendorURL="www.AutomationML.org"
+                                       OriginRelease="1.0"
+                                       OriginProjectTitle="AutomationML Tutorial Examples"
+                                       OriginProjectID="AutomationML Tutorial Examples&#xA;&#x9;&#x9;&#x9;"/>]]></uax:String>
+      </Value>
+   </UAVariable>
+   <!--
+			InstanceHierarchies
+			===============
+			TODOs:
+				- do we need a InstanceHierarchies node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
+			    - Complete References
+				- Do we need BackwardReferences here?
+				- Test child of AutomationMLBaseRole/UABaseObjectType
+				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
+			-->
+   <!--Collection: CAEXFile.InstanceHierarchies-->
+   <UAObject NodeId="ns=1;s=CAEXFile_14_Facet.aml_InstanceHierarchies" BrowseName="1:14_Facet.aml_InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile_14_Facet.aml">
+      <DisplayName>InstanceHierarchies</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--InstanceHierarchy: ConveyerSystem-->
+         <Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_14_Facet.aml_ConveyerSystem</Reference>
+      </References>
+   </UAObject>
+   <!--InstanceHierarchy: ConveyerSystem-->
+   <UAObject NodeId="ns=5;s=InstanceHierarchy_ConveyerSystem" BrowseName="5:ConveyerSystem">
+      <DisplayName>ConveyerSystem</DisplayName>
+      <Documentation/>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLInstanceHierarchies</Reference>
+         <!--Backward reference to CAEX InstanceHierarchies-->
+         <!--InternalElement: aRollerConveyor-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+      </References>
+   </UAObject>
+   <UAObject NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" BrowseName="5:aRollerConveyor">
+      <DisplayName>aRollerConveyor</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_AML_ID</Reference>
+         <!--Attribute: SizeProfile-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_SizeProfile</Reference>
+         <!--Attribute: AmbientTemperature-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_AmbientTemperature</Reference>
+         <!--Attribute: Noise-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_Noise</Reference>
+         <!--Attribute: PowerSupply-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_PowerSupply</Reference>
+         <!--Attribute: maxConveyingSpeed-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_maxConveyingSpeed</Reference>
+         <!--Attribute: maxTransportationWeight-->
+         <Reference ReferenceType="HasComponent">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_maxTransportationWeight</Reference>
+         <!--SystemUnitClass: Conveyors/RollerConveyor-->
+         <Reference ReferenceType="HasTypeDefinition">ns=6;s=RollerConveyor</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+         <!--InternalElement: OperationData-->
+         <Reference ReferenceType="HasComponent">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}</Reference>
+         <!--InternalElement: DriveData-->
+         <Reference ReferenceType="HasComponent">ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}</Reference>
+         <!--InternalElement: GeneralTechnicalData-->
+         <Reference ReferenceType="HasComponent">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{65021e66-f76a-453b-8eb4-e460f8a268bd}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.SizeProfile-->
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_SizeProfile" BrowseName="5:SizeProfile" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
+      <DisplayName>SizeProfile</DisplayName>
+      <References><!--Parent: aRollerConveyor.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.AmbientTemperature-->
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_AmbientTemperature" BrowseName="5:AmbientTemperature" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
+      <DisplayName>AmbientTemperature</DisplayName>
+      <References><!--Parent: aRollerConveyor.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.Noise-->
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_Noise" BrowseName="5:Noise" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
+      <DisplayName>Noise</DisplayName>
+      <References><!--Parent: aRollerConveyor.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.PowerSupply-->
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_PowerSupply" BrowseName="5:PowerSupply" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="String">
+      <DisplayName>PowerSupply</DisplayName>
+      <References><!--Parent: aRollerConveyor.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value/>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.maxConveyingSpeed-->
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_maxConveyingSpeed" BrowseName="5:maxConveyingSpeed" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
+      <DisplayName>maxConveyingSpeed</DisplayName>
+      <References><!--Parent: aRollerConveyor.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.maxTransportationWeight-->
+   <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_maxTransportationWeight" BrowseName="5:maxTransportationWeight" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
+      <DisplayName>maxTransportationWeight</DisplayName>
+      <References><!--Parent: aRollerConveyor.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <UAObject NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" BrowseName="5:OperationData">
+      <DisplayName>OperationData</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_AML_ID</Reference>
+         <!--Attribute: Noise-->
+         <Reference ReferenceType="HasComponent">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_Noise</Reference>
+         <!--Attribute: AmbientTemperature-->
+         <Reference ReferenceType="HasComponent">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_AmbientTemperature</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{ab8926f6-1427-49a7-8ba3-b09759bf970c}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.OperationData.Noise-->
+   <UAVariable NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_Noise" BrowseName="5:Noise" ParentNodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" DataType="Double">
+      <DisplayName>Noise</DisplayName>
+      <References><!--Parent: aRollerConveyor.OperationData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.OperationData.AmbientTemperature-->
+   <UAVariable NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_AmbientTemperature" BrowseName="5:AmbientTemperature" ParentNodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" DataType="Double">
+      <DisplayName>AmbientTemperature</DisplayName>
+      <References><!--Parent: aRollerConveyor.OperationData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <UAObject NodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}" BrowseName="5:DriveData">
+      <DisplayName>DriveData</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}_AML_ID</Reference>
+         <!--Attribute: PowerSupply-->
+         <Reference ReferenceType="HasComponent">ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}_PowerSupply</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{b8c68505-b7b9-41c6-ba6d-4237091c0d76}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.DriveData.PowerSupply-->
+   <UAVariable NodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}_PowerSupply" BrowseName="5:PowerSupply" ParentNodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}" DataType="String">
+      <DisplayName>PowerSupply</DisplayName>
+      <References><!--Parent: aRollerConveyor.DriveData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value/>
+   </UAVariable>
+   <UAObject NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" BrowseName="5:GeneralTechnicalData">
+      <DisplayName>GeneralTechnicalData</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_AML_ID</Reference>
+         <!--Attribute: maxTransportationWeight-->
+         <Reference ReferenceType="HasComponent">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_maxTransportationWeight</Reference>
+         <!--Attribute: maxConveyingSpeed-->
+         <Reference ReferenceType="HasComponent">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_maxConveyingSpeed</Reference>
+         <!--Attribute: SizeProfile-->
+         <Reference ReferenceType="HasComponent">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_SizeProfile</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{57f754a3-f47d-4f6e-9b40-05b879be1408}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.GeneralTechnicalData.maxTransportationWeight-->
+   <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_maxTransportationWeight" BrowseName="5:maxTransportationWeight" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="Double">
+      <DisplayName>maxTransportationWeight</DisplayName>
+      <References><!--Parent: aRollerConveyor.GeneralTechnicalData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.GeneralTechnicalData.maxConveyingSpeed-->
+   <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_maxConveyingSpeed" BrowseName="5:maxConveyingSpeed" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="Double">
+      <DisplayName>maxConveyingSpeed</DisplayName>
+      <References><!--Parent: aRollerConveyor.GeneralTechnicalData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: aRollerConveyor.GeneralTechnicalData.SizeProfile-->
+   <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_SizeProfile" BrowseName="5:SizeProfile" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="Double">
+      <DisplayName>SizeProfile</DisplayName>
+      <References><!--Parent: aRollerConveyor.GeneralTechnicalData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--
+			InterfaceClassLibs
+			===============
+			TODOs:
+				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
+			-->
+   <!--Collection: CAEXFile.InterfaceClassLibs-->
+   <!--
+			RoleClassLibs
+			===============
+			TODOs:
+				- ...
+			-->
+   <!--Collection: CAEXFile.RoleClassLibs-->
+   <!--
+			SystemUnitClassLibs
+			===============
+			TODOs:
+				- check all inner elements, e.g. attributes, etc.
+			-->
+   <!--Collection: CAEXFile.SystemUnitClassLibs-->
+   <UAObject NodeId="ns=1;s=CAEXFile_14_Facet.aml_SystemUnitClassLibs" BrowseName="1:14_Facet.aml_SystemUnitClassLibs" ParentNodeId="ns=1;s=CAEXFile_14_Facet.aml">
+      <DisplayName>SystemUnitClassLibs</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--SystemUnitClassLib: Conveyors-->
+         <Reference ReferenceType="Organizes">ns=6;s=SystemUnitClassLib</Reference>
+      </References>
+   </UAObject>
+   <!--
+			SystemUnitClassLib: Conveyors
+			==================================================
+			TODOs:
+				- What was the correct translation for a SystemUnitClass?
+				- Why is the lib modelled as UAObject?
+		-->
+   <!--
+			Libraries:
+			===============================================
+			TODOs:
+				- is there a maximum length for NodeId?
+				- how do we handle very long lib names -> generate short name?
+		-->
+   <UAObject NodeId="ns=6;s=SystemUnitClassLib" BrowseName="Conveyors">
+      <DisplayName>Conveyors</DisplayName>
+      <References><!--Id no longer part of the specification-->
+         <Reference ReferenceType="HasProperty">ns=6;s=SystemUnitClassLib_Version</Reference>
+         <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--Collection of SystemUnitClassLib-->
+         <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_SystemUnitClassLibs</Reference>
+         <!--TODO: what is the correct way to list all elements of the Lib?-->
+         <!--List of included SystemUnitClass-->
+         <Reference ReferenceType="Organizes">ns=6;s=RollerConveyor</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=6;s=SystemUnitClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=SystemUnitClassLib" DataType="String">
+      <DisplayName>Version</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>1.0</uax:String>
+      </Value>
+   </UAVariable>
+   <!--SystemUnitClass: RollerConveyor-->
+   <UAObjectType NodeId="ns=6;s=RollerConveyor" BrowseName="RollerConveyor">
+      <DisplayName>RollerConveyor</DisplayName>
+      <!--Library: Conveyors-->
+      <References><!--Hierarchical parent in AutomationML library-->
+         <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=SystemUnitClassLib</Reference>
+         <!--Parent class-->
+         <Reference ReferenceType="HasSubtype" IsForward="false">CAEXObjectType</Reference>
+         <!--Attribute: SizeProfile-->
+         <Reference ReferenceType="HasComponent">ns=6;s=RollerConveyor_SizeProfile</Reference>
+         <!--Attribute: AmbientTemperature-->
+         <Reference ReferenceType="HasComponent">ns=6;s=RollerConveyor_AmbientTemperature</Reference>
+         <!--Attribute: Noise-->
+         <Reference ReferenceType="HasComponent">ns=6;s=RollerConveyor_Noise</Reference>
+         <!--Attribute: PowerSupply-->
+         <Reference ReferenceType="HasComponent">ns=6;s=RollerConveyor_PowerSupply</Reference>
+         <!--Attribute: maxConveyingSpeed-->
+         <Reference ReferenceType="HasComponent">ns=6;s=RollerConveyor_maxConveyingSpeed</Reference>
+         <!--Attribute: maxTransportationWeight-->
+         <Reference ReferenceType="HasComponent">ns=6;s=RollerConveyor_maxTransportationWeight</Reference>
+         <!--InternalElement: OperationData-->
+         <Reference ReferenceType="HasComponent">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}</Reference>
+         <!--InternalElement: DriveData-->
+         <Reference ReferenceType="HasComponent">ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}</Reference>
+         <!--InternalElement: GeneralTechnicalData-->
+         <Reference ReferenceType="HasComponent">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
+      </References>
+   </UAObjectType>
+   <!--Attribute: SizeProfile-->
+   <UAVariable NodeId="ns=6;s=RollerConveyor_SizeProfile" BrowseName="6:SizeProfile" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
+      <DisplayName>SizeProfile</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: AmbientTemperature-->
+   <UAVariable NodeId="ns=6;s=RollerConveyor_AmbientTemperature" BrowseName="6:AmbientTemperature" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
+      <DisplayName>AmbientTemperature</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: Noise-->
+   <UAVariable NodeId="ns=6;s=RollerConveyor_Noise" BrowseName="6:Noise" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
+      <DisplayName>Noise</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: PowerSupply-->
+   <UAVariable NodeId="ns=6;s=RollerConveyor_PowerSupply" BrowseName="6:PowerSupply" ParentNodeId="ns=6;s=RollerConveyor" DataType="String">
+      <DisplayName>PowerSupply</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value/>
+   </UAVariable>
+   <!--Attribute: maxConveyingSpeed-->
+   <UAVariable NodeId="ns=6;s=RollerConveyor_maxConveyingSpeed" BrowseName="6:maxConveyingSpeed" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
+      <DisplayName>maxConveyingSpeed</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: maxTransportationWeight-->
+   <UAVariable NodeId="ns=6;s=RollerConveyor_maxTransportationWeight" BrowseName="6:maxTransportationWeight" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
+      <DisplayName>maxTransportationWeight</DisplayName>
+      <References><!--Parent: -->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <UAObject NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" BrowseName="6:OperationData">
+      <DisplayName>OperationData</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_AML_ID</Reference>
+         <!--Attribute: Noise-->
+         <Reference ReferenceType="HasComponent">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_Noise</Reference>
+         <!--Attribute: AmbientTemperature-->
+         <Reference ReferenceType="HasComponent">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_AmbientTemperature</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{a80fa297-be3d-44ec-8147-43bc7ad1ba6b}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: OperationData.Noise-->
+   <UAVariable NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_Noise" BrowseName="6:Noise" ParentNodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" DataType="Double">
+      <DisplayName>Noise</DisplayName>
+      <References><!--Parent: OperationData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: OperationData.AmbientTemperature-->
+   <UAVariable NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_AmbientTemperature" BrowseName="6:AmbientTemperature" ParentNodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" DataType="Double">
+      <DisplayName>AmbientTemperature</DisplayName>
+      <References><!--Parent: OperationData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <UAObject NodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}" BrowseName="6:DriveData">
+      <DisplayName>DriveData</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}_AML_ID</Reference>
+         <!--Attribute: PowerSupply-->
+         <Reference ReferenceType="HasComponent">ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}_PowerSupply</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{855ea72a-7c96-4fae-a615-9c911bc513fc}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: DriveData.PowerSupply-->
+   <UAVariable NodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}_PowerSupply" BrowseName="6:PowerSupply" ParentNodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}" DataType="String">
+      <DisplayName>PowerSupply</DisplayName>
+      <References><!--Parent: DriveData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value/>
+   </UAVariable>
+   <UAObject NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" BrowseName="6:GeneralTechnicalData">
+      <DisplayName>GeneralTechnicalData</DisplayName>
+      <References><!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_AML_ID</Reference>
+         <!--Attribute: maxTransportationWeight-->
+         <Reference ReferenceType="HasComponent">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_maxTransportationWeight</Reference>
+         <!--Attribute: maxConveyingSpeed-->
+         <Reference ReferenceType="HasComponent">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_maxConveyingSpeed</Reference>
+         <!--Attribute: SizeProfile-->
+         <Reference ReferenceType="HasComponent">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_SizeProfile</Reference>
+         <!--Class definition-->
+         <Reference ReferenceType="HasTypeDefinition">CAEXObjectType</Reference>
+         <!--RoleRequirements: BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet-->
+         <Reference ReferenceType="HasAMLRoleReference">ns=;s=</Reference>
+      </References>
+   </UAObject>
+   <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</uax:String>
+      </Value>
+   </UAVariable>
+   <!--Attribute: GeneralTechnicalData.maxTransportationWeight-->
+   <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_maxTransportationWeight" BrowseName="6:maxTransportationWeight" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="Double">
+      <DisplayName>maxTransportationWeight</DisplayName>
+      <References><!--Parent: GeneralTechnicalData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: GeneralTechnicalData.maxConveyingSpeed-->
+   <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_maxConveyingSpeed" BrowseName="6:maxConveyingSpeed" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="Double">
+      <DisplayName>maxConveyingSpeed</DisplayName>
+      <References><!--Parent: GeneralTechnicalData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--Attribute: GeneralTechnicalData.SizeProfile-->
+   <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_SizeProfile" BrowseName="6:SizeProfile" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="Double">
+      <DisplayName>SizeProfile</DisplayName>
+      <References><!--Parent: GeneralTechnicalData.-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <!--Hier-->
+      <Value>
+         <uax:String/>
+      </Value>
+   </UAVariable>
+   <!--
+			AttributeTypeLibs
+			===============
+			TODOs:
+				- check all inner elements, e.g. attributes, etc.
+				- is this a proper translation?
+				- how are the AttributeTypes used? - Instances
+			-->
+   <!--Collection: CAEXFile.AttributeTypeLibs-->
+</UANodeSet>

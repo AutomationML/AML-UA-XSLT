@@ -48,24 +48,24 @@
       <Uri>http://opcfoundation.org/UA/AML/SystemUnitClassLib1</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/5_SUC.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/5_SUC.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-03T07:20:18Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0.0.0" PublicationDate="2026-06-03T07:20:18Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0.0.0" PublicationDate="2026-06-03T07:20:18Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -201,9 +201,7 @@
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
-                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                                   AutomationMLVersion="2.0"/>]]></uax:String>
+         <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
       </Value>
    </UAVariable>
    <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
@@ -212,9 +210,7 @@
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String><![CDATA[<SourceDocumentInformation xmlns="http://www.dke.de/CAEX"
-                                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                                       OriginName="AutomationML Editor"
+         <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML Editor"
                                        OriginID="916578CA-FE0D-474E-A4FC-9E1719892369"
                                        OriginVersion="6.4.3.1"
                                        LastWritingDateTime="2026-04-16T11:44:52.6968334+02:00"

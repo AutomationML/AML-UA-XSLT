@@ -47,19 +47,19 @@
       <Uri>http://opcfoundation.org/UA/AML/InterfaceClassLib123</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/7_ICL.aml" Version="0.0.0" PublicationDate="2026-06-03T07:20:18Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/7_ICL.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="" PublicationDate="2026-06-03T07:20:18Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="" PublicationDate="2026-06-03T07:20:18Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -183,9 +183,7 @@
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
-                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-                                   AutomationMLVersion="2.0"/>]]></uax:String>
+         <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
       </Value>
    </UAVariable>
    <!--Attribute: CAEXFile.7_ICL.aml_WriterHeader-->
@@ -195,8 +193,7 @@
          <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
       </References>
       <Value>
-         <uax:String><![CDATA[<AdditionalInformation xmlns="http://www.dke.de/CAEX"
-                                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         <uax:String><![CDATA[<AdditionalInformation>
                <WriterHeader>
                   <WriterName>AutomationML Editor</WriterName>
                   <WriterID>916578CA-FE0D-474E-A4FC-9E1719892369</WriterID>
@@ -289,6 +286,8 @@
          <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseInterface</Reference>
          <!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass1_AML_ID</Reference>
+         <!--Version-->
+         <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass1_Version</Reference>
          <!--Attribute: TestAttribute-->
          <Reference ReferenceType="HasComponent">ns=5;s=InterfaceClass1_TestAttribute</Reference>
       </References>
@@ -333,6 +332,8 @@
          <Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass1</Reference>
          <!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2_AML_ID</Reference>
+         <!--Version-->
+         <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2_Version</Reference>
       </References>
    </UAObjectType>
    <UAVariable NodeId="ns=5;s=InterfaceClass2_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2" DataType="String">
@@ -363,6 +364,8 @@
          <Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass2</Reference>
          <!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2-1_AML_ID</Reference>
+         <!--Version-->
+         <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2-1_Version</Reference>
       </References>
    </UAObjectType>
    <UAVariable NodeId="ns=5;s=InterfaceClass2-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2-1" DataType="String">
@@ -393,6 +396,8 @@
          <Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass2-1</Reference>
          <!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2-1-1_AML_ID</Reference>
+         <!--Version-->
+         <Reference ReferenceType="HasProperty">ns=5;s=InterfaceClass2-1-1_Version</Reference>
       </References>
    </UAObjectType>
    <UAVariable NodeId="ns=5;s=InterfaceClass2-1-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2-1-1" DataType="String">
@@ -462,6 +467,8 @@
          <Reference ReferenceType="HasSubtype" IsForward="false">ns=5;s=InterfaceClass1</Reference>
          <!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=6;s=InterfaceClass1_AML_ID</Reference>
+         <!--Version-->
+         <Reference ReferenceType="HasProperty">ns=6;s=InterfaceClass1_Version</Reference>
       </References>
    </UAObjectType>
    <UAVariable NodeId="ns=6;s=InterfaceClass1_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s=InterfaceClass1" DataType="String">
