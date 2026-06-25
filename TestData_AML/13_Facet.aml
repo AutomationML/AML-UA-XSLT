@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="14_Facet.aml">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML e.V." OriginID="AutomationML e.V." OriginVersion="1.0" LastWritingDateTime="2012-02-20T00:00:00+01:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="1.0" OriginProjectTitle="AutomationML Tutorial Examples" OriginProjectID="AutomationML Tutorial Examples&#xA;&#x9;&#x9;&#x9;" />
+  <ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
+  <ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
+  <InstanceHierarchy Name="ConveyerSystem">
+    <InternalElement Name="aRollerConveyor" ID="{65021e66-f76a-453b-8eb4-e460f8a268bd}" RefBaseSystemUnitPath="Conveyors/RollerConveyor">
+      <Attribute Name="SizeProfile" AttributeDataType="xs:double" Unit="cm" />
+      <Attribute Name="AmbientTemperature" AttributeDataType="xs:double" Unit="Celsius" />
+      <Attribute Name="Noise" AttributeDataType="xs:double" Unit="dB" />
+      <Attribute Name="PowerSupply" AttributeDataType="xs:string" />
+      <Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+      <Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+      <InternalElement Name="OperationData" ID="{ab8926f6-1427-49a7-8ba3-b09759bf970c}">
+        <Attribute Name="Noise" AttributeDataType="xs:double" Unit="dB" />
+        <Attribute Name="AmbientTemperature" AttributeDataType="xs:double" Unit="Celsius" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+      </InternalElement>
+      <InternalElement Name="DriveData" ID="{b8c68505-b7b9-41c6-ba6d-4237091c0d76}">
+        <Attribute Name="PowerSupply" AttributeDataType="xs:string" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+      </InternalElement>
+      <InternalElement Name="GeneralTechnicalData" ID="{57f754a3-f47d-4f6e-9b40-05b879be1408}">
+        <Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+        <Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+        <Attribute Name="SizeProfile" AttributeDataType="xs:double" Unit="cm" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+      </InternalElement>
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+  </InstanceHierarchy>
+  <SystemUnitClassLib Name="Conveyors">
+    <Version>1.0</Version>
+    <SystemUnitClass Name="RollerConveyor">
+      <Attribute Name="SizeProfile" AttributeDataType="xs:double" Unit="cm" />
+      <Attribute Name="AmbientTemperature" AttributeDataType="xs:double" Unit="Celsius" />
+      <Attribute Name="Noise" AttributeDataType="xs:double" Unit="dB" />
+      <Attribute Name="PowerSupply" AttributeDataType="xs:string" />
+      <Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+      <Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+      <InternalElement Name="OperationData" ID="{a80fa297-be3d-44ec-8147-43bc7ad1ba6b}">
+        <Attribute Name="Noise" AttributeDataType="xs:double" Unit="dB" />
+        <Attribute Name="AmbientTemperature" AttributeDataType="xs:double" Unit="Celsius" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+      </InternalElement>
+      <InternalElement Name="DriveData" ID="{855ea72a-7c96-4fae-a615-9c911bc513fc}">
+        <Attribute Name="PowerSupply" AttributeDataType="xs:string" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+      </InternalElement>
+      <InternalElement Name="GeneralTechnicalData" ID="{4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}">
+        <Attribute Name="maxTransportationWeight" AttributeDataType="xs:double" Unit="kg" />
+        <Attribute Name="maxConveyingSpeed" AttributeDataType="xs:double" Unit="m/s" />
+        <Attribute Name="SizeProfile" AttributeDataType="xs:double" Unit="cm" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Facet" />
+      </InternalElement>
+    </SystemUnitClass>
+  </SystemUnitClassLib>
+</CAEXFile>

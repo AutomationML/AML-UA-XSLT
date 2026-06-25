@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="13_MirrorObject.aml">
+  <AdditionalInformation AutomationMLVersion="2.0" />
+  <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML e.V." OriginID="AutomationML e.V." OriginVersion="1.0" LastWritingDateTime="2012-02-20T00:00:00+01:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="1.0" OriginProjectTitle="AutomationML Tutorial Examples" OriginProjectID="AutomationML Tutorial Examples&#xA;&#x9;&#x9;&#x9;" />
+  <ExternalReference Path="Libs/RoleClass Libraries/AutomationMLBaseRoleClassLib.aml" Alias="BaseRoleClassLib" />
+  <ExternalReference Path="Libs/InterfaceClass Libraries/AutomationMLInterfaceClassLib.aml" Alias="BaseInterfaceClassLib" />
+  <InstanceHierarchy Name="AssemblySystem">
+    <InternalElement Name="LiftUpGate" ID="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" RefBaseSystemUnitPath="Resources/RollerConveyor">
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="TransferToSubAssembly" ID="{71fc6d29-7797-4e3f-a659-ac69198e464f}" RefBaseSystemUnitPath="Resources/RollerConveyor">
+      <ExternalInterface Name="Product" ID="{4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector" />
+      <InternalElement Name="DriveControl" ID="{571dae74-81ef-41cb-baaa-87de44f1aa82}">
+        <ExternalInterface Name="Information" ID="{8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      </InternalElement>
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly" />
+    </InternalElement>
+    <InternalElement Name="SubAssembly" ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" RefBaseSystemUnitPath="Resources/AssemblyStation">
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="TransferToMainAssembly" ID="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}" RefBaseSystemUnitPath="Resources/RollerConveyor">
+      <ExternalInterface Name="Product" ID="{b743533f-0730-479a-9db1-98f38199644c}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector" />
+      <InternalElement Name="DriveControl" ID="{18d0c126-772b-40bd-be11-5a5a18600eb4}">
+        <ExternalInterface Name="Information" ID="{cd6536ac-4004-43ae-82cc-ddc40731805a}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      </InternalElement>
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly" />
+    </InternalElement>
+    <InternalElement Name="MainAssemblyStation" ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" RefBaseSystemUnitPath="Resources/AssemblyStation">
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="EndStop" ID="{72bf71e8-15fd-4882-9d35-00a12d1aa995}" RefBaseSystemUnitPath="Resources/RollerConveyor">
+      <ExternalInterface Name="Product" ID="{b0b6b4bd-753b-484b-ac71-0893faf7dbac}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector" />
+      <InternalElement Name="DriveControl" ID="{97eaa90d-510a-44f5-bc66-4a4b7fcc9242}">
+        <ExternalInterface Name="Information" ID="{4cf5d16a-7794-4665-a461-5519694c290b}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      </InternalElement>
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly" />
+    </InternalElement>
+    <InternalElement Name="ConveyorGroup" ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}">
+      <Attribute Name="AssociatedFacet" />
+      <InternalElement Name="LiftUpGate" ID="{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" RefBaseSystemUnitPath="{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" />
+      <InternalElement Name="TransferToSubAssembly" ID="{2dd897fb-92ea-48ec-af81-84252f1d91ca}" RefBaseSystemUnitPath="{71fc6d29-7797-4e3f-a659-ac69198e464f}" />
+      <InternalElement Name="TransferToMainAssembly" ID="{f3e48d15-571f-4376-aeea-189235f6b671}" RefBaseSystemUnitPath="{9facd06a-1725-4d18-95f7-4814ba2e4cf8}" />
+      <InternalElement Name="EndStop" ID="{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" RefBaseSystemUnitPath="{72bf71e8-15fd-4882-9d35-00a12d1aa995}" />
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group" />
+      <RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource" />
+    </InternalElement>
+    <InternalElement Name="AssemblyStationGroup" ID="{7b74d01b-de35-43a4-96bc-4897276adada}">
+      <Attribute Name="AssociatedFacet" />
+      <InternalElement Name="SubAssembly" ID="{eb7af72e-a31c-4b99-b627-8249d19b73bb}" RefBaseSystemUnitPath="{ac026999-a2e2-4a86-8c97-39685607e49a}" />
+      <InternalElement Name="MainAssemblyStation" ID="{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" RefBaseSystemUnitPath="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" />
+      <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group" />
+    </InternalElement>
+  </InstanceHierarchy>
+  <SystemUnitClassLib Name="Resources">
+    <Version>1.0</Version>
+    <SystemUnitClass Name="RollerConveyor">
+      <ExternalInterface Name="Product" ID="{dbaad283-b832-45c5-9c13-5d158fd88488}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/PPRConnector" />
+      <InternalElement Name="DriveControl" ID="{26ba29ca-2420-4618-8d0e-b85f4b5681f4}">
+        <ExternalInterface Name="Information" ID="{f2f15585-de4a-4bc3-996a-50957b56dc17}" RefBaseClassPath="BaseInterfaceClassLib@AutomationMLInterfaceClassLib/AutomationMLBaseInterface/Communication" />
+        <RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole" />
+      </InternalElement>
+      <SupportedRoleClass RefRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly" />
+    </SystemUnitClass>
+    <SystemUnitClass Name="AssemblyStation" />
+  </SystemUnitClassLib>
+</CAEXFile>
