@@ -48,24 +48,24 @@
       <Uri>http://opcfoundation.org/UA/AML/SystemUnitClassLib1</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-25T03:18:13Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0" PublicationDate="2026-06-25T02:06:53Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0" PublicationDate="2026-06-25T03:18:13Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0" PublicationDate="2026-06-25T02:06:53Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0" PublicationDate="2026-06-25T03:18:13Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/5_SUC.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/5_SUC.aml" Version="0.0.0" PublicationDate="2026-06-25T03:18:13Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0.0.0" PublicationDate="2026-06-25T02:06:53Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-06-25T03:18:13Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib" Version="0.0.0" PublicationDate="2026-06-25T03:18:13Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/SystemUnitClassLib1" Version="0.0.0" PublicationDate="2026-06-25T03:18:13Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -108,7 +108,7 @@
       <Alias Alias="BaseDataVariableType">i=63</Alias>
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>

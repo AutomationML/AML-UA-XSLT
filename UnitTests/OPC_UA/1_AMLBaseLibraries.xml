@@ -43,19 +43,19 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml" Version="0.0.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T02:06:52Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T02:06:52Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:18:12Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-25T03:18:12Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -98,7 +98,7 @@
       <Alias Alias="BaseDataVariableType">i=63</Alias>
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>

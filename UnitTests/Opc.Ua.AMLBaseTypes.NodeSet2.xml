@@ -280,4 +280,11 @@
     </References>
     <InverseName>HasAMLInternalLink</InverseName>
   </UAReferenceType>
+  <UAReferenceType NodeId="ns=1;i=4003" BrowseName="1:HasReferenceType">
+    <DisplayName>HasReferenceType</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=47</Reference>
+    </References>
+    <InverseName>IsReferenceType</InverseName>
+  </UAReferenceType>
 </UANodeSet>

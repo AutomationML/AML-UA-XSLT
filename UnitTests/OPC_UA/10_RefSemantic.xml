@@ -48,24 +48,24 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/10_RefSemantic.aml" Version="0.0.0" PublicationDate="2026-06-25T02:06:52Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/10_RefSemantic.aml" Version="0.0.0" PublicationDate="2026-06-25T03:18:12Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T02:06:52Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T02:06:52Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T02:06:52Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T03:18:12Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T03:18:12Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T03:18:12Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -108,7 +108,7 @@
       <Alias Alias="BaseDataVariableType">i=63</Alias>
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasAMLClassComponent">ns=2;i=4002</Alias>
+      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
@@ -290,10 +290,23 @@
       <References><!--Parent: Organization.-->
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={3d7d5923-f2b7-448c-a4bb-4d2603fe25b1}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+         <!--RefSemantic: IEC81346-->
+         <Reference ReferenceType="HasReferenceType">ns=5;s=3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_functionOrientedReferenceDesignation_RefSemantic</Reference>
       </References>
       <!--Hier-->
       <Value>
          <uax:String>=U1</uax:String>
+      </Value>
+   </UAVariable>
+   <!--RefSemantic: Organization.functionOrientedReferenceDesignation.RefSemantic-->
+   <UAVariable NodeId="ns=5;s=3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_functionOrientedReferenceDesignation_RefSemantic" BrowseName="5:3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_functionOrientedReferenceDesignation_RefSemantic" ParentNodeId="ns=5;s=3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_functionOrientedReferenceDesignation">
+      <DisplayName>RefSematic</DisplayName>
+      <References><!--Parent: Organization.functionOrientedReferenceDesignation.-->
+         <Reference ReferenceType="HasReferenceType" IsForward="false">ns=5;s=3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_functionOrientedReferenceDesignation</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>IEC81346</uax:String>
       </Value>
    </UAVariable>
    <!--
@@ -418,9 +431,22 @@
       <References><!--Parent: -->
          <Reference ReferenceType="HasComponent" IsForward="false">ns=7;s=ContainsReferenceDesignation</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+         <!--RefSemantic: IEC81346-->
+         <Reference ReferenceType="HasReferenceType">ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation_RefSemantic</Reference>
       </References>
       <!--Hier-->
       <Value/>
+   </UAVariable>
+   <!--RefSemantic: functionOrientedReferenceDesignation.RefSemantic-->
+   <UAVariable NodeId="ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation_RefSemantic" BrowseName="7:ContainsReferenceDesignation_functionOrientedReferenceDesignation_RefSemantic" ParentNodeId="ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation">
+      <DisplayName>RefSematic</DisplayName>
+      <References><!--Parent: functionOrientedReferenceDesignation.-->
+         <Reference ReferenceType="HasReferenceType" IsForward="false">ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>IEC81346</uax:String>
+      </Value>
    </UAVariable>
    <!--
 			SystemUnitClassLibs
