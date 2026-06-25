@@ -287,4 +287,11 @@
     </References>
     <InverseName>IsReferenceType</InverseName>
   </UAReferenceType>
+  <UAReferenceType NodeId="ns=1;i=4004" BrowseName="1:IsMirroredAs">
+    <DisplayName>IsMirroredAs</DisplayName>
+    <References>
+      <Reference ReferenceType="HasSubtype" IsForward="false">i=35</Reference>
+    </References>
+    <InverseName>IsMirroredOf</InverseName>
+  </UAReferenceType>
 </UANodeSet>
