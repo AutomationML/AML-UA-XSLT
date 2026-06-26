@@ -93,7 +93,6 @@
       <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
-      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
@@ -139,7 +138,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>0_EmptyFile.aml</uax:String>
@@ -148,7 +147,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>2.15</uax:String>
@@ -165,7 +164,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>

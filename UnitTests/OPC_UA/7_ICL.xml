@@ -107,7 +107,6 @@
       <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
-      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
@@ -156,7 +155,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_7_ICL.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_7_ICL.aml" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>7_ICL.aml</uax:String>
@@ -165,7 +164,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_7_ICL.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_7_ICL.aml" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>2.15</uax:String>
@@ -182,7 +181,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_7_ICL.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_7_ICL.aml" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
@@ -192,7 +191,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_7_ICL.aml_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_7_ICL.aml" DataType="String">
       <DisplayName>WriterHeader</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<AdditionalInformation>
@@ -272,7 +271,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClassLib_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>
@@ -297,7 +296,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass1" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{5ffabff9-b08d-491d-bc51-aaf23585f088}</uax:String>
@@ -306,7 +305,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass1" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>
@@ -341,7 +340,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass2_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{22cae364-995a-4780-b3a9-1eaaedeb7877}</uax:String>
@@ -350,7 +349,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass2_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass2" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>
@@ -373,7 +372,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass2-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2-1" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{4e3ab4ca-2882-4e30-980b-4707c1cb0e1e}</uax:String>
@@ -382,7 +381,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass2-1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass2-1" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>
@@ -405,7 +404,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass2-1-1_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s=InterfaceClass2-1-1" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{83dfa3be-b242-4da9-82b1-715f545ef10f}</uax:String>
@@ -414,7 +413,7 @@
    <UAVariable NodeId="ns=5;s=InterfaceClass2-1-1_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=InterfaceClass2-1-1" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>
@@ -453,7 +452,7 @@
    <UAVariable NodeId="ns=6;s=InterfaceClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=InterfaceClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>
@@ -476,7 +475,7 @@
    <UAVariable NodeId="ns=6;s=InterfaceClass1_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s=InterfaceClass1" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{97ba4484-aa8d-4af1-854d-de494b6acb1a}</uax:String>
@@ -485,7 +484,7 @@
    <UAVariable NodeId="ns=6;s=InterfaceClass1_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=InterfaceClass1" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0.0</uax:String>

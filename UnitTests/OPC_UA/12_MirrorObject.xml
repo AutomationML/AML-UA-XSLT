@@ -107,7 +107,6 @@
       <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
-      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
@@ -163,7 +162,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_13_MirrorObject.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_13_MirrorObject.aml" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>13_MirrorObject.aml</uax:String>
@@ -172,7 +171,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_13_MirrorObject.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_13_MirrorObject.aml" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>3.0</uax:String>
@@ -181,7 +180,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_13_MirrorObject.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_13_MirrorObject.aml" DataType="String">
       <DisplayName>SuperiorStandardVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>AutomationML 2.1</uax:String>
@@ -198,7 +197,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_13_MirrorObject.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_13_MirrorObject.aml" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
@@ -207,7 +206,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SourceDocumentInformation</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML e.V."
@@ -279,7 +278,7 @@
    <UAVariable NodeId="ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</uax:String>
@@ -302,7 +301,7 @@
    <UAVariable NodeId="ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{71fc6d29-7797-4e3f-a659-ac69198e464f}</uax:String>
@@ -320,7 +319,7 @@
    <UAVariable NodeId="ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{4bf237d9-14a5-44aa-8eff-4ac9bc2d1543}</uax:String>
@@ -341,7 +340,7 @@
    <UAVariable NodeId="ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={571dae74-81ef-41cb-baaa-87de44f1aa82}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{571dae74-81ef-41cb-baaa-87de44f1aa82}</uax:String>
@@ -359,7 +358,7 @@
    <UAVariable NodeId="ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={8e422f26-c2ea-49f2-a0bd-1ab410901fb4}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{8e422f26-c2ea-49f2-a0bd-1ab410901fb4}</uax:String>
@@ -378,7 +377,7 @@
    <UAVariable NodeId="ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{ac026999-a2e2-4a86-8c97-39685607e49a}</uax:String>
@@ -401,7 +400,7 @@
    <UAVariable NodeId="ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{9facd06a-1725-4d18-95f7-4814ba2e4cf8}</uax:String>
@@ -419,7 +418,7 @@
    <UAVariable NodeId="ns=5;s={b743533f-0730-479a-9db1-98f38199644c}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={b743533f-0730-479a-9db1-98f38199644c}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{b743533f-0730-479a-9db1-98f38199644c}</uax:String>
@@ -440,7 +439,7 @@
    <UAVariable NodeId="ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={18d0c126-772b-40bd-be11-5a5a18600eb4}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{18d0c126-772b-40bd-be11-5a5a18600eb4}</uax:String>
@@ -458,7 +457,7 @@
    <UAVariable NodeId="ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={cd6536ac-4004-43ae-82cc-ddc40731805a}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{cd6536ac-4004-43ae-82cc-ddc40731805a}</uax:String>
@@ -477,7 +476,7 @@
    <UAVariable NodeId="ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</uax:String>
@@ -500,7 +499,7 @@
    <UAVariable NodeId="ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{72bf71e8-15fd-4882-9d35-00a12d1aa995}</uax:String>
@@ -518,7 +517,7 @@
    <UAVariable NodeId="ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={b0b6b4bd-753b-484b-ac71-0893faf7dbac}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{b0b6b4bd-753b-484b-ac71-0893faf7dbac}</uax:String>
@@ -539,7 +538,7 @@
    <UAVariable NodeId="ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={97eaa90d-510a-44f5-bc66-4a4b7fcc9242}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{97eaa90d-510a-44f5-bc66-4a4b7fcc9242}</uax:String>
@@ -557,7 +556,7 @@
    <UAVariable NodeId="ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={4cf5d16a-7794-4665-a461-5519694c290b}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{4cf5d16a-7794-4665-a461-5519694c290b}</uax:String>
@@ -588,7 +587,7 @@
    <UAVariable NodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{aa490a5b-1ee8-42ea-bd48-8aff922ee835}</uax:String>
@@ -618,7 +617,7 @@
    <UAVariable NodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{8d9c05b1-0504-40a9-9559-4043b4c2e0fa}</uax:String>
@@ -636,7 +635,7 @@
    <UAVariable NodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{2dd897fb-92ea-48ec-af81-84252f1d91ca}</uax:String>
@@ -654,7 +653,7 @@
    <UAVariable NodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{f3e48d15-571f-4376-aeea-189235f6b671}</uax:String>
@@ -672,7 +671,7 @@
    <UAVariable NodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}</uax:String>
@@ -697,7 +696,7 @@
    <UAVariable NodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{7b74d01b-de35-43a4-96bc-4897276adada}</uax:String>
@@ -727,7 +726,7 @@
    <UAVariable NodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{eb7af72e-a31c-4b99-b627-8249d19b73bb}</uax:String>
@@ -745,7 +744,7 @@
    <UAVariable NodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}</uax:String>
@@ -810,7 +809,7 @@
    <UAVariable NodeId="ns=6;s=SystemUnitClassLib_Version" BrowseName="6:Version" ParentNodeId="ns=6;s=SystemUnitClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1.0</uax:String>
@@ -844,7 +843,7 @@
    <UAVariable NodeId="ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={dbaad283-b832-45c5-9c13-5d158fd88488}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{dbaad283-b832-45c5-9c13-5d158fd88488}</uax:String>
@@ -865,7 +864,7 @@
    <UAVariable NodeId="ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={26ba29ca-2420-4618-8d0e-b85f4b5681f4}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{26ba29ca-2420-4618-8d0e-b85f4b5681f4}</uax:String>
@@ -883,7 +882,7 @@
    <UAVariable NodeId="ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={f2f15585-de4a-4bc3-996a-50957b56dc17}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{f2f15585-de4a-4bc3-996a-50957b56dc17}</uax:String>

@@ -103,7 +103,6 @@
       <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
-      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
@@ -151,7 +150,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>1_AMLBaseLibraries.aml</uax:String>
@@ -160,7 +159,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>3.0</uax:String>
@@ -169,7 +168,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
       <DisplayName>SuperiorStandardVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>AutomationML 2.1</uax:String>
@@ -186,7 +185,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
@@ -195,7 +194,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SourceDocumentInformation</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML Editor"
@@ -269,7 +268,7 @@
    <UAVariable NodeId="ns=3;s=InterfaceClassLib_Version" BrowseName="3:Version" ParentNodeId="ns=3;s=InterfaceClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>2.2.0</uax:String>
@@ -446,7 +445,7 @@
    <UAVariable NodeId="ns=4;s=RoleClassLib_Version" BrowseName="4:Version" ParentNodeId="ns=4;s=RoleClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>2.2.0</uax:String>
@@ -584,7 +583,7 @@
    <UAVariable NodeId="ns=4;s=9942bd9c-c19d-44e4-a197-11b9edf264e7_AML_ID" BrowseName="4:AML_ID" ParentNodeId="ns=4;s={9942bd9c-c19d-44e4-a197-11b9edf264e7}" DataType="String">
       <DisplayName>AML_ID</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>{9942bd9c-c19d-44e4-a197-11b9edf264e7}</uax:String>

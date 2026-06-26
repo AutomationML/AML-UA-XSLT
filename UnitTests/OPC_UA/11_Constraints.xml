@@ -105,7 +105,6 @@
       <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
-      <Alias Alias="CAEXVariableType">ns=2;i=3001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
@@ -152,7 +151,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_11_Constraints.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>11_Constraints.aml</uax:String>
@@ -161,7 +160,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_11_Constraints.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>3.0</uax:String>
@@ -170,7 +169,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_11_Constraints.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_11_Constraints.aml" DataType="String">
       <DisplayName>SuperiorStandardVersion</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>AutomationML 2.10</uax:String>
@@ -186,7 +185,7 @@
    <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SourceDocumentInformation</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML Editor"
@@ -260,7 +259,7 @@
    <UAVariable NodeId="ns=4;s=InterfaceClassLib_Version" BrowseName="4:Version" ParentNodeId="ns=4;s=InterfaceClassLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>experimental</uax:String>
@@ -327,7 +326,7 @@
    <UAVariable NodeId="ns=4;s=Port_Direction_Constraint" BrowseName="4:NominalScaledType" ParentNodeId="ns=4;s=Port_Direction" DataType="String">
       <DisplayName>NominalScaledType</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -399,7 +398,7 @@
    <UAVariable NodeId="ns=5;s=AttributeTypeLib_Version" BrowseName="5:Version" ParentNodeId="ns=5;s=AttributeTypeLib" DataType="String">
       <DisplayName>Version</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String>experimental</uax:String>
@@ -422,7 +421,7 @@
    <UAVariable NodeId="ns=5;s=Direction_Constraint" BrowseName="5:NominalScaledType" ParentNodeId="ns=5;s=Direction" DataType="String">
       <DisplayName>NominalScaledType</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">CAEXVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
