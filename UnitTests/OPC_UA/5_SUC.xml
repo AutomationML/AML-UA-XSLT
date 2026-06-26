@@ -396,7 +396,6 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=SystemUnitClass1</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
       <Value>
          <uax:Int32>1</uax:Int32>
       </Value>

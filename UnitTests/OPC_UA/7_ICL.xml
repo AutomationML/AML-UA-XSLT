@@ -318,7 +318,6 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s=InterfaceClass1</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
       <Value>
          <uax:String>1</uax:String>
       </Value>

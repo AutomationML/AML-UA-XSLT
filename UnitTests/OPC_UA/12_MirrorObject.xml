@@ -600,10 +600,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={aa490a5b-1ee8-42ea-bd48-8aff922ee835}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" BrowseName="5:LiftUpGate">
       <DisplayName>LiftUpGate</DisplayName>
@@ -709,10 +706,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={7b74d01b-de35-43a4-96bc-4897276adada}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" BrowseName="5:SubAssembly">
       <DisplayName>SubAssembly</DisplayName>

@@ -273,10 +273,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}</Reference>
          <Reference ReferenceType="HasTypeDefinition">ns=6;s=AutomationMLTestAttribute</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--
 			InterfaceClassLibs

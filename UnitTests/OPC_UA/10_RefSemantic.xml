@@ -295,7 +295,6 @@
          <!--RefSemantic: IEC81346-->
          <Reference ReferenceType="HasReferenceType">ns=5;s=3d7d5923-f2b7-448c-a4bb-4d2603fe25b1_functionOrientedReferenceDesignation_RefSemantic</Reference>
       </References>
-      <!--Hier-->
       <Value>
          <uax:String>=U1</uax:String>
       </Value>
@@ -436,8 +435,7 @@
          <!--RefSemantic: IEC81346-->
          <Reference ReferenceType="HasReferenceType">ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation_RefSemantic</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--RefSemantic: functionOrientedReferenceDesignation.RefSemantic-->
    <UAVariable NodeId="ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation_RefSemantic" BrowseName="7:ContainsReferenceDesignation_functionOrientedReferenceDesignation_RefSemantic" ParentNodeId="ns=7;s=ContainsReferenceDesignation_functionOrientedReferenceDesignation">

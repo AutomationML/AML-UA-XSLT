@@ -294,8 +294,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Order</Reference>
          <Reference ReferenceType="HasTypeDefinition">ns=5;s=Direction</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--InterfaceClass: Port-->
    <UAObjectType NodeId="ns=4;s=Port" BrowseName="Port">
@@ -319,8 +318,7 @@
          <!--TODO: how to model RequiredValues fr the NominalScaleType?-->
          <Reference ReferenceType="HasProperty">ns=4;s=Port_Direction_Constraint</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--Constraint (NominalScaledConstraintType)-->
    <UAVariable NodeId="ns=4;s=Port_Direction_Constraint" BrowseName="4:NominalScaledType" ParentNodeId="ns=4;s=Port_Direction" DataType="String">

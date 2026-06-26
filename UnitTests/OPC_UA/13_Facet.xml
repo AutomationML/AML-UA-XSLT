@@ -292,10 +292,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.AmbientTemperature-->
    <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_AmbientTemperature" BrowseName="5:AmbientTemperature" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
@@ -304,10 +301,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.Noise-->
    <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_Noise" BrowseName="5:Noise" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
@@ -316,10 +310,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.PowerSupply-->
    <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_PowerSupply" BrowseName="5:PowerSupply" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="String">
@@ -328,8 +319,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.maxConveyingSpeed-->
    <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_maxConveyingSpeed" BrowseName="5:maxConveyingSpeed" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
@@ -338,10 +328,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.maxTransportationWeight-->
    <UAVariable NodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}_maxTransportationWeight" BrowseName="5:maxTransportationWeight" ParentNodeId="ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}" DataType="Double">
@@ -350,10 +337,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={65021e66-f76a-453b-8eb4-e460f8a268bd}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" BrowseName="5:OperationData">
       <DisplayName>OperationData</DisplayName>
@@ -385,10 +369,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.OperationData.AmbientTemperature-->
    <UAVariable NodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}_AmbientTemperature" BrowseName="5:AmbientTemperature" ParentNodeId="ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}" DataType="Double">
@@ -397,10 +378,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={ab8926f6-1427-49a7-8ba3-b09759bf970c}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}" BrowseName="5:DriveData">
       <DisplayName>DriveData</DisplayName>
@@ -430,8 +408,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={b8c68505-b7b9-41c6-ba6d-4237091c0d76}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" BrowseName="5:GeneralTechnicalData">
       <DisplayName>GeneralTechnicalData</DisplayName>
@@ -465,10 +442,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.GeneralTechnicalData.maxConveyingSpeed-->
    <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_maxConveyingSpeed" BrowseName="5:maxConveyingSpeed" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="Double">
@@ -477,10 +451,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: aRollerConveyor.GeneralTechnicalData.SizeProfile-->
    <UAVariable NodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}_SizeProfile" BrowseName="5:SizeProfile" ParentNodeId="ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}" DataType="Double">
@@ -489,10 +460,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s={57f754a3-f47d-4f6e-9b40-05b879be1408}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--
 			InterfaceClassLibs
@@ -593,10 +561,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: AmbientTemperature-->
    <UAVariable NodeId="ns=6;s=RollerConveyor_AmbientTemperature" BrowseName="6:AmbientTemperature" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
@@ -605,10 +570,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: Noise-->
    <UAVariable NodeId="ns=6;s=RollerConveyor_Noise" BrowseName="6:Noise" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
@@ -617,10 +579,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: PowerSupply-->
    <UAVariable NodeId="ns=6;s=RollerConveyor_PowerSupply" BrowseName="6:PowerSupply" ParentNodeId="ns=6;s=RollerConveyor" DataType="String">
@@ -629,8 +588,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: maxConveyingSpeed-->
    <UAVariable NodeId="ns=6;s=RollerConveyor_maxConveyingSpeed" BrowseName="6:maxConveyingSpeed" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
@@ -639,10 +597,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: maxTransportationWeight-->
    <UAVariable NodeId="ns=6;s=RollerConveyor_maxTransportationWeight" BrowseName="6:maxTransportationWeight" ParentNodeId="ns=6;s=RollerConveyor" DataType="Double">
@@ -651,10 +606,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s=RollerConveyor</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" BrowseName="6:OperationData">
       <DisplayName>OperationData</DisplayName>
@@ -686,10 +638,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: OperationData.AmbientTemperature-->
    <UAVariable NodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}_AmbientTemperature" BrowseName="6:AmbientTemperature" ParentNodeId="ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}" DataType="Double">
@@ -698,10 +647,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={a80fa297-be3d-44ec-8147-43bc7ad1ba6b}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}" BrowseName="6:DriveData">
       <DisplayName>DriveData</DisplayName>
@@ -731,8 +677,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={855ea72a-7c96-4fae-a615-9c911bc513fc}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <UAObject NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" BrowseName="6:GeneralTechnicalData">
       <DisplayName>GeneralTechnicalData</DisplayName>
@@ -766,10 +711,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: GeneralTechnicalData.maxConveyingSpeed-->
    <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_maxConveyingSpeed" BrowseName="6:maxConveyingSpeed" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="Double">
@@ -778,10 +720,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: GeneralTechnicalData.SizeProfile-->
    <UAVariable NodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}_SizeProfile" BrowseName="6:SizeProfile" ParentNodeId="ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}" DataType="Double">
@@ -790,10 +729,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=6;s={4b6899e6-4a7c-4aec-a9a6-9fbd086dc2f6}</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--
 			AttributeTypeLibs

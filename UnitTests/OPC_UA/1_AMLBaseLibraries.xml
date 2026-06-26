@@ -303,8 +303,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=3;s=Order</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--InterfaceClass: PortConnector-->
    <UAObjectType NodeId="ns=3;s=PortConnector" BrowseName="PortConnector">
@@ -355,10 +354,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=3;s=ExternalDataConnector</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--InterfaceClass: COLLADAInterface-->
    <UAObjectType NodeId="ns=3;s=COLLADAInterface" BrowseName="COLLADAInterface">
@@ -480,8 +476,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Group</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--RoleClass: Facet-->
    <UAObjectType NodeId="ns=4;s=Facet" BrowseName="Facet">
@@ -518,8 +513,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Port</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: Cardinality-->
    <UAVariable NodeId="ns=4;s=Port_Cardinality" BrowseName="4:Cardinality" ParentNodeId="ns=4;s=Port">
@@ -532,10 +526,7 @@
          <!--Attribute: MaxOccur-->
          <Reference ReferenceType="HasComponent">ns=4;s=Port_Cardinality_MaxOccur</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: Cardinality.MinOccur-->
    <UAVariable NodeId="ns=4;s=Port_Cardinality_MinOccur" BrowseName="4:MinOccur" ParentNodeId="ns=4;s=Port_Cardinality" DataType="UInt32">
@@ -544,10 +535,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Port_Cardinality</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: Cardinality.MaxOccur-->
    <UAVariable NodeId="ns=4;s=Port_Cardinality_MaxOccur" BrowseName="4:MaxOccur" ParentNodeId="ns=4;s=Port_Cardinality" DataType="UInt32">
@@ -556,10 +544,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Port_Cardinality</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value>
-         <uax:String/>
-      </Value>
+      <!--No value-->
    </UAVariable>
    <!--Attribute: Category-->
    <UAVariable NodeId="ns=4;s=Port_Category" BrowseName="4:Category" ParentNodeId="ns=4;s=Port" DataType="String">
@@ -568,8 +553,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s=Port</Reference>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
       </References>
-      <!--Hier-->
-      <Value/>
+      <!--No value-->
    </UAVariable>
    <!--ExternalInterface: Port.ConnectionPoint-->
    <UAObject NodeId="ns=4;s={9942bd9c-c19d-44e4-a197-11b9edf264e7}" BrowseName="4:ConnectionPoint" ParentNodeId="ns=4;s=Port">
