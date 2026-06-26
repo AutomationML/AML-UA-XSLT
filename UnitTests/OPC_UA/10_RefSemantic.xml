@@ -51,24 +51,24 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-26T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-26T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-26T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/10_RefSemantic.aml" Version="0.0.0" PublicationDate="2026-06-25T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/10_RefSemantic.aml" Version="0.0.0" PublicationDate="2026-06-26T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-25T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-25T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ReferenceDesignation" Version="1.0.0" PublicationDate="2026-06-26T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLExtendedRoleClassLib" Version="2.7.0" PublicationDate="2026-06-26T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLReferenceDesignationRoleClassLib" Version="1.0.0" PublicationDate="2026-06-26T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
