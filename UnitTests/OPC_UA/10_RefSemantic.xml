@@ -243,7 +243,7 @@
       </References>
    </UAObject>
    <!--InstanceHierarchy: ReferenceDesignation-->
-   <UAObject NodeId="ns=5;s=InstanceHierarchy_ReferenceDesignation" BrowseName="5:ReferenceDesignation">
+   <UAObject NodeId="ns=5;s=CAEXFile_10_RefSemantic.aml_InstanceHierarchy_ReferenceDesignation" BrowseName="5:ReferenceDesignation">
       <DisplayName>ReferenceDesignation</DisplayName>
       <Documentation/>
       <References>

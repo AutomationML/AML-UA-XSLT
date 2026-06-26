@@ -273,7 +273,7 @@
       </References>
    </UAObject>
    <!--InstanceHierarchy: ManufacturingSystem-->
-   <UAObject NodeId="ns=5;s=InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
+   <UAObject NodeId="ns=5;s=CAEXFile_9_ExtInt_IntLink.aml_InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
       <DisplayName>ManufacturingSystem</DisplayName>
       <Documentation/>
       <References>

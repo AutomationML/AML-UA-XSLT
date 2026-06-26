@@ -237,7 +237,7 @@
       </References>
    </UAObject>
    <!--InstanceHierarchy: ConveyerSystem-->
-   <UAObject NodeId="ns=5;s=InstanceHierarchy_ConveyerSystem" BrowseName="5:ConveyerSystem">
+   <UAObject NodeId="ns=5;s=CAEXFile_14_Facet.aml_InstanceHierarchy_ConveyerSystem" BrowseName="5:ConveyerSystem">
       <DisplayName>ConveyerSystem</DisplayName>
       <Documentation/>
       <References>
