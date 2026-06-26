@@ -442,7 +442,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=InterfaceClassLib</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">ns=;s=</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLInterfaceClassLib/AutomationMLBaseInterface</Reference>
       </References>
    </UAObjectType>
    <!--InterfaceClass: Energy2-->
@@ -514,7 +514,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=7;s=RoleClassLib</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">ns=;s=</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</Reference>
       </References>
    </UAObjectType>
    <!--RoleClass: Tool2-->
@@ -524,7 +524,7 @@
       <References><!--Hierarchical parent in AutomationML library-->
          <Reference ReferenceType="Organizes" IsForward="false">ns=7;s=RoleClassLib</Reference>
          <!--Parent class-->
-         <Reference ReferenceType="HasSubtype" IsForward="false">ns=;s=</Reference>
+         <Reference ReferenceType="HasSubtype" IsForward="false">AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource</Reference>
       </References>
    </UAObjectType>
    <!--RoleClass: Tool3-->

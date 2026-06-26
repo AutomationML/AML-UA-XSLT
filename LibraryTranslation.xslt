@@ -70,6 +70,9 @@
 					<xsl:when test="$BasePath!='' and not(fn:contains($BasePath, '/'))">
 						<xsl:value-of select="concat('ns=', $NsId, ';s=', $BasePath)"/>
 					</xsl:when>
+					<xsl:when test="fn:contains($BasePath, '@')">
+						<xsl:value-of select="substring-after($BasePath,'@')"/>
+					</xsl:when>
 					<xsl:when test="$BasePath!=''">
 						<xsl:variable name="ParentNS">
 							<xsl:call-template name="GetNamespaceIdByName">
