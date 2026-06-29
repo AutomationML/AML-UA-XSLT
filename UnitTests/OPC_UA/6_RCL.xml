@@ -49,19 +49,19 @@
       <Uri>http://opcfoundation.org/UA/AML/RoleClassLib2</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="1.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="1.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="1.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="1.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/6_RCL.aml" Version="0.0.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/6_RCL.aml" Version="0.0.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="1.0" PublicationDate="2026-06-26T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="1.0" PublicationDate="2026-06-26T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib1" Version="1.0" PublicationDate="2026-06-29T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/RoleClassLib2" Version="1.0" PublicationDate="2026-06-29T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -133,28 +133,28 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-   <UAObject NodeId="ns=1;s=CAEXFile_6_RCL.aml" BrowseName="1:6_RCL.aml">
+   <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>6_RCL.aml</DisplayName>
       <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_FileName</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_FileName</Reference>
          <!--SchemaVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_SchemaVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SchemaVersion</Reference>
          <!--InstanceHierarchy-->
          <!--Libraries-->
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_6_RCL.aml_RoleClassLibs</Reference>
+         <Reference ReferenceType="Organizes">ns=1;s=RoleClassLibs</Reference>
          <!--AdditionalInformation: 6_RCL.aml_AutomationMLVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation</Reference>
          <!--AdditionalInformation: 6_RCL.aml_WriterHeader-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_1</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation_1</Reference>
          <!--AdditionalInformation: 6_RCL.aml_WriterHeader-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_2</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation_2</Reference>
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -163,7 +163,7 @@
          <uax:String>6_RCL.aml</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -179,8 +179,8 @@
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-   <!--Attribute: CAEXFile.6_RCL.aml_AutomationMLVersion-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_AutomationMLVersion-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -189,8 +189,8 @@
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
       </Value>
    </UAVariable>
-   <!--Attribute: CAEXFile.6_RCL.aml_WriterHeader-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_WriterHeader-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>WriterHeader</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -213,8 +213,8 @@
             </AdditionalInformation>]]></uax:String>
       </Value>
    </UAVariable>
-   <!--Attribute: CAEXFile.6_RCL.aml_WriterHeader-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_6_RCL.aml_AdditionalInformation_2" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_WriterHeader-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation_2" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>WriterHeader</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -260,7 +260,7 @@
 				- ...
 			-->
    <!--Collection: CAEXFile.RoleClassLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_6_RCL.aml_RoleClassLibs" BrowseName="1:6_RCL.aml_RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile_6_RCL.aml">
+   <UAObject NodeId="ns=1;s=RoleClassLibs" BrowseName="1:RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>RoleClassLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>

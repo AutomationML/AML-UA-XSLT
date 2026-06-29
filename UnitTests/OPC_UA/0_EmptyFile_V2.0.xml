@@ -45,7 +45,7 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/0_EmptyFile.aml" Version="0.0.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/0_EmptyFile.aml" Version="0.0.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
@@ -119,23 +119,23 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-   <UAObject NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" BrowseName="1:0_EmptyFile.aml">
+   <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>0_EmptyFile.aml</DisplayName>
       <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_0_EmptyFile.aml_FileName</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_FileName</Reference>
          <!--SchemaVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_0_EmptyFile.aml_SchemaVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SchemaVersion</Reference>
          <!--InstanceHierarchy-->
          <!--Libraries-->
          <!--AdditionalInformation: 0_EmptyFile.aml_AutomationMLVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_0_EmptyFile.aml_AdditionalInformation</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation</Reference>
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -144,7 +144,7 @@
          <uax:String>0_EmptyFile.aml</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -160,8 +160,8 @@
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-   <!--Attribute: CAEXFile.0_EmptyFile.aml_AutomationMLVersion-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_0_EmptyFile.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_0_EmptyFile.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_AutomationMLVersion-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>

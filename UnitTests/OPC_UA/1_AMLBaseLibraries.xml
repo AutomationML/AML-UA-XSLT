@@ -45,19 +45,19 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml" Version="0.0.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/1_AMLBaseLibraries.aml" Version="0.0.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-26T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-26T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib" Version="2.2.0" PublicationDate="2026-06-29T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseRoleClassLib" Version="2.2.0" PublicationDate="2026-06-29T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -127,27 +127,27 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-   <UAObject NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" BrowseName="1:1_AMLBaseLibraries.aml">
+   <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>1_AMLBaseLibraries.aml</DisplayName>
       <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_FileName</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_FileName</Reference>
          <!--SchemaVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SchemaVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SchemaVersion</Reference>
          <!--SuperiorStandardVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SuperiorStandardVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SuperiorStandardVersion</Reference>
          <!--InstanceHierarchy-->
          <!--Libraries-->
          <!--AdditionalInformation: 1_AMLBaseLibraries.aml_AutomationMLVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_AdditionalInformation</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation</Reference>
          <!--SourceDocumentInformation: 1_AMLBaseLibraries.aml_SourceDocumentInformation-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SourceDocumentInformation</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SourceDocumentInformation</Reference>
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -156,7 +156,7 @@
          <uax:String>1_AMLBaseLibraries.aml</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -165,7 +165,7 @@
          <uax:String>3.0</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_SuperiorStandardVersion" BrowseName="1:SuperiorStandardVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SuperiorStandardVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -181,8 +181,8 @@
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-   <!--Attribute: CAEXFile.1_AMLBaseLibraries.aml_AutomationMLVersion-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_AutomationMLVersion-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -191,7 +191,7 @@
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SourceDocumentInformation</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -226,7 +226,7 @@
 				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
    <!--Collection: CAEXFile.InterfaceClassLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_InterfaceClassLibs" BrowseName="1:1_AMLBaseLibraries.aml_InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml">
+   <UAObject NodeId="ns=1;s=InterfaceClassLibs" BrowseName="1:InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>InterfaceClassLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
@@ -403,7 +403,7 @@
 				- ...
 			-->
    <!--Collection: CAEXFile.RoleClassLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml_RoleClassLibs" BrowseName="1:1_AMLBaseLibraries.aml_RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile_1_AMLBaseLibraries.aml">
+   <UAObject NodeId="ns=1;s=RoleClassLibs" BrowseName="1:RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>RoleClassLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>

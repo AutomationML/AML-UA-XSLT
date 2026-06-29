@@ -53,29 +53,29 @@
       <Uri>http://opcfoundation.org/UA/AML/LibOfCommonTools</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml" Version="0.0.0" PublicationDate="2026-06-26T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml" Version="0.0.0" PublicationDate="2026-06-29T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-26T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-26T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-26T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-26T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-06-29T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-06-29T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-06-29T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-06-29T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -148,31 +148,31 @@
 					- report in AML TAC
 				- How to handle DefaultValues of attributes?
 			-->
-   <UAObject NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml" BrowseName="1:9_ExtInt_IntLink.aml">
+   <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>9_ExtInt_IntLink.aml</DisplayName>
       <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_FileName</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_FileName</Reference>
          <!--SchemaVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_SchemaVersion</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_SchemaVersion</Reference>
          <!--InstanceHierarchy-->
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_InstanceHierarchies</Reference>
+         <Reference ReferenceType="Organizes">ns=1;s=InstanceHierarchies</Reference>
          <!--Libraries-->
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_InterfaceClassLibs</Reference>
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_RoleClassLibs</Reference>
-         <Reference ReferenceType="Organizes">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_SystemUnitClassLibs</Reference>
+         <Reference ReferenceType="Organizes">ns=1;s=InterfaceClassLibs</Reference>
+         <Reference ReferenceType="Organizes">ns=1;s=RoleClassLibs</Reference>
+         <Reference ReferenceType="Organizes">ns=1;s=SystemUnitClassLibs</Reference>
          <!--AdditionalInformation: 9_ExtInt_IntLink.aml_AutomationMLVersion-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_AdditionalInformation</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation</Reference>
          <!--AdditionalInformation: 9_ExtInt_IntLink.aml_WriterHeader-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_AdditionalInformation_1</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation_1</Reference>
          <!--AdditionalInformation: 9_ExtInt_IntLink.aml_WriterHeader-->
-         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_AdditionalInformation_2</Reference>
+         <Reference ReferenceType="HasProperty">ns=1;s=CAEXFile_AdditionalInformation_2</Reference>
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLFiles</Reference>
       </References>
    </UAObject>
-   <UAVariable NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_FileName" BrowseName="1:FileName" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>FileName</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -181,7 +181,7 @@
          <uax:String>9_ExtInt_IntLink.aml</uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml" DataType="String">
+   <UAVariable NodeId="ns=1;s=CAEXFile_SchemaVersion" BrowseName="1:SchemaVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SchemaVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -197,8 +197,8 @@
 				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
 			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
-   <!--Attribute: CAEXFile.9_ExtInt_IntLink.aml_AutomationMLVersion-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_AutomationMLVersion-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>AutomationMLVersion</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -207,8 +207,8 @@
          <uax:String><![CDATA[<AdditionalInformation AutomationMLVersion="2.0"/>]]></uax:String>
       </Value>
    </UAVariable>
-   <!--Attribute: CAEXFile.9_ExtInt_IntLink.aml_WriterHeader-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_WriterHeader-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation_1" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>WriterHeader</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -231,8 +231,8 @@
             </AdditionalInformation>]]></uax:String>
       </Value>
    </UAVariable>
-   <!--Attribute: CAEXFile.9_ExtInt_IntLink.aml_WriterHeader-->
-   <UAVariable NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_AdditionalInformation_2" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml" DataType="String">
+   <!--Attribute: CAEXFile.CAEXFile_WriterHeader-->
+   <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation_2" BrowseName="1:WriterHeader" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>WriterHeader</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
@@ -264,22 +264,24 @@
 				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			-->
    <!--Collection: CAEXFile.InstanceHierarchies-->
-   <UAObject NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_InstanceHierarchies" BrowseName="1:9_ExtInt_IntLink.aml_InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml">
+   <UAObject NodeId="ns=1;s=InstanceHierarchies" BrowseName="1:InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>InstanceHierarchies</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--InstanceHierarchy: ManufacturingSystem-->
-         <Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_9_ExtInt_IntLink.aml_ManufacturingSystem</Reference>
+         <Reference ReferenceType="Organizes">ns=5;s=InstanceHierarchy_ManufacturingSystem</Reference>
       </References>
    </UAObject>
    <!--InstanceHierarchy: ManufacturingSystem-->
-   <UAObject NodeId="ns=5;s=CAEXFile_9_ExtInt_IntLink.aml_InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
+   <UAObject NodeId="ns=5;s=InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
       <DisplayName>ManufacturingSystem</DisplayName>
       <Documentation/>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
+         <!--Backward reference to global list of InstanceHierarchies-->
          <Reference ReferenceType="Organizes" IsForward="false">CAEXFile_AutomationMLInstanceHierarchies</Reference>
-         <!--Backward reference to CAEX InstanceHierarchies-->
+         <!--Backward reference to CAEXFile internal list of InstanceHierarchies-->
+         <Reference ReferenceType="HasComponent" IsForward="false">ns=1;s=InstanceHierarchies</Reference>
          <!--InternalElement: firstScrewdriver-->
          <Reference ReferenceType="HasComponent">ns=5;s={788eb291-f103-4fdc-aba0-4893b599f556}</Reference>
          <!--InternalElement: secondScrewdriver-->
@@ -388,7 +390,7 @@
 				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
    <!--Collection: CAEXFile.InterfaceClassLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_InterfaceClassLibs" BrowseName="1:9_ExtInt_IntLink.aml_InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml">
+   <UAObject NodeId="ns=1;s=InterfaceClassLibs" BrowseName="1:InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>InterfaceClassLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
@@ -462,7 +464,7 @@
 				- ...
 			-->
    <!--Collection: CAEXFile.RoleClassLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_RoleClassLibs" BrowseName="1:9_ExtInt_IntLink.aml_RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml">
+   <UAObject NodeId="ns=1;s=RoleClassLibs" BrowseName="1:RoleClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>RoleClassLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
@@ -564,7 +566,7 @@
 				- check all inner elements, e.g. attributes, etc.
 			-->
    <!--Collection: CAEXFile.SystemUnitClassLibs-->
-   <UAObject NodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml_SystemUnitClassLibs" BrowseName="1:9_ExtInt_IntLink.aml_SystemUnitClassLibs" ParentNodeId="ns=1;s=CAEXFile_9_ExtInt_IntLink.aml">
+   <UAObject NodeId="ns=1;s=SystemUnitClassLibs" BrowseName="1:SystemUnitClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>SystemUnitClassLibs</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
