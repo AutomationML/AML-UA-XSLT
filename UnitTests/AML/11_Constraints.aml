@@ -1,39 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- edited with XMLSpy v2014 sp1 (http://www.altova.com) by Forschungszentrum Deutschland (ABB AG) -->
 <CAEXFile xmlns="http://www.dke.de/CAEX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" SchemaVersion="3.0" FileName="11_Constraints.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
-	<SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
-	<SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.5" LastWritingDateTime="2026-06-03T19:20:06.3586916+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.4.3.5" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org"/>
-	<InterfaceClassLib Name="AutomationMLInterfaceClassLib" ChangeMode="change">
-		<Description>Extended Standard Automation Markup Language Interface Class Library with Part 3 interface attributes.</Description>
-		<Version>experimental</Version>
-		<InterfaceClass Name="AutomationMLBaseInterface">
-			<InterfaceClass Name="Order" RefBaseClassPath="AutomationMLBaseInterface">
-				<Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction"/>
-			</InterfaceClass>
-			<InterfaceClass Name="Port" RefBaseClassPath="AutomationMLBaseInterface">
-				<Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
-					<Constraint Name="AllowedValues">
-						<NominalScaledType>
-							<RequiredValue>In</RequiredValue>
-							<RequiredValue>Out</RequiredValue>
-							<RequiredValue>InOut</RequiredValue>
-						</NominalScaledType>
-					</Constraint>
-				</Attribute>
-			</InterfaceClass>
-		</InterfaceClass>
-	</InterfaceClassLib>
-	<AttributeTypeLib Name="AutomationMLBaseAttributeTypeLib" ChangeMode="change">
-		<Description>Experimental Standard Automation Markup Language Attribute Type Library with Part 3 Attributes</Description>
-		<Version>experimental</Version>
-		<AttributeType Name="Direction" AttributeDataType="xs:string">
-			<Constraint Name="AllowedValues">
-				<NominalScaledType>
-					<RequiredValue>In</RequiredValue>
-					<RequiredValue>Out</RequiredValue>
-					<RequiredValue>InOut</RequiredValue>
-				</NominalScaledType>
-			</Constraint>
-		</AttributeType>
-	</AttributeTypeLib>
+  <SuperiorStandardVersion>AutomationML 2.10</SuperiorStandardVersion>
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.1" LastWritingDateTime="2026-07-07T15:58:17.6404383+02:00" OriginProjectID="unspecified" OriginProjectTitle="unspecified" OriginRelease="6.4.3.1" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" />
+  <InstanceHierarchy Name="InstanceHierarchy" ID="645eef49-d084-4e93-884b-394879c0cfb6">
+    <Version>1.0.0</Version>
+    <InternalElement Name="InternalElement" ID="71b4f5b7-b0fd-4e33-bd13-8612e8dd395f">
+      <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+        <Constraint Name="AllowedValues">
+          <NominalScaledType>
+            <RequiredValue>In</RequiredValue>
+            <RequiredValue>Out</RequiredValue>
+            <RequiredValue>InOut</RequiredValue>
+          </NominalScaledType>
+        </Constraint>
+        <Constraint Name="Scale">
+          <OrdinalScaledType>
+            <RequiredMaxValue>3</RequiredMaxValue>
+            <RequiredValue>1</RequiredValue>
+            <RequiredMinValue>2</RequiredMinValue>
+          </OrdinalScaledType>
+        </Constraint>
+      </Attribute>
+    </InternalElement>
+  </InstanceHierarchy>
+  <InterfaceClassLib Name="ConstraintAutomationMLInterfaceClassLib" ChangeMode="change">
+    <Description>Extended Standard Automation Markup Language Interface Class Library with Part 3 interface attributes.</Description>
+    <Version>experimental</Version>
+    <InterfaceClass Name="AutomationMLBaseInterface">
+      <InterfaceClass Name="Order" RefBaseClassPath="AutomationMLBaseInterface">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction" />
+      </InterfaceClass>
+      <InterfaceClass Name="Port" RefBaseClassPath="AutomationMLBaseInterface">
+        <Attribute Name="Direction" AttributeDataType="xs:string" RefAttributeType="AutomationMLBaseAttributeTypeLib/Direction">
+          <Constraint Name="AllowedValues">
+            <NominalScaledType>
+              <RequiredValue>In</RequiredValue>
+              <RequiredValue>Out</RequiredValue>
+              <RequiredValue>InOut</RequiredValue>
+            </NominalScaledType>
+          </Constraint>
+        </Attribute>
+      </InterfaceClass>
+    </InterfaceClass>
+  </InterfaceClassLib>
+  <AttributeTypeLib Name="AutomationMLBaseAttributeTypeLib" ChangeMode="change">
+    <Description>Experimental Standard Automation Markup Language Attribute Type Library with Part 3 Attributes</Description>
+    <Version>experimental</Version>
+    <AttributeType Name="Direction" AttributeDataType="xs:string">
+      <Constraint Name="AllowedValues">
+        <NominalScaledType>
+          <RequiredValue>In</RequiredValue>
+          <RequiredValue>Out</RequiredValue>
+          <RequiredValue>InOut</RequiredValue>
+        </NominalScaledType>
+      </Constraint>
+    </AttributeType>
+  </AttributeTypeLib>
 </CAEXFile>

@@ -294,4 +294,55 @@
 		</References>
 		<InverseName>IsMirroredOf</InverseName>
 	</UAReferenceType>
+	
+	<UAReferenceType NodeId="ns=1;i=4005" BrowseName="1:HasConstraint">
+		<DisplayName>HasConstraint</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=32</Reference>
+		</References>
+		<InverseName>HasConstraint</InverseName>
+	</UAReferenceType>
+
+	<UAVariableType NodeId="ns=1;i=2000" BrowseName="1:AMLConstraintVariableType">
+		<DisplayName>AMLConstraintVariableType</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2001" BrowseName="1:NominalScaledConstraint">
+		<DisplayName>NominalScaledConstraint</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2002" BrowseName="1:OrdinalScaledConstraint">
+		<DisplayName>OrdinalScaledConstraint</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2003" BrowseName="1:UnknownConstraint">
+		<DisplayName>UnknownConstraint</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2004" BrowseName="1:RequiredValue">
+		<DisplayName>RequiredValue</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2005" BrowseName="1:RequiredMinValue">
+		<DisplayName>RequiredMinValue</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
+		</References>
+	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2006" BrowseName="1:RequiredMaxValue">
+		<DisplayName>RequiredMaxValue</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
+		</References>
+	</UAVariableType>
 </UANodeSet>

@@ -86,6 +86,9 @@
 					<xsl:when test="local-name()='SystemUnitClass' and @Name!='AutomationMLBaseSystemUnit'">CAEXObjectType</xsl:when>
 					<xsl:when test="local-name()='RoleClass' and @Name!='AutomationMLBaseRole'">AutomationMLBaseRoleClassLib/AutomationMLBaseRole</xsl:when>
 					<xsl:when test="local-name()='InterfaceClass' and @Name!='AutomationMLBaseInterface'">AutomationMLInterfaceClassLib/AutomationMLBaseInterface</xsl:when>
+					<!--xsl:when test="local-name()='AttributeType' and *[fn:local-name()='Constraint']/*[fn:local-name()='NominalScaledType'][1]">NominalScaledConstraint</xsl:when>
+					<xsl:when test="local-name()='AttributeType' and *[fn:local-name()='NominalScaledType']/*[fn:local-name()='OrdinalScaledType']">OrdinalScaledConstraint</xsl:when>
+					<xsl:when test="local-name()='AttributeType' and *[fn:local-name()='Constraint']!='' ">UnknownConstraint</xsl:when-->
 					<xsl:when test="local-name()='AttributeType'">AMLBaseVariableType</xsl:when>
 					<xsl:otherwise>
 						<xsl:text>CAEXObjectType</xsl:text>

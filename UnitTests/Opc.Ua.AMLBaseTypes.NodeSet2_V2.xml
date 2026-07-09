@@ -228,6 +228,8 @@
 		</References>
 		<InverseName>HasAMLInternalLink</InverseName>
 	</UAReferenceType>
+	
+	<!-- das gehört alles in die BaseTypes -->
 	<UAVariableType NodeId="ns=1;i=2000" BrowseName="1:AMLConstraintVariableType">
 		<DisplayName>AMLConstraintVariableType</DisplayName>
 		<References>
@@ -292,6 +294,10 @@
 			<Reference ReferenceType="HasModellingRule">i=78</Reference>
 		</References>
 	</UAVariable>
+	
+	
+	
+	<!-- das ist ein Dummy Objekt, an dem die Dummy-Variable hängt -->
 	<UAObject NodeId="ns=1;i=5000" BrowseName="1:rararae" ParentNodeId="ns=1;i=5006">
 		<DisplayName>rararae</DisplayName>
 		<References>
@@ -299,6 +305,8 @@
 			<Reference ReferenceType="HasTypeDefinition">i=58</Reference>
 		</References>
 	</UAObject>
+	
+	<!-- das ist eine Dummy-Variable, um zu sehen, wie es angewendet wird vom Typ Float-->
 	<UAVariable DataType="Float" NodeId="ns=1;i=6007" BrowseName="1:constraint1" ParentNodeId="ns=1;i=5000" UserAccessLevel="3" AccessLevel="3">
 		<DisplayName>constraint1</DisplayName>
 		<References>
@@ -313,6 +321,8 @@
 			<Reference ReferenceType="HasTypeDefinition">i=63</Reference>
 		</References>
 	</UAVariable>
+	
+	<!-- das ist eine zweite Dummy-Variable vom Type String?-->
 	<UAVariable DataType="String" NodeId="ns=1;i=6009" BrowseName="1:dasdas" ParentNodeId="ns=1;i=5000" UserAccessLevel="3" AccessLevel="3">
 		<DisplayName>dasdas</DisplayName>
 		<References>
@@ -341,6 +351,8 @@
 			<Reference ReferenceType="HasTypeDefinition">i=63</Reference>
 		</References>
 	</UAVariable>
+	
+	<!-- das ist eine dritte Dummy-Variable vom Typ String-->
 	<UAVariable DataType="Int16" NodeId="ns=1;i=6013" BrowseName="1:dsdasa" ParentNodeId="ns=1;i=5000" UserAccessLevel="3" AccessLevel="3">
 		<DisplayName>dsdasa</DisplayName>
 		<References>

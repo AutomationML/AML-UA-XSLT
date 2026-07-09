@@ -45,7 +45,7 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLInterfaceClassLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/0_EmptyFile.aml" Version="0.0.0" PublicationDate="2026-06-29T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/0_EmptyFile.aml" Version="0.0.0" PublicationDate="2026-07-08T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
@@ -89,18 +89,27 @@
       <Alias Alias="FolderType">i=61</Alias>
       <Alias Alias="BaseDataVariableType">i=63</Alias>
       <Alias Alias="Duration">i=290</Alias>
-      <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
-      <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
+      <Alias Alias="AMLConstraintVariableType">ns=2;i=2000</Alias>
+      <Alias Alias="NominalScaledConstraint">ns=2;i=2001</Alias>
+      <Alias Alias="OrdinalScaledConstraint">ns=2;i=2002</Alias>
+      <Alias Alias="UnknownConstraint">ns=2;i=2003</Alias>
+      <Alias Alias="RequiredValue">ns=2;ns=2;i=2004</Alias>
+      <Alias Alias="RequiredMinValue">ns=2;ns=2;i=2005</Alias>
+      <Alias Alias="RequiredMaxValue">ns=2;ns=2;i=2006</Alias>
+      <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
+      <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
+      <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
+      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
+      <Alias Alias="IsMirroredAs">ns=2;i=4004</Alias>
+      <Alias Alias="HasConstraint">ns=2;i=4005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
-      <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
+      <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
+      <Alias Alias="CAEXFile_RoleClassLibs">ns=2;i=5009</Alias>
       <Alias Alias="CAEXFile_SystemUnitClassLibs">ns=2;i=5010</Alias>
       <Alias Alias="CAEXFile_AttributeTypeLibs">ns=2;i=5011</Alias>
-      <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
-      <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="AutomationMLBaseRoleClassLib/AutomationMLBaseRole">ns=3;s=AutomationMLBaseRole</Alias>
       <Alias Alias="AutomationMLInterfaceClassLib/AutomationMLBaseInterface">ns=4;s=AutomationMLBaseInterface</Alias>
    </Aliases>
