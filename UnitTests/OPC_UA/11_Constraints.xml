@@ -30,24 +30,24 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/11_Constraints.aml" Version="0.0.0" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/11_Constraints.aml" Version="0.0.0" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-07-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-09-03T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-09-03T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-09-03T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -91,13 +91,14 @@
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
-      <Alias Alias="AMLConstraintType">ns=2;i=2000</Alias>
-      <Alias Alias="AMLNominalScaledConstraintType">ns=2;i=2001</Alias>
-      <Alias Alias="AMLOrdinalScaledConstraintType">ns=2;i=2002</Alias>
-      <Alias Alias="AMLUnknownConstraintType">ns=2;i=2003</Alias>
-      <Alias Alias="AMLRequiredValue">ns=2;ns=2;i=2004</Alias>
-      <Alias Alias="AMLRequiredMinValue">ns=2;ns=2;i=2005</Alias>
-      <Alias Alias="AMLRequiredMaxValue">ns=2;ns=2;i=2006</Alias>
+      <Alias Alias="CAEXConstraintType">ns=2;i=2000</Alias>
+      <Alias Alias="CAEXNominalScaledConstraintType">ns=2;i=2001</Alias>
+      <Alias Alias="CAEXOrdinalScaledConstraintType">ns=2;i=2002</Alias>
+      <Alias Alias="CAEXUnknownConstraintType">ns=2;i=2003</Alias>
+      <Alias Alias="CAEXRequiredValue">ns=2;i=2004</Alias>
+      <Alias Alias="CAEXRequiredMinValue">ns=2;i=2005</Alias>
+      <Alias Alias="CAEXRequiredMaxValue">ns=2;i=2006</Alias>
+      <Alias Alias="CAEXRequirements">ns=2;i=2007</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
@@ -257,7 +258,13 @@
    <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint" BrowseName="4:AllowedValues" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
       <DisplayName>AllowedValues</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">CAEXNominalScaledConstraintType</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_1</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_2</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -269,11 +276,44 @@
             </Constraint>]]></uax:String>
       </Value>
    </UAVariable>
+   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue" BrowseName="4:RequiredValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
+      <DisplayName>RequiredValue</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>In</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_1" BrowseName="4:RequiredValue_1" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
+      <DisplayName>RequiredValue_1</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>Out</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_2" BrowseName="4:RequiredValue_2" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
+      <DisplayName>RequiredValue_2</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>InOut</uax:String>
+      </Value>
+   </UAVariable>
    <!--Constraint (OrdinalScaledConstraintType)-->
    <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1" BrowseName="4:Scale" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
       <DisplayName>Scale</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">CAEXOrdinalScaledConstraintType</Reference>
+         <!--RequiredMaxValue-->
+         <Reference ReferenceType="HIER">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMaxValue</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredValue</Reference>
+         <!--RequiredMinValue-->
+         <Reference ReferenceType="HIER">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMinValue</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="Scale">
@@ -283,6 +323,33 @@
                   <RequiredMinValue>2</RequiredMinValue>
                </OrdinalScaledType>
             </Constraint>]]></uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMaxValue" BrowseName="4:RequiredMaxValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
+      <DisplayName>RequiredMaxValue</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredMaxValue</Reference>
+      </References>
+      <Value>
+         <uax:String>3</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredValue" BrowseName="4:RequiredValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
+      <DisplayName>RequiredValue</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>1</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMinValue" BrowseName="4:RequiredMinValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
+      <DisplayName>RequiredMinValue</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredMinValue</Reference>
+      </References>
+      <Value>
+         <uax:String>2</uax:String>
       </Value>
    </UAVariable>
    <!--
@@ -397,7 +464,13 @@
    <UAVariable NodeId="ns=5;s=Port_Direction_Constraint" BrowseName="5:AllowedValues" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
       <DisplayName>AllowedValues</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">CAEXNominalScaledConstraintType</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=5;s=Port_Direction_Constraint_RequiredValue</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=5;s=Port_Direction_Constraint_RequiredValue_1</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=5;s=Port_Direction_Constraint_RequiredValue_2</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -407,6 +480,33 @@
                   <RequiredValue>InOut</RequiredValue>
                </NominalScaledType>
             </Constraint>]]></uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=5;s=Port_Direction_Constraint_RequiredValue" BrowseName="5:RequiredValue" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
+      <DisplayName>RequiredValue</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>In</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=5;s=Port_Direction_Constraint_RequiredValue_1" BrowseName="5:RequiredValue_1" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
+      <DisplayName>RequiredValue_1</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>Out</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=5;s=Port_Direction_Constraint_RequiredValue_2" BrowseName="5:RequiredValue_2" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
+      <DisplayName>RequiredValue_2</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>InOut</uax:String>
       </Value>
    </UAVariable>
    <!--
@@ -484,7 +584,13 @@
    <UAVariable NodeId="ns=6;s=Direction_Constraint" BrowseName="6:AllowedValues" ParentNodeId="ns=6;s=Direction" DataType="String">
       <DisplayName>AllowedValues</DisplayName>
       <References>
-         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+         <Reference ReferenceType="HasTypeDefinition">CAEXNominalScaledConstraintType</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=6;s=Direction_Constraint_RequiredValue</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=6;s=Direction_Constraint_RequiredValue_1</Reference>
+         <!--RequiredValue-->
+         <Reference ReferenceType="HIER">ns=6;s=Direction_Constraint_RequiredValue_2</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -494,6 +600,33 @@
                   <RequiredValue>InOut</RequiredValue>
                </NominalScaledType>
             </Constraint>]]></uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=6;s=Direction_Constraint_RequiredValue" BrowseName="6:RequiredValue" ParentNodeId="ns=6;s=Direction" DataType="String">
+      <DisplayName>RequiredValue</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>In</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=6;s=Direction_Constraint_RequiredValue_1" BrowseName="6:RequiredValue_1" ParentNodeId="ns=6;s=Direction" DataType="String">
+      <DisplayName>RequiredValue_1</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>Out</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=6;s=Direction_Constraint_RequiredValue_2" BrowseName="6:RequiredValue_2" ParentNodeId="ns=6;s=Direction" DataType="String">
+      <DisplayName>RequiredValue_2</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">CAEXRequiredValue</Reference>
+      </References>
+      <Value>
+         <uax:String>InOut</uax:String>
       </Value>
    </UAVariable>
 </UANodeSet>

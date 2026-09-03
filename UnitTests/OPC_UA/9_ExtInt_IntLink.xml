@@ -34,29 +34,29 @@
       <Uri>http://opcfoundation.org/UA/AML/LibOfCommonTools</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml" Version="0.0.0" PublicationDate="2026-07-09T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/9_ExtInt_IntLink.aml" Version="0.0.0" PublicationDate="2026-09-03T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-07-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-07-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-07-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-07-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-09-03T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/MyInterfaces" Version="1.0" PublicationDate="2026-09-03T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingRoleClasses" Version="1.0" PublicationDate="2026-09-03T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/LibOfCommonTools" Version="1.0" PublicationDate="2026-09-03T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -100,13 +100,14 @@
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
-      <Alias Alias="AMLConstraintType">ns=2;i=2000</Alias>
-      <Alias Alias="AMLNominalScaledConstraintType">ns=2;i=2001</Alias>
-      <Alias Alias="AMLOrdinalScaledConstraintType">ns=2;i=2002</Alias>
-      <Alias Alias="AMLUnknownConstraintType">ns=2;i=2003</Alias>
-      <Alias Alias="AMLRequiredValue">ns=2;ns=2;i=2004</Alias>
-      <Alias Alias="AMLRequiredMinValue">ns=2;ns=2;i=2005</Alias>
-      <Alias Alias="AMLRequiredMaxValue">ns=2;ns=2;i=2006</Alias>
+      <Alias Alias="CAEXConstraintType">ns=2;i=2000</Alias>
+      <Alias Alias="CAEXNominalScaledConstraintType">ns=2;i=2001</Alias>
+      <Alias Alias="CAEXOrdinalScaledConstraintType">ns=2;i=2002</Alias>
+      <Alias Alias="CAEXUnknownConstraintType">ns=2;i=2003</Alias>
+      <Alias Alias="CAEXRequiredValue">ns=2;i=2004</Alias>
+      <Alias Alias="CAEXRequiredMinValue">ns=2;i=2005</Alias>
+      <Alias Alias="CAEXRequiredMaxValue">ns=2;i=2006</Alias>
+      <Alias Alias="CAEXRequirements">ns=2;i=2007</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
