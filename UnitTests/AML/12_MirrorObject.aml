@@ -16,7 +16,6 @@
 				<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
 			</InternalElement>
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-			<!--RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/-->
 		</InternalElement>
 		<InternalElement Name="SubAssembly" ID="{ac026999-a2e2-4a86-8c97-39685607e49a}" RefBaseSystemUnitPath="Resources/AssemblyStation">
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
@@ -28,7 +27,6 @@
 				<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
 			</InternalElement>
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-			<!--RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/-->
 		</InternalElement>
 		<InternalElement Name="MainAssemblyStation" ID="{22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}" RefBaseSystemUnitPath="Resources/AssemblyStation">
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
@@ -40,7 +38,6 @@
 				<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole"/>
 			</InternalElement>
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-			<!--RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Structure/ResourceStructure/MechatronicAssembly"/-->
 		</InternalElement>
 		<InternalElement Name="ConveyorGroup" ID="{aa490a5b-1ee8-42ea-bd48-8aff922ee835}">
 			<Attribute Name="AssociatedFacet"/>
@@ -50,7 +47,6 @@
 			<InternalElement Name="EndStop" ID="{176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" RefBaseSystemUnitPath="{72bf71e8-15fd-4882-9d35-00a12d1aa995}"/>
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Group"/>
 			<RoleRequirements RefBaseRoleClassPath="BaseRoleClassLib@AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/>
-			<!--RoleRequirements RefBaseRoleClassPath="AutomationMLBaseRoleClassLib/AutomationMLBaseRole/Resource"/-->
 		</InternalElement>
 		<InternalElement Name="AssemblyStationGroup" ID="{7b74d01b-de35-43a4-96bc-4897276adada}">
 			<Attribute Name="AssociatedFacet"/>

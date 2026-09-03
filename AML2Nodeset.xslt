@@ -29,15 +29,15 @@
 			<Library name="http://opcfoundation.org/UA/AML/" version="2.2.2" source="AML Base">
 				<Alias Alias="CAEXObjectType">i=1001</Alias>
 				<Alias Alias="CAEXFileType">i=1005</Alias>
-				<Alias Alias="AMLConstraintVariableType">i=2000</Alias>
-				<Alias Alias="NominalScaledConstraint">i=2001</Alias>
-				<Alias Alias="OrdinalScaledConstraint">i=2002</Alias>
-				<Alias Alias="UnknownConstraint">i=2003</Alias>
+				<Alias Alias="AMLConstraintType">i=2000</Alias>
+				<Alias Alias="AMLNominalScaledConstraintType">i=2001</Alias>
+				<Alias Alias="AMLOrdinalScaledConstraintType">i=2002</Alias>
+				<Alias Alias="AMLUnknownConstraintType">i=2003</Alias>
 				
 				<!-- Muss noch entsprechend in der NodeSet2.xml angepasst werden -->
-				<Alias Alias="RequiredValue">ns=2;i=2004</Alias>
-				<Alias Alias="RequiredMinValue">ns=2;i=2005</Alias>
-				<Alias Alias="RequiredMaxValue">ns=2;i=2006</Alias>
+				<Alias Alias="AMLRequiredValue">i=2004</Alias>
+				<Alias Alias="AMLRequiredMinValue">i=2005</Alias>
+				<Alias Alias="AMLRequiredMaxValue">i=2006</Alias>
 
 				<Alias Alias="AMLBaseVariableType">i=3001</Alias>
 				<!--Alias Alias="CAEXVariableType">i=3001</Alias-->
@@ -45,9 +45,9 @@
 				<Alias Alias="HasAMLInternalLink">i=4002</Alias>
 				<!--To avoid double listing due to HasComponent and HasSubtype we invented an AML specific HasComponentVersion-->
 				<!--Alias Alias="HasAMLClassComponent">i=4002</Alias-->
-				<Alias Alias="HasReferenceType">i=4003</Alias>
-				<Alias Alias="IsMirroredAs">i=4004</Alias>
-				<Alias Alias="HasConstraint">i=4005</Alias>
+				<Alias Alias="HasAMLReferenceType">i=4003</Alias>
+				<Alias Alias="IsAMLMirroredAs">i=4004</Alias>
+				<Alias Alias="HasAMLConstraint">i=4005</Alias>
 				<Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">i=5005</Alias>
 				<Alias Alias="CAEXFile_AutomationMLFiles">i=5006</Alias>
 				<Alias Alias="CAEXFile_InterfaceClassLibs">i=5008</Alias>
@@ -59,10 +59,10 @@
 				<xsl:variable name="refAlias" select="concat(@Alias, '@')"/>
 				<xsl:variable name="refSource" select="@Path"/>
 				<xsl:variable name="libs">
-					<xsl:for-each select="$document-root//@*[fn:starts-with(.,$refAlias)]">
+				<xsl:for-each select="$document-root//@*[fn:starts-with(string(.),$refAlias)]">
 						<Lib>
 							<xsl:attribute name="source" select="$refSource"/>
-							<xsl:value-of select="fn:substring-after(fn:substring-before(., '/'), '@')"/>
+							<xsl:value-of select="fn:substring-after(fn:substring-before(string(.), '/'), '@')"/>
 						</Lib>
 					</xsl:for-each>
 				</xsl:variable>
@@ -71,7 +71,7 @@
 					<xsl:if test="not(preceding-sibling::*[.=$libName])">
 						<!--Test1><xsl:value-of select="$refAlias"/></Test1-->
 						<xsl:variable name="classes">
-							<xsl:for-each select="$document-root//@*[fn:starts-with(.,$refAlias)]">
+							<xsl:for-each select="$document-root//@*[fn:starts-with(string(.),$refAlias)]">
 								<Class>
 									<xsl:value-of select="."/>
 								</Class>
@@ -287,30 +287,11 @@
 			UANodeSet
 			=============
 			TODOs:
-				- how to handle mirror objects?
-				- Do we need aliases?? 
-					- to be clarified with UA -> Miriam
-				    - only used ones or standard template set of aliases
-					- purpose? drawback				
-				- InternalLinks are not translated, yet.
 				- Missing translation for UtcTime/DateTime
 				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
-				- no HasTypeDefinition available if there was no SystemUnitClass (see "BPR_005E_ExternalDataReference_Examples_Jul2016.aml")
-				- use correct HasTypeDefinition
-				- are spaces allowed in NodeId string as part if the ID? 
-				    - to be clarified with AML if spaces are allowed (Part 1) -> Miriam
-					- Example in AR APC all Classes AutomationProjectConfigurationRoleClassLib/DeviceItem Attributes
-					- necessary for nodeID (BrowseName keeps space), thus deleted
 				- are '{GUID}' and 'GUID' equal? -> will be handled as equivalent
-				- InterfaceClasses have no specific UA "base structure", but are also of type ObjectType -> how to distinguish between SUC and IC
-				- AdditionalInformation is handled as blackbox (no ID)
-				- AdditionalInformation AutomationMLVersion
 				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
-				- XSL + script for generation of MD5 hash				
-				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
-				- support AttributeTypeLib (CAEX V3.0)
 				- fix model version for RequiredModels -> is this correct?
-				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			</xsl:comment>
 			<xsl:copy-of select="$NamespaceUris"/>
 			<xsl:copy-of select="$Models"/>
@@ -378,17 +359,6 @@
 			<xsl:comment>
 			CAEXFile
 			===============
-			TODOs:
-				- is this the correct translation (AMLFile = Object)? -> currently yes
-				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements? --> variable in xslt to include or not, flag in xslt if things were included
-				- How to model ExternalReferences?
-					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
-					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
-					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
-					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
-					- Preferences: 2-1-3 or 1-2-3/2-1-3 
-					- report in AML TAC
-				- How to handle DefaultValues of attributes?
 			</xsl:comment>
 			<xsl:variable name="FileName">
 				<xsl:value-of select="@FileName"/>
@@ -403,9 +373,11 @@
 				<DisplayName>
 					<xsl:value-of select="$FileName"/>
 				</DisplayName>
-				<Documentation>
-					<xsl:value-of select="*[local-name()='Description']"/>
-				</Documentation>
+				<xsl:if test="*[local-name()='Description']">
+					<Description>
+						<xsl:value-of select="*[local-name()='Description']"/>
+					</Description>
+				</xsl:if>
 				<References>
 					<xsl:comment select="'Type definition: CAEXFileType'"/>
 					<Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
@@ -504,9 +476,6 @@
 			<xsl:comment>
 			AdditionalInformation
 			===============
-			TODOs:
-				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
-			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			</xsl:comment>
 			<xsl:apply-templates select="./*[fn:local-name()='AdditionalInformation']"/>
 			<xsl:apply-templates select="./*[fn:local-name()='SourceDocumentInformation']"/>
@@ -514,11 +483,7 @@
 			InstanceHierarchies
 			===============
 			TODOs:
-				- do we need a InstanceHierarchies node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
-			    - Complete References
-				- Do we need BackwardReferences here?
 				- Test child of AutomationMLBaseRole/UABaseObjectType
-				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			</xsl:comment>
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'InstanceHierarchies'"/>
@@ -528,8 +493,6 @@
 			<xsl:comment>
 			InterfaceClassLibs
 			===============
-			TODOs:
-				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			</xsl:comment>
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'InterfaceClassLibs'"/>
@@ -539,8 +502,6 @@
 			<xsl:comment>
 			RoleClassLibs
 			===============
-			TODOs:
-				- ...
 			</xsl:comment>
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'RoleClassLibs'"/>
@@ -550,8 +511,6 @@
 			<xsl:comment>
 			SystemUnitClassLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
 			</xsl:comment>
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'SystemUnitClassLibs'"/>
@@ -561,10 +520,6 @@
 			<xsl:comment>
 			AttributeTypeLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
-				- is this a proper translation?
-				- how are the AttributeTypes used? - Instances
 			</xsl:comment>
 			<xsl:call-template name="HierarchicalElement">
 				<xsl:with-param name="Name" select="'AttributeTypeLibs'"/>
@@ -599,9 +554,11 @@
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
-			<Documentation>
-				<xsl:value-of select="*[fn:local-name()='Description']"/>
-			</Documentation>
+			<xsl:if test="*[fn:local-name()='Description']">
+				<Description>
+					<xsl:value-of select="*[fn:local-name()='Description']"/>
+				</Description>
+			</xsl:if>
 			<References>
 				<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 				<xsl:comment select="'Backward reference to global list of InstanceHierarchies'"/>
@@ -726,15 +683,20 @@
 			<DisplayName>
 				<xsl:value-of select="$BrowseName"/>
 			</DisplayName>
+			<xsl:if test="*[fn:local-name()='Description']!=''">
+				<Description>
+					<xsl:value-of select="*[fn:local-name()='Description']"/>
+				</Description>
+			</xsl:if>
 			<References>
 				<Reference ReferenceType="HasTypeDefinition">
 					<xsl:choose>
-						<xsl:when test="contains($BrowseName,'NominalScaledType')">NominalScaledConstraint</xsl:when>
-						<xsl:when test="contains($BrowseName,'OrdinalScaledType')">OrdinalScaledConstraint</xsl:when>
-						<xsl:when test="contains($BrowseName,'UnknownConstraint')">UnknownConstraint</xsl:when>
-						<xsl:when test="fn:local-name()='RequiredValue' or 
-										fn:local-name()='RequiredMinValue' or 
-										fn:local-name()='RequiredMaxValue'">
+						<xsl:when test="contains($BrowseName,'NominalScaledType')">AMLNominalScaledConstraintType</xsl:when>
+						<xsl:when test="contains($BrowseName,'OrdinalScaledType')">AMLOrdinalScaledConstraintType</xsl:when>
+						<xsl:when test="contains($BrowseName,'UnknownConstraint')">AMLUnknownConstraintType</xsl:when>
+						<xsl:when test="fn:local-name()='AMLRequiredValue' or 
+										fn:local-name()='AMLRequiredMinValue' or 
+										fn:local-name()='AMLRequiredMaxValue'">
 							<xsl:value-of select="fn:local-name()"/>
 						</xsl:when>
 						<xsl:otherwise>AMLBaseVariableType</xsl:otherwise>
@@ -1005,7 +967,7 @@
 			<xsl:with-param name="AttributeValue" select="."/>
 			<xsl:with-param name="BrowseName" select="$BrowseName"/>
 		</xsl:call-template>
-		<xsl:for-each select="*/*[fn:local-name()='RequiredValue' or fn:local-name()='RequiredMinValue' or fn:local-name()='RequiredMaxValue']">	
+		<xsl:for-each select="*/*[fn:local-name()='AMLRequiredValue' or fn:local-name()='AMLRequiredMinValue' or fn:local-name()='AMLRequiredMaxValue']">	
 			<xsl:variable name="ConstraintName">
 				<xsl:call-template name="NumberedElementName"/>
 			</xsl:variable>
@@ -1177,6 +1139,11 @@
 				<DisplayName>
 					<xsl:value-of select="@Name"/>
 				</DisplayName>
+				<xsl:if test="*[fn:local-name()='Description']!=''">
+					<Description>
+						<xsl:value-of select="*[fn:local-name()='Description']"/>
+					</Description>
+				</xsl:if>
 				<References>
 					<xsl:comment>
 						<xsl:value-of select="concat('Parent: ', $ParentClearName)"/>
@@ -1197,9 +1164,7 @@
 								</xsl:call-template>
 							</xsl:when>
 							<xsl:when test="contains($AttrLibName, '@')">
-								<Reference ReferenceType="HasTypeDefinition">
-									<xsl:value-of select="$AttrAliasName"/>
-								</Reference>
+								<xsl:value-of select="$AttrAliasName"/>
 							</xsl:when>
 							<xsl:otherwise>
 								<xsl:text>AMLBaseVariableType</xsl:text>
@@ -1296,11 +1261,16 @@
 			<DisplayName>
 				<xsl:value-of select="'RefSematic'"/>
 			</DisplayName>
+			<xsl:if test="*[fn:local-name()='Description']!=''">
+				<Description>
+					<xsl:value-of select="*[fn:local-name()='Description']"/>
+				</Description>
+			</xsl:if>
 			<References>
 				<xsl:comment>
 					<xsl:value-of select="concat('Parent: ', $ParentClearName)"/>
 				</xsl:comment>
-				<Reference ReferenceType="HasReferenceType" IsForward="false">
+				<Reference ReferenceType="HasAMLReferenceType" IsForward="false">
 					<xsl:call-template name="FormatRef">
 						<xsl:with-param name="ObjectId" select="$ObjectId"/>
 						<xsl:with-param name="Namespace" select="$NsId"/>
@@ -1385,7 +1355,7 @@
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to Constraint property -->
-		<xsl:for-each select="*/*[fn:local-name()='RequiredValue' or fn:local-name()='RequiredMinValue' or fn:local-name()='RequiredMaxValue']">
+		<xsl:for-each select="*/*[fn:local-name()='AMLRequiredValue' or fn:local-name()='AMLRequiredMinValue' or fn:local-name()='AMLRequiredMaxValue']">
 			<xsl:variable name="AttributeName">
 				<xsl:call-template name="NumberedElementName"/>
 			</xsl:variable>
@@ -1402,8 +1372,7 @@
 				<xsl:call-template name="NumberedElementName"/>
 			</xsl:variable>
 			<xsl:comment>Constraint</xsl:comment>
-			<xsl:comment>TODO: how to model RequiredValues for the NominalScaleType?</xsl:comment>
-			<Reference ReferenceType="HasConstraint">
+			<Reference ReferenceType="HasAMLConstraint">
 				<xsl:call-template name="FormatRef">
 					<xsl:with-param name="ObjectId" select="concat($ObjectId, '_', $AttributeName)"/>
 					<xsl:with-param name="Namespace" select="$Namespace"/>
@@ -1429,7 +1398,7 @@
 				<xsl:text>RefSemantic: </xsl:text>
 				<xsl:value-of select="@CorrespondingAttributePath"/>
 			</xsl:comment>
-			<Reference ReferenceType="HasReferenceType">
+			<Reference ReferenceType="HasAMLReferenceType">
 				<xsl:call-template name="FormatRef">
 					<xsl:with-param name="ObjectId" select="concat($ObjectId, '_RefSemantic')"/>
 					<xsl:with-param name="Namespace" select="$Namespace"/>
@@ -1485,8 +1454,7 @@
 							<xsl:text>Mirror: </xsl:text>
 							<xsl:value-of select="@RefBaseSystemUnitPath"/>
 						</xsl:comment>
-						<xsl:comment>Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.</xsl:comment>
-						<Reference ReferenceType="IsMirroredAs">
+						<Reference ReferenceType="IsAMLMirroredAs">
 							<xsl:call-template name="FormatRef">
 								<xsl:with-param name="ObjectId" select="$Mirror"/>
 								<xsl:with-param name="Namespace" select="$Namespace"/>
@@ -1615,6 +1583,11 @@
 				<DisplayName>
 					<xsl:value-of select="$Name"/>
 				</DisplayName>
+				<xsl:if test="*/*[fn:local-name()='Description']">
+					<Description>
+						<xsl:value-of select="*/*[fn:local-name()='Description']"/>
+					</Description>
+				</xsl:if>
 				<References>
 					<Reference ReferenceType="HasTypeDefinition">i=61</Reference>
 					<xsl:for-each select="*[local-name()=$ChildName]">
@@ -1711,6 +1684,11 @@
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
+			<xsl:if test="*[fn:local-name()='Description']">
+				<Description>
+					<xsl:value-of select="*[fn:local-name()='Description']"/>
+				</Description>
+			</xsl:if>
 			<References>
 				<!--Reference ReferenceType="HasComponent" IsForward="false"></Reference-->
 				<!-- Create RefBaseClassPath -->
@@ -1823,10 +1801,10 @@
 			<DisplayName>
 				<xsl:value-of select="@Name"/>
 			</DisplayName>
-			<xsl:if test="Description">
-				<Documentation>
+			<xsl:if test="*[fn:local-name()='Description']">
+				<Description>
 					<xsl:value-of select="*[fn:local-name()='Description']"/>
-				</Documentation>
+				</Description>
 			</xsl:if>
 			<References>
 				<xsl:call-template name="References">

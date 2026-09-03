@@ -1,8 +1,8 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <CAEXFile xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.dke.de/CAEX" SchemaVersion="3.0" FileName="8_AMLAttributeLibrary.aml" xsi:schemaLocation="http://www.dke.de/CAEX CAEX_ClassModel_V.3.0.xsd">
   <AdditionalInformation AutomationMLVersion="2.0" />
   <SuperiorStandardVersion>AutomationML 2.1</SuperiorStandardVersion>
-  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.1" LastWritingDateTime="2026-03-05T09:56:29.0910183+01:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.1" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
+  <SourceDocumentInformation OriginName="AutomationML Editor" OriginID="916578CA-FE0D-474E-A4FC-9E1719892369" OriginVersion="6.4.3.5" LastWritingDateTime="2026-07-09T10:52:44.5836714+02:00" OriginVendor="AutomationML e.V." OriginVendorURL="www.AutomationML.org" OriginRelease="6.4.3.5" OriginProjectTitle="unspecified" OriginProjectID="unspecified" />
   <InstanceHierarchy Name="ManufacturingSystem">
     <InternalElement Name="firstScrewdriver" ID="788eb291-f103-4fdc-aba0-4893b599f556">
       <Attribute Name="New Attribute" RefAttributeType="AutomationMLTestAttributeTypeLib/AutomationMLTestAttribute" />
@@ -11,7 +11,11 @@
   <AttributeTypeLib Name="AutomationMLTestAttributeTypeLib">
     <Description>Automation Markup Language test attribute type library</Description>
     <Version>1.1.0</Version>
-    <AttributeType Name="AutomationMLTestAttribute" />
+    <AttributeType Name="AutomationMLTestAttribute">
+      <AttributeType Name="OrganizedAttributeType" ID="5164931f-b43f-4050-a34e-3add8b03bd01" RefAttributeType="">
+        <Version>1.0.0</Version>
+      </AttributeType>
+    </AttributeType>
     <AttributeType Name="AttributeType2" ID="5396f3d9-fcb8-4c4e-9d4c-803aa9ca6bda" AttributeDataType="xs:string" RefAttributeType="AutomationMLTestAttributeTypeLib/AutomationMLTestAttribute">
       <Version>1.0.0</Version>
     </AttributeType>

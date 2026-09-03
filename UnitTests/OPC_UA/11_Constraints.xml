@@ -7,30 +7,11 @@
 			UANodeSet
 			=============
 			TODOs:
-				- how to handle mirror objects?
-				- Do we need aliases?? 
-					- to be clarified with UA -> Miriam
-				    - only used ones or standard template set of aliases
-					- purpose? drawback				
-				- InternalLinks are not translated, yet.
 				- Missing translation for UtcTime/DateTime
 				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
-				- no HasTypeDefinition available if there was no SystemUnitClass (see "BPR_005E_ExternalDataReference_Examples_Jul2016.aml")
-				- use correct HasTypeDefinition
-				- are spaces allowed in NodeId string as part if the ID? 
-				    - to be clarified with AML if spaces are allowed (Part 1) -> Miriam
-					- Example in AR APC all Classes AutomationProjectConfigurationRoleClassLib/DeviceItem Attributes
-					- necessary for nodeID (BrowseName keeps space), thus deleted
 				- are '{GUID}' and 'GUID' equal? -> will be handled as equivalent
-				- InterfaceClasses have no specific UA "base structure", but are also of type ObjectType -> how to distinguish between SUC and IC
-				- AdditionalInformation is handled as blackbox (no ID)
-				- AdditionalInformation AutomationMLVersion
 				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
-				- XSL + script for generation of MD5 hash				
-				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
-				- support AttributeTypeLib (CAEX V3.0)
 				- fix model version for RequiredModels -> is this correct?
-				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
 		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
@@ -49,24 +30,24 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/11_Constraints.aml" Version="0.0.0" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/11_Constraints.aml" Version="0.0.0" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-07-08T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-07-08T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-07-08T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InstanceHierarchy" Version="1.0.0" PublicationDate="2026-07-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ConstraintAutomationMLInterfaceClassLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLBaseAttributeTypeLib" Version="experimental" PublicationDate="2026-07-09T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -110,19 +91,19 @@
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
-      <Alias Alias="AMLConstraintVariableType">ns=2;i=2000</Alias>
-      <Alias Alias="NominalScaledConstraint">ns=2;i=2001</Alias>
-      <Alias Alias="OrdinalScaledConstraint">ns=2;i=2002</Alias>
-      <Alias Alias="UnknownConstraint">ns=2;i=2003</Alias>
-      <Alias Alias="RequiredValue">ns=2;ns=2;i=2004</Alias>
-      <Alias Alias="RequiredMinValue">ns=2;ns=2;i=2005</Alias>
-      <Alias Alias="RequiredMaxValue">ns=2;ns=2;i=2006</Alias>
+      <Alias Alias="AMLConstraintType">ns=2;i=2000</Alias>
+      <Alias Alias="AMLNominalScaledConstraintType">ns=2;i=2001</Alias>
+      <Alias Alias="AMLOrdinalScaledConstraintType">ns=2;i=2002</Alias>
+      <Alias Alias="AMLUnknownConstraintType">ns=2;i=2003</Alias>
+      <Alias Alias="AMLRequiredValue">ns=2;ns=2;i=2004</Alias>
+      <Alias Alias="AMLRequiredMinValue">ns=2;ns=2;i=2005</Alias>
+      <Alias Alias="AMLRequiredMaxValue">ns=2;ns=2;i=2006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
-      <Alias Alias="IsMirroredAs">ns=2;i=4004</Alias>
-      <Alias Alias="HasConstraint">ns=2;i=4005</Alias>
+      <Alias Alias="HasAMLReferenceType">ns=2;i=4003</Alias>
+      <Alias Alias="IsAMLMirroredAs">ns=2;i=4004</Alias>
+      <Alias Alias="HasAMLConstraint">ns=2;i=4005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
@@ -134,21 +115,9 @@
    <!--
 			CAEXFile
 			===============
-			TODOs:
-				- is this the correct translation (AMLFile = Object)? -> currently yes
-				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements? - -> variable in xslt to include or not, flag in xslt if things were included
-				- How to model ExternalReferences?
-					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
-					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
-					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
-					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
-					- Preferences: 2-1-3 or 1-2-3/2-1-3 
-					- report in AML TAC
-				- How to handle DefaultValues of attributes?
 			-->
    <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>11_Constraints.aml</DisplayName>
-      <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
@@ -196,9 +165,6 @@
    <!--
 			AdditionalInformation
 			===============
-			TODOs:
-				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
-			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
    <UAVariable NodeId="ns=1;s=CAEXFile_SourceDocumentInformation" BrowseName="1:SourceDocumentInformation" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
       <DisplayName>SourceDocumentInformation</DisplayName>
@@ -221,15 +187,12 @@
 			InstanceHierarchies
 			===============
 			TODOs:
-				- do we need a InstanceHierarchies node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
-			    - Complete References
-				- Do we need BackwardReferences here?
 				- Test child of AutomationMLBaseRole/UABaseObjectType
-				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			-->
    <!--Collection: CAEXFile.InstanceHierarchies-->
    <UAObject NodeId="ns=1;s=InstanceHierarchies" BrowseName="1:InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>InstanceHierarchies</DisplayName>
+      <Description>Extended Standard Automation Markup Language Interface Class Library with Part 3 interface attributes. Experimental Standard Automation Markup Language Attribute Type Library with Part 3 Attributes</Description>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--InstanceHierarchy: InstanceHierarchy-->
@@ -239,7 +202,6 @@
    <!--InstanceHierarchy: InstanceHierarchy-->
    <UAObject NodeId="ns=4;s=InstanceHierarchy_InstanceHierarchy" BrowseName="4:InstanceHierarchy">
       <DisplayName>InstanceHierarchy</DisplayName>
-      <Documentation/>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--Backward reference to global list of InstanceHierarchies-->
@@ -285,11 +247,9 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=4;s={71b4f5b7-b0fd-4e33-bd13-8612e8dd395f}</Reference>
          <Reference ReferenceType="HasTypeDefinition">ns=6;s=Direction</Reference>
          <!--Constraint-->
-         <!--TODO: how to model RequiredValues for the NominalScaleType?-->
-         <Reference ReferenceType="HasConstraint">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint</Reference>
+         <Reference ReferenceType="HasAMLConstraint">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint</Reference>
          <!--Constraint-->
-         <!--TODO: how to model RequiredValues for the NominalScaleType?-->
-         <Reference ReferenceType="HasConstraint">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1</Reference>
+         <Reference ReferenceType="HasAMLConstraint">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1</Reference>
       </References>
       <!--No value-->
    </UAVariable>
@@ -298,12 +258,6 @@
       <DisplayName>AllowedValues</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
-         <!--RequiredValue: In-->
-         <Reference ReferenceType="HasComponnent">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue</Reference>
-         <!--RequiredValue: Out-->
-         <Reference ReferenceType="HasComponnent">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_1</Reference>
-         <!--RequiredValue: InOut-->
-         <Reference ReferenceType="HasComponnent">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_2</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -315,44 +269,11 @@
             </Constraint>]]></uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue" BrowseName="4:RequiredValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
-      <DisplayName>RequiredValue</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>In</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_1" BrowseName="4:RequiredValue_1" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
-      <DisplayName>RequiredValue_1</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>Out</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_RequiredValue_2" BrowseName="4:RequiredValue_2" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
-      <DisplayName>RequiredValue_2</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>InOut</uax:String>
-      </Value>
-   </UAVariable>
    <!--Constraint (OrdinalScaledConstraintType)-->
    <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1" BrowseName="4:Scale" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
       <DisplayName>Scale</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
-         <!--RequiredMaxValue: 3-->
-         <Reference ReferenceType="HasComponnent">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMaxValue</Reference>
-         <!--RequiredValue: 1-->
-         <Reference ReferenceType="HasComponnent">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredValue</Reference>
-         <!--RequiredMinValue: 2-->
-         <Reference ReferenceType="HasComponnent">ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMinValue</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="Scale">
@@ -364,42 +285,14 @@
             </Constraint>]]></uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMaxValue" BrowseName="4:RequiredMaxValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
-      <DisplayName>RequiredMaxValue</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredMaxValue</Reference>
-      </References>
-      <Value>
-         <uax:String>3</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredValue" BrowseName="4:RequiredValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
-      <DisplayName>RequiredValue</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>1</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction_Constraint_1_RequiredMinValue" BrowseName="4:RequiredMinValue" ParentNodeId="ns=4;s=71b4f5b7-b0fd-4e33-bd13-8612e8dd395f_Direction" DataType="String">
-      <DisplayName>RequiredMinValue</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredMinValue</Reference>
-      </References>
-      <Value>
-         <uax:String>2</uax:String>
-      </Value>
-   </UAVariable>
    <!--
 			InterfaceClassLibs
 			===============
-			TODOs:
-				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
    <!--Collection: CAEXFile.InterfaceClassLibs-->
    <UAObject NodeId="ns=1;s=InterfaceClassLibs" BrowseName="1:InterfaceClassLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>InterfaceClassLibs</DisplayName>
+      <Description>Extended Standard Automation Markup Language Interface Class Library with Part 3 interface attributes. Experimental Standard Automation Markup Language Attribute Type Library with Part 3 Attributes</Description>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--InterfaceClassLib: ConstraintAutomationMLInterfaceClassLib-->
@@ -496,8 +389,7 @@
          <Reference ReferenceType="HasComponent" IsForward="false">ns=5;s=Port</Reference>
          <Reference ReferenceType="HasTypeDefinition">ns=6;s=Direction</Reference>
          <!--Constraint-->
-         <!--TODO: how to model RequiredValues for the NominalScaleType?-->
-         <Reference ReferenceType="HasConstraint">ns=5;s=Port_Direction_Constraint</Reference>
+         <Reference ReferenceType="HasAMLConstraint">ns=5;s=Port_Direction_Constraint</Reference>
       </References>
       <!--No value-->
    </UAVariable>
@@ -506,12 +398,6 @@
       <DisplayName>AllowedValues</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
-         <!--RequiredValue: In-->
-         <Reference ReferenceType="HasComponnent">ns=5;s=Port_Direction_Constraint_RequiredValue</Reference>
-         <!--RequiredValue: Out-->
-         <Reference ReferenceType="HasComponnent">ns=5;s=Port_Direction_Constraint_RequiredValue_1</Reference>
-         <!--RequiredValue: InOut-->
-         <Reference ReferenceType="HasComponnent">ns=5;s=Port_Direction_Constraint_RequiredValue_2</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -523,58 +409,24 @@
             </Constraint>]]></uax:String>
       </Value>
    </UAVariable>
-   <UAVariable NodeId="ns=5;s=Port_Direction_Constraint_RequiredValue" BrowseName="5:RequiredValue" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
-      <DisplayName>RequiredValue</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>In</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=5;s=Port_Direction_Constraint_RequiredValue_1" BrowseName="5:RequiredValue_1" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
-      <DisplayName>RequiredValue_1</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>Out</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=5;s=Port_Direction_Constraint_RequiredValue_2" BrowseName="5:RequiredValue_2" ParentNodeId="ns=5;s=Port_Direction" DataType="String">
-      <DisplayName>RequiredValue_2</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>InOut</uax:String>
-      </Value>
-   </UAVariable>
    <!--
 			RoleClassLibs
 			===============
-			TODOs:
-				- ...
 			-->
    <!--Collection: CAEXFile.RoleClassLibs-->
    <!--
 			SystemUnitClassLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
 			-->
    <!--Collection: CAEXFile.SystemUnitClassLibs-->
    <!--
 			AttributeTypeLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
-				- is this a proper translation?
-				- how are the AttributeTypes used? - Instances
 			-->
    <!--Collection: CAEXFile.AttributeTypeLibs-->
    <UAObject NodeId="ns=1;s=AttributeTypeLibs" BrowseName="1:AttributeTypeLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>AttributeTypeLibs</DisplayName>
+      <Description>Extended Standard Automation Markup Language Interface Class Library with Part 3 interface attributes. Experimental Standard Automation Markup Language Attribute Type Library with Part 3 Attributes</Description>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--AttributeTypeLib: AutomationMLBaseAttributeTypeLib-->
@@ -625,8 +477,7 @@
          <!--Parent class-->
          <Reference ReferenceType="HasSubtype" IsForward="false">AMLBaseVariableType</Reference>
          <!--Constraint-->
-         <!--TODO: how to model RequiredValues for the NominalScaleType?-->
-         <Reference ReferenceType="HasConstraint">ns=6;s=Direction_Constraint</Reference>
+         <Reference ReferenceType="HasAMLConstraint">ns=6;s=Direction_Constraint</Reference>
       </References>
    </UAVariableType>
    <!--Constraint (NominalScaledConstraintType)-->
@@ -634,12 +485,6 @@
       <DisplayName>AllowedValues</DisplayName>
       <References>
          <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
-         <!--RequiredValue: In-->
-         <Reference ReferenceType="HasComponnent">ns=6;s=Direction_Constraint_RequiredValue</Reference>
-         <!--RequiredValue: Out-->
-         <Reference ReferenceType="HasComponnent">ns=6;s=Direction_Constraint_RequiredValue_1</Reference>
-         <!--RequiredValue: InOut-->
-         <Reference ReferenceType="HasComponnent">ns=6;s=Direction_Constraint_RequiredValue_2</Reference>
       </References>
       <Value>
          <uax:String><![CDATA[<Constraint Name="AllowedValues">
@@ -649,33 +494,6 @@
                   <RequiredValue>InOut</RequiredValue>
                </NominalScaledType>
             </Constraint>]]></uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=6;s=Direction_Constraint_RequiredValue" BrowseName="6:RequiredValue" ParentNodeId="ns=6;s=Direction" DataType="String">
-      <DisplayName>RequiredValue</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>In</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=6;s=Direction_Constraint_RequiredValue_1" BrowseName="6:RequiredValue_1" ParentNodeId="ns=6;s=Direction" DataType="String">
-      <DisplayName>RequiredValue_1</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>Out</uax:String>
-      </Value>
-   </UAVariable>
-   <UAVariable NodeId="ns=6;s=Direction_Constraint_RequiredValue_2" BrowseName="6:RequiredValue_2" ParentNodeId="ns=6;s=Direction" DataType="String">
-      <DisplayName>RequiredValue_2</DisplayName>
-      <References>
-         <Reference ReferenceType="HasTypeDefinition">RequiredValue</Reference>
-      </References>
-      <Value>
-         <uax:String>InOut</uax:String>
       </Value>
    </UAVariable>
 </UANodeSet>

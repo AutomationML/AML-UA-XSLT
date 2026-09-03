@@ -7,30 +7,11 @@
 			UANodeSet
 			=============
 			TODOs:
-				- how to handle mirror objects?
-				- Do we need aliases?? 
-					- to be clarified with UA -> Miriam
-				    - only used ones or standard template set of aliases
-					- purpose? drawback				
-				- InternalLinks are not translated, yet.
 				- Missing translation for UtcTime/DateTime
 				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
-				- no HasTypeDefinition available if there was no SystemUnitClass (see "BPR_005E_ExternalDataReference_Examples_Jul2016.aml")
-				- use correct HasTypeDefinition
-				- are spaces allowed in NodeId string as part if the ID? 
-				    - to be clarified with AML if spaces are allowed (Part 1) -> Miriam
-					- Example in AR APC all Classes AutomationProjectConfigurationRoleClassLib/DeviceItem Attributes
-					- necessary for nodeID (BrowseName keeps space), thus deleted
 				- are '{GUID}' and 'GUID' equal? -> will be handled as equivalent
-				- InterfaceClasses have no specific UA "base structure", but are also of type ObjectType -> how to distinguish between SUC and IC
-				- AdditionalInformation is handled as blackbox (no ID)
-				- AdditionalInformation AutomationMLVersion
 				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
-				- XSL + script for generation of MD5 hash				
-				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
-				- support AttributeTypeLib (CAEX V3.0)
 				- fix model version for RequiredModels -> is this correct?
-				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
 		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
@@ -49,19 +30,19 @@
       <Uri>http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib" Version="1.1.0" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib" Version="1.1.0" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/8_AMLAttributeLibrary.aml" Version="0.0.0" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/8_AMLAttributeLibrary.aml" Version="0.0.0" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-07-08T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib" Version="1.1.0" PublicationDate="2026-07-08T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/ManufacturingSystem" Version="" PublicationDate="2026-07-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AutomationMLTestAttributeTypeLib" Version="1.1.0" PublicationDate="2026-07-09T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -105,19 +86,19 @@
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
-      <Alias Alias="AMLConstraintVariableType">ns=2;i=2000</Alias>
-      <Alias Alias="NominalScaledConstraint">ns=2;i=2001</Alias>
-      <Alias Alias="OrdinalScaledConstraint">ns=2;i=2002</Alias>
-      <Alias Alias="UnknownConstraint">ns=2;i=2003</Alias>
-      <Alias Alias="RequiredValue">ns=2;ns=2;i=2004</Alias>
-      <Alias Alias="RequiredMinValue">ns=2;ns=2;i=2005</Alias>
-      <Alias Alias="RequiredMaxValue">ns=2;ns=2;i=2006</Alias>
+      <Alias Alias="AMLConstraintType">ns=2;i=2000</Alias>
+      <Alias Alias="AMLNominalScaledConstraintType">ns=2;i=2001</Alias>
+      <Alias Alias="AMLOrdinalScaledConstraintType">ns=2;i=2002</Alias>
+      <Alias Alias="AMLUnknownConstraintType">ns=2;i=2003</Alias>
+      <Alias Alias="AMLRequiredValue">ns=2;ns=2;i=2004</Alias>
+      <Alias Alias="AMLRequiredMinValue">ns=2;ns=2;i=2005</Alias>
+      <Alias Alias="AMLRequiredMaxValue">ns=2;ns=2;i=2006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
-      <Alias Alias="IsMirroredAs">ns=2;i=4004</Alias>
-      <Alias Alias="HasConstraint">ns=2;i=4005</Alias>
+      <Alias Alias="HasAMLReferenceType">ns=2;i=4003</Alias>
+      <Alias Alias="IsAMLMirroredAs">ns=2;i=4004</Alias>
+      <Alias Alias="HasAMLConstraint">ns=2;i=4005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
@@ -130,21 +111,9 @@
    <!--
 			CAEXFile
 			===============
-			TODOs:
-				- is this the correct translation (AMLFile = Object)? -> currently yes
-				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements? - -> variable in xslt to include or not, flag in xslt if things were included
-				- How to model ExternalReferences?
-					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
-					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
-					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
-					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
-					- Preferences: 2-1-3 or 1-2-3/2-1-3 
-					- report in AML TAC
-				- How to handle DefaultValues of attributes?
 			-->
    <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>8_AMLAttributeLibrary.aml</DisplayName>
-      <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
@@ -194,9 +163,6 @@
    <!--
 			AdditionalInformation
 			===============
-			TODOs:
-				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
-			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
    <!--Attribute: CAEXFile.CAEXFile_AutomationMLVersion-->
    <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
@@ -216,11 +182,11 @@
       <Value>
          <uax:String><![CDATA[<SourceDocumentInformation OriginName="AutomationML Editor"
                                        OriginID="916578CA-FE0D-474E-A4FC-9E1719892369"
-                                       OriginVersion="6.4.3.1"
-                                       LastWritingDateTime="2026-03-05T09:56:29.0910183+01:00"
+                                       OriginVersion="6.4.3.5"
+                                       LastWritingDateTime="2026-07-09T10:52:44.5836714+02:00"
                                        OriginVendor="AutomationML e.V."
                                        OriginVendorURL="www.AutomationML.org"
-                                       OriginRelease="6.4.3.1"
+                                       OriginRelease="6.4.3.5"
                                        OriginProjectTitle="unspecified"
                                        OriginProjectID="unspecified"/>]]></uax:String>
       </Value>
@@ -229,15 +195,12 @@
 			InstanceHierarchies
 			===============
 			TODOs:
-				- do we need a InstanceHierarchies node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
-			    - Complete References
-				- Do we need BackwardReferences here?
 				- Test child of AutomationMLBaseRole/UABaseObjectType
-				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			-->
    <!--Collection: CAEXFile.InstanceHierarchies-->
    <UAObject NodeId="ns=1;s=InstanceHierarchies" BrowseName="1:InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>InstanceHierarchies</DisplayName>
+      <Description>Automation Markup Language test attribute type library</Description>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--InstanceHierarchy: ManufacturingSystem-->
@@ -247,7 +210,6 @@
    <!--InstanceHierarchy: ManufacturingSystem-->
    <UAObject NodeId="ns=5;s=InstanceHierarchy_ManufacturingSystem" BrowseName="5:ManufacturingSystem">
       <DisplayName>ManufacturingSystem</DisplayName>
-      <Documentation/>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--Backward reference to global list of InstanceHierarchies-->
@@ -289,35 +251,26 @@
    <!--
 			InterfaceClassLibs
 			===============
-			TODOs:
-				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
    <!--Collection: CAEXFile.InterfaceClassLibs-->
    <!--
 			RoleClassLibs
 			===============
-			TODOs:
-				- ...
 			-->
    <!--Collection: CAEXFile.RoleClassLibs-->
    <!--
 			SystemUnitClassLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
 			-->
    <!--Collection: CAEXFile.SystemUnitClassLibs-->
    <!--
 			AttributeTypeLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
-				- is this a proper translation?
-				- how are the AttributeTypes used? - Instances
 			-->
    <!--Collection: CAEXFile.AttributeTypeLibs-->
    <UAObject NodeId="ns=1;s=AttributeTypeLibs" BrowseName="1:AttributeTypeLibs" ParentNodeId="ns=1;s=CAEXFile">
       <DisplayName>AttributeTypeLibs</DisplayName>
+      <Description>Automation Markup Language test attribute type library</Description>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--AttributeTypeLib: AutomationMLTestAttributeTypeLib-->
@@ -370,6 +323,36 @@
          <Reference ReferenceType="HasSubtype" IsForward="false">AMLBaseVariableType</Reference>
       </References>
    </UAVariableType>
+   <!--AttributeType: OrganizedAttributeType-->
+   <UAVariableType NodeId="ns=6;s=OrganizedAttributeType" BrowseName="OrganizedAttributeType">
+      <DisplayName>OrganizedAttributeType</DisplayName>
+      <!--Library: AutomationMLTestAttributeTypeLib-->
+      <References><!--Hierarchical parent in AutomationML library-->
+         <Reference ReferenceType="Organizes" IsForward="false">ns=6;s=AutomationMLTestAttribute</Reference>
+         <!--Parent class-->
+         <Reference ReferenceType="HasSubtype" IsForward="false">AMLBaseVariableType</Reference>
+         <!--AML-ID-->
+         <Reference ReferenceType="HasProperty">ns=6;s=5164931f-b43f-4050-a34e-3add8b03bd01_AML_ID</Reference>
+      </References>
+   </UAVariableType>
+   <UAVariable NodeId="ns=6;s=5164931f-b43f-4050-a34e-3add8b03bd01_AML_ID" BrowseName="6:AML_ID" ParentNodeId="ns=6;s={5164931f-b43f-4050-a34e-3add8b03bd01}" DataType="String">
+      <DisplayName>AML_ID</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>{5164931f-b43f-4050-a34e-3add8b03bd01}</uax:String>
+      </Value>
+   </UAVariable>
+   <UAVariable NodeId="ns=6;s=5164931f-b43f-4050-a34e-3add8b03bd01_Version" BrowseName="6:Version" ParentNodeId="ns=6;s={5164931f-b43f-4050-a34e-3add8b03bd01}" DataType="String">
+      <DisplayName>Version</DisplayName>
+      <References>
+         <Reference ReferenceType="HasTypeDefinition">AMLBaseVariableType</Reference>
+      </References>
+      <Value>
+         <uax:String>1.0.0</uax:String>
+      </Value>
+   </UAVariable>
    <!--AttributeType: AttributeType2-->
    <UAVariableType NodeId="ns=6;s=AttributeType2" BrowseName="AttributeType2">
       <DisplayName>AttributeType2</DisplayName>

@@ -206,6 +206,22 @@
 			<Reference ReferenceType="HasModellingRule">i=80</Reference>
 		</References>
 	</UAVariable>
+	<UAVariable NodeId="ns=1;i=1016" BrowseName="1:DefaultValue" ParentNodeId="ns=1;i=3001" DataType="String">
+		<DisplayName>DefaultValue</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=3001</Reference>
+		</References>
+	</UAVariable>
+	<UAVariable NodeId="ns=1;i=1017" BrowseName="1:Unit" ParentNodeId="ns=1;i=3001" DataType="String">
+		<DisplayName>Unit</DisplayName>
+		<References>
+			<Reference ReferenceType="HasTypeDefinition">i=68</Reference>
+			<Reference ReferenceType="HasModellingRule">i=80</Reference>
+			<Reference ReferenceType="HasProperty" IsForward="false">ns=1;i=3001</Reference>
+		</References>
+	</UAVariable>
 	<UAObjectType NodeId="ns=1;i=1006" BrowseName="1:CAEXBasicObjectType">
 		<DisplayName>CAEXBasicObjectType</DisplayName>
 		<References>
@@ -254,6 +270,8 @@
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 			<Reference ReferenceType="HasProperty">ns=1;i=1010</Reference>
 			<Reference ReferenceType="HasProperty">ns=1;i=1011</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=1016</Reference>
+			<Reference ReferenceType="HasProperty">ns=1;i=1017</Reference>
 		</References>
 	</UAVariableType>
 	<UAVariableType NodeId="ns=1;i=3002" BrowseName="1:AMLOpcUaConnectionType">
@@ -271,7 +289,7 @@
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=32</Reference>
 		</References>
-		<InverseName>IsSupportedRole</InverseName>
+		<InverseName>IsAMLSupportedRole</InverseName>
 	</UAReferenceType>
 	<UAReferenceType NodeId="ns=1;i=4002" BrowseName="1:HasAMLInternalLink" Symmetric="true">
 		<DisplayName>HasAMLInternalLink</DisplayName>
@@ -280,67 +298,67 @@
 		</References>
 		<InverseName>HasAMLInternalLink</InverseName>
 	</UAReferenceType>
-	<UAReferenceType NodeId="ns=1;i=4003" BrowseName="1:HasReferenceType">
-		<DisplayName>HasReferenceType</DisplayName>
+	<UAReferenceType NodeId="ns=1;i=4003" BrowseName="1:HasAMLReferenceType">
+		<DisplayName>HasAMLReferenceType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=47</Reference>
 		</References>
-		<InverseName>IsReferenceType</InverseName>
+		<InverseName>IsAMLReferenceType</InverseName>
 	</UAReferenceType>
-	<UAReferenceType NodeId="ns=1;i=4004" BrowseName="1:IsMirroredAs">
-		<DisplayName>IsMirroredAs</DisplayName>
+	<UAReferenceType NodeId="ns=1;i=4004" BrowseName="1:IsAMLMirroredAs">
+		<DisplayName>IsAMLMirroredAs</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=35</Reference>
 		</References>
-		<InverseName>IsMirroredOf</InverseName>
+		<InverseName>IsAMLMirrorOf</InverseName>
 	</UAReferenceType>
 	
-	<UAReferenceType NodeId="ns=1;i=4005" BrowseName="1:HasConstraint">
-		<DisplayName>HasConstraint</DisplayName>
+	<UAReferenceType NodeId="ns=1;i=4005" BrowseName="1:HasAMLConstraint">
+		<DisplayName>HasAMLConstraint</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=32</Reference>
 		</References>
-		<InverseName>HasConstraint</InverseName>
+		<InverseName>IsAMLConstraintOf</InverseName>
 	</UAReferenceType>
 
-	<UAVariableType NodeId="ns=1;i=2000" BrowseName="1:AMLConstraintVariableType">
+	<UAVariableType NodeId="ns=1;i=2000" BrowseName="1:AMLConstraintType">
 		<DisplayName>AMLConstraintVariableType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2001" BrowseName="1:NominalScaledConstraint">
-		<DisplayName>NominalScaledConstraint</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2001" BrowseName="1:AMLNominalScaledConstraintType">
+		<DisplayName>AMLNominalScaledConstraintType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2002" BrowseName="1:OrdinalScaledConstraint">
-		<DisplayName>OrdinalScaledConstraint</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2002" BrowseName="1:AMLOrdinalScaledConstraintType">
+		<DisplayName>AMLOrdinalScaledConstraintType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2003" BrowseName="1:UnknownConstraint">
-		<DisplayName>UnknownConstraint</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2003" BrowseName="1:AMLUnknownConstraintType">
+		<DisplayName>AMLUnknownConstraint</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2004" BrowseName="1:RequiredValue">
-		<DisplayName>RequiredValue</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2004" BrowseName="1:AMLRequiredValue">
+		<DisplayName>AMLRequiredValue</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2005" BrowseName="1:RequiredMinValue">
-		<DisplayName>RequiredMinValue</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2005" BrowseName="1:AMLRequiredMinValue">
+		<DisplayName>AMLRequiredMinValue</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2006" BrowseName="1:RequiredMaxValue">
-		<DisplayName>RequiredMaxValue</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2006" BrowseName="1:AMLRequiredMaxValue">
+		<DisplayName>AMLRequiredMaxValue</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>

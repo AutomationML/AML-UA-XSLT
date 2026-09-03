@@ -7,30 +7,11 @@
 			UANodeSet
 			=============
 			TODOs:
-				- how to handle mirror objects?
-				- Do we need aliases?? 
-					- to be clarified with UA -> Miriam
-				    - only used ones or standard template set of aliases
-					- purpose? drawback				
-				- InternalLinks are not translated, yet.
 				- Missing translation for UtcTime/DateTime
 				- How to use Table 14 in DataTypeMapping v5.0? -> Add mapping to translation table
-				- no HasTypeDefinition available if there was no SystemUnitClass (see "BPR_005E_ExternalDataReference_Examples_Jul2016.aml")
-				- use correct HasTypeDefinition
-				- are spaces allowed in NodeId string as part if the ID? 
-				    - to be clarified with AML if spaces are allowed (Part 1) -> Miriam
-					- Example in AR APC all Classes AutomationProjectConfigurationRoleClassLib/DeviceItem Attributes
-					- necessary for nodeID (BrowseName keeps space), thus deleted
 				- are '{GUID}' and 'GUID' equal? -> will be handled as equivalent
-				- InterfaceClasses have no specific UA "base structure", but are also of type ObjectType -> how to distinguish between SUC and IC
-				- AdditionalInformation is handled as blackbox (no ID)
-				- AdditionalInformation AutomationMLVersion
 				- from UA to AML: what if we have no "file name" in UA XML (Nodeset has no name) (which element to use as filename)
-				- XSL + script for generation of MD5 hash				
-				- How to understand the hierarchical elements (incl. HasTypeDefinition)?
-				- support AttributeTypeLib (CAEX V3.0)
 				- fix model version for RequiredModels -> is this correct?
-				- remove AutomationMLBaseRole, AutomationMLBaseInterface from Opc.Ua.AMLBaseTypes.NodeSet2.xml
 			--><!--!!! Warning !!! 
 		===============
 		Auto-generated namespaces and aliases. Check if equal to namespace of translated library file. 
@@ -49,19 +30,19 @@
       <Uri>http://opcfoundation.org/UA/AML/Resources</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/13_MirrorObject.aml" Version="0.0.0" PublicationDate="2026-07-08T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/13_MirrorObject.aml" Version="0.0.0" PublicationDate="2026-07-09T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-07-08T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-07-08T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/AssemblySystem" Version="" PublicationDate="2026-07-09T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/Resources" Version="1.0" PublicationDate="2026-07-09T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -105,19 +86,19 @@
       <Alias Alias="Duration">i=290</Alias>
       <Alias Alias="CAEXObjectType">ns=2;i=1001</Alias>
       <Alias Alias="CAEXFileType">ns=2;i=1005</Alias>
-      <Alias Alias="AMLConstraintVariableType">ns=2;i=2000</Alias>
-      <Alias Alias="NominalScaledConstraint">ns=2;i=2001</Alias>
-      <Alias Alias="OrdinalScaledConstraint">ns=2;i=2002</Alias>
-      <Alias Alias="UnknownConstraint">ns=2;i=2003</Alias>
-      <Alias Alias="RequiredValue">ns=2;ns=2;i=2004</Alias>
-      <Alias Alias="RequiredMinValue">ns=2;ns=2;i=2005</Alias>
-      <Alias Alias="RequiredMaxValue">ns=2;ns=2;i=2006</Alias>
+      <Alias Alias="AMLConstraintType">ns=2;i=2000</Alias>
+      <Alias Alias="AMLNominalScaledConstraintType">ns=2;i=2001</Alias>
+      <Alias Alias="AMLOrdinalScaledConstraintType">ns=2;i=2002</Alias>
+      <Alias Alias="AMLUnknownConstraintType">ns=2;i=2003</Alias>
+      <Alias Alias="AMLRequiredValue">ns=2;ns=2;i=2004</Alias>
+      <Alias Alias="AMLRequiredMinValue">ns=2;ns=2;i=2005</Alias>
+      <Alias Alias="AMLRequiredMaxValue">ns=2;ns=2;i=2006</Alias>
       <Alias Alias="AMLBaseVariableType">ns=2;i=3001</Alias>
       <Alias Alias="HasAMLRoleReference">ns=2;i=4001</Alias>
       <Alias Alias="HasAMLInternalLink">ns=2;i=4002</Alias>
-      <Alias Alias="HasReferenceType">ns=2;i=4003</Alias>
-      <Alias Alias="IsMirroredAs">ns=2;i=4004</Alias>
-      <Alias Alias="HasConstraint">ns=2;i=4005</Alias>
+      <Alias Alias="HasAMLReferenceType">ns=2;i=4003</Alias>
+      <Alias Alias="IsAMLMirroredAs">ns=2;i=4004</Alias>
+      <Alias Alias="HasAMLConstraint">ns=2;i=4005</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>
@@ -134,21 +115,9 @@
    <!--
 			CAEXFile
 			===============
-			TODOs:
-				- is this the correct translation (AMLFile = Object)? -> currently yes
-				- do we really need InstanceHierarchies, InterfaceClassLibs and other organizing elements? - -> variable in xslt to include or not, flag in xslt if things were included
-				- How to model ExternalReferences?
-					- Include external libraries or include parts of the models from an external file (e.g. in case of big models)
-					- Option 1: merge external references into AML file before applying XSL transformation (no external references in AML file)
-					- Option 2: each externally referenced AML model is translated into a OPC UA namespace named with the ExternalReference alias name  each external reference you find inside the AML model is like internal AML reference, but references the other namespace
-					- Option 3: keep ExternalReferences as property of CAEXFile object; in case of an external reference inside the model, no linking to another OPC UA node is possible, but information is persisted
-					- Preferences: 2-1-3 or 1-2-3/2-1-3 
-					- report in AML TAC
-				- How to handle DefaultValues of attributes?
 			-->
    <UAObject NodeId="ns=1;s=CAEXFile" BrowseName="1:CAEXFile">
       <DisplayName>13_MirrorObject.aml</DisplayName>
-      <Documentation/>
       <References><!--Type definition: CAEXFileType-->
          <Reference ReferenceType="HasTypeDefinition">CAEXFileType</Reference>
          <!--FileName-->
@@ -198,9 +167,6 @@
    <!--
 			AdditionalInformation
 			===============
-			TODOs:
-				- do we need an extra UAObjectType for additional information? -> no use content of value as marker
-			    - which version (1. or 2.) is the correct translation of an AdditionalInformation?
 			-->
    <!--Attribute: CAEXFile.CAEXFile_AutomationMLVersion-->
    <UAVariable NodeId="ns=1;s=CAEXFile_AdditionalInformation" BrowseName="1:AutomationMLVersion" ParentNodeId="ns=1;s=CAEXFile" DataType="String">
@@ -233,11 +199,7 @@
 			InstanceHierarchies
 			===============
 			TODOs:
-				- do we need a InstanceHierarchies node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
-			    - Complete References
-				- Do we need BackwardReferences here?
 				- Test child of AutomationMLBaseRole/UABaseObjectType
-				- currently only type definition from Libraries are supported -> support HasTypeDefinition from current namespace
 			-->
    <!--Collection: CAEXFile.InstanceHierarchies-->
    <UAObject NodeId="ns=1;s=InstanceHierarchies" BrowseName="1:InstanceHierarchies" ParentNodeId="ns=1;s=CAEXFile">
@@ -251,7 +213,6 @@
    <!--InstanceHierarchy: AssemblySystem-->
    <UAObject NodeId="ns=5;s=InstanceHierarchy_AssemblySystem" BrowseName="5:AssemblySystem">
       <DisplayName>AssemblySystem</DisplayName>
-      <Documentation/>
       <References>
          <Reference ReferenceType="HasTypeDefinition">i=61</Reference>
          <!--Backward reference to global list of InstanceHierarchies-->
@@ -618,8 +579,7 @@
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID</Reference>
          <!--Mirror: {6aa1bd9a-701a-43a6-bc04-c414d30e0f93}-->
-         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
+         <Reference ReferenceType="IsAMLMirroredAs">ns=5;s={6aa1bd9a-701a-43a6-bc04-c414d30e0f93}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={8d9c05b1-0504-40a9-9559-4043b4c2e0fa}" DataType="String">
@@ -636,8 +596,7 @@
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID</Reference>
          <!--Mirror: {71fc6d29-7797-4e3f-a659-ac69198e464f}-->
-         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
+         <Reference ReferenceType="IsAMLMirroredAs">ns=5;s={71fc6d29-7797-4e3f-a659-ac69198e464f}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={2dd897fb-92ea-48ec-af81-84252f1d91ca}" DataType="String">
@@ -654,8 +613,7 @@
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID</Reference>
          <!--Mirror: {9facd06a-1725-4d18-95f7-4814ba2e4cf8}-->
-         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
+         <Reference ReferenceType="IsAMLMirroredAs">ns=5;s={9facd06a-1725-4d18-95f7-4814ba2e4cf8}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={f3e48d15-571f-4376-aeea-189235f6b671}" DataType="String">
@@ -672,8 +630,7 @@
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID</Reference>
          <!--Mirror: {72bf71e8-15fd-4882-9d35-00a12d1aa995}-->
-         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
+         <Reference ReferenceType="IsAMLMirroredAs">ns=5;s={72bf71e8-15fd-4882-9d35-00a12d1aa995}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={176c8d64-3f93-4e51-a4e7-8061e5b81eaa}" DataType="String">
@@ -724,8 +681,7 @@
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID</Reference>
          <!--Mirror: {ac026999-a2e2-4a86-8c97-39685607e49a}-->
-         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
+         <Reference ReferenceType="IsAMLMirroredAs">ns=5;s={ac026999-a2e2-4a86-8c97-39685607e49a}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={eb7af72e-a31c-4b99-b627-8249d19b73bb}" DataType="String">
@@ -742,8 +698,7 @@
       <References><!--AML-ID-->
          <Reference ReferenceType="HasProperty">ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID</Reference>
          <!--Mirror: {22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}-->
-         <!--Können Mirror nur innerhalb einer InstanceHierarchy existieren? Sonst müssen wir hier nochmal ran.-->
-         <Reference ReferenceType="IsMirroredAs">ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
+         <Reference ReferenceType="IsAMLMirroredAs">ns=5;s={22612ce1-4b89-4bb1-8a37-9c0ae4a13bdf}</Reference>
       </References>
    </UAObject>
    <UAVariable NodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}_AML_ID" BrowseName="5:AML_ID" ParentNodeId="ns=5;s={62f6b1eb-16d5-4cc1-bbf3-6deaf9e1d075}" DataType="String">
@@ -758,22 +713,16 @@
    <!--
 			InterfaceClassLibs
 			===============
-			TODOs:
-				- do we need a InterfaceClassLibs node? What was the result of the discussion? -> variable in xslt to include or not, flag in xslt if things were included
 			-->
    <!--Collection: CAEXFile.InterfaceClassLibs-->
    <!--
 			RoleClassLibs
 			===============
-			TODOs:
-				- ...
 			-->
    <!--Collection: CAEXFile.RoleClassLibs-->
    <!--
 			SystemUnitClassLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
 			-->
    <!--Collection: CAEXFile.SystemUnitClassLibs-->
    <UAObject NodeId="ns=1;s=SystemUnitClassLibs" BrowseName="1:SystemUnitClassLibs" ParentNodeId="ns=1;s=CAEXFile">
@@ -906,10 +855,6 @@
    <!--
 			AttributeTypeLibs
 			===============
-			TODOs:
-				- check all inner elements, e.g. attributes, etc.
-				- is this a proper translation?
-				- how are the AttributeTypes used? - Instances
 			-->
    <!--Collection: CAEXFile.AttributeTypeLibs-->
 </UANodeSet>
