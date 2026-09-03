@@ -29,15 +29,16 @@
 			<Library name="http://opcfoundation.org/UA/AML/" version="2.2.2" source="AML Base">
 				<Alias Alias="CAEXObjectType">i=1001</Alias>
 				<Alias Alias="CAEXFileType">i=1005</Alias>
-				<Alias Alias="AMLConstraintType">i=2000</Alias>
-				<Alias Alias="AMLNominalScaledConstraintType">i=2001</Alias>
-				<Alias Alias="AMLOrdinalScaledConstraintType">i=2002</Alias>
-				<Alias Alias="AMLUnknownConstraintType">i=2003</Alias>
+				<Alias Alias="CAEXConstraintType">i=2000</Alias>
+				<Alias Alias="CAEXNominalScaledConstraintType">i=2001</Alias>
+				<Alias Alias="CAEXOrdinalScaledConstraintType">i=2002</Alias>
+				<Alias Alias="CAEXUnknownConstraintType">i=2003</Alias>
 				
 				<!-- Muss noch entsprechend in der NodeSet2.xml angepasst werden -->
-				<Alias Alias="AMLRequiredValue">i=2004</Alias>
-				<Alias Alias="AMLRequiredMinValue">i=2005</Alias>
-				<Alias Alias="AMLRequiredMaxValue">i=2006</Alias>
+				<Alias Alias="CAEXRequiredValue">i=2004</Alias>
+				<Alias Alias="CAEXRequiredMinValue">i=2005</Alias>
+				<Alias Alias="CAEXRequiredMaxValue">i=2006</Alias>
+				<Alias Alias="CAEXRequirements">i=2007</Alias>
 
 				<Alias Alias="AMLBaseVariableType">i=3001</Alias>
 				<!--Alias Alias="CAEXVariableType">i=3001</Alias-->
@@ -689,15 +690,16 @@
 				</Description>
 			</xsl:if>
 			<References>
-				<Reference ReferenceType="HasTypeDefinition">
+				<Reference ReferenceType="HasTypeDefinition">					
 					<xsl:choose>
-						<xsl:when test="contains($BrowseName,'NominalScaledType')">AMLNominalScaledConstraintType</xsl:when>
-						<xsl:when test="contains($BrowseName,'OrdinalScaledType')">AMLOrdinalScaledConstraintType</xsl:when>
-						<xsl:when test="contains($BrowseName,'UnknownConstraint')">AMLUnknownConstraintType</xsl:when>
-						<xsl:when test="fn:local-name()='AMLRequiredValue' or 
-										fn:local-name()='AMLRequiredMinValue' or 
-										fn:local-name()='AMLRequiredMaxValue'">
-							<xsl:value-of select="fn:local-name()"/>
+						<xsl:when test="./*[fn:local-name()='NominalScaledType']">CAEXNominalScaledConstraintType</xsl:when>
+						<xsl:when test="./*[fn:local-name()='OrdinalScaledType']">CAEXOrdinalScaledConstraintType</xsl:when>
+						<xsl:when test="./*[fn:local-name()='UnknownConstraint']">CAEXUnknownConstraintType</xsl:when>
+						<xsl:when test="contains($BrowseName, 'RequiredValue') or 
+										contains($BrowseName, 'RequiredMinValue') or 
+										contains($BrowseName, 'RequiredMaxValue') or 
+										contains($BrowseName, 'Requirements')">
+							<xsl:value-of select="concat('CAEX', fn:local-name())"/>
 						</xsl:when>
 						<xsl:otherwise>AMLBaseVariableType</xsl:otherwise>
 					</xsl:choose>				
@@ -967,7 +969,7 @@
 			<xsl:with-param name="AttributeValue" select="."/>
 			<xsl:with-param name="BrowseName" select="$BrowseName"/>
 		</xsl:call-template>
-		<xsl:for-each select="*/*[fn:local-name()='AMLRequiredValue' or fn:local-name()='AMLRequiredMinValue' or fn:local-name()='AMLRequiredMaxValue']">	
+		<xsl:for-each select="*/*[fn:local-name()='RequiredValue' or fn:local-name()='RequiredMinValue' or fn:local-name()='RequiredMaxValue' or fn:local-name()='Requirements']">	
 			<xsl:variable name="ConstraintName">
 				<xsl:call-template name="NumberedElementName"/>
 			</xsl:variable>
@@ -1355,7 +1357,7 @@
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to Constraint property -->
-		<xsl:for-each select="*/*[fn:local-name()='AMLRequiredValue' or fn:local-name()='AMLRequiredMinValue' or fn:local-name()='AMLRequiredMaxValue']">
+		<xsl:for-each select="*/*[fn:local-name()='CAEXRequiredValue' or fn:local-name()='CAEXRequiredMinValue' or fn:local-name()='CAEXRequiredMaxValue']">
 			<xsl:variable name="AttributeName">
 				<xsl:call-template name="NumberedElementName"/>
 			</xsl:variable>
@@ -1373,6 +1375,18 @@
 			</xsl:variable>
 			<xsl:comment>Constraint</xsl:comment>
 			<Reference ReferenceType="HasAMLConstraint">
+				<xsl:call-template name="FormatRef">
+					<xsl:with-param name="ObjectId" select="concat($ObjectId, '_', $AttributeName)"/>
+					<xsl:with-param name="Namespace" select="$Namespace"/>
+				</xsl:call-template>
+			</Reference>
+		</xsl:for-each>
+		<xsl:for-each select="*/*[fn:local-name()='RequiredValue' or fn:local-name()='RequiredMaxValue' or fn:local-name()='RequiredMinValue' or fn:local-name()='Requirements']">
+			<xsl:variable name="AttributeName">
+				<xsl:call-template name="NumberedElementName"/>
+			</xsl:variable>
+			<xsl:comment><xsl:value-of select="fn:local-name()"/></xsl:comment>
+			<Reference ReferenceType="HIER">
 				<xsl:call-template name="FormatRef">
 					<xsl:with-param name="ObjectId" select="concat($ObjectId, '_', $AttributeName)"/>
 					<xsl:with-param name="Namespace" select="$Namespace"/>
