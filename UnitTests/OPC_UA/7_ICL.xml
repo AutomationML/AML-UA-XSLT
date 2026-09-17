@@ -30,19 +30,19 @@
       <Uri>http://opcfoundation.org/UA/AML/InterfaceClassLib123</Uri>
    </NamespaceUris>
    <Models>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="1.0.0" PublicationDate="2026-09-03T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="1.0.0" PublicationDate="2026-09-17T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="1.0.0" PublicationDate="2026-09-03T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="1.0.0" PublicationDate="2026-09-17T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
       </Model>
-      <Model ModelUri="http://opcfoundation.org/UA/AML/7_ICL.aml" Version="0.0.0" PublicationDate="2026-09-03T00:00:00Z">
+      <Model ModelUri="http://opcfoundation.org/UA/AML/7_ICL.aml" Version="0.0.0" PublicationDate="2026-09-17T00:00:00Z">
          <RequiredModel ModelUri="http://opcfoundation.org/UA/" Version="1.04.3" PublicationDate="2019-09-09T00:00:00Z"/>
          <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/" Version="1.0.1" PublicationDate="2019-09-09T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="1.0.0" PublicationDate="2026-09-03T00:00:00Z"/>
-         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="1.0.0" PublicationDate="2026-09-03T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib" Version="1.0.0" PublicationDate="2026-09-17T00:00:00Z"/>
+         <RequiredModel ModelUri="http://opcfoundation.org/UA/AML/InterfaceClassLib123" Version="1.0.0" PublicationDate="2026-09-17T00:00:00Z"/>
       </Model>
    </Models>
    <Aliases>
@@ -100,6 +100,7 @@
       <Alias Alias="HasAMLReferenceType">ns=2;i=4003</Alias>
       <Alias Alias="IsAMLMirroredAs">ns=2;i=4004</Alias>
       <Alias Alias="HasAMLConstraint">ns=2;i=4005</Alias>
+      <Alias Alias="HasAMLRequirement">ns=2;i=4006</Alias>
       <Alias Alias="CAEXFile_AutomationMLInstanceHierarchies">ns=2;i=5005</Alias>
       <Alias Alias="CAEXFile_AutomationMLFiles">ns=2;i=5006</Alias>
       <Alias Alias="CAEXFile_InterfaceClassLibs">ns=2;i=5008</Alias>

@@ -1370,30 +1370,6 @@
 			</Reference>
 		</xsl:for-each>
 		<!-- Reference to Constraint property -->
-		<xsl:for-each select="*/*[fn:local-name()='CAEXRequiredValue' or fn:local-name()='CAEXRequiredMinValue' or fn:local-name()='CAEXRequiredMaxValue']">
-			<xsl:variable name="AttributeName">
-				<xsl:call-template name="NumberedElementName"/>
-			</xsl:variable>
-			<xsl:comment select="concat(fn:local-name(), ': ', text())"/>
-			<Reference ReferenceType="HasComponnent">
-				<xsl:call-template name="FormatRef">
-					<xsl:with-param name="ObjectId" select="concat($ObjectId, '_', $AttributeName)"/>
-					<xsl:with-param name="Namespace" select="$Namespace"/>
-				</xsl:call-template>
-			</Reference>
-		</xsl:for-each>
-		<xsl:for-each select="*[fn:local-name()='Constraint']">
-			<xsl:variable name="AttributeName">
-				<xsl:call-template name="NumberedElementName"/>
-			</xsl:variable>
-			<xsl:comment>Constraint</xsl:comment>
-			<Reference ReferenceType="HasAMLConstraint">
-				<xsl:call-template name="FormatRef">
-					<xsl:with-param name="ObjectId" select="concat($ObjectId, '_', $AttributeName)"/>
-					<xsl:with-param name="Namespace" select="$Namespace"/>
-				</xsl:call-template>
-			</Reference>
-		</xsl:for-each>		
 		<xsl:for-each select="*/*[fn:local-name()='RequiredValue' or fn:local-name()='RequiredMaxValue' or fn:local-name()='RequiredMinValue' or fn:local-name()='Requirements']">
 			<xsl:variable name="AttributeName">
 				<xsl:call-template name="NumberedElementName"/>

@@ -316,51 +316,67 @@
 	<UAReferenceType NodeId="ns=1;i=4005" BrowseName="1:HasAMLConstraint">
 		<DisplayName>HasAMLConstraint</DisplayName>
 		<References>
-			<Reference ReferenceType="HasSubtype" IsForward="false">i=32</Reference>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=47</Reference>
 		</References>
 		<InverseName>IsAMLConstraintOf</InverseName>
 	</UAReferenceType>
 
-	<UAVariableType NodeId="ns=1;i=2000" BrowseName="1:AMLConstraintType">
-		<DisplayName>AMLConstraintVariableType</DisplayName>
+	<UAReferenceType NodeId="ns=1;i=4006" BrowseName="1:HasAMLRequirement">
+		<DisplayName>HasAMLRequirement</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=47</Reference>
+		</References>
+		<InverseName>IsAMLRequirementOf</InverseName>
+	</UAReferenceType>
+
+	<UAVariableType NodeId="ns=1;i=2000" BrowseName="1:CAEXConstraintType">
+		<DisplayName>CAEXConstraintType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2001" BrowseName="1:AMLNominalScaledConstraintType">
-		<DisplayName>AMLNominalScaledConstraintType</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2001" BrowseName="1:CAEXNominalScaledConstraintType">
+		<DisplayName>CAEXNominalScaledConstraintType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2002" BrowseName="1:AMLOrdinalScaledConstraintType">
-		<DisplayName>AMLOrdinalScaledConstraintType</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2002" BrowseName="1:CAEXOrdinalScaledConstraintType">
+		<DisplayName>CAEXOrdinalScaledConstraintType</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2003" BrowseName="1:AMLUnknownConstraintType">
-		<DisplayName>AMLUnknownConstraint</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2003" BrowseName="1:CAEXUnknownConstraintType">
+		<DisplayName>CAEXUnknownConstraint</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">ns=1;i=2000</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2004" BrowseName="1:AMLRequiredValue">
-		<DisplayName>AMLRequiredValue</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2004" BrowseName="1:CAEXRequiredValue">
+		<DisplayName>CAEXRequiredValue</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2005" BrowseName="1:AMLRequiredMinValue">
-		<DisplayName>AMLRequiredMinValue</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2005" BrowseName="1:CAEXRequiredMinValue">
+		<DisplayName>CAEXRequiredMinValue</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
-	<UAVariableType NodeId="ns=1;i=2006" BrowseName="1:AMLRequiredMaxValue">
-		<DisplayName>AMLRequiredMaxValue</DisplayName>
+	<UAVariableType NodeId="ns=1;i=2006" BrowseName="1:CAEXRequiredMaxValue">
+		<DisplayName>CAEXRequiredMaxValue</DisplayName>
 		<References>
 			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
 		</References>
 	</UAVariableType>
+	<UAVariableType NodeId="ns=1;i=2007" BrowseName="1:CAEXRequirements">
+		<DisplayName>CAEXRequirements</DisplayName>
+		<References>
+			<Reference ReferenceType="HasSubtype" IsForward="false">i=62</Reference>
+		</References>
+	</UAVariableType>
+	
+	
 </UANodeSet>
